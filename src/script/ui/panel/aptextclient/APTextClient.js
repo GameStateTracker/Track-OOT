@@ -3,20 +3,12 @@ import ArraySet from "/emcJS/data/collection/ArraySet.js";
 import {
     recordsToDict, dictToRecords
 } from "/emcJS/util/helper/storage/Records.js";
-import {
-    isStringNotEmpty
-} from "/emcJS/util/helper/CheckType.js";
+import {isStringNotEmpty} from "/emcJS/util/helper/CheckType.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import {
-    VALID_JSON_MESSAGE_TYPE
-} from "/ArchipelagoJS/types/JSONMessagePart.js";
-import {
-    ITEM_FLAGS
-} from "/ArchipelagoJS/consts/ItemFlags.js";
-import {
-    PRINT_JSON_TYPE
-} from "/ArchipelagoJS/consts/PrintJSONType.js";
+import {VALID_JSON_MESSAGE_TYPE} from "/ArchipelagoJS/types/JSONMessagePart.js";
+import {ITEM_FLAGS} from "/ArchipelagoJS/consts/ItemFlags.js";
+import {PRINT_JSON_TYPE} from "/ArchipelagoJS/consts/PrintJSONType.js";
 import ArchipelagoController from "../../../util/archipelago/ArchipelagoController.js";
 import "/emcJS/ui/dataview/datagrid/DataGrid.js";
 import "/emcJS/ui/form/element/input/string/StringInput.js";
@@ -27,9 +19,7 @@ import "./cell/itemcell/DataGridCellAPItem.js";
 import "./cell/itemcell/DataGridCellAPUser.js";
 import TPL from "./APTextClient.js.html" assert {type: "html"};
 import STYLE from "./APTextClient.js.css" assert {type: "css"};
-import {
-    AP_STORAGES
-} from "../../../util/archipelago/storage/RegisterAPStorage.js";
+import {AP_STORAGES} from "../../../util/archipelago/storage/RegisterAPStorage.js";
 
 const ITEM_CLASSES = {
     [ITEM_FLAGS.PROGRESSION]: "progressive",
@@ -72,11 +62,7 @@ class APTextClient extends Panel {
         const apLogMsgTypeEl = this.shadowRoot.getElementById("ap-log-msgtype");
         const apLogItemClassEl = this.shadowRoot.getElementById("ap-log-itemclass");
         const apLogDirectionEl = this.shadowRoot.getElementById("ap-log-direction");
-        const apLogListDataProvider = new SimpleDataProvider(apLogListEl, [], {
-            config: {
-                filterIgnoreNullValues: true
-            }
-        });
+        const apLogListDataProvider = new SimpleDataProvider(apLogListEl, [], {config: {filterIgnoreNullValues: true}});
         const apHintGridEl = this.shadowRoot.getElementById("ap-hints");
         const apHintsSearchEl = this.shadowRoot.getElementById("ap-hints-search");
         const apHintsItemClassEl = this.shadowRoot.getElementById("ap-hints-itemclass");
@@ -84,7 +70,7 @@ class APTextClient extends Panel {
         const apHintsStatusEl = this.shadowRoot.getElementById("ap-hints-status");
         const apHintGridDataProvider = new SimpleDataProvider(apHintGridEl, dictToRecords(AP_STORAGES.hints.getAll()), {
             config: {
-                searchFields: ["finder", "item.item", "reciever", "location", "entrance"],
+                searchFields: ["finder", "item.item", "receiver", "location", "entrance"],
                 filterIgnoreNullValues: true,
                 sort: ["found"]
             }
@@ -125,19 +111,19 @@ class APTextClient extends Panel {
             const {filter} = apLogListDataProvider.getOptions();
             const value = apLogDirectionEl.value;
             if (value.includes("sender")) {
-                if (value.includes("reciever")) {
+                if (value.includes("receiver")) {
                     filter.isSender = null;
-                    filter.isReciever = null;
+                    filter.isReceiver = null;
                 } else {
                     filter.isSender = true;
-                    filter.isReciever = null;
+                    filter.isReceiver = null;
                 }
-            } else if (value.includes("reciever")) {
+            } else if (value.includes("receiver")) {
                 filter.isSender = null;
-                filter.isReciever = true;
+                filter.isReceiver = true;
             } else {
                 filter.isSender = false;
-                filter.isReciever = false;
+                filter.isReceiver = false;
             }
             apLogListDataProvider.updateConfig({filter});
         });
@@ -165,19 +151,19 @@ class APTextClient extends Panel {
             const {filter} = apHintGridDataProvider.getOptions();
             const value = apHintsDirectionEl.value;
             if (value.includes("finder")) {
-                if (value.includes("reciever")) {
+                if (value.includes("receiver")) {
                     filter["finder.current"] = null;
-                    filter["reciever.current"] = null;
+                    filter["receiver.current"] = null;
                 } else {
                     filter["finder.current"] = true;
-                    filter["reciever.current"] = null;
+                    filter["receiver.current"] = null;
                 }
-            } else if (value.includes("reciever")) {
+            } else if (value.includes("receiver")) {
                 filter["finder.current"] = null;
-                filter["reciever.current"] = true;
+                filter["receiver.current"] = true;
             } else {
                 filter["finder.current"] = false;
-                filter["reciever.current"] = false;
+                filter["receiver.current"] = false;
             }
             apHintGridDataProvider.updateConfig({filter});
         });
@@ -369,7 +355,7 @@ class APTextClient extends Panel {
 
         if (packet.type === PRINT_JSON_TYPE.ITEM_SEND) {
             const senderAlias = ArchipelagoController.getPlayerAlias(packet.item.player);
-            const recieverAlias = ArchipelagoController.getPlayerAlias(packet.receiving);
+            const receiverAlias = ArchipelagoController.getPlayerAlias(packet.receiving);
             const itemClass = ITEM_CLASSES[packet.item.flags];
             const itemName = ArchipelagoController.getItemName(packet.receiving, packet.item.item);
             const locationName = ArchipelagoController.getLocationName(packet.item.player, packet.item.location);
@@ -377,9 +363,9 @@ class APTextClient extends Panel {
             return {
                 type: packet.type,
                 isSender: packet.item.player === apPlayerId,
-                isReciever: packet.receiving === apPlayerId,
+                isReceiver: packet.receiving === apPlayerId,
                 sender: senderAlias,
-                reciever: recieverAlias,
+                receiver: receiverAlias,
                 itemClass,
                 itemName,
                 locationName,
@@ -407,7 +393,7 @@ class APTextClient extends Panel {
         const apPlayerId = ArchipelagoController.playerId;
 
         const finderAlias = ArchipelagoController.getPlayerAlias(finding_player);
-        const recieverAlias = ArchipelagoController.getPlayerAlias(receiving_player);
+        const receiverAlias = ArchipelagoController.getPlayerAlias(receiving_player);
         const locationName = ArchipelagoController.getLocationName(finding_player, location);
         const itemName = ArchipelagoController.getItemName(receiving_player, item);
         const itemClass = ITEM_CLASSES[item_flags];
@@ -415,13 +401,13 @@ class APTextClient extends Panel {
         return {
             key: `${finding_player}_${location}`,
             isSender: finding_player === apPlayerId,
-            isReciever: receiving_player === apPlayerId,
+            isReceiver: receiving_player === apPlayerId,
             finder: {
                 alias: finderAlias,
                 current: finding_player === apPlayerId
             },
-            reciever: {
-                alias: recieverAlias,
+            receiver: {
+                alias: receiverAlias,
                 current: receiving_player === apPlayerId
             },
             location: locationName,
