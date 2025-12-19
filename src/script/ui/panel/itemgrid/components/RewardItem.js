@@ -99,11 +99,12 @@ export default class RewardItem extends ItemElement {
     }
 
     static get observedAttributes() {
-        return [...super.observedAttributes, "dungeon"];
+        const superObserved = super.observedAttributes ?? [];
+        return [...superObserved, "dungeon"];
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        super.attributeChangedCallback(name, oldValue, newValue);
+        super.attributeChangedCallback?.(name, oldValue, newValue);
         if (oldValue != newValue) {
             switch (name) {
                 case "dungeon": {

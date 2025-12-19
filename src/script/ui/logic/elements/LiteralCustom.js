@@ -31,10 +31,10 @@ export default class LogicElement extends AbstractLiteralValueElement {
     calculate(state = {}) {
         if (state[this.ref] != null) {
             const val = this.value ? +(state[this.ref] == this.value) : +!!state[this.ref];
-            this.shadowRoot.getElementById("header").setAttribute("value", val);
+            this.logicResult = val;
             return val;
         } else {
-            this.shadowRoot.getElementById("header").setAttribute("value", "0");
+            this.logicResult = 0;
             return 0;
         }
     }
@@ -69,7 +69,7 @@ export default class LogicElement extends AbstractLiteralValueElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        super.attributeChangedCallback(name, oldValue, newValue);
+        super.attributeChangedCallback?.(name, oldValue, newValue);
         switch (name) {
             case "ref":
             case "value":

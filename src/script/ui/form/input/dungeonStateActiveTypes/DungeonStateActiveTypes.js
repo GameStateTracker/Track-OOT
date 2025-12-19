@@ -1,14 +1,8 @@
 import CustomFormElementDelegating from "/emcJS/ui/element/CustomFormElementDelegating.js";
 import FormElementRegistry from "/emcJS/data/registry/form/FormElementRegistry.js";
-import {
-    deepClone
-} from "/emcJS/util/helper/DeepClone.js";
-import {
-    isEqual
-} from "/emcJS/util/helper/Comparator.js";
-import {
-    safeSetAttribute
-} from "/emcJS/util/helper/ui/NodeAttributes.js";
+import {deepClone} from "/emcJS/util/helper/DeepClone.js";
+import {isEqual} from "/emcJS/util/helper/Comparator.js";
+import {safeSetAttribute} from "/emcJS/util/helper/ui/NodeAttributes.js";
 import "/emcJS/ui/input/ListSelect.js";
 import TPL from "./DungeonStateActiveTypes.js.html" assert {type: "html"};
 import STYLE from "./DungeonStateActiveTypes.js.css" assert {type: "css"};
@@ -101,7 +95,7 @@ export default class DungeonStateActiveTypes extends CustomFormElementDelegating
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        super.attributeChangedCallback(name, oldValue, newValue);
+        super.attributeChangedCallback?.(name, oldValue, newValue);
         switch (name) {
             case "name":{
                 if (oldValue != newValue) {

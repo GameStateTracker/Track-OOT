@@ -1,8 +1,6 @@
 // frameworks
 import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import {
-    mix
-} from "/emcJS/util/Mixin.js";
+import {mix} from "/emcJS/util/Mixin.js";
 
 // GameTrackerJS
 import WorldListAreaListButton from "/GameTrackerJS/ui/panel/worldlist/components/button/AreaListButton.js";
@@ -28,11 +26,7 @@ function applyElements(target) {
     textEl.insertAdjacentElement("afterend", badgeEl);
 }
 
-const BaseClass = mix(
-    WorldListAreaListButton
-).with(
-    AccessTextMarkerMixin
-);
+const BaseClass = mix(WorldListAreaListButton).with(AccessTextMarkerMixin);
 
 export default class ListButton extends BaseClass {
 
@@ -84,7 +78,7 @@ export default class ListButton extends BaseClass {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        super.attributeChangedCallback(name, oldValue, newValue);
+        super.attributeChangedCallback?.(name, oldValue, newValue);
         if (oldValue != newValue) {
             switch (name) {
                 case "listname": {

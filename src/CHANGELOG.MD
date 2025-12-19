@@ -4,6 +4,18 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 3.1.6
+
+### CHANGES
+
+- reorganize map control elements to be inside map the settings panel
+
+### BUG FIXES
+
+- fix logic calculation in LogicViewer
+
+---
+
 ## VERSION 3.1.5
 
 ### BUG FIXES

@@ -142,4 +142,7 @@
     --ap-color-item-trap: #fa8072;
     --ap-color-location: #00ff7f;
     --ap-color-entrance: #6495ed;
+
+    /* icons */
+    --world-map-settings-icon: url("/images/icons/map_settings.svg");
 }

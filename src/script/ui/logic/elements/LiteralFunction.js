@@ -1,5 +1,6 @@
 import AbstractElement from "/emcJS/ui/logic/abstract/AbstractElement.js";
 import AbstractLiteralValueElement from "/emcJS/ui/logic/abstract/AbstractLiteralValueElement.js";
+import {getMixinLogic} from "../../../util/logic/LogicExtractor.js";
 import TPL from "./LiteralFunction.js.html" assert {type: "html"};
 import STYLE from "./LiteralFunction.js.css" assert {type: "css"};
 
@@ -20,15 +21,12 @@ export default class LogicElement extends AbstractLiteralValueElement {
         });*/
     }
 
-    calculate(state = {}) {
-        if (state[this.ref] != null) {
-            const val = this.value ? +(state[this.ref] == this.value) : +!!state[this.ref];
-            this.shadowRoot.getElementById("header").setAttribute("value", val);
-            return val;
-        } else {
-            this.shadowRoot.getElementById("header").setAttribute("value", "0");
-            return 0;
-        }
+    calculate() {
+        const mixinLogic = getMixinLogic(this.ref);
+        const logic = AbstractElement.buildLogic(mixinLogic);
+        const value = logic.calculate();
+        this.logicResult = value;
+        return parseInt(value) || 0;
     }
 
     static get observedAttributes() {
@@ -38,7 +36,7 @@ export default class LogicElement extends AbstractLiteralValueElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        super.attributeChangedCallback(name, oldValue, newValue);
+        super.attributeChangedCallback?.(name, oldValue, newValue);
         switch (name) {
             case "ref":
                 if (oldValue != newValue) {

@@ -36,7 +36,7 @@ export default class LogicElement extends AbstractLiteralValueElement {
         } else {
             value = +!!state[this.ref];
         }
-        this.shadowRoot.getElementById("header").setAttribute("value", value);
+        this.logicResult = value;
         return value;
     }
 
@@ -72,7 +72,7 @@ export default class LogicElement extends AbstractLiteralValueElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        super.attributeChangedCallback(name, oldValue, newValue);
+        super.attributeChangedCallback?.(name, oldValue, newValue);
         switch (name) {
             case "disabled":
             case "template": {

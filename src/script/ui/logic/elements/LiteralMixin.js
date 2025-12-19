@@ -1,5 +1,6 @@
 import AbstractElement from "/emcJS/ui/logic/abstract/AbstractElement.js";
 import AbstractLiteralValueElement from "/emcJS/ui/logic/abstract/AbstractLiteralValueElement.js";
+import {getMixinLogic} from "../../../util/logic/LogicExtractor.js";
 import TPL from "./LiteralMixin.js.html" assert {type: "html"};
 import STYLE from "./LiteralMixin.js.css" assert {type: "css"};
 
@@ -13,22 +14,22 @@ export default class LogicElement extends AbstractLiteralValueElement {
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.shadowRoot.getElementById("header").append(els);
+        const viewEl = els.getElementById("view");
+        const childEl = els.getElementById("child");
+        this.shadowRoot.getElementById("header").append(viewEl);
+        this.shadowRoot.getElementById("body").append(childEl);
         /*this.shadowRoot.getElementById("view").addEventListener("click", (event) => {
             let title = this.ref;
             LogicViewer.show(this.ref, title);
         });*/
     }
 
-    calculate(state = {}) {
-        if (state[this.ref] != null) {
-            const val = this.value ? +(state[this.ref] == this.value) : +!!state[this.ref];
-            this.shadowRoot.getElementById("header").setAttribute("value", val);
-            return val;
-        } else {
-            this.shadowRoot.getElementById("header").setAttribute("value", "0");
-            return 0;
-        }
+    calculate() {
+        const mixinLogic = getMixinLogic(this.ref);
+        const logic = AbstractElement.buildLogic(mixinLogic);
+        const value = logic.calculate();
+        this.logicResult = value;
+        return parseInt(value) || 0;
     }
 
 }
