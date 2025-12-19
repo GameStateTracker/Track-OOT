@@ -9,10 +9,14 @@ Application:    Track-OOT
 ### CHANGES
 
 - reorganize map control elements to be inside map the settings panel
+- add poi markers to minimap
+- add border to focus marker in minimap
+- add snap option to map
 
 ### BUG FIXES
 
 - fix logic calculation in LogicViewer
+- fix anchor based zoom in map
 
 ---
 

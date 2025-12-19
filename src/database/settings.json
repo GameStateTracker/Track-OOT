@@ -202,6 +202,13 @@
         "type": "check",
         "default": false
     },
+    "map_pan_snap_magnet_force": {
+        "category": "world",
+        "type": "number",
+        "min": 0,
+        "max": 50,
+        "default": 0
+    },
     "show_map_connections": {
         "category": "world",
         "type": "check",
