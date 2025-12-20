@@ -8,7 +8,6 @@ import "./components/SongField.js";
 
 const STYLE = new CSSTemplate(`
 :host {
-    display: inline-block;
     width: 300px;
     height: 300px;
 }

@@ -5,10 +5,10 @@ import "./components/ShopField.js";
 
 const STYLE = new CSSTemplate(`
 :host {
-    display: inline-block;
     width: 300px;
     height: 300px;
     padding: 20px;
+    overflow: auto;
 }
 `);
 

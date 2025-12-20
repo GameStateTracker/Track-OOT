@@ -1,35 +1,27 @@
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
+import {
+    IS_SECURE_PAGE, isLocalhost
+} from "/emcJS/util/net/URLUtils.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
 import Client from "/ArchipelagoJS/Client.js";
-import {
-    COMMON_TAGS
-} from "/ArchipelagoJS/consts/CommonTags.js";
-import {
-    ITEMS_HANDLING_FLAGS
-} from "/ArchipelagoJS/consts/ItemsHandlingFlags.js";
-import {
-    CONNECTION_STATUS
-} from "/ArchipelagoJS/consts/ConnectionStatus.js";
+import {COMMON_TAGS} from "/ArchipelagoJS/consts/CommonTags.js";
+import {ITEMS_HANDLING_FLAGS} from "/ArchipelagoJS/consts/ItemsHandlingFlags.js";
+import {CONNECTION_STATUS} from "/ArchipelagoJS/consts/ConnectionStatus.js";
 import {
     CLIENT_PACKET_TYPE,
     SERVER_PACKET_TYPE
 } from "/ArchipelagoJS/consts/CommandPacketType.js";
-import {
-    AP_STORAGES
-} from "./storage/RegisterAPStorage.js";
+import {AP_STORAGES} from "./storage/RegisterAPStorage.js";
 import {
     translateItem,
     translateLocation
 } from "./APNameTranslator.js";
-import {
-    translateAPSettings
-} from "./APSettingsTranslator.js";
+import {translateAPSettings} from "./APSettingsTranslator.js";
 import APHintLocations from "../../resource/APHintLocations.js";
 
-const LOCALHOST_ALIASES = ["localhost", "127.0.0.1"];
 const GAME_NAME = "Ocarina of Time";
 const BOUNCE_PERIOD_TIME = 120; // seconds
 const BOUNCE_TIMEOUT_TIME = 1; // seconds
@@ -121,16 +113,30 @@ class ArchipelagoController extends EventTarget {
         return this.#neededHintPoints;
     }
 
-    connect(apHostname, apPort, apSlotName, apPassword, syncSettings = false) {
+    connect(options) {
+        const {
+            hostname,
+            port,
+            slotName,
+            password,
+            syncSettings = false
+        } = options;
+
+        let forcedProtocol; // initially don't force a protocol
+        if (isLocalhost(hostname)) {
+            forcedProtocol = "ws"; // if our target is localhost, the protocol can't be secure
+        } else if (IS_SECURE_PAGE) {
+            forcedProtocol = "wss"; // if we are in a secure context and try to connect to a remote server, the protocol has to be secure
+        }
+
         if (this.#client.status === CONNECTION_STATUS.DISCONNECTED) {
-            const isLocalhost = LOCALHOST_ALIASES.includes(apHostname);
             const connectionInfo = {
-                protocol: isLocalhost ? "ws" : "wss",
-                hostname: apHostname,
-                port: apPort,
+                protocol: forcedProtocol,
+                hostname,
+                port,
                 game: GAME_NAME,
-                name: apSlotName,
-                password: apPassword,
+                name: slotName,
+                password,
                 items_handling: ITEMS_HANDLING_FLAGS.REMOTE_ALL,
                 slot_data: true,
                 tags: [COMMON_TAGS.TRACKER]
@@ -172,7 +178,7 @@ class ArchipelagoController extends EventTarget {
 
             return this.#client.connect(connectionInfo);
         }
-        return Promise.reject("Already connected or in conencting state");
+        return Promise.reject("Already connected or in connencting state");
     }
 
     disconnect() {
@@ -201,7 +207,9 @@ class ArchipelagoController extends EventTarget {
     #onConnectedEvent(event) {
         const {data} = event;
         const [packet] = data;
-        const {slot, team, checked_locations, slot_data, hint_points, missing_locations} = packet;
+        const {
+            slot, team, checked_locations, slot_data, hint_points, missing_locations
+        } = packet;
 
         this.#slotId = slot;
         this.#teamId = team;
@@ -263,7 +271,9 @@ class ArchipelagoController extends EventTarget {
     #onRecievedItemsEvent(dataPacket) {
         const {data} = dataPacket;
         const [packet] = data;
-        const {index, items} = packet;
+        const {
+            index, items
+        } = packet;
 
         if (index === 0) {
             const translatedItems = this.#translateItems(items);
@@ -282,7 +292,9 @@ class ArchipelagoController extends EventTarget {
     #onRoomUpdate(dataPacket) {
         const {data} = dataPacket;
         const [packet] = data;
-        const {checked_locations, hint_points, hint_cost} = packet;
+        const {
+            checked_locations, hint_points, hint_cost
+        } = packet;
 
         if (checked_locations != null) {
             const translatedCheckedLocations = this.#translateLocations(checked_locations);
@@ -335,7 +347,10 @@ class ArchipelagoController extends EventTarget {
         clearTimeout(this.#connectionTimeout);
         clearTimeout(this.#periodTimer);
         this.#periodTimer = setTimeout(() => {
-            this.#client.send({cmd: CLIENT_PACKET_TYPE.BOUNCE, slots: [this.#slotId]});
+            this.#client.send({
+                cmd: CLIENT_PACKET_TYPE.BOUNCE,
+                slots: [this.#slotId]
+            });
             this.#connectionTimeout = setTimeout(() => {
                 this.#client.purgeConnection();
                 this.#itemIndex = -1;
@@ -387,7 +402,9 @@ class ArchipelagoController extends EventTarget {
                         const value = initialItems[itemTranslation] ?? resultItems[itemTranslation] ?? 0;
                         resultItems[itemTranslation] = value + 1;
                     } else {
-                        const {ref, amount} = itemTranslation;
+                        const {
+                            ref, amount
+                        } = itemTranslation;
                         if (typeof ref === "string") {
                             const value = initialItems[ref] ?? resultItems[ref] ?? 0;
                             resultItems[ref] = value + amount;
@@ -409,9 +426,7 @@ class ArchipelagoController extends EventTarget {
         const [packet, message] = data;
         const ev = new Event("message");
         ev.message = message;
-        ev.data = {
-            ...packet
-        };
+        ev.data = {...packet};
         this.dispatchEvent(ev);
     }
 

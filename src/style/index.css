@@ -1,3 +1,4 @@
+@import "/emcJS/_style/index.css";
 @import "./theme.css";
 @import "./font.css";
 @import "./iOS-fix.css";
@@ -49,9 +50,17 @@ emc-page {
 
 /* busy animation */
 @keyframes loading {
-    0% { transform: rotate(-45deg) }
-    50% { transform: rotate(45deg) }
-    100% { transform: rotate(-45deg) }
+    0% {
+        transform: rotate(-45deg)
+    }
+
+    50% {
+        transform: rotate(45deg)
+    }
+
+    100% {
+        transform: rotate(-45deg)
+    }
 }
 
 #busy-animation {

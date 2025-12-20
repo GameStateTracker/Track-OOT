@@ -12,11 +12,14 @@ Application:    Track-OOT
 - add poi markers to minimap
 - add border to focus marker in minimap
 - add snap option to map
+- change ap dialog to new system
+- remove hard binding to `wss` for ap controller if tracker is hosted over `http`
 
 ### BUG FIXES
 
 - fix logic calculation in LogicViewer
 - fix anchor based zoom in map
+- fix import of framework style rules
 
 ---
 
