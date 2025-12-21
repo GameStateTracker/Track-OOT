@@ -81,14 +81,9 @@ export default class APWindow extends Modal {
         this.#apSettingsSyncEl.value = apSettingsSync ?? true;
 
         if (ArchipelagoController.isConnected()) {
-            this.#apHostnameEl.readonly = true;
-            this.#apPortEl.readonly = true;
-            this.#apSlotNameEl.readonly = true;
-            this.#apPasswordEl.readonly = true;
-
-            this.#connectEl.hidden = true;
-            this.#purgeEl.hidden = true;
-            this.#disconnectEl.hidden = false;
+            this.#onConnected();
+        } else {
+            this.#onDisonnected();
         }
 
         super.show();
@@ -102,8 +97,7 @@ export default class APWindow extends Modal {
         const apSettingsSync = this.#apSettingsSyncEl.value;
 
         try {
-            this.#connectEl.text = "connecting...";
-            this.#connectEl.disabled = true;
+            this.#onConnecting();
             await ArchipelagoController.connect({
                 hostname: apHostname,
                 port: apPort,
@@ -117,35 +111,22 @@ export default class APWindow extends Modal {
                 apSlotName,
                 apSettingsSync
             });
+            this.#onConnected();
             this.remove();
         } catch (error) {
+            this.#onDisonnected();
+            console.error(error);
             ModalDialog.error("Error", "An error occured", [error]);
-        } finally {
-            this.#connectEl.text = "connect";
-            this.#connectEl.disabled = false;
         }
     }
 
     async disconnect() {
         ArchipelagoController.disconnect();
-        this.remove();
+        this.#onDisonnected();
     }
 
     cancel() {
         this.remove();
-    }
-
-    remove() {
-        super.remove();
-
-        this.#apHostnameEl.readonly = false;
-        this.#apPortEl.readonly = false;
-        this.#apSlotNameEl.readonly = false;
-        this.#apPasswordEl.readonly = false;
-
-        this.#connectEl.hidden = false;
-        this.#purgeEl.hidden = false;
-        this.#disconnectEl.hidden = true;
     }
 
     focusLast() {
@@ -160,6 +141,39 @@ export default class APWindow extends Modal {
             Savestate.deleteMeta("archipelago");
             SavestateHandler.forceCache();
         }
+    }
+
+    #onConnecting() {
+        this.#connectEl.text = "connecting...";
+        this.#connectEl.disabled = true;
+    }
+
+    #onConnected() {
+        this.#connectEl.text = "connect";
+        this.#connectEl.disabled = false;
+
+        this.#apHostnameEl.readonly = true;
+        this.#apPortEl.readonly = true;
+        this.#apSlotNameEl.readonly = true;
+        this.#apPasswordEl.readonly = true;
+
+        this.#connectEl.hidden = true;
+        this.#purgeEl.hidden = true;
+        this.#disconnectEl.hidden = false;
+    }
+
+    #onDisonnected() {
+        this.#connectEl.text = "connect";
+        this.#connectEl.disabled = false;
+
+        this.#apHostnameEl.readonly = false;
+        this.#apPortEl.readonly = false;
+        this.#apSlotNameEl.readonly = false;
+        this.#apPasswordEl.readonly = false;
+
+        this.#connectEl.hidden = false;
+        this.#purgeEl.hidden = false;
+        this.#disconnectEl.hidden = true;
     }
 
 }
