@@ -14,6 +14,7 @@ Application:    Track-OOT
 - add snap option to map
 - change ap dialog to new system
 - remove hard binding to `wss` for ap controller if tracker is hosted over `http`
+- rework location bubble position calculation for the map
 
 ### BUG FIXES
 
