@@ -15,11 +15,14 @@ Application:    Track-OOT
 - change ap dialog to new system
 - remove hard binding to `wss` for ap controller if tracker is hosted over `http`
 - rework location bubble position calculation for the map
+- split gerudo fortress and thieves hideout into seperate maps
+- add 100 skulltula reward
 
 ### BUG FIXES
 
 - fix logic calculation in LogicViewer
 - fix anchor based zoom in map
+- fix tooltip bubble directions in map
 - fix import of framework style rules
 
 ---

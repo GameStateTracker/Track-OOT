@@ -242,6 +242,11 @@
         "type": "check",
         "default": false
     },
+    "shuffle_100_skulltula_rupee": {
+        "category": "item_sanity",
+        "type": "check",
+        "default": false
+    },
     "shuffle_child_trade": {
         "category": "item_sanity",
         "type": "list",

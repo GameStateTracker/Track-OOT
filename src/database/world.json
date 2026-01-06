@@ -7759,6 +7759,49 @@
             "icon": "/images/icons/chest.svg",
             "tags": []
         },
+        "kakariko.c_skulltula_100": {
+            "type": "chest",
+            "logicAccess": "reach_location[kakariko.c_skulltula_100]",
+            "visible": {
+                "type": "value",
+                "ref": "option[shuffle_100_skulltula_rupee]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "true": true,
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                },
+                "show_unavailable": {
+                    "true": true,
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_UNAVAILABLE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/chest.svg",
+            "tags": []
+        },
         "kakariko.s_tree_child": {
             "type": "skulltula",
             "logicAccess": "reach_location[kakariko.s_tree_child]",
@@ -98070,181 +98113,11 @@
                 "active": true,
                 "backgroundColor": "#000000",
                 "backgroundImage": "/images/maps/area/gerudo_fortress.webp",
-                "width": 1920,
-                "height": 1227,
+                "width": 1695,
+                "height": 1920,
                 "zoom": 100
             },
-            "connections": [
-                {
-                    "label": "A",
-                    "posA": {
-                        "x": 440,
-                        "y": 576,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 1143,
-                        "y": 460,
-                        "scale": 40
-                    }
-                },
-                {
-                    "label": "B",
-                    "posA": {
-                        "x": 1184,
-                        "y": 686,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 455,
-                        "y": 658,
-                        "scale": 40
-                    }
-                },
-                {
-                    "label": "C",
-                    "posA": {
-                        "x": 491,
-                        "y": 680,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 1136,
-                        "y": 735,
-                        "scale": 40
-                    }
-                },
-                {
-                    "label": "D",
-                    "posA": {
-                        "x": 1140,
-                        "y": 842,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 490,
-                        "y": 722,
-                        "scale": 40
-                    }
-                },
-                {
-                    "label": "E",
-                    "posA": {
-                        "x": 1260,
-                        "y": 842,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 530,
-                        "y": 723,
-                        "scale": 40
-                    }
-                },
-                {
-                    "label": "F",
-                    "posA": {
-                        "x": 1405,
-                        "y": 768,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 567,
-                        "y": 674,
-                        "scale": 40
-                    }
-                },
-                {
-                    "label": "G",
-                    "posA": {
-                        "x": 455,
-                        "y": 764,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 1531,
-                        "y": 810,
-                        "scale": 40
-                    }
-                },
-                {
-                    "label": "H",
-                    "posA": {
-                        "x": 519,
-                        "y": 758,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 1874,
-                        "y": 766,
-                        "scale": 40
-                    }
-                },
-                {
-                    "label": "I",
-                    "posA": {
-                        "x": 488,
-                        "y": 627,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 1870,
-                        "y": 462,
-                        "scale": 40
-                    }
-                },
-                {
-                    "label": "J",
-                    "posA": {
-                        "x": 1693,
-                        "y": 744,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 439,
-                        "y": 724,
-                        "scale": 40
-                    }
-                },
-                {
-                    "label": "K",
-                    "posA": {
-                        "x": 1346,
-                        "y": 655,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 558,
-                        "y": 628,
-                        "scale": 40
-                    }
-                },
-                {
-                    "label": "L",
-                    "posA": {
-                        "x": 1635,
-                        "y": 460,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 497,
-                        "y": 569,
-                        "scale": 40
-                    }
-                },
-                {
-                    "label": "M",
-                    "posA": {
-                        "x": 463,
-                        "y": 519,
-                        "scale": 40
-                    },
-                    "posB": {
-                        "x": 1143,
-                        "y": 368,
-                        "scale": 40
-                    }
-                }
-            ],
+            "connections": [],
             "lists": {
                 "v": [
                     {
@@ -98253,8 +98126,8 @@
                             "name": "gerudo_valley"
                         },
                         "pos": {
-                            "x": 386,
-                            "y": 979,
+                            "x": 605,
+                            "y": 1527,
                             "scale": 100
                         },
                         "visible": {
@@ -98274,8 +98147,8 @@
                             "name": "fortress_valley_gateway -> valley_fortress_gateway"
                         },
                         "pos": {
-                            "x": 386,
-                            "y": 979,
+                            "x": 605,
+                            "y": 1527,
                             "scale": 100
                         },
                         "visible": true,
@@ -98286,11 +98159,27 @@
                     {
                         "ref": {
                             "type": "Area",
+                            "name": "gerudo.thieves_hideout"
+                        },
+                        "pos": {
+                            "x": 831,
+                            "y": 1062,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "accessPenetration": null,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
                             "name": "training_grounds"
                         },
                         "pos": {
-                            "x": 412,
-                            "y": 775,
+                            "x": 644,
+                            "y": 1207,
                             "scale": 69
                         },
                         "visible": {
@@ -98308,8 +98197,8 @@
                             "name": "fortress_training_grounds_gateway -> training_grounds_fortress_gateway"
                         },
                         "pos": {
-                            "x": 412,
-                            "y": 775,
+                            "x": 644,
+                            "y": 1207,
                             "scale": 69
                         },
                         "visible": true,
@@ -98323,8 +98212,8 @@
                             "name": "gerudo.c_archer_1"
                         },
                         "pos": {
-                            "x": 872,
-                            "y": 848,
+                            "x": 1356,
+                            "y": 1322,
                             "scale": 100
                         },
                         "visible": true,
@@ -98338,8 +98227,8 @@
                             "name": "gerudo.c_archer_2"
                         },
                         "pos": {
-                            "x": 872,
-                            "y": 813,
+                            "x": 1356,
+                            "y": 1284,
                             "scale": 100
                         },
                         "visible": true,
@@ -98353,8 +98242,8 @@
                             "name": "gerudo.s_horseback_archery_target_adult_night"
                         },
                         "pos": {
-                            "x": 826,
-                            "y": 275,
+                            "x": 1289,
+                            "y": 425,
                             "scale": 100
                         },
                         "visible": true,
@@ -98368,8 +98257,8 @@
                             "name": "fortress_storms_grotto_gateway -> storms_grotto_fortress_gateway"
                         },
                         "pos": {
-                            "x": 457,
-                            "y": 695,
+                            "x": 707,
+                            "y": 1086,
                             "scale": 40
                         },
                         "visible": true,
@@ -98383,8 +98272,8 @@
                             "name": "desert"
                         },
                         "pos": {
-                            "x": 78,
-                            "y": 482,
+                            "x": 124,
+                            "y": 746,
                             "scale": 100
                         },
                         "visible": {
@@ -98404,8 +98293,8 @@
                             "name": "fortress_wasteland_gateway -> wasteland_fortress_gateway"
                         },
                         "pos": {
-                            "x": 78,
-                            "y": 482,
+                            "x": 124,
+                            "y": 746,
                             "scale": 100
                         },
                         "visible": true,
@@ -98416,431 +98305,11 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "gerudo.1_torch_jail_pot_1"
-                        },
-                        "pos": {
-                            "x": 1154,
-                            "y": 525,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.1_torch_jail_pot_2"
-                        },
-                        "pos": {
-                            "x": 1142,
-                            "y": 525,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.1_torch_jail_pot_3"
-                        },
-                        "pos": {
-                            "x": 1142,
-                            "y": 538,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.1_torch_jail_crate"
-                        },
-                        "pos": {
-                            "x": 97,
-                            "y": 2612,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.c_guard_1"
-                        },
-                        "pos": {
-                            "x": 1184,
-                            "y": 565,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.near_kitchen_crate_1"
-                        },
-                        "pos": {
-                            "x": 1233,
-                            "y": 781,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.near_kitchen_crate_2"
-                        },
-                        "pos": {
-                            "x": 1233,
-                            "y": 802,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.near_kitchen_crate_3"
-                        },
-                        "pos": {
-                            "x": 1253,
-                            "y": 863,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.near_kitchen_crate_4"
-                        },
-                        "pos": {
-                            "x": 1253,
-                            "y": 885,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.near_kitchen_crate_5"
-                        },
-                        "pos": {
-                            "x": 1327,
-                            "y": 912,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.kitchen_pot_1"
-                        },
-                        "pos": {
-                            "x": 1387,
-                            "y": 877,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.kitchen_pot_2"
-                        },
-                        "pos": {
-                            "x": 1396,
-                            "y": 866,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.2_torch_jail_pot_1"
-                        },
-                        "pos": {
-                            "x": 1779,
-                            "y": 803,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.2_torch_jail_pot_2"
-                        },
-                        "pos": {
-                            "x": 1792,
-                            "y": 803,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.2_torch_jail_pot_3"
-                        },
-                        "pos": {
-                            "x": 1792,
-                            "y": 816,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.2_torch_jail_crate_1"
-                        },
-                        "pos": {
-                            "x": 1640,
-                            "y": 804,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.2_torch_jail_crate_2"
-                        },
-                        "pos": {
-                            "x": 1660,
-                            "y": 804,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.2_torch_jail_in_cell_pot_1"
-                        },
-                        "pos": {
-                            "x": 1655,
-                            "y": 907,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.2_torch_jail_in_cell_pot_2"
-                        },
-                        "pos": {
-                            "x": 1665,
-                            "y": 914,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.2_torch_jail_in_cell_pot_3"
-                        },
-                        "pos": {
-                            "x": 1695,
-                            "y": 914,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.2_torch_jail_in_cell_pot_4"
-                        },
-                        "pos": {
-                            "x": 1704,
-                            "y": 906,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.c_guard_2"
-                        },
-                        "pos": {
-                            "x": 1752,
-                            "y": 840,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.3_torch_jail_crate"
-                        },
-                        "pos": {
-                            "x": 1353,
-                            "y": 583,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.c_guard_3"
-                        },
-                        "pos": {
-                            "x": 1513,
-                            "y": 448,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.4_torch_jail_pot_1"
-                        },
-                        "pos": {
-                            "x": 1773,
-                            "y": 411,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.4_torch_jail_pot_2"
-                        },
-                        "pos": {
-                            "x": 1765,
-                            "y": 419,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.c_guard_4"
-                        },
-                        "pos": {
-                            "x": 1775,
-                            "y": 579,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.c_fortress_clear"
-                        },
-                        "pos": {
-                            "x": 385,
-                            "y": 692,
-                            "scale": 150
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
                             "name": "gerudo.s_rooftop_adult_night"
                         },
                         "pos": {
-                            "x": 604,
-                            "y": 641,
+                            "x": 938,
+                            "y": 1002,
                             "scale": 100
                         },
                         "visible": true,
@@ -98854,99 +98323,9 @@
                             "name": "gerudo.c_rooftop"
                         },
                         "pos": {
-                            "x": 519,
-                            "y": 579,
+                            "x": 811,
+                            "y": 902,
                             "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.break_room_hallway_crate_1"
-                        },
-                        "pos": {
-                            "x": 1699,
-                            "y": 439,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.break_room_hallway_crate_2"
-                        },
-                        "pos": {
-                            "x": 1719,
-                            "y": 403,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.break_room_crate_1"
-                        },
-                        "pos": {
-                            "x": 1768,
-                            "y": 375,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.break_room_crate_2"
-                        },
-                        "pos": {
-                            "x": 1768,
-                            "y": 355,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.break_room_pot_1"
-                        },
-                        "pos": {
-                            "x": 1735,
-                            "y": 344,
-                            "scale": 35
-                        },
-                        "visible": true,
-                        "ignoreEntryVisibility": false,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "gerudo.break_room_pot_2"
-                        },
-                        "pos": {
-                            "x": 1727,
-                            "y": 332,
-                            "scale": 35
                         },
                         "visible": true,
                         "ignoreEntryVisibility": false,
@@ -98959,8 +98338,8 @@
                             "name": "gerudo.above_jail_crate"
                         },
                         "pos": {
-                            "x": 412,
-                            "y": 521,
+                            "x": 640,
+                            "y": 812,
                             "scale": 100
                         },
                         "visible": true,
@@ -134191,7 +133570,7 @@
                             "name": "kakariko.c_skulltula_10"
                         },
                         "pos": {
-                            "x": 201,
+                            "x": 200,
                             "y": 33,
                             "scale": 100
                         },
@@ -134251,8 +133630,23 @@
                             "name": "kakariko.c_skulltula_50"
                         },
                         "pos": {
-                            "x": 90,
+                            "x": 91,
                             "y": 34,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.c_skulltula_100"
+                        },
+                        "pos": {
+                            "x": 146,
+                            "y": 128,
                             "scale": 100
                         },
                         "visible": true,
@@ -143579,6 +142973,605 @@
                 "scrub": 0,
                 "cow": 0,
                 "fountain": 1,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0,
+                "boss": 0
+            },
+            "tags": []
+        },
+        "gerudo.thieves_hideout": {
+            "type": "interior",
+            "category": "",
+            "visible": true,
+            "visibleIfEmpty": true,
+            "filter": {
+                "era": {
+                    "both": true,
+                    "child": true,
+                    "adult": true
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
+                "time": {
+                    "both": true,
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
+                "show_done": {
+                    "true": true,
+                    "false": true
+                },
+                "show_unavailable": {
+                    "true": true,
+                    "false": true
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "/images/icons/interior.svg",
+            "map": {
+                "active": true,
+                "backgroundColor": "#000000",
+                "backgroundImage": "/images/maps/interior/thieves_hideout.webp",
+                "width": 1656,
+                "height": 1358,
+                "zoom": 100
+            },
+            "connections": [],
+            "lists": {
+                "v": [
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "gerudo"
+                        },
+                        "pos": {
+                            "x": 114,
+                            "y": 387,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "accessPenetration": null,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.1_torch_jail_pot_1"
+                        },
+                        "pos": {
+                            "x": 125,
+                            "y": 519,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.1_torch_jail_pot_2"
+                        },
+                        "pos": {
+                            "x": 110,
+                            "y": 519,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.1_torch_jail_pot_3"
+                        },
+                        "pos": {
+                            "x": 110,
+                            "y": 534,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.1_torch_jail_crate"
+                        },
+                        "pos": {
+                            "x": 110,
+                            "y": 682,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.c_guard_1"
+                        },
+                        "pos": {
+                            "x": 250,
+                            "y": 601,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.near_kitchen_crate_1"
+                        },
+                        "pos": {
+                            "x": 286,
+                            "y": 1033,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.near_kitchen_crate_2"
+                        },
+                        "pos": {
+                            "x": 286,
+                            "y": 1056,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.near_kitchen_crate_3"
+                        },
+                        "pos": {
+                            "x": 331,
+                            "y": 1195,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.near_kitchen_crate_4"
+                        },
+                        "pos": {
+                            "x": 331,
+                            "y": 1219,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.near_kitchen_crate_5"
+                        },
+                        "pos": {
+                            "x": 473,
+                            "y": 1284,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.kitchen_pot_1"
+                        },
+                        "pos": {
+                            "x": 592,
+                            "y": 1218,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.kitchen_pot_2"
+                        },
+                        "pos": {
+                            "x": 610,
+                            "y": 1193,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.2_torch_jail_pot_1"
+                        },
+                        "pos": {
+                            "x": 1376,
+                            "y": 1071,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.2_torch_jail_pot_2"
+                        },
+                        "pos": {
+                            "x": 1391,
+                            "y": 1071,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.2_torch_jail_pot_3"
+                        },
+                        "pos": {
+                            "x": 1391,
+                            "y": 1086,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.2_torch_jail_crate_1"
+                        },
+                        "pos": {
+                            "x": 1095,
+                            "y": 1071,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.2_torch_jail_crate_2"
+                        },
+                        "pos": {
+                            "x": 1119,
+                            "y": 1071,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.2_torch_jail_in_cell_pot_1"
+                        },
+                        "pos": {
+                            "x": 1125,
+                            "y": 1278,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.2_torch_jail_in_cell_pot_2"
+                        },
+                        "pos": {
+                            "x": 1140,
+                            "y": 1286,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.2_torch_jail_in_cell_pot_3"
+                        },
+                        "pos": {
+                            "x": 1201,
+                            "y": 1286,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.2_torch_jail_in_cell_pot_4"
+                        },
+                        "pos": {
+                            "x": 1216,
+                            "y": 1278,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.c_guard_2"
+                        },
+                        "pos": {
+                            "x": 1316,
+                            "y": 1180,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.3_torch_jail_crate"
+                        },
+                        "pos": {
+                            "x": 525,
+                            "y": 633,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.c_guard_3"
+                        },
+                        "pos": {
+                            "x": 898,
+                            "y": 371,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.4_torch_jail_pot_1"
+                        },
+                        "pos": {
+                            "x": 1354,
+                            "y": 298,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.4_torch_jail_pot_2"
+                        },
+                        "pos": {
+                            "x": 1342,
+                            "y": 310,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.c_guard_4"
+                        },
+                        "pos": {
+                            "x": 1400,
+                            "y": 632,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.c_fortress_clear"
+                        },
+                        "pos": {
+                            "x": 925,
+                            "y": 750,
+                            "scale": 150
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.break_room_hallway_crate_1"
+                        },
+                        "pos": {
+                            "x": 1207,
+                            "y": 348,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.break_room_hallway_crate_2"
+                        },
+                        "pos": {
+                            "x": 1247,
+                            "y": 281,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.break_room_crate_1"
+                        },
+                        "pos": {
+                            "x": 1343,
+                            "y": 210,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.break_room_crate_2"
+                        },
+                        "pos": {
+                            "x": 1343,
+                            "y": 189,
+                            "scale": 60
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.break_room_pot_1"
+                        },
+                        "pos": {
+                            "x": 1279,
+                            "y": 158,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "gerudo.break_room_pot_2"
+                        },
+                        "pos": {
+                            "x": 1265,
+                            "y": 139,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "ignoreEntryVisibility": false,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    }
+                ]
+            },
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
                 "pot": 0,

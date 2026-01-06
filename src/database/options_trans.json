@@ -61,6 +61,13 @@
                 "false": false
             }
         },
+        "shuffle_100_skulltula_rupee": {
+            "name": "shuffle_100_skulltula_rupee",
+            "values": {
+                "true": true,
+                "false": false
+            }
+        },
         "damage_multiplier": {
             "name": "damage_multiplier",
             "values": {
