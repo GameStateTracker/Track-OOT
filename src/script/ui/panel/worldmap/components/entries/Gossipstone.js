@@ -1,12 +1,11 @@
 import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
-import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldMapMarkedEntry from "/GameTrackerJS/ui/panel/worldmap/components/abstract/MarkedEntry.js";
 import "/GameTrackerJS/ui/panel/worldmap/components/entries/Location.js";
 import "/GameTrackerJS/ui/Badge.js";
 import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
-import LogicViewer from "../../../../window/LogicViewer.js";
+import LogicViewerModal from "../../../../modal/LogicViewerModal.js";
 
 const TPL = new HTMLTemplate(`
 <div id="hintlocation-container" class="textarea">
@@ -95,8 +94,7 @@ export default class WorldMapGossipstone extends WorldMapMarkedEntry {
         this.addDefaultContextMenuHandler("show_logic", () => {
             const state = this.getState();
             if (state != null) {
-                const title = Language.generateLabel(`location[${this.ref}]`);
-                LogicViewer.show(state.props.logicAccess ?? "", title);
+                LogicViewerModal.show(state.props.logicAccess ?? "", `location[${this.ref}]`);
             }
         });
     }

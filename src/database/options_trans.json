@@ -1,5 +1,21 @@
 {
     "setting": {
+        "scarecrow_behavior": {
+            "name": "scarecrow_behavior",
+            "values": {
+                "vanilla": "scarecrow_vanilla",
+                "fast": "scarecrow_fast",
+                "free": "scarecrow_free"
+            }
+        },
+        "shuffle_gerudo_fortress_heart_piece": {
+            "name": "shuffle_gerudo_fortress_heart_piece",
+            "values": {
+                "remove": "gf_hp_remove",
+                "vanilla": "gf_hp_vanilla",
+                "shuffle": "gf_hp_shuffle"
+            }
+        },
         "shuffle_individual_ocarina_notes": {
             "name": "shuffle_individual_ocarina_notes",
             "values": {
@@ -113,10 +129,16 @@
             }
         },
         "open_door_of_time": {
-            "name": "doors_open_temple",
+            "name": "open_door_of_time",
             "values": {
-                "true": true,
-                "false": false
+                "true": "dot_open",
+                "false": "dot_sot",
+                "open": "dot_open",
+                "sot": "dot_sot",
+                "oot_sot": "dot_oot_sot",
+                "stones": "dot_stones",
+                "stones_sot": "dot_stones_sot",
+                "stones_oot_sot": "dot_stones_oot_sot"
             }
         },
         "zora_fountain": {

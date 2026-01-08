@@ -11,12 +11,12 @@ import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import ArchipelagoController from "../../util/archipelago/ArchipelagoController.js";
 import {AP_STORAGES} from "../../util/archipelago/storage/RegisterAPStorage.js";
-import TPL from "./APWindow.js.html" assert {type: "html"};
-import STYLE from "./APWindow.js.css" assert {type: "css"};
+import TPL from "./APModal.js.html" assert {type: "html"};
+import STYLE from "./APModal.js.css" assert {type: "css"};
 
 const APStateStorage = Savestate.getStorage("APConfig");
 
-export default class APWindow extends Modal {
+export default class APModal extends Modal {
 
     #apHostnameEl;
 
@@ -38,7 +38,7 @@ export default class APWindow extends Modal {
 
     constructor() {
         super("Archipelago");
-        this.setImageIcon("/images/icons/ap.svg", {shadow: true});
+        this.setImageIcon("/images/icons/ap.svg", {shadow: "#000000"});
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -178,4 +178,4 @@ export default class APWindow extends Modal {
 
 }
 
-customElements.define("tootr-window-ap", APWindow);
+customElements.define("tootr-modal-ap", APModal);

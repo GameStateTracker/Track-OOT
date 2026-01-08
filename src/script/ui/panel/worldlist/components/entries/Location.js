@@ -1,8 +1,7 @@
-import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldListLocation from "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
 import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
-import LogicViewer from "../../../../window/LogicViewer.js";
+import LogicViewerModal from "../../../../modal/LogicViewerModal.js";
 import APHintLocations from "../../../../../resource/APHintLocations.js";
 
 const archipelagoActiveObserver = new MetaObserver("archipelago");
@@ -15,15 +14,24 @@ export default class TrackerWorldListLocation extends WorldListLocation {
         /* context menu */
         this.setAddedDefaultContextMenuItems([
             "splitter",
-            {menuAction: "show_logic", content: "Show Logic"},
-            {type: "splitter", group: "ap"},
-            {group: "ap", menuAction: "hint_ap_location", content: "AP Hint Location"}
+            {
+                menuAction: "show_logic",
+                content: "Show Logic"
+            },
+            {
+                type: "splitter",
+                group: "ap"
+            },
+            {
+                group: "ap",
+                menuAction: "hint_ap_location",
+                content: "AP Hint Location"
+            }
         ]);
         this.addDefaultContextMenuHandler("show_logic", () => {
             const state = this.getState();
             if (state != null) {
-                const title = Language.generateLabel(`location[${this.ref}]`);
-                LogicViewer.show(state.props.logicAccess ?? "", title);
+                LogicViewerModal.show(state.props.logicAccess ?? "", `location[${this.ref}]`);
             }
         });
         this.addDefaultContextMenuHandler("hint_ap_location", () => {

@@ -1,6 +1,4 @@
-import {
-    mix
-} from "/emcJS/util/Mixin.js";
+import {mix} from "/emcJS/util/Mixin.js";
 import "/emcJS/ui/icon/LabeledIcon.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
@@ -11,7 +9,7 @@ import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
 import "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
 import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
-import LogicViewer from "../../../../window/LogicViewer.js";
+import LogicViewerModal from "../../../../modal/LogicViewerModal.js";
 import APHintLocations from "../../../../../resource/APHintLocations.js";
 import TPL from "./ShopSlot.js.html" assert {type: "html"};
 import STYLE from "./ShopSlot.js.css" assert {type: "css"};
@@ -28,11 +26,7 @@ function applyElements(target) {
     textEl.insertAdjacentElement("afterend", itemEl);
 }
 
-const BaseClass = mix(
-    WorldListElement
-).with(
-    AccessTextMarkerMixin
-);
+const BaseClass = mix(WorldListElement).with(AccessTextMarkerMixin);
 
 export default class WorldListShopSlot extends BaseClass {
 
@@ -100,7 +94,7 @@ export default class WorldListShopSlot extends BaseClass {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(`location[${this.ref}]`);
-                LogicViewer.show(state.props.logicAccess ?? "", title);
+                LogicViewerModal.show(state.props.logicAccess ?? "", title);
             }
         });
         this.addDefaultContextMenuHandler("hint_ap_location", () => {

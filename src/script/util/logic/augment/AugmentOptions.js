@@ -40,6 +40,18 @@ function augment(cache) {
             }
         }
     }
+    // selected adult trade item
+    const adultTradeShuffle = cache.get("option[adult_trade_shuffle]");
+    const adultTradeStart = cache.get("option[trade_sequence_start_item]");
+    if (!adultTradeShuffle && adultTradeStart?.length) {
+        for (const tradeItem of adultTradeStart) {
+            const collectedTradeItem = cache.get(tradeItem);
+            if (collectedTradeItem) {
+                cache.setAugmented("randomized[selected_adult_trade_item]", tradeItem);
+                break;
+            }
+        }
+    }
 }
 
 LogicCaller.registerAugment(augment);

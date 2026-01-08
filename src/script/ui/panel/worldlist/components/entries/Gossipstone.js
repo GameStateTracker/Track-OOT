@@ -1,14 +1,11 @@
 import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import {
-    mix
-} from "/emcJS/util/Mixin.js";
-import Language from "/GameTrackerJS/util/Language.js";
+import {mix} from "/emcJS/util/Mixin.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
 import "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
 import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
-import LogicViewer from "../../../../window/LogicViewer.js";
+import LogicViewerModal from "../../../../modal/LogicViewerModal.js";
 
 const TPL = new HTMLTemplate(`
 <div id="hintlocation-container" class="textarea">
@@ -25,11 +22,7 @@ function applyElements(target) {
     headerEl.append(tpl);
 }
 
-const BaseClass = mix(
-    WorldListElement
-).with(
-    AccessTextMarkerMixin
-);
+const BaseClass = mix(WorldListElement).with(AccessTextMarkerMixin);
 
 export default class WorldListGossipstone extends BaseClass {
 
@@ -91,8 +84,7 @@ export default class WorldListGossipstone extends BaseClass {
         this.addDefaultContextMenuHandler("show_logic", () => {
             const state = this.getState();
             if (state != null) {
-                const title = Language.generateLabel(`location[${this.ref}]`);
-                LogicViewer.show(state.props.logicAccess ?? "", title);
+                LogicViewerModal.show(state.props.logicAccess ?? "", `location[${this.ref}]`);
             }
         });
     }

@@ -1,0 +1,23 @@
+#logic-container {
+    display: flex;
+}
+
+.edge {
+    padding: 5px;
+}
+
+.edge:nth-child(n + 1) {
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: #ffffff33;
+}
+
+.parent {
+    width: 100%;
+    margin: 0.2em;
+    cursor: pointer;
+}
+
+.logic {
+    width: 100%;
+}

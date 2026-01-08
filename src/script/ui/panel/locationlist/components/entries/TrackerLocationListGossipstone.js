@@ -7,7 +7,7 @@ import LocationListEntry from "/GameTrackerJS/ui/panel/locationlist/components/a
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
 import "/GameTrackerJS/ui/panel/locationlist/components/entries/LocationListLocation.js";
 import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu";
-import LogicViewer from "../../../../window/LogicViewer";
+import LogicViewerModal from "../../../../modal/LogicViewerModal";
 import TPL from "./TrackerLocationListGossipstone.js.html" assert {type: "html"};
 
 function applyElements(target) {
@@ -73,7 +73,7 @@ export default class TrackerLocationListGossipstone extends BaseClass {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(`location[${this.ref}]`);
-                LogicViewer.show(state.props.logicAccess ?? "", title);
+                LogicViewerModal.show(state.props.logicAccess ?? "", title);
             }
         });
     }

@@ -21,8 +21,8 @@
         "open_door_of_time": {
             "name": "doors_open_temple",
             "values": [
-                false,
-                true
+                "dot_sot",
+                "dot_open"
             ]
         },
         "zora_fountain": {

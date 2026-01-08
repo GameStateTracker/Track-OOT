@@ -8,6 +8,7 @@ Application:    Track-OOT
 
 ### CHANGES
 
+- change logic to v9.0
 - reorganize map control elements to be inside map the settings panel
 - add poi markers to minimap
 - add border to focus marker in minimap
@@ -18,10 +19,15 @@ Application:    Track-OOT
 - split gerudo fortress and thieves hideout into seperate maps
 - add thieves hideout entrance shuffle
 - add 100 skulltula reward
+- change scarecrow setting to match rando
+- change dot setting to match rando
+- add gerudo heartpiece shuffle setting
+
 
 ### BUG FIXES
 
 - fix logic calculation in LogicViewer
+- fix entrances in LogicViewer
 - fix anchor based zoom in map
 - fix tooltip bubble directions in map
 - fix import of framework style rules

@@ -1,7 +1,7 @@
-import Language from "/GameTrackerJS/util/Language.js";
+import {getGatewayIn} from "/GameTrackerJS/data/resource/WorldResource.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldMapExit from "/GameTrackerJS/ui/panel/worldmap/components/entries/Exit.js";
-import LogicViewer from "../../../../window/LogicViewer.js";
+import LogicViewerModal from "../../../../modal/LogicViewerModal.js";
 
 export default class TrackerWorldMapExit extends WorldMapExit {
 
@@ -10,13 +10,15 @@ export default class TrackerWorldMapExit extends WorldMapExit {
         /* context menu */
         this.setAddedDefaultContextMenuItems([
             "splitter",
-            {menuAction: "show_logic", content: "Show Logic"}
+            {
+                menuAction: "show_logic",
+                content: "Show Logic"
+            }
         ]);
         this.addDefaultContextMenuHandler("show_logic", () => {
             const state = this.getState();
             if (state != null) {
-                const title = Language.generateLabel(`exit[${this.ref}]`);
-                LogicViewer.show(state.props.logicAccess ?? "", title);
+                LogicViewerModal.show(getGatewayIn(state.props.logicAccess ?? ""), `exit[${this.ref}]`);
             }
         });
     }

@@ -2,7 +2,7 @@ import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import LocationListLocation from "/GameTrackerJS/ui/panel/locationlist/components/entries/LocationListLocation.js";
 import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
-import LogicViewer from "../../../../window/LogicViewer.js";
+import LogicViewerModal from "../../../../modal/LogicViewerModal.js";
 import APHintLocations from "../../../../../resource/APHintLocations.js";
 
 const archipelagoActiveObserver = new MetaObserver("archipelago");
@@ -23,7 +23,7 @@ export default class TrackerLocationListLocation extends LocationListLocation {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(`location[${this.ref}]`);
-                LogicViewer.show(state.props.logicAccess ?? "", title);
+                LogicViewerModal.show(state.props.logicAccess ?? "", title);
             }
         });
         this.addDefaultContextMenuHandler("hint_ap_location", () => {

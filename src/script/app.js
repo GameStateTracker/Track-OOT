@@ -44,7 +44,7 @@ import SpoilerLogWindow from "/script/ui/window/SpoilerLogWindow.js";
 import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
 import "/script/ui/LayoutContainer.js";
 import "/script/ui/multiplayer/Multiplayer.js";
-import APWindow from "./ui/window/APWindow.js";
+import APModal from "./ui/modal/APModal.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 
@@ -147,7 +147,7 @@ try {
         GlobalContext.set("TrackerSettingsWindow", new TrackerSettingsWindow());
         GlobalContext.set("RomOptionsWindow", new RomOptionsWindow());
         GlobalContext.set("SpoilerLogWindow", new SpoilerLogWindow());
-        GlobalContext.set("ArchipelagoWindow", new APWindow());
+        GlobalContext.set("ArchipelagoWindow", new APModal());
         GlobalContext.set("ClearDataWindow", new ClearDataWindow());
         const newGameWindow = new NewGameWindow();
         GlobalContext.set("NewGameWindow", newGameWindow);

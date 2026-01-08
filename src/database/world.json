@@ -162533,7 +162533,7 @@
             "tags": []
         },
         "fortress_hideout_1_torch_jail_gateway -> hideout_1_torch_jail_fortress_gateway": {
-            "type": "interior_inner",
+            "type": "interior_outer",
             "target": {
                 "type": "Exit",
                 "name": "hideout_1_torch_jail_fortress_gateway -> fortress_hideout_1_torch_jail_gateway"
@@ -162541,7 +162541,7 @@
             "logicAccess": "fortress_hideout_1_torch_jail_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo.thieves_hideout"
+                "name": "gerudo"
             },
             "visible": {
                 "type": "value",
@@ -162579,7 +162579,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_outer"
+                "interior_inner"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -162598,7 +162598,7 @@
             ]
         },
         "hideout_1_torch_jail_fortress_gateway -> fortress_hideout_1_torch_jail_gateway": {
-            "type": "interior_outer",
+            "type": "interior_inner",
             "target": {
                 "type": "Exit",
                 "name": "fortress_hideout_1_torch_jail_gateway -> hideout_1_torch_jail_fortress_gateway"
@@ -162606,7 +162606,7 @@
             "logicAccess": "hideout_1_torch_jail_fortress_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo"
+                "name": "gerudo.thieves_hideout"
             },
             "visible": {
                 "type": "value",
@@ -162644,7 +162644,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_inner"
+                "interior_outer"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -162663,7 +162663,7 @@
             ]
         },
         "fortress_crates_hideout_1_torch_jail_gateway -> hideout_1_torch_jail_fortress_crates_gateway": {
-            "type": "interior_inner",
+            "type": "interior_outer",
             "target": {
                 "type": "Exit",
                 "name": "hideout_1_torch_jail_fortress_crates_gateway -> fortress_crates_hideout_1_torch_jail_gateway"
@@ -162671,7 +162671,7 @@
             "logicAccess": "fortress_crates_hideout_1_torch_jail_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo.thieves_hideout"
+                "name": "gerudo"
             },
             "visible": {
                 "type": "value",
@@ -162709,7 +162709,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_outer"
+                "interior_inner"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -162728,7 +162728,7 @@
             ]
         },
         "hideout_1_torch_jail_fortress_crates_gateway -> fortress_crates_hideout_1_torch_jail_gateway": {
-            "type": "interior_outer",
+            "type": "interior_inner",
             "target": {
                 "type": "Exit",
                 "name": "fortress_crates_hideout_1_torch_jail_gateway -> hideout_1_torch_jail_fortress_crates_gateway"
@@ -162736,7 +162736,7 @@
             "logicAccess": "hideout_1_torch_jail_fortress_crates_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo"
+                "name": "gerudo.thieves_hideout"
             },
             "visible": {
                 "type": "value",
@@ -162774,7 +162774,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_inner"
+                "interior_outer"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -162793,7 +162793,7 @@
             ]
         },
         "fortress_hideout_2_torches_jail_gateway -> hideout_2_torches_jail_fortress_gateway": {
-            "type": "interior_inner",
+            "type": "interior_outer",
             "target": {
                 "type": "Exit",
                 "name": "hideout_2_torches_jail_fortress_gateway -> fortress_hideout_2_torches_jail_gateway"
@@ -162801,7 +162801,7 @@
             "logicAccess": "fortress_hideout_2_torches_jail_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo.thieves_hideout"
+                "name": "gerudo"
             },
             "visible": {
                 "type": "value",
@@ -162839,7 +162839,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_outer"
+                "interior_inner"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -162858,7 +162858,7 @@
             ]
         },
         "hideout_2_torches_jail_fortress_gateway -> fortress_hideout_2_torches_jail_gateway": {
-            "type": "interior_outer",
+            "type": "interior_inner",
             "target": {
                 "type": "Exit",
                 "name": "fortress_hideout_2_torches_jail_gateway -> hideout_2_torches_jail_fortress_gateway"
@@ -162866,7 +162866,7 @@
             "logicAccess": "hideout_2_torches_jail_fortress_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo"
+                "name": "gerudo.thieves_hideout"
             },
             "visible": {
                 "type": "value",
@@ -162904,7 +162904,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_inner"
+                "interior_outer"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -162923,7 +162923,7 @@
             ]
         },
         "fortress_roof_entrance_cluster_hideout_2_torches_jail_gateway -> hideout_2_torches_jail_fortress_roof_entrance_cluster_gateway": {
-            "type": "interior_inner",
+            "type": "interior_outer",
             "target": {
                 "type": "Exit",
                 "name": "hideout_2_torches_jail_fortress_roof_entrance_cluster_gateway -> fortress_roof_entrance_cluster_hideout_2_torches_jail_gateway"
@@ -162931,7 +162931,7 @@
             "logicAccess": "fortress_roof_entrance_cluster_hideout_2_torches_jail_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo.thieves_hideout"
+                "name": "gerudo"
             },
             "visible": {
                 "type": "value",
@@ -162969,7 +162969,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_outer"
+                "interior_inner"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -162988,7 +162988,7 @@
             ]
         },
         "hideout_2_torches_jail_fortress_roof_entrance_cluster_gateway -> fortress_roof_entrance_cluster_hideout_2_torches_jail_gateway": {
-            "type": "interior_outer",
+            "type": "interior_inner",
             "target": {
                 "type": "Exit",
                 "name": "fortress_roof_entrance_cluster_hideout_2_torches_jail_gateway -> hideout_2_torches_jail_fortress_roof_entrance_cluster_gateway"
@@ -162996,7 +162996,7 @@
             "logicAccess": "hideout_2_torches_jail_fortress_roof_entrance_cluster_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo"
+                "name": "gerudo.thieves_hideout"
             },
             "visible": {
                 "type": "value",
@@ -163034,7 +163034,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_inner"
+                "interior_outer"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163053,7 +163053,7 @@
             ]
         },
         "fortress_roof_lone_entrance_hideout_3_torches_jail_gateway -> hideout_3_torches_jail_fortress_roof_lone_entrance_gateway": {
-            "type": "interior_inner",
+            "type": "interior_outer",
             "target": {
                 "type": "Exit",
                 "name": "hideout_3_torches_jail_fortress_roof_lone_entrance_gateway -> fortress_roof_lone_entrance_hideout_3_torches_jail_gateway"
@@ -163061,7 +163061,7 @@
             "logicAccess": "fortress_roof_lone_entrance_hideout_3_torches_jail_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo.thieves_hideout"
+                "name": "gerudo"
             },
             "visible": {
                 "type": "value",
@@ -163099,7 +163099,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_outer"
+                "interior_inner"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163118,7 +163118,7 @@
             ]
         },
         "hideout_3_torches_jail_fortress_roof_lone_entrance_gateway -> fortress_roof_lone_entrance_hideout_3_torches_jail_gateway": {
-            "type": "interior_outer",
+            "type": "interior_inner",
             "target": {
                 "type": "Exit",
                 "name": "fortress_roof_lone_entrance_hideout_3_torches_jail_gateway -> hideout_3_torches_jail_fortress_roof_lone_entrance_gateway"
@@ -163126,7 +163126,7 @@
             "logicAccess": "hideout_3_torches_jail_fortress_roof_lone_entrance_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo"
+                "name": "gerudo.thieves_hideout"
             },
             "visible": {
                 "type": "value",
@@ -163164,7 +163164,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_inner"
+                "interior_outer"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163183,7 +163183,7 @@
             ]
         },
         "fortress_hideout_4_torches_jail_gateway -> hideout_4_torches_jail_fortress_gateway": {
-            "type": "interior_inner",
+            "type": "interior_outer",
             "target": {
                 "type": "Exit",
                 "name": "hideout_4_torches_jail_fortress_gateway -> fortress_hideout_4_torches_jail_gateway"
@@ -163191,7 +163191,7 @@
             "logicAccess": "fortress_hideout_4_torches_jail_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo.thieves_hideout"
+                "name": "gerudo"
             },
             "visible": {
                 "type": "value",
@@ -163229,7 +163229,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_outer"
+                "interior_inner"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163248,7 +163248,7 @@
             ]
         },
         "hideout_4_torches_jail_fortress_gateway -> fortress_hideout_4_torches_jail_gateway": {
-            "type": "interior_outer",
+            "type": "interior_inner",
             "target": {
                 "type": "Exit",
                 "name": "fortress_hideout_4_torches_jail_gateway -> hideout_4_torches_jail_fortress_gateway"
@@ -163256,7 +163256,7 @@
             "logicAccess": "hideout_4_torches_jail_fortress_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo"
+                "name": "gerudo.thieves_hideout"
             },
             "visible": {
                 "type": "value",
@@ -163294,7 +163294,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_inner"
+                "interior_outer"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163313,7 +163313,7 @@
             ]
         },
         "fortress_roof_entrance_cluster_hideout_4_torches_jail_gateway -> hideout_4_torches_jail_fortress_roof_entrance_cluster_gateway": {
-            "type": "interior_inner",
+            "type": "interior_outer",
             "target": {
                 "type": "Exit",
                 "name": "hideout_4_torches_jail_fortress_roof_entrance_cluster_gateway -> fortress_roof_entrance_cluster_hideout_4_torches_jail_gateway"
@@ -163321,7 +163321,7 @@
             "logicAccess": "fortress_roof_entrance_cluster_hideout_4_torches_jail_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo.thieves_hideout"
+                "name": "gerudo"
             },
             "visible": {
                 "type": "value",
@@ -163359,7 +163359,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_outer"
+                "interior_inner"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163378,7 +163378,7 @@
             ]
         },
         "hideout_4_torches_jail_fortress_roof_entrance_cluster_gateway -> fortress_roof_entrance_cluster_hideout_4_torches_jail_gateway": {
-            "type": "interior_outer",
+            "type": "interior_inner",
             "target": {
                 "type": "Exit",
                 "name": "fortress_roof_entrance_cluster_hideout_4_torches_jail_gateway -> hideout_4_torches_jail_fortress_roof_entrance_cluster_gateway"
@@ -163386,7 +163386,7 @@
             "logicAccess": "hideout_4_torches_jail_fortress_roof_entrance_cluster_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo"
+                "name": "gerudo.thieves_hideout"
             },
             "visible": {
                 "type": "value",
@@ -163424,7 +163424,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_inner"
+                "interior_outer"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163443,7 +163443,7 @@
             ]
         },
         "fortress_hideout_kitchen_gateway -> hideout_kitchen_fortress_gateway": {
-            "type": "interior_inner",
+            "type": "interior_outer",
             "target": {
                 "type": "Exit",
                 "name": "hideout_kitchen_fortress_gateway -> fortress_hideout_kitchen_gateway"
@@ -163451,7 +163451,7 @@
             "logicAccess": "fortress_hideout_kitchen_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo.thieves_hideout"
+                "name": "gerudo"
             },
             "visible": {
                 "type": "value",
@@ -163489,7 +163489,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_outer"
+                "interior_inner"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163508,7 +163508,7 @@
             ]
         },
         "hideout_kitchen_fortress_gateway -> fortress_hideout_kitchen_gateway": {
-            "type": "interior_outer",
+            "type": "interior_inner",
             "target": {
                 "type": "Exit",
                 "name": "fortress_hideout_kitchen_gateway -> hideout_kitchen_fortress_gateway"
@@ -163516,7 +163516,7 @@
             "logicAccess": "hideout_kitchen_fortress_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo"
+                "name": "gerudo.thieves_hideout"
             },
             "visible": {
                 "type": "value",
@@ -163554,7 +163554,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_inner"
+                "interior_outer"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163573,7 +163573,7 @@
             ]
         },
         "fortress_crates_hideout_kitchen_gateway -> hideout_kitchen_fortress_crates_gateway": {
-            "type": "interior_inner",
+            "type": "interior_outer",
             "target": {
                 "type": "Exit",
                 "name": "hideout_kitchen_fortress_crates_gateway -> fortress_crates_hideout_kitchen_gateway"
@@ -163581,7 +163581,7 @@
             "logicAccess": "fortress_crates_hideout_kitchen_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo.thieves_hideout"
+                "name": "gerudo"
             },
             "visible": {
                 "type": "value",
@@ -163619,7 +163619,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_outer"
+                "interior_inner"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163638,7 +163638,7 @@
             ]
         },
         "hideout_kitchen_fortress_crates_gateway -> fortress_crates_hideout_kitchen_gateway": {
-            "type": "interior_outer",
+            "type": "interior_inner",
             "target": {
                 "type": "Exit",
                 "name": "fortress_crates_hideout_kitchen_gateway -> hideout_kitchen_fortress_crates_gateway"
@@ -163646,7 +163646,7 @@
             "logicAccess": "hideout_kitchen_fortress_crates_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo"
+                "name": "gerudo.thieves_hideout"
             },
             "visible": {
                 "type": "value",
@@ -163684,7 +163684,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_inner"
+                "interior_outer"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163703,7 +163703,7 @@
             ]
         },
         "fortress_roof_entrance_cluster_hideout_kitchen_gateway -> hideout_kitchen_fortress_roof_entrance_cluster_gateway": {
-            "type": "interior_inner",
+            "type": "interior_outer",
             "target": {
                 "type": "Exit",
                 "name": "hideout_kitchen_fortress_roof_entrance_cluster_gateway -> fortress_roof_entrance_cluster_hideout_kitchen_gateway"
@@ -163711,7 +163711,7 @@
             "logicAccess": "fortress_roof_entrance_cluster_hideout_kitchen_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo.thieves_hideout"
+                "name": "gerudo"
             },
             "visible": {
                 "type": "value",
@@ -163749,7 +163749,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_outer"
+                "interior_inner"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163768,7 +163768,7 @@
             ]
         },
         "hideout_kitchen_fortress_roof_entrance_cluster_gateway -> fortress_roof_entrance_cluster_hideout_kitchen_gateway": {
-            "type": "interior_outer",
+            "type": "interior_inner",
             "target": {
                 "type": "Exit",
                 "name": "fortress_roof_entrance_cluster_hideout_kitchen_gateway -> hideout_kitchen_fortress_roof_entrance_cluster_gateway"
@@ -163776,7 +163776,7 @@
             "logicAccess": "hideout_kitchen_fortress_roof_entrance_cluster_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo"
+                "name": "gerudo.thieves_hideout"
             },
             "visible": {
                 "type": "value",
@@ -163814,7 +163814,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_inner"
+                "interior_outer"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163833,7 +163833,7 @@
             ]
         },
         "fortress_kitchen_roof_access_hideout_kitchen_gateway -> hideout_kitchen_fortress_kitchen_roof_access_gateway": {
-            "type": "interior_inner",
+            "type": "interior_outer",
             "target": {
                 "type": "Exit",
                 "name": "hideout_kitchen_fortress_kitchen_roof_access_gateway -> fortress_kitchen_roof_access_hideout_kitchen_gateway"
@@ -163841,7 +163841,7 @@
             "logicAccess": "fortress_kitchen_roof_access_hideout_kitchen_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo.thieves_hideout"
+                "name": "gerudo"
             },
             "visible": {
                 "type": "value",
@@ -163879,7 +163879,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_outer"
+                "interior_inner"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163898,7 +163898,7 @@
             ]
         },
         "hideout_kitchen_fortress_kitchen_roof_access_gateway -> fortress_kitchen_roof_access_hideout_kitchen_gateway": {
-            "type": "interior_outer",
+            "type": "interior_inner",
             "target": {
                 "type": "Exit",
                 "name": "fortress_kitchen_roof_access_hideout_kitchen_gateway -> hideout_kitchen_fortress_kitchen_roof_access_gateway"
@@ -163906,7 +163906,7 @@
             "logicAccess": "hideout_kitchen_fortress_kitchen_roof_access_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo"
+                "name": "gerudo.thieves_hideout"
             },
             "visible": {
                 "type": "value",
@@ -163944,7 +163944,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_inner"
+                "interior_outer"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -163963,7 +163963,7 @@
             ]
         },
         "fortress_break_room_entrance_hideout_break_room_gateway -> hideout_break_room_fortress_break_room_entrance_gateway": {
-            "type": "interior_inner",
+            "type": "interior_outer",
             "target": {
                 "type": "Exit",
                 "name": "hideout_break_room_fortress_break_room_entrance_gateway -> fortress_break_room_entrance_hideout_break_room_gateway"
@@ -163971,7 +163971,7 @@
             "logicAccess": "fortress_break_room_entrance_hideout_break_room_gateway",
             "area": {
                 "type": "Area",
-                "name": "gerudo.thieves_hideout"
+                "name": "gerudo"
             },
             "visible": {
                 "type": "value",
@@ -164009,7 +164009,7 @@
             },
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
-                "interior_outer"
+                "interior_inner"
             ],
             "unbindable": false,
             "ignoreBound": false,
@@ -164028,77 +164028,12 @@
             ]
         },
         "hideout_break_room_fortress_break_room_entrance_gateway -> fortress_break_room_entrance_hideout_break_room_gateway": {
-            "type": "interior_outer",
+            "type": "interior_inner",
             "target": {
                 "type": "Exit",
                 "name": "fortress_break_room_entrance_hideout_break_room_gateway -> hideout_break_room_fortress_break_room_entrance_gateway"
             },
             "logicAccess": "hideout_break_room_fortress_break_room_entrance_gateway",
-            "area": {
-                "type": "Area",
-                "name": "gerudo"
-            },
-            "visible": {
-                "type": "value",
-                "ref": "option[shuffle_hideout_entrances]"
-            },
-            "filter": {
-                "era": {
-                    "child": true,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "show_done": {
-                    "true": true,
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                },
-                "show_unavailable": {
-                    "true": true,
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_UNAVAILABLE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/interior.svg",
-            "bindsTo": [
-                "interior_inner"
-            ],
-            "unbindable": false,
-            "ignoreBound": false,
-            "entranceActive": {
-                "type": "value",
-                "ref": "option[shuffle_hideout_entrances]"
-            },
-            "includeInactiveEntrances": false,
-            "isBiDir": true,
-            "tags": [
-                "interior",
-                "gerudo",
-                "hideout",
-                "child",
-                "adult"
-            ]
-        },
-        "fortress_balcony_hideout_break_room_gateway -> hideout_break_room_fortress_balcony_gateway": {
-            "type": "interior_inner",
-            "target": {
-                "type": "Exit",
-                "name": "hideout_break_room_fortress_balcony_gateway -> fortress_balcony_hideout_break_room_gateway"
-            },
-            "logicAccess": "fortress_balcony_hideout_break_room_gateway",
             "area": {
                 "type": "Area",
                 "name": "gerudo.thieves_hideout"
@@ -164157,13 +164092,13 @@
                 "adult"
             ]
         },
-        "hideout_break_room_fortress_balcony_gateway -> fortress_balcony_hideout_break_room_gateway": {
+        "fortress_balcony_hideout_break_room_gateway -> hideout_break_room_fortress_balcony_gateway": {
             "type": "interior_outer",
             "target": {
                 "type": "Exit",
-                "name": "fortress_balcony_hideout_break_room_gateway -> hideout_break_room_fortress_balcony_gateway"
+                "name": "hideout_break_room_fortress_balcony_gateway -> fortress_balcony_hideout_break_room_gateway"
             },
-            "logicAccess": "hideout_break_room_fortress_balcony_gateway",
+            "logicAccess": "fortress_balcony_hideout_break_room_gateway",
             "area": {
                 "type": "Area",
                 "name": "gerudo"
@@ -164205,6 +164140,71 @@
             "icon": "/images/icons/interior.svg",
             "bindsTo": [
                 "interior_inner"
+            ],
+            "unbindable": false,
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "value",
+                "ref": "option[shuffle_hideout_entrances]"
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "tags": [
+                "interior",
+                "gerudo",
+                "hideout",
+                "child",
+                "adult"
+            ]
+        },
+        "hideout_break_room_fortress_balcony_gateway -> fortress_balcony_hideout_break_room_gateway": {
+            "type": "interior_inner",
+            "target": {
+                "type": "Exit",
+                "name": "fortress_balcony_hideout_break_room_gateway -> hideout_break_room_fortress_balcony_gateway"
+            },
+            "logicAccess": "hideout_break_room_fortress_balcony_gateway",
+            "area": {
+                "type": "Area",
+                "name": "gerudo.thieves_hideout"
+            },
+            "visible": {
+                "type": "value",
+                "ref": "option[shuffle_hideout_entrances]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "show_done": {
+                    "true": true,
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                },
+                "show_unavailable": {
+                    "true": true,
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_UNAVAILABLE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/interior.svg",
+            "bindsTo": [
+                "interior_outer"
             ],
             "unbindable": false,
             "ignoreBound": false,

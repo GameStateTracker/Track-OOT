@@ -65,6 +65,16 @@
         "type": "check",
         "default": false
     },
+    "scarecrow_behavior": {
+        "category": "options",
+        "type": "choice",
+        "default": "scarecrow_vanilla",
+        "values": [
+            "scarecrow_vanilla",
+            "scarecrow_fast",
+            "scarecrow_free"
+        ]
+    },
     "doors_open_forest": {
         "category": "options",
         "type": "choice",
@@ -85,10 +95,18 @@
             "doors_open_kakariko_open"
         ]
     },
-    "doors_open_temple": {
+    "open_door_of_time": {
         "category": "options",
-        "type": "check",
-        "default": false
+        "type": "choice",
+        "default": "dot_sot",
+        "values": [
+            "dot_open",
+            "dot_sot",
+            "dot_oot_sot",
+            "dot_stones",
+            "dot_stones_sot",
+            "dot_stones_oot_sot"
+        ]
     },
     "doors_open_zora": {
         "category": "options",
@@ -246,6 +264,16 @@
         "category": "item_sanity",
         "type": "check",
         "default": false
+    },
+    "shuffle_gerudo_fortress_heart_piece": {
+        "category": "item_sanity",
+        "type": "choice",
+        "default": "gf_hp_remove",
+        "values": [
+            "gf_hp_remove",
+            "gf_hp_vanilla",
+            "gf_hp_shuffle"
+        ]
     },
     "shuffle_child_trade": {
         "category": "item_sanity",
