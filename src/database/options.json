@@ -538,6 +538,11 @@
             "entrance_shuffle_all"
         ]
     },
+    "shuffle_hideout_entrances": {
+        "category": "entrance_randomizer",
+        "type": "check",
+        "default": false
+    },
     "shuffle_grottos": {
         "category": "entrance_randomizer",
         "type": "check",

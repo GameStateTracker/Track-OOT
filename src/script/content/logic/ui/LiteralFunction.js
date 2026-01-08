@@ -4,30 +4,31 @@ import {getMixinLogic} from "../../../util/logic/LogicExtractor.js";
 import TPL from "./LiteralMixin.js.html" assert {type: "html"};
 import STYLE from "./LiteralMixin.js.css" assert {type: "css"};
 
-const TPL_CAPTION = "MIXIN";
-const REFERENCE = "mixin";
+const TPL_CAPTION = "FUNCTION";
+const REFERENCE = "function";
 
 export default class LogicElement extends AbstractLiteralValueElement {
+
+    #viewEl;
 
     constructor() {
         super(REFERENCE, TPL_CAPTION);
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */
-        const viewEl = els.getElementById("view");
-        const childEl = els.getElementById("child");
-        this.shadowRoot.getElementById("header").append(viewEl);
-        this.shadowRoot.getElementById("body").append(childEl);
-        /*this.shadowRoot.getElementById("view").addEventListener("click", (event) => {
-            let title = this.ref;
-            LogicViewer.show(this.ref, title);
-        });*/
+        this.shadowRoot.getElementById("header").append(els);
+        this.#viewEl = this.shadowRoot.getElementById("view");
+        this.#viewEl.addEventListener("click", () => {
+            const ev = new Event("viewlogic");
+            ev.logic = this.ref;
+            this.dispatchEvent(ev);
+        });
     }
 
-    calculate() {
+    calculate(state = {}) {
         const mixinLogic = getMixinLogic(this.ref);
         const logic = AbstractElement.buildLogic(mixinLogic);
-        const value = logic.calculate();
+        const value = logic.calculate(state);
         this.logicResult = value;
         return parseInt(value) || 0;
     }

@@ -931,6 +931,7 @@ option[doors_open_zora]=Open Zoras Fountain
 option[dungeon_count_bridge]=Required Dungeon Rewards for Rainbow Bridge
 option[dungeon_count_lacs]=Required Dungeon Rewards for LACS
 option[entrance_shuffle_interior]=Shuffle Interior Entrances
+option[shuffle_hideout_entrances]=Shuffle Thieves' Hideout Entrances
 option[fire_trial]=Fire Trial
 option[forest_trial]=Forest Trial
 option[free_scarecrow]=Free Scarecrow's Song

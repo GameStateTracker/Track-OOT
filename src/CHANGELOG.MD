@@ -16,6 +16,7 @@ Application:    Track-OOT
 - remove hard binding to `wss` for ap controller if tracker is hosted over `http`
 - rework location bubble position calculation for the map
 - split gerudo fortress and thieves hideout into seperate maps
+- add thieves hideout entrance shuffle
 - add 100 skulltula reward
 
 ### BUG FIXES

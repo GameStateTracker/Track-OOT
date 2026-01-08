@@ -240,6 +240,13 @@
                 "all": "entrance_shuffle_all"
             }
         },
+        "shuffle_hideout_entrances": {
+            "name": "shuffle_hideout_entrances",
+            "values": {
+                "true": true,
+                "false": false
+            }
+        },
         "shuffle_grotto_entrances": {
             "name": "shuffle_grottos",
             "values": {

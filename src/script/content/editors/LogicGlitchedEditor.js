@@ -5,13 +5,14 @@ import "/JSEditors/modules/logic/Editor.js";
 
 import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 import LogicListsCreator from "../logic/LogicListsCreator.js";
-import "../logic/LiteralCustom.js";
-import "../logic/LiteralMixin.js";
-import "../logic/LiteralFunction.js";
 import LogicGlitchedStorage from "../logic/storages/LogicGlitchedStorage.js";
+import "../logic/LogicElementsLoader.js";
 
 function getLogicData() {
-    return LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
+    return LogicGlitchedResource.get() ?? {
+        edges:{},
+        logic:{}
+    };
 }
 
 export default async function() {
@@ -88,7 +89,10 @@ export default async function() {
         }, {
             "content": "SAVE PATCH",
             "handler": async () => {
-                const logic = {edges:{}, logic:{}};
+                const logic = {
+                    edges:{},
+                    logic:{}
+                };
                 const patch = LogicGlitchedStorage.getAll();
                 for (const i in patch) {
                     if (i.indexOf(" -> ") >= 0) {

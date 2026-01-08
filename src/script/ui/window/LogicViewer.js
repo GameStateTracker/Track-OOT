@@ -1,7 +1,7 @@
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import LogicUIAbstractElement from "/emcJS/ui/logic/abstract/AbstractElement.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
-import "../logic/LogicElementsLoader.js";
+import "../../content/logic/LogicElementsLoader.js";
 import {getEdgeLogic} from "../../util/logic/LogicExtractor.js";
 
 class LogicViewer {
@@ -14,10 +14,11 @@ class LogicViewer {
         d.value = ref;
         const el = document.createElement("div");
         el.style.display = "flex";
-        const result = await getEdgeLogic(ref);
-        for (const {
-            logic, parent
-        } of result) {
+        const edgeList = await getEdgeLogic(ref);
+        for (const edge of edgeList) {
+            const {
+                logic, parent
+            } = edge;
             if (logic) {
                 const c = document.createElement("div");
                 c.style.padding = "5px";

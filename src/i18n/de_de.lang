@@ -2554,6 +2554,7 @@ option[dungeon_count_bridge]=Benötigte abgeschlossene Tempel für Regenbogenbr�
 option[dungeon_count_lacs]=Benötigte abgeschlossene Tempel for Lichtpfeil-Cutscene
 option[dungeonstate_active_types]=Aktive Dungeonstatus Typen
 option[entrance_shuffle_interior]=Eingänge mischen
+option[shuffle_hideout_entrances]=Diebesversteck eingänge mischen
 option[fire_trial]=Prüfung des Feuers
 option[fix_broken_drops]=Repariere kaputte Fallengelassen
 option[forest_trial]=Prüfung des Waldes

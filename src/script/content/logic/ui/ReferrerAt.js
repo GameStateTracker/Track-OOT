@@ -12,9 +12,10 @@ export default class LogicElement extends AbstractLiteralValueElement {
 
     constructor() {
         super(REFERENCE, TPL_CAPTION);
-        this.shadowRoot.append(TPL.generate());
+        const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.shadowRoot.getElementById("body").append(els);
         this.#placeholderEl = this.shadowRoot.getElementById("droptarget");
         this.#placeholderEl.ondragover = AbstractElement.allowDrop;
         this.#placeholderEl.ondrop = AbstractElement.dropOnPlaceholder;

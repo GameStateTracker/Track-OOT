@@ -10,3 +10,7 @@
     background: #cccccc;
     cursor: pointer;
 }
+
+.body.blank {
+    font-style: italic;
+}
