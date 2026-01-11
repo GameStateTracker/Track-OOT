@@ -22,6 +22,9 @@ Application:    Track-OOT
 - change scarecrow setting to match rando
 - change dot setting to match rando
 - add gerudo heartpiece shuffle setting
+- add wonderitems (only in full locationlist for now)
+- add empty pots (only in full locationlist for now)
+- add empty crates (only in full locationlist for now)
 
 
 ### BUG FIXES

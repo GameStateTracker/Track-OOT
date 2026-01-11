@@ -244,6 +244,11 @@
             "dungeons"
         ]
     },
+    "shuffle_empty_pots": {
+        "category": "item_sanity",
+        "type": "check",
+        "default": false
+    },
     "shuffle_crates": {
         "category": "item_sanity",
         "type": "choice",
@@ -255,7 +260,17 @@
             "dungeons"
         ]
     },
+    "shuffle_empty_crates": {
+        "category": "item_sanity",
+        "type": "check",
+        "default": false
+    },
     "shuffle_beehives": {
+        "category": "item_sanity",
+        "type": "check",
+        "default": false
+    },
+    "shuffle_wonderitems": {
         "category": "item_sanity",
         "type": "check",
         "default": false
