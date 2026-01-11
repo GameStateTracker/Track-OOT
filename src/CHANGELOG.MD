@@ -9,7 +9,7 @@ Application:    Track-OOT
 ### CHANGES
 
 - change logic to v9.0
-- reorganize map control elements to be inside map the settings panel
+- reorganize map control elements to be inside the map settings panel
 - add poi markers to minimap
 - add border to focus marker in minimap
 - add snap option to map
