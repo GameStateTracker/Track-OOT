@@ -34,6 +34,7 @@ Application:    Track-OOT
 - fix anchor based zoom in map
 - fix tooltip bubble directions in map
 - fix import of framework style rules
+- reduce content reflow on splash screen by not lazy loading styles
 
 ---
 

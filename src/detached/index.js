@@ -24,7 +24,7 @@ try {
     // load current language
     await Language.load(SettingsStorage.get("language"), "en_us");
     // load layout
-    const conf = decodeURI(window.location.hash.slice(1));
+    const conf = decodeURI(window.location.hash.slice(1)); // XXX better use search parameter for config
     const layout = LayoutsResource.get(conf);
     const el = document.getElementById("layout");
     el.loadLayout(layout);

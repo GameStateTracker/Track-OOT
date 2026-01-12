@@ -40,8 +40,6 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
             while (r.length > 0) {
                 document.body.append(r[0]);
             }
-            updateLoadingMessage("add style...");
-            await Inject.css("/style/index.css");
             updateLoadingMessage("load app...");
             await Inject.module("/script/app.js");
         } catch (e) {
