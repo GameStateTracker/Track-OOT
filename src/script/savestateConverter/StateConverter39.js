@@ -59,5 +59,5 @@ SavestateConverter.register(function(state) {
     }
 
     return res;
-}, true);
+});
 
