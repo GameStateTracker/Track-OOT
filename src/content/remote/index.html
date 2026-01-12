@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>[D]Track-OOT</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Track items and locations in 'The Legend of Zelda - Ocarina of Time Randomizer' (OOTR)">
+    <meta name="robots" content="norobots, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#cb9c3d">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/icon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/icon-16x16.png">
+    <link rel="stylesheet" type="text/css" href="/style/index.css">
+    </script>
+    <script>
+        window.addEventListener('contextmenu', function () {
+            event.preventDefault();
+            return false;
+        });
+    </script>
+    <script type="module" src="/detached/index.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: var(--page-back-color, #000000);
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            display: flex;
+            max-width: 100dvw;
+            max-height: 100dvh;
+            width: min-content;
+            height: min-content;
+        }
+
+        #container.fill {
+            width: 100dvw;
+            height: 100dvh;
+            min-width: 600px;
+            min-height: 350px;
+        }
+
+        #container.fill #layout>.panel {
+            width: 100dvw;
+            height: 100dvh;
+            min-width: 600px;
+            min-height: 350px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <emc-layout id="layout">
+        </emc-layout>
+    </div>
+</body>
+
+</html>
