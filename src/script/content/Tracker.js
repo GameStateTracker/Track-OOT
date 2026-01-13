@@ -47,6 +47,9 @@ PageSwitcher.register("main", [{
         "content": "CLEAR SPECIFIC DATA",
         "handler": openClearDataWindow
     }, {
+        "content": "REMOTE ITEM WINDOW SETTINGS",
+        "handler": openItemViewerWindow
+    }, {
         "content": "DETACHED ITEM WINDOW",
         "handler": openDetachedItems
     }, {
@@ -131,19 +134,19 @@ async function states_Manage() {
 }
 
 function openDetachedItems() {
-    const popup = window.open("/detached/#items", "[D]TrackOOT - Items", "popup=1,toolbar=0,location=0,addressbar=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
+    const popup = window.open("/detached/?layout=items", "[D]TrackOOT - Items", "popup=1,toolbar=0,location=0,addressbar=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
     popup.moveTo(screen.availLeft, screen.availTop);
     popup.resizeTo(200, 200);
 }
 
 function openDetachedLocationlist() {
-    const popup = window.open("/detached/?fill#locationlist", "[D]TrackOOT - LocationList", "popup=1,toolbar=0,location=0,addressbar=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
+    const popup = window.open("/detached/?fill&layout=locationlist", "[D]TrackOOT - LocationList", "popup=1,toolbar=0,location=0,addressbar=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
     popup.moveTo(screen.availLeft, screen.availTop);
     popup.resizeTo(600, 800);
 }
 
 function openDetachedWorldmap() {
-    const popup = window.open("/detached/?fill#map", "[D]TrackOOT - WorldMap", "popup=1,toolbar=0,location=0,addressbar=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
+    const popup = window.open("/detached/?fill&layout=map", "[D]TrackOOT - WorldMap", "popup=1,toolbar=0,location=0,addressbar=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
     popup.moveTo(screen.availLeft, screen.availTop);
     popup.resizeTo(screen.availWidth, screen.availHeight);
 }
@@ -152,6 +155,13 @@ function openSettingsWindow() {
     const trackerSettingsWindow = GlobalContext.get("TrackerSettingsWindow");
     if (trackerSettingsWindow) {
         trackerSettingsWindow.show();
+    }
+}
+
+function openItemViewerWindow() {
+    const itemViewerWindow = GlobalContext.get("ItemViewerWindow");
+    if (itemViewerWindow) {
+        itemViewerWindow.show();
     }
 }
 

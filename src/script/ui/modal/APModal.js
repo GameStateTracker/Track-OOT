@@ -1,6 +1,5 @@
 import Modal from "/emcJS/ui/modal/Modal.js";
 import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import "/emcJS/ui/input/InputWrapper.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import "/emcJS/ui/form/button/Button.js";
 import "/emcJS/ui/form/element/input/number/NumberInput.js";
@@ -146,6 +145,11 @@ export default class APModal extends Modal {
     #onConnecting() {
         this.#connectEl.text = "connecting...";
         this.#connectEl.disabled = true;
+
+        this.#apHostnameEl.readonly = true;
+        this.#apPortEl.readonly = true;
+        this.#apSlotNameEl.readonly = true;
+        this.#apPasswordEl.readonly = true;
     }
 
     #onConnected() {

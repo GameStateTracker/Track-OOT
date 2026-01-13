@@ -6,6 +6,10 @@ const HEADER_CONFIG = new Headers({
     "Cache-Control": "no-cache"
 });
 
+const BLACKLIST_PATHS = [
+    "/remote/"
+];
+
 const cmd = {
     start: install,
     check: checkUpdateAvailable,
@@ -29,6 +33,9 @@ self.addEventListener("fetch", function(event) {
     if ((new URL(event.request.url)).searchParams.get("nosw") !== null) {
         return;
     }
+    if (BLACKLIST_PATHS.includes((new URL(event.request.url)).pathname)) {
+        return;
+    }
     if (event.request.url == self.location.origin + "/version.json") {
         event.respondWith(getVersion(event.request));
     } else {
@@ -43,7 +50,10 @@ async function getResponse(request) {
         try {
             response = await fetch(request);
         } catch {
-            return new Response("", {"status": 500, "statusText": "offline"});
+            return new Response("", {
+                "status": 500,
+                "statusText": "offline"
+            });
         }
     }
     return response;
@@ -99,7 +109,10 @@ async function fetchFile(url, method = "GET") {
         }
         return r;
     } catch {
-        return new Response("", {"status": 500, "statusText": "offline"});
+        return new Response("", {
+            "status": 500,
+            "statusText": "offline"
+        });
     }
 }
 

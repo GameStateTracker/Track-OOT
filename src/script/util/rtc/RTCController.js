@@ -1,7 +1,7 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
-import RTCClient from "/rtc/RTCClient.js";
+import LobbyClient from "/rtc/LobbyClient.js";
 
 // Track-OOT
 import RTCPeerHost from "/script/util/rtc/RTCPeerHost.js";
@@ -42,7 +42,8 @@ async function promptPeerName(name) {
     return true;
 }
 
-const rtcClient = new RTCClient(window.location.hostname == "localhost" ? 8001 : "", CONFIG, ["data"]);
+const rtcPort = window.location.hostname == "localhost" ? 8001 : "";
+const rtcClient = new LobbyClient(rtcPort, "/lobby", CONFIG, ["data"]);
 const rtcClientEventManager = new EventTargetManager(rtcClient);
 const rtcPeerEventManager = new EventTargetManager();
 let rtcPeer = null;
@@ -59,7 +60,7 @@ class RTCController extends EventTarget {
     }
 
     setLogger(value) {
-        RTCClient.setLogger(value);
+        LobbyClient.setLogger(value);
     }
 
     async getInstances(supressError) {
@@ -80,9 +81,9 @@ class RTCController extends EventTarget {
         return rtcPeer;
     }
 
-    async host(name, pass, desc, version, data) {
+    async host(name, pass, version, data) {
         if (name) {
-            const res = await rtcClient.register(name, pass, desc, version, data);
+            const res = await rtcClient.register(name, pass, version, data);
             if (res.success === true) {
                 const username = await promtName(name);
                 if (!username) {

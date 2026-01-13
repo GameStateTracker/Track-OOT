@@ -97,7 +97,7 @@ class HTMLMultiplayerLobby extends CustomElement {
 
         host_button.addEventListener("click", async () => {
             if (host_name.value) {
-                const res = await RTCController.host(host_name.value, host_pass.value, host_desc.value, VersionData.version);
+                const res = await RTCController.host(host_name.value, host_pass.value, VersionData.version, {desc: host_desc.value});
                 if (res) {
                     this.dispatchEvent(new Event("host"));
                 }
@@ -126,7 +126,7 @@ class HTMLMultiplayerLobby extends CustomElement {
                     const el = document.createElement("ootrt-mproom");
                     el.name = inst.name;
                     el.pass = inst.pass;
-                    el.desc = inst.desc;
+                    el.desc = inst.data?.desc;
                     el.version = inst.version;
                     el.addEventListener("click", connect);
                     this.append(el);

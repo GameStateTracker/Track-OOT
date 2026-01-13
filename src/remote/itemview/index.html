@@ -14,13 +14,19 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/icon-16x16.png">
     <link rel="stylesheet" type="text/css" href="/style/index.css">
     </script>
-    <script>
+    <script type="module">
         window.addEventListener('contextmenu', function () {
             event.preventDefault();
             return false;
         });
+        if ("serviceWorker" in navigator) {
+            const cacheControl = await navigator.serviceWorker.getRegistration("/sw.js");
+            if (cacheControl != null) {
+                cacheControl.unregister();
+            }
+        }
+        import "/remote/itemview/index.js";
     </script>
-    <script type="module" src="/detached/index.js"></script>
     <style>
         body {
             margin: 0;
