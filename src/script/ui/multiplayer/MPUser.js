@@ -17,7 +17,7 @@ const TPL = new HTMLTemplate(`
         #icon[title="host"] {
             background-color: #f9cd2d;
         }
-        #icon[title="client"] {
+        #icon[title="player"] {
             background-color: #c5d6d8;
         }
         #icon[title="spectator"] {

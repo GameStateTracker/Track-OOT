@@ -3,7 +3,7 @@ import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 
 // Track-OOT
-import RTCController from "/script/util/rtc/RTCController.js";
+import MultiplayerControllerInst from "../../util/rtc/MultiplayerControllerInst.js";
 import "./MultiplayerLobby.js";
 import "./MultiplayerRoomClient.js";
 import "./MultiplayerRoomMaster.js";
@@ -45,9 +45,9 @@ class HTMLMultiplayer extends CustomElement {
         const room_client = this.shadowRoot.getElementById("room_client");
         const logger = this.shadowRoot.getElementById("logger");
 
-        RTCController.setLogger(logger);
+        MultiplayerControllerInst.setLogger(logger);
 
-        RTCController.addEventListener("roomupdate", function(event) {
+        MultiplayerControllerInst.addEventListener("roomupdate", function(event) {
             room_master.updateRoom(event.data);
             room_client.updateRoom(event.data);
         });

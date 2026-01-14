@@ -1,10 +1,10 @@
 // frameworks
 import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
+import MultiplayerHost from "/GameTrackerJS/util/rtc/multiplayer/peer/MultiplayerHost.js";
 
 // Track-OOT
-import RTCController from "/script/util/rtc/RTCController.js";
-import RTCPeerHost from "/script/util/rtc/RTCPeerHost.js";
+import MultiplayerControllerInst from "../../util/rtc/MultiplayerControllerInst.js";
 import "./MPUser.js";
 import "./MPManagedUser.js";
 import "./MPLogger.js";
@@ -55,8 +55,8 @@ class HTMLMultiplayerRoomMaster extends CustomElement {
         let closed_room = false;
 
         close_button.addEventListener("click", async () => {
-            const rtcPeer = RTCController.getPeer();
-            if (rtcPeer instanceof RTCPeerHost) {
+            const rtcPeer = MultiplayerControllerInst.getPeer();
+            if (rtcPeer instanceof MultiplayerHost) {
                 if (await rtcPeer.close()) {
                     close_button.style.display = "none";
                     closed_room = true;
@@ -65,8 +65,8 @@ class HTMLMultiplayerRoomMaster extends CustomElement {
         });
 
         leave_button.addEventListener("click", async () => {
-            const rtcPeer = RTCController.getPeer();
-            if (rtcPeer instanceof RTCPeerHost) {
+            const rtcPeer = MultiplayerControllerInst.getPeer();
+            if (rtcPeer instanceof MultiplayerHost) {
                 if (closed_room || await rtcPeer.close()) {
                     close_button.style.display = undefined;
                     await rtcPeer.disconnect();
@@ -85,11 +85,11 @@ class HTMLMultiplayerRoomMaster extends CustomElement {
             el.role = "host";
             this.append(el);
         }
-        if (data.clients) {
-            for (const inst of data.clients) {
+        if (data.players) {
+            for (const inst of data.players) {
                 const el = document.createElement("ootrt-mpmanageduser");
                 el.name = inst;
-                el.role = "client";
+                el.role = "player";
                 el.addEventListener("kick", kickUser);
                 this.append(el);
             }
@@ -108,8 +108,8 @@ class HTMLMultiplayerRoomMaster extends CustomElement {
 }
 
 function kickUser(event) {
-    const rtcPeer = RTCController.getPeer();
-    if (rtcPeer instanceof RTCPeerHost) {
+    const rtcPeer = MultiplayerControllerInst.getPeer();
+    if (rtcPeer instanceof MultiplayerHost) {
         rtcPeer.kick(event.target.name);
     }
 }

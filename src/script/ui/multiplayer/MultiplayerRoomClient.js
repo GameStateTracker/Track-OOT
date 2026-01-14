@@ -1,10 +1,10 @@
 // frameworks
 import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
+import MultiplayerClient from "/GameTrackerJS/util/rtc/multiplayer/peer/MultiplayerClient.js";
 
 // Track-OOT
-import RTCController from "/script/util/rtc/RTCController.js";
-import RTCPeerClient from "/script/util/rtc/RTCPeerClient.js";
+import MultiplayerControllerInst from "../../util/rtc/MultiplayerControllerInst.js";
 import "./MPUser.js";
 import "./MPLogger.js";
 
@@ -49,8 +49,8 @@ class HTMLMultiplayerRoomClient extends CustomElement {
         const leave_button = this.shadowRoot.getElementById("leave_button");
 
         leave_button.addEventListener("click", async () => {
-            const rtcPeer = RTCController.getPeer();
-            if (rtcPeer instanceof RTCPeerClient) {
+            const rtcPeer = MultiplayerControllerInst.getPeer();
+            if (rtcPeer instanceof MultiplayerClient) {
                 await rtcPeer.disconnect();
             }
             this.dispatchEvent(new Event("leave"));
@@ -65,12 +65,12 @@ class HTMLMultiplayerRoomClient extends CustomElement {
             el.role = "host";
             this.append(el);
         }
-        if (data.clients) {
-            for (const inst of data.clients) {
+        if (data.players) {
+            for (const inst of data.players) {
                 const el = document.createElement("ootrt-mpuser");
                 el.name = inst;
-                el.role = "client";
-                if (inst == RTCController.getPeer().username) {
+                el.role = "player";
+                if (inst == MultiplayerControllerInst.getPeer().username) {
                     this.prepend(el);
                 } else {
                     this.append(el);
@@ -82,7 +82,7 @@ class HTMLMultiplayerRoomClient extends CustomElement {
                 const el = document.createElement("ootrt-mpuser");
                 el.name = inst;
                 el.role = "spectator";
-                if (inst == RTCController.getPeer().username) {
+                if (inst == MultiplayerControllerInst.getPeer().username) {
                     this.prepend(el);
                 } else {
                     this.append(el);

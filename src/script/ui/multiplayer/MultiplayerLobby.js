@@ -2,11 +2,9 @@
 import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
-
-// GameTrackerJS
 import VersionData from "/GameTrackerJS/data/VersionData.js";
 // Track-OOT
-import RTCController from "/script/util/rtc/RTCController.js";
+import MultiplayerControllerInst from "../../util/rtc/MultiplayerControllerInst.js";
 import "./MPRoom.js";
 
 const TPL = new HTMLTemplate(`
@@ -97,7 +95,7 @@ class HTMLMultiplayerLobby extends CustomElement {
 
         host_button.addEventListener("click", async () => {
             if (host_name.value) {
-                const res = await RTCController.host(host_name.value, host_pass.value, VersionData.version, {desc: host_desc.value});
+                const res = await MultiplayerControllerInst.host(host_name.value, host_pass.value, VersionData.version, {desc: host_desc.value});
                 if (res) {
                     this.dispatchEvent(new Event("host"));
                 }
@@ -109,9 +107,9 @@ class HTMLMultiplayerLobby extends CustomElement {
             let res;
             if (!!el.pass && el.pass != "false") {
                 const pass = await Dialog.prompt("password required", "please enter password");
-                res = await RTCController.join(el.name, pass, VersionData.version);
+                res = await MultiplayerControllerInst.join(el.name, pass, VersionData.version);
             } else {
-                res = await RTCController.join(el.name, "", VersionData.version);
+                res = await MultiplayerControllerInst.join(el.name, "", VersionData.version);
             }
             if (res) {
                 this.dispatchEvent(new Event("join"));
@@ -119,7 +117,7 @@ class HTMLMultiplayerLobby extends CustomElement {
         };
 
         const refresh = async (supressError) => {
-            const res = await RTCController.getInstances(supressError);
+            const res = await MultiplayerControllerInst.getInstances(supressError);
             if (res != null) {
                 this.innerHTML = "";
                 for (const inst of res) {

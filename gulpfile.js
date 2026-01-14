@@ -138,6 +138,15 @@ function copyRemoteScript(src = SRC_PATH, dest = DEV_PATH) {
     const DST = `${dest}/remote`;
     return copyJS(FILES, SRC, DST, dest);
 }
+
+function copyConfigScript(src = SRC_PATH, dest = DEV_PATH) {
+    const FILES = [
+        `${src}/config/**/*.js`
+    ];
+    const SRC = `${src}/config`;
+    const DST = `${dest}/config`;
+    return copyJS(FILES, SRC, DST, dest);
+}
 /* JS END */
 
 function copyHTML(src = SRC_PATH, dest = DEV_PATH) {
@@ -330,6 +339,7 @@ export const build = gulp.series(gulp.parallel(
     copyInitializer.bind(this, SRC_PATH, PRD_PATH),
     copyDetachedScript.bind(this, SRC_PATH, PRD_PATH),
     copyRemoteScript.bind(this, SRC_PATH, PRD_PATH),
+    copyConfigScript.bind(this, SRC_PATH, PRD_PATH),
     copyChangelog.bind(this, SRC_PATH, PRD_PATH)
 ),
 finish.bind(this, PRD_PATH));
@@ -353,6 +363,7 @@ export const buildDev = gulp.series(gulp.parallel(
     copyInitializer.bind(this, SRC_PATH, DEV_PATH),
     copyDetachedScript.bind(this, SRC_PATH, DEV_PATH),
     copyRemoteScript.bind(this, SRC_PATH, DEV_PATH),
+    copyConfigScript.bind(this, SRC_PATH, DEV_PATH),
     copyChangelog.bind(this, SRC_PATH, DEV_PATH)
 ),
 finish.bind(this, DEV_PATH));

@@ -5,17 +5,15 @@ import ItemViewClient from "/GameTrackerJS/util/rtc/itemview/ItemViewClient.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import "/script/ui/panel/itemgrid/ItemGrid.js";
 import "/script/ui/panel/dungeonstate/DungeonState.js";
+import {SYNCED_STORAGES} from "../../config/rtc/ItemViewConfig.js";
 import "./styles.js";
-
-// TODO missing dungeonstate sync for reward location
-const ITEM_STORAGE = Savestate.getStorage("items");
 
 const layoutEl = document.getElementById("layout");
 
-const client = new ItemViewClient(window.location.hostname == "localhost" ? 8001 : "");
+const client = new ItemViewClient(window.location.hostname == "localhost" ? 8001 : "", SYNCED_STORAGES);
 client.addEventListener("disconnected", () => {
     console.info("lost connection to rtc host");
-    ITEM_STORAGE.clear();
+    Savestate.purge();
     connect();
 });
 

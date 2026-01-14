@@ -1,18 +1,19 @@
 import Modal from "/emcJS/ui/modal/Modal.js";
+import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import "/emcJS/ui/form/button/Button.js";
 import "/emcJS/ui/form/element/input/password/PasswordInput.js";
 import "/emcJS/ui/form/element/input/string/StringInput.js";
 import "/emcJS/ui/form/element/input/switch/SwitchInput.js";
+import VersionData from "/GameTrackerJS/data/VersionData.js";
 import ItemViewHost from "/GameTrackerJS/util/rtc/itemview/ItemViewHost.js";
+import {SYNCED_STORAGES} from "../../../config/rtc/ItemViewConfig.js";
 import TPL from "./ItemViewerModal.js.html" assert {type: "html"};
 import STYLE from "./ItemViewerModal.js.css" assert {type: "css"};
-import VersionData from "/GameTrackerJS/data/VersionData.js";
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 
 export default class ItemViewerModal extends Modal {
 
-    #itemViewHost = new ItemViewHost(window.location.hostname == "localhost" ? 8001 : "");
+    #itemViewHost = new ItemViewHost(window.location.hostname == "localhost" ? 8001 : "", SYNCED_STORAGES);
 
     #connectionTokenEl;
 
