@@ -23,12 +23,6 @@
     background-image: url("/images/icons/multi_spectator.svg")
 }
 
-#detail {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1;
-}
-
 #name {
     display: flex;
     align-items: center;

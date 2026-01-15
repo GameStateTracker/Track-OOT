@@ -3,13 +3,12 @@ import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import I18nOption from "/emcJS/ui/i18n/builtin/I18nOption.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import "/emcJS/ui/form/button/Button.js";
-import "/emcJS/ui/form/element/input/number/NumberInput.js";
 import "/emcJS/ui/form/element/input/password/PasswordInput.js";
 import "/emcJS/ui/form/element/input/string/StringInput.js";
-import "/emcJS/ui/form/element/input/switch/SwitchInput.js";
+import "/emcJS/ui/form/element/select/simple/SimpleSelect.js";
 import VersionData from "/GameTrackerJS/data/VersionData.js";
 import {ClientTypes} from "/GameTrackerJS/util/rtc/multiplayer/config/MultiplayerConfig.js";
-import MultiplayerControllerInst from "../../../util/rtc/MultiplayerControllerInst.js";
+import MultiplayerControllerInst from "../../../../util/rtc/MultiplayerControllerInst.js";
 import TPL from "./MultiplayerHostModal.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerHostModal.js.css" assert {type: "css"};
 
@@ -28,7 +27,7 @@ export default class MultiplayerHostModal extends Modal {
     #cancelEl;
 
     constructor() {
-        super("Most Multiplayer Room");
+        super("Host Multiplayer Room");
         this.setImageIcon("/images/icons/multi.svg", {shadow: "#000000"});
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
@@ -49,7 +48,7 @@ export default class MultiplayerHostModal extends Modal {
         this.#descriptionEl = this.shadowRoot.getElementById("description");
         this.#clientTypeEl = this.shadowRoot.getElementById("client-type");
 
-        for (const clientType of ClientTypes) {
+        for (const [, clientType] of ClientTypes) {
             const {
                 value, label
             } = clientType;
@@ -77,8 +76,11 @@ export default class MultiplayerHostModal extends Modal {
             const res = await MultiplayerControllerInst.host(name, password, VersionData.version, {desc: description});
             this.#onDefault();
             if (res) {
-                res.getPeer().joiningClientType = clientType;
-                this.dispatchEvent(new Event("hosting"));
+                const peer = res.getPeer();
+                peer.joiningClientType = clientType;
+                const ev = new Event("hosting");
+                ev.peer = peer;
+                this.dispatchEvent(ev);
                 this.remove();
             }
         } catch (error) {

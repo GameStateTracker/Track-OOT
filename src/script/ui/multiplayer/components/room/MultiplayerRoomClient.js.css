@@ -1,0 +1,27 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#content {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 0 0 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--page-border-color, #ffffff);
+}
+
+.empty-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    color: #ffffff;
+}

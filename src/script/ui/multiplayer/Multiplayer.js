@@ -1,44 +1,18 @@
-// frameworks
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-
-// Track-OOT
+import Panel from "/emcJS/ui/layout/Panel.js";
 import MultiplayerControllerInst from "../../util/rtc/MultiplayerControllerInst.js";
-import "./MultiplayerLobby.js";
-import "./MultiplayerRoomClient.js";
-import "./MultiplayerRoomMaster.js";
+import "./components/lobby/MultiplayerLobby.js";
+import "./components/room/MultiplayerRoomClient.js";
+import "./components/room/MultiplayerRoomMaster.js";
+import TPL from "./Multiplayer.js.html" assert {type: "html"};
+import STYLE from "./Multiplayer.js.css" assert {type: "css"};
 
-const TPL = new HTMLTemplate(`
-    <style>
-        :host {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-            padding: 10px;
-        }
-        :host > * {
-            flex: 1;
-        }
-        :host > :not(.active) {
-            display: none;
-        }
-        #logger {
-            max-height: 30dvh;
-            min-height: 20dvh;
-        }
-    </style>
-    <ootrt-multiplayerlobby id="lobby_view" class="active"></ootrt-multiplayerlobby>
-    <ootrt-multiplayerroommaster id="room_master"></ootrt-multiplayerroommaster>
-    <ootrt-multiplayerroomclient id="room_client"></ootrt-multiplayerroomclient>
-    <ootrt-mplogger id="logger" class="active"></ootrt-mplogger>
-`);
-
-class HTMLMultiplayer extends CustomElement {
+export default class Multiplayer extends Panel {
 
     constructor() {
         super();
-        this.shadowRoot.append(TPL.generate());
+        TPL.apply(this.shadowRoot);
+        STYLE.apply(this.shadowRoot);
+        /* --- */
 
         const lobby_view = this.shadowRoot.getElementById("lobby_view");
         const room_master = this.shadowRoot.getElementById("room_master");
@@ -52,12 +26,12 @@ class HTMLMultiplayer extends CustomElement {
             room_client.updateRoom(event.data);
         });
 
-        lobby_view.addEventListener("host", function() {
+        lobby_view.addEventListener("hosting", function() {
             lobby_view.classList.remove("active");
             room_master.classList.add("active");
         });
 
-        lobby_view.addEventListener("join", function() {
+        lobby_view.addEventListener("joined", function() {
             lobby_view.classList.remove("active");
             room_client.classList.add("active");
         });
@@ -75,4 +49,4 @@ class HTMLMultiplayer extends CustomElement {
 
 }
 
-customElements.define("ootrt-multiplayer", HTMLMultiplayer);
+customElements.define("ootrt-multiplayer", Multiplayer);

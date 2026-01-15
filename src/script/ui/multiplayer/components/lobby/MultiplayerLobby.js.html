@@ -1,0 +1,13 @@
+<div id="title">
+    <emc-i18n-label i18n-value="Multiplayer Lobby"></emc-i18n-label>
+    <emc-button id="refresh" icon="↻" text="refresh" class="rotate-icon-90"></emc-button>
+    <emc-button id="host" icon="?" text="host"></emc-button>
+</div>
+<div id="container">
+    <div id="content">
+        <slot id="lobby-list">
+            <div class="empty-message">No rooms found.<br>Please press refresh!</div>
+        </slot>
+    </div>
+    <ootrt-multiplayer-lobby-room-details id="room-details"></ootrt-multiplayer-lobby-room-details>
+</div>
