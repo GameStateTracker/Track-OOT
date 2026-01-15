@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    height: 50px;
+    margin: 10px;
+    background-color: #111111;
+}
+
+#icon {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+}
+
+#icon[title="host"] {
+    background-image: url("/images/icons/multi_host.svg")
+}
+
+#icon[title="player"] {
+    background-image: url("/images/icons/multi_player.svg")
+}
+
+#icon[title="spectator"] {
+    background-image: url("/images/icons/multi_spectator.svg")
+}
+
+#detail {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+#name {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 200px;
+    color: #ffffff;
+}

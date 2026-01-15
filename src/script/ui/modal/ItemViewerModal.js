@@ -26,8 +26,8 @@ export default class ItemViewerModal extends Modal {
     #disconnectEl;
 
     constructor() {
-        super("Archipelago");
-        this.setImageIcon("/images/icons/ap.svg", {shadow: "#000000"});
+        super("Remote Item View Settings");
+        this.setImageIcon("/images/icons/stream.svg", {shadow: "#000000"});
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */
