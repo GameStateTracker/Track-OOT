@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 0px 10px 10px 10px;
     flex-shrink: 0;
 }
 
@@ -51,9 +50,15 @@
     overflow: scroll;
     background-color: var(--edit-back-color, #ffffff);
     color: var(--edit-text-color, #000000);
+    border: none;
     word-wrap: unset;
     white-space: pre;
     user-select: text;
+}
+
+#output:focus,
+#output:focus-visible {
+    outline: none;
 }
 
 :host([expanded]:not([expanded="false"])) #output {

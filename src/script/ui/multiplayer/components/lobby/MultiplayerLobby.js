@@ -2,8 +2,8 @@ import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import MultiplayerControllerInst from "../../../../util/rtc/MultiplayerControllerInst.js";
 import MultiplayerHostModal from "../modal/MultiplayerHostModal.js";
-import "./MultiplayerLobbyRoom.js";
-import "./MultiplayerLobbyRoomDetails.js";
+import "./entry/MultiplayerLobbyRoom.js";
+import "./detail/MultiplayerLobbyRoomDetails.js";
 import TPL from "./MultiplayerLobby.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerLobby.js.css" assert {type: "css"};
 
@@ -55,7 +55,7 @@ export default class MultiplayerLobby extends CustomElement {
                     el.desc = inst.data?.desc;
                     el.version = inst.version;
                     el.addEventListener("click", () => {
-                        this.#roomDetailsEl.el.name = inst.name;
+                        this.#roomDetailsEl.name = inst.name;
                         this.#roomDetailsEl.pass = inst.pass;
                         this.#roomDetailsEl.desc = inst.data?.desc;
                         this.#roomDetailsEl.version = inst.version;

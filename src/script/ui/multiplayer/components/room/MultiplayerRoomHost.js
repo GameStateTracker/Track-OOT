@@ -2,13 +2,13 @@ import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import MultiplayerHost from "/GameTrackerJS/util/rtc/multiplayer/peer/MultiplayerHost.js";
 import MultiplayerControllerInst from "../../../../util/rtc/MultiplayerControllerInst.js";
-import "./entries/MultiplayerUser.js";
-import "./entries/MultiplayerUserManaged.js";
+import "./entry/MultiplayerUser.js";
+import "./entry/MultiplayerUserManaged.js";
 import "../logger/MultiplayerLogger.js";
-import TPL from "./MultiplayerRoomMaster.js.html" assert {type: "html"};
-import STYLE from "./MultiplayerRoomMaster.js.css" assert {type: "css"};
+import TPL from "./MultiplayerRoomHost.js.html" assert {type: "html"};
+import STYLE from "./MultiplayerRoomHost.js.css" assert {type: "css"};
 
-export default class MultiplayerRoomMaster extends CustomElement {
+export default class MultiplayerRoomHost extends CustomElement {
 
     #disconnectEl;
 
@@ -27,7 +27,7 @@ export default class MultiplayerRoomMaster extends CustomElement {
             const rtcPeer = MultiplayerControllerInst.getPeer();
             if (rtcPeer instanceof MultiplayerHost) {
                 await rtcPeer.disconnect();
-                this.dispatchEvent(new Event("disconnect"));
+                this.dispatchEvent(new Event("disconnected"));
             }
         });
 
@@ -86,4 +86,4 @@ function kickUser(event) {
     }
 }
 
-customElements.define("ootrt-multiplayer-room-master", MultiplayerRoomMaster);
+customElements.define("ootrt-multiplayer-room-host", MultiplayerRoomHost);

@@ -73,11 +73,11 @@ export default class MultiplayerLobbyRoom extends CustomElement {
                     this.#nameEl.innerHTML = newValue;
                     break;
                 case "desc":
-                    this.#descEl.innerHTML = newValue;
+                    this.#descEl.innerHTML = newValue.split("\n")[0];
                     break;
                 case "version":
                     if (newValue != "") {
-                        this.#versionEl.innerHTML = `V: ${newValue.toLowerCase()}`;
+                        this.#versionEl.innerHTML = newValue.toLowerCase();
                     } else {
                         this.#versionEl.innerHTML = "";
                     }

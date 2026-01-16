@@ -1,5 +1,6 @@
 :host {
     display: flex;
+    padding: 10px;
 }
 
 #container {
@@ -11,9 +12,12 @@
 
 #content {
     flex: 1;
-    padding: 10px;
 }
 
 #content > :not(.active) {
     display: none;
+}
+
+#logger {
+    margin-top: 10px;
 }

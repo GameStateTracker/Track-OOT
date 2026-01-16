@@ -5,6 +5,7 @@ import "/emcJS/ui/i18n/I18nLabel.js";
 import "/emcJS/ui/form/button/Button.js";
 import "/emcJS/ui/form/element/input/password/PasswordInput.js";
 import "/emcJS/ui/form/element/input/string/StringInput.js";
+import "/emcJS/ui/form/element/input/text/TextInput.js";
 import "/emcJS/ui/form/element/select/simple/SimpleSelect.js";
 import VersionData from "/GameTrackerJS/data/VersionData.js";
 import {ClientTypes} from "/GameTrackerJS/util/rtc/multiplayer/config/MultiplayerConfig.js";
@@ -27,7 +28,7 @@ export default class MultiplayerHostModal extends Modal {
     #cancelEl;
 
     constructor() {
-        super("Host Multiplayer Room");
+        super("Create Multiplayer Room");
         this.setImageIcon("/images/icons/multi.svg", {shadow: "#000000"});
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
@@ -76,7 +77,7 @@ export default class MultiplayerHostModal extends Modal {
             const res = await MultiplayerControllerInst.host(name, password, VersionData.version, {desc: description});
             this.#onDefault();
             if (res) {
-                const peer = res.getPeer();
+                const peer = MultiplayerControllerInst.getPeer();
                 peer.joiningClientType = clientType;
                 const ev = new Event("hosting");
                 ev.peer = peer;

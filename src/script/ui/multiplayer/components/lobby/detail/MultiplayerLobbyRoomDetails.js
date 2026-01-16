@@ -2,7 +2,7 @@ import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import VersionData from "/GameTrackerJS/data/VersionData.js";
-import MultiplayerControllerInst from "../../../../util/rtc/MultiplayerControllerInst.js";
+import MultiplayerControllerInst from "../../../../../util/rtc/MultiplayerControllerInst.js";
 import TPL from "./MultiplayerLobbyRoomDetails.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerLobbyRoomDetails.js.css" assert {type: "css"};
 
@@ -95,7 +95,7 @@ export default class MultiplayerLobbyRoomDetails extends CustomElement {
                     break;
                 case "version":
                     if (newValue != "") {
-                        this.#versionEl.innerHTML = `V: ${newValue.toLowerCase()}`;
+                        this.#versionEl.innerHTML = newValue.toLowerCase();
                     } else {
                         this.#versionEl.innerHTML = "";
                     }

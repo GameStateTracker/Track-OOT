@@ -2,7 +2,7 @@ import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import MultiplayerClient from "/GameTrackerJS/util/rtc/multiplayer/peer/MultiplayerClient.js";
 import MultiplayerControllerInst from "../../../../util/rtc/MultiplayerControllerInst.js";
-import "./entries/MultiplayerUser.js";
+import "./entry/MultiplayerUser.js";
 import "../logger/MultiplayerLogger.js";
 import TPL from "./MultiplayerRoomClient.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerRoomClient.js.css" assert {type: "css"};
@@ -24,7 +24,7 @@ export default class MultiplayerRoomClient extends CustomElement {
             if (rtcPeer instanceof MultiplayerClient) {
                 await rtcPeer.disconnect();
             }
-            this.dispatchEvent(new Event("disconnect"));
+            this.dispatchEvent(new Event("disconnected"));
         });
     }
 

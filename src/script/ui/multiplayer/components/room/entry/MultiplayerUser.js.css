@@ -1,14 +1,21 @@
 :host {
     display: flex;
-    height: 50px;
+    width: calc(100% - 20px);
+    height: 60px;
     margin: 10px;
+    padding: 5px;
     background-color: #111111;
+    overflow: hidden;
 }
 
 #icon {
+    flex-shrink: 0;
     height: 50px;
     width: 50px;
     margin-right: 10px;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #icon[title="host"] {

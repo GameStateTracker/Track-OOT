@@ -6,10 +6,12 @@ import "/emcJS/ui/form/element/input/password/PasswordInput.js";
 import "/emcJS/ui/form/element/input/string/StringInput.js";
 import "/emcJS/ui/form/element/input/switch/SwitchInput.js";
 import VersionData from "/GameTrackerJS/data/VersionData.js";
+import ParameterStorage from "/GameTrackerJS/storage/ParameterStorage.js";
 import ItemViewHost from "/GameTrackerJS/util/rtc/itemview/ItemViewHost.js";
 import {SYNCED_STORAGES} from "../../../config/rtc/ItemViewConfig.js";
 import TPL from "./ItemViewerModal.js.html" assert {type: "html"};
 import STYLE from "./ItemViewerModal.js.css" assert {type: "css"};
+import {uniqueKey} from "/emcJS/util/helper/UniqueGenerator.js";
 
 export default class ItemViewerModal extends Modal {
 
@@ -26,7 +28,7 @@ export default class ItemViewerModal extends Modal {
     #disconnectEl;
 
     constructor() {
-        super("Remote Item View Settings");
+        super("Remote Item View");
         this.setImageIcon("/images/icons/stream.svg", {shadow: "#000000"});
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
@@ -46,33 +48,38 @@ export default class ItemViewerModal extends Modal {
         this.#generateTokenEl = this.shadowRoot.getElementById("generate-token");
         this.#viewLinkEl = this.shadowRoot.getElementById("view-link");
 
-        this.#connectEl.addEventListener("click", () => this.connect());
-        this.#disconnectEl.addEventListener("click", () => this.disconnect());
+        this.#connectEl.addEventListener("click", () => {
+            this.connect();
+        });
+        this.#disconnectEl.addEventListener("click", () => {
+            this.disconnect();
+        });
 
         this.#connectionTokenEl.addEventListener("change", () => {
-            const token = this.#connectionTokenEl.value;
-            const linkUrl = new URL(`/remote/itemview/#${token}`, location);
-            this.#viewLinkEl.value = linkUrl;
+            const connectionToken = this.#connectionTokenEl.value;
+            const linkUrl = new URL(`/remote/itemview/#${connectionToken}`, location);
+            this.#viewLinkEl.value = linkUrl.href;
         });
         this.#generateTokenEl.addEventListener("click", () => {
-            // TODO generate token
-            const token = "iamgroot";
-            this.#connectionTokenEl.value = token;
+            const connectionToken = uniqueKey();
+            this.#connectionTokenEl.value = connectionToken;
         });
     }
 
     show() {
+        const connectionToken = ParameterStorage.get("item_view_modal.token");
+        this.#connectionTokenEl.value = connectionToken;
         if (this.#itemViewHost.isHosting()) {
             this.#onConnected();
         } else {
             this.#onDisonnected();
         }
-
         super.show();
     }
 
     async connect() {
         const connectionToken = this.#connectionTokenEl.value;
+        ParameterStorage.set("item_view_modal.token", connectionToken);
         try {
             this.#onConnecting();
             await this.#itemViewHost.host(connectionToken, "", VersionData.version);
