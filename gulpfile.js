@@ -33,7 +33,11 @@ const NOCOMPRESS = process.argv.indexOf("-nocompress") >= 0;
 const REBUILD = process.argv.indexOf("-rebuild") >= 0;
 const REBUILDJS = process.argv.indexOf("-rebuildjs") >= 0;
 
-console.log({NOCOMPRESS, REBUILDJS, REBUILD});
+console.log({
+    NOCOMPRESS,
+    REBUILDJS,
+    REBUILD
+});
 
 // ImportAnalyzer.reportImport(true);
 
@@ -123,6 +127,24 @@ function copyDetachedScript(src = SRC_PATH, dest = DEV_PATH) {
     ];
     const SRC = `${src}/detached`;
     const DST = `${dest}/detached`;
+    return copyJS(FILES, SRC, DST, dest);
+}
+
+function copyRemoteScript(src = SRC_PATH, dest = DEV_PATH) {
+    const FILES = [
+        `${src}/remote/**/*.js`
+    ];
+    const SRC = `${src}/remote`;
+    const DST = `${dest}/remote`;
+    return copyJS(FILES, SRC, DST, dest);
+}
+
+function copyConfigScript(src = SRC_PATH, dest = DEV_PATH) {
+    const FILES = [
+        `${src}/config/**/*.js`
+    ];
+    const SRC = `${src}/config`;
+    const DST = `${dest}/config`;
     return copyJS(FILES, SRC, DST, dest);
 }
 /* JS END */
@@ -287,6 +309,7 @@ function finish(dest, done) {
             path.resolve(dest, "index.js"),
             path.resolve(dest, "script/StateRecovery.js"),
             path.resolve(dest, "detached/index.js"),
+            path.resolve(dest, "remote/itemview/index.js"),
             path.resolve(dest, "emcJS/util/html/template/HTMLTemplate.js"),
             path.resolve(dest, "emcJS/util/html/template/CSSTemplate.js")
         ),
@@ -297,58 +320,56 @@ function finish(dest, done) {
     done();
 }
 
-export const build = gulp.series(
-    gulp.parallel(
-        copyHTML.bind(this, SRC_PATH, PRD_PATH),
-        copyJSON.bind(this, SRC_PATH, PRD_PATH),
-        copyLogic.bind(this, SRC_PATH, PRD_PATH),
-        copyI18N.bind(this, SRC_PATH, PRD_PATH),
-        copyI18NFragments.bind(this, SRC_PATH, PRD_PATH),
-        copyImg.bind(this, SRC_PATH, PRD_PATH),
-        copyCSS.bind(this, SRC_PATH, PRD_PATH),
-        copyEmcJSCSS.bind(this, PRD_PATH),
-        copyFonts.bind(this, SRC_PATH, PRD_PATH),
-        copyScript.bind(this, SRC_PATH, PRD_PATH),
-        copyGameTrackerJS.bind(this, PRD_PATH),
-        copyEmcJS.bind(this, PRD_PATH),
-        copyJSEditors.bind(this, PRD_PATH),
-        copyRTCClient.bind(this, PRD_PATH),
-        copyArchipelagoJS.bind(this, PRD_PATH),
-        copyInitializer.bind(this, SRC_PATH, PRD_PATH),
-        copyDetachedScript.bind(this, SRC_PATH, PRD_PATH),
-        copyChangelog.bind(this, SRC_PATH, PRD_PATH)
-    ),
-    finish.bind(this, PRD_PATH)
-);
+export const build = gulp.series(gulp.parallel(
+    copyHTML.bind(this, SRC_PATH, PRD_PATH),
+    copyJSON.bind(this, SRC_PATH, PRD_PATH),
+    copyLogic.bind(this, SRC_PATH, PRD_PATH),
+    copyI18N.bind(this, SRC_PATH, PRD_PATH),
+    copyI18NFragments.bind(this, SRC_PATH, PRD_PATH),
+    copyImg.bind(this, SRC_PATH, PRD_PATH),
+    copyCSS.bind(this, SRC_PATH, PRD_PATH),
+    copyEmcJSCSS.bind(this, PRD_PATH),
+    copyFonts.bind(this, SRC_PATH, PRD_PATH),
+    copyScript.bind(this, SRC_PATH, PRD_PATH),
+    copyGameTrackerJS.bind(this, PRD_PATH),
+    copyEmcJS.bind(this, PRD_PATH),
+    copyJSEditors.bind(this, PRD_PATH),
+    copyRTCClient.bind(this, PRD_PATH),
+    copyArchipelagoJS.bind(this, PRD_PATH),
+    copyInitializer.bind(this, SRC_PATH, PRD_PATH),
+    copyDetachedScript.bind(this, SRC_PATH, PRD_PATH),
+    copyRemoteScript.bind(this, SRC_PATH, PRD_PATH),
+    copyConfigScript.bind(this, SRC_PATH, PRD_PATH),
+    copyChangelog.bind(this, SRC_PATH, PRD_PATH)
+),
+finish.bind(this, PRD_PATH));
 
-export const buildDev = gulp.series(
-    gulp.parallel(
-        copyHTML.bind(this, SRC_PATH, DEV_PATH),
-        copyJSON.bind(this, SRC_PATH, DEV_PATH),
-        copyLogic.bind(this, SRC_PATH, DEV_PATH),
-        copyI18N.bind(this, SRC_PATH, DEV_PATH),
-        copyI18NFragments.bind(this, SRC_PATH, DEV_PATH),
-        copyImg.bind(this, SRC_PATH, DEV_PATH),
-        copyCSS.bind(this, SRC_PATH, DEV_PATH),
-        copyEmcJSCSS.bind(this, DEV_PATH),
-        copyFonts.bind(this, SRC_PATH, DEV_PATH),
-        copyScript.bind(this, SRC_PATH, DEV_PATH),
-        copyGameTrackerJS.bind(this, DEV_PATH),
-        copyEmcJS.bind(this, DEV_PATH),
-        copyJSEditors.bind(this, DEV_PATH),
-        copyRTCClient.bind(this, DEV_PATH),
-        copyArchipelagoJS.bind(this, DEV_PATH),
-        copyInitializer.bind(this, SRC_PATH, DEV_PATH),
-        copyDetachedScript.bind(this, SRC_PATH, DEV_PATH),
-        copyChangelog.bind(this, SRC_PATH, DEV_PATH)
-    ),
-    finish.bind(this, DEV_PATH)
-);
+export const buildDev = gulp.series(gulp.parallel(
+    copyHTML.bind(this, SRC_PATH, DEV_PATH),
+    copyJSON.bind(this, SRC_PATH, DEV_PATH),
+    copyLogic.bind(this, SRC_PATH, DEV_PATH),
+    copyI18N.bind(this, SRC_PATH, DEV_PATH),
+    copyI18NFragments.bind(this, SRC_PATH, DEV_PATH),
+    copyImg.bind(this, SRC_PATH, DEV_PATH),
+    copyCSS.bind(this, SRC_PATH, DEV_PATH),
+    copyEmcJSCSS.bind(this, DEV_PATH),
+    copyFonts.bind(this, SRC_PATH, DEV_PATH),
+    copyScript.bind(this, SRC_PATH, DEV_PATH),
+    copyGameTrackerJS.bind(this, DEV_PATH),
+    copyEmcJS.bind(this, DEV_PATH),
+    copyJSEditors.bind(this, DEV_PATH),
+    copyRTCClient.bind(this, DEV_PATH),
+    copyArchipelagoJS.bind(this, DEV_PATH),
+    copyInitializer.bind(this, SRC_PATH, DEV_PATH),
+    copyDetachedScript.bind(this, SRC_PATH, DEV_PATH),
+    copyRemoteScript.bind(this, SRC_PATH, DEV_PATH),
+    copyConfigScript.bind(this, SRC_PATH, DEV_PATH),
+    copyChangelog.bind(this, SRC_PATH, DEV_PATH)
+),
+finish.bind(this, DEV_PATH));
 
 export const watch = function() {
     buildDev();
-    return gulp.watch(
-        SRC_PATH,
-        buildDev
-    );
+    return gulp.watch(SRC_PATH,
+        buildDev);
 };

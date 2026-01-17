@@ -1,0 +1,9 @@
+#actions {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+#client-type {
+    width: 200px;
+}

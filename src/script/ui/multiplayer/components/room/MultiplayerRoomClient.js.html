@@ -1,0 +1,10 @@
+<div class="view-container-title">
+    <emc-i18n-label i18n-value="Multiplayer Room"></emc-i18n-label>:
+    <span id="room-name"></span>
+    <emc-button id="disconnect" text="Disconnect" icon="{{ICON_STANDBY}}"></emc-button>
+</div>
+<div id="content">
+    <slot id="room-peer-list">
+        <div class="empty-message">The room is empty</div>
+    </slot>
+</div>

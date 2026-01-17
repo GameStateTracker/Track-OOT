@@ -1,0 +1,39 @@
+:host {
+    display: flex;
+    width: calc(100% - 20px);
+    height: 60px;
+    margin: 10px;
+    padding: 5px;
+    background-color: #111111;
+    overflow: hidden;
+}
+
+#icon {
+    flex-shrink: 0;
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#icon[title="host"] {
+    background-image: url("/images/icons/multi_host.svg")
+}
+
+#icon[title="player"] {
+    background-image: url("/images/icons/multi_player.svg")
+}
+
+#icon[title="spectator"] {
+    background-image: url("/images/icons/multi_spectator.svg")
+}
+
+#name {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 200px;
+    color: #ffffff;
+}

@@ -1,78 +1,74 @@
-// frameworks
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
+import Panel from "/emcJS/ui/layout/Panel.js";
+import MultiplayerControllerInst from "../../util/rtc/MultiplayerControllerInst.js";
+import "./components/lobby/MultiplayerLobby.js";
+import "./components/room/MultiplayerRoomClient.js";
+import "./components/room/MultiplayerRoomHost.js";
+import TPL from "./Multiplayer.js.html" assert {type: "html"};
+import STYLE from "./Multiplayer.js.css" assert {type: "css"};
 
-// Track-OOT
-import RTCController from "/script/util/rtc/RTCController.js";
-import "./MultiplayerLobby.js";
-import "./MultiplayerRoomClient.js";
-import "./MultiplayerRoomMaster.js";
+export default class Multiplayer extends Panel {
 
-const TPL = new HTMLTemplate(`
-    <style>
-        :host {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-            padding: 10px;
-        }
-        :host > * {
-            flex: 1;
-        }
-        :host > :not(.active) {
-            display: none;
-        }
-        #logger {
-            max-height: 30dvh;
-            min-height: 20dvh;
-        }
-    </style>
-    <ootrt-multiplayerlobby id="lobby_view" class="active"></ootrt-multiplayerlobby>
-    <ootrt-multiplayerroommaster id="room_master"></ootrt-multiplayerroommaster>
-    <ootrt-multiplayerroomclient id="room_client"></ootrt-multiplayerroomclient>
-    <ootrt-mplogger id="logger" class="active"></ootrt-mplogger>
-`);
+    #lobbyViewEl;
 
-class HTMLMultiplayer extends CustomElement {
+    #roomHostEl;
+
+    #roomClientEl;
+
+    #loggerEl;
+
+    #mode = "lobby";
 
     constructor() {
         super();
-        this.shadowRoot.append(TPL.generate());
+        TPL.apply(this.shadowRoot);
+        STYLE.apply(this.shadowRoot);
+        /* --- */
 
-        const lobby_view = this.shadowRoot.getElementById("lobby_view");
-        const room_master = this.shadowRoot.getElementById("room_master");
-        const room_client = this.shadowRoot.getElementById("room_client");
-        const logger = this.shadowRoot.getElementById("logger");
+        this.#lobbyViewEl = this.shadowRoot.getElementById("lobby-view");
+        this.#roomHostEl = this.shadowRoot.getElementById("room-host");
+        this.#roomClientEl = this.shadowRoot.getElementById("room-client");
+        this.#loggerEl = this.shadowRoot.getElementById("logger");
 
-        RTCController.setLogger(logger);
+        MultiplayerControllerInst.setLogger(this.#loggerEl);
 
-        RTCController.addEventListener("roomupdate", function(event) {
-            room_master.updateRoom(event.data);
-            room_client.updateRoom(event.data);
+        MultiplayerControllerInst.addEventListener("roomupdate", (event) => {
+            if  (this.#mode === "host") {
+                this.#roomHostEl.updateRoom(event.data);
+            } else if (this.#mode === "client") {
+                this.#roomClientEl.updateRoom(event.data);
+            } else {
+                this.#roomHostEl.updateRoom(event.data);
+                this.#roomClientEl.updateRoom(event.data);
+            }
         });
 
-        lobby_view.addEventListener("host", function() {
-            lobby_view.classList.remove("active");
-            room_master.classList.add("active");
+        this.#lobbyViewEl.addEventListener("hosting", () => {
+            this.#mode = "host";
+            this.#lobbyViewEl.classList.remove("active");
+            this.#roomHostEl.classList.add("active");
+            this.#roomHostEl.refreshRoomName();
         });
 
-        lobby_view.addEventListener("join", function() {
-            lobby_view.classList.remove("active");
-            room_client.classList.add("active");
+        this.#lobbyViewEl.addEventListener("joined", () => {
+            this.#mode = "client";
+            this.#lobbyViewEl.classList.remove("active");
+            this.#roomClientEl.classList.add("active");
+            this.#roomClientEl.refreshRoomName();
         });
 
-        room_master.addEventListener("close", function() {
-            room_master.classList.remove("active");
-            lobby_view.classList.add("active");
+        this.#roomHostEl.addEventListener("disconnected", () => {
+            this.#mode = "lobby";
+            this.#roomHostEl.classList.remove("active");
+            this.#lobbyViewEl.classList.add("active");
         });
 
-        room_client.addEventListener("leave", function() {
-            room_client.classList.remove("active");
-            lobby_view.classList.add("active");
+        this.#roomClientEl.addEventListener("disconnected", () => {
+            this.#mode = "lobby";
+            this.#roomClientEl.classList.remove("active");
+            this.#lobbyViewEl.classList.add("active");
         });
     }
 
 }
 
-customElements.define("ootrt-multiplayer", HTMLMultiplayer);
+customElements.define("ootrt-multiplayer", Multiplayer);

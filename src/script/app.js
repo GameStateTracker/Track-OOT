@@ -44,6 +44,7 @@ import SpoilerLogWindow from "/script/ui/window/SpoilerLogWindow.js";
 import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
 import "/script/ui/LayoutContainer.js";
 import "/script/ui/multiplayer/Multiplayer.js";
+import ItemViewerModal from "./ui/modal/ItemViewerModal.js";
 import APModal from "./ui/modal/APModal.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
@@ -57,10 +58,6 @@ function updateLoadingMessage(msg = "loading...") {
 }
 
 LoadingMessageHandler.registerCallback(updateLoadingMessage);
-
-window.onbeforeunload = function() {
-    return "Are you sure you want to close the tracker?\nUnsafed progress will be lost.";
-};
 
 // mixed entrances
 {
@@ -147,6 +144,7 @@ try {
         GlobalContext.set("TrackerSettingsWindow", new TrackerSettingsWindow());
         GlobalContext.set("RomOptionsWindow", new RomOptionsWindow());
         GlobalContext.set("SpoilerLogWindow", new SpoilerLogWindow());
+        GlobalContext.set("ItemViewerWindow", new ItemViewerModal());
         GlobalContext.set("ArchipelagoWindow", new APModal());
         GlobalContext.set("ClearDataWindow", new ClearDataWindow());
         const newGameWindow = new NewGameWindow();

@@ -1,6 +1,5 @@
 import Modal from "/emcJS/ui/modal/Modal.js";
 import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import "/emcJS/ui/input/InputWrapper.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import "/emcJS/ui/form/button/Button.js";
 import "/emcJS/ui/form/element/input/number/NumberInput.js";
@@ -46,16 +45,16 @@ export default class APModal extends Modal {
         const footerEl = this.shadowRoot.getElementById("footer");
 
         const formEl = els.getElementById("form");
+        this.#cancelEl = els.getElementById("cancel");
         this.#purgeEl = els.getElementById("purge");
         this.#connectEl = els.getElementById("connect");
         this.#disconnectEl = els.getElementById("disconnect");
-        this.#cancelEl = els.getElementById("cancel");
 
         contentEl.append(formEl);
         footerEl.append(this.#purgeEl);
+        footerEl.append(this.#cancelEl);
         footerEl.append(this.#connectEl);
         footerEl.append(this.#disconnectEl);
-        footerEl.append(this.#cancelEl);
 
         this.#apHostnameEl = this.shadowRoot.getElementById("apHostname");
         this.#apPortEl = this.shadowRoot.getElementById("apPort");
@@ -64,9 +63,9 @@ export default class APModal extends Modal {
         this.#apSettingsSyncEl = this.shadowRoot.getElementById("apSettingsSync");
 
         this.#purgeEl.addEventListener("click", () => this.#purgeAPState());
+        this.#cancelEl.addEventListener("click", () => this.cancel());
         this.#connectEl.addEventListener("click", () => this.connect());
         this.#disconnectEl.addEventListener("click", () => this.disconnect());
-        this.#cancelEl.addEventListener("click", () => this.cancel());
     }
 
     show() {
@@ -144,11 +143,18 @@ export default class APModal extends Modal {
     }
 
     #onConnecting() {
+        this.busy = true;
         this.#connectEl.text = "connecting...";
         this.#connectEl.disabled = true;
+
+        this.#apHostnameEl.readonly = true;
+        this.#apPortEl.readonly = true;
+        this.#apSlotNameEl.readonly = true;
+        this.#apPasswordEl.readonly = true;
     }
 
     #onConnected() {
+        this.busy = false;
         this.#connectEl.text = "connect";
         this.#connectEl.disabled = false;
 
@@ -163,6 +169,7 @@ export default class APModal extends Modal {
     }
 
     #onDisonnected() {
+        this.busy = false;
         this.#connectEl.text = "connect";
         this.#connectEl.disabled = false;
 

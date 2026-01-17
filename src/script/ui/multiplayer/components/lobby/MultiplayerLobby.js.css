@@ -1,0 +1,61 @@
+:host {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+}
+
+.caption {
+    display: flex;
+    align-items: center;
+    height: 2em;
+    flex-shrink: 0;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.container:not(:first-child) {
+    margin-left: 10px;
+}
+
+#lobby-container {
+    flex: 1;
+}
+
+#content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--page-border-color, #ffffff);
+}
+
+.empty-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    color: #ffffff;
+}
+
+#room-details {
+    width: max(500px, 50dvw);
+    height: 100%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--page-border-color, #ffffff);
+}
+
+#host {
+    margin-left: auto;
+    margin-right: 0px;
+}

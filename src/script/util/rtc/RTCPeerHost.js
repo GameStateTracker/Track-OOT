@@ -157,9 +157,7 @@ export default class RTCPeerHost extends RTCPeer {
                     type: "room",
                     data: data
                 });
-                rtcClient.sendOne("data", key, {
-                    type: "synced"
-                });
+                rtcClient.sendOne("data", key, {type: "synced"});
                 /* roomupdate event */
                 const ev = new Event("roomupdate");
                 ev.data = data;
