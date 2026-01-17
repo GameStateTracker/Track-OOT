@@ -9,11 +9,15 @@ import {SYNCED_STORAGES} from "../../config/rtc/ItemViewConfig.js";
 import "./styles.js";
 
 const layoutEl = document.getElementById("layout");
+const infoPanelEl = document.getElementById("info-panel");
+const panelWidthEl = document.getElementById("panel-width");
+const panelHeightEl = document.getElementById("panel-height");
 
 const client = new ItemViewClient(window.location.hostname == "localhost" ? 8001 : "", SYNCED_STORAGES);
 client.addEventListener("disconnected", () => {
     console.info("lost connection to rtc host");
     Savestate.purge();
+    infoPanelEl.style.display = "";
     connect();
 });
 
@@ -47,9 +51,12 @@ try {
     connect();
     // load layout
     layoutEl.loadLayout(LAYOUT);
-    const waw = window.outerWidth - window.innerWidth;
-    const wah = window.outerHeight - window.innerHeight;
-    window.resizeTo(waw + layoutEl.clientWidth, wah + layoutEl.clientHeight);
+    const layoutWidth = layoutEl.clientWidth;
+    const layoutHeight = layoutEl.clientHeight;
+    infoPanelEl.style.width = `${layoutWidth}px`;
+    infoPanelEl.style.height = `${layoutHeight}px`;
+    panelWidthEl.innerText = layoutWidth;
+    panelHeightEl.innerText = layoutHeight;
 } catch (err) {
     console.error(err);
 }
@@ -64,6 +71,7 @@ async function connect() {
                 connect();
             }, 5000);
         } else {
+            infoPanelEl.style.display = "none";
             console.info("rtc connection successful");
         }
     } catch (err) {
