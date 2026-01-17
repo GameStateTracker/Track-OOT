@@ -1,3 +1,4 @@
+import {uniqueKey} from "/emcJS/util/helper/UniqueGenerator.js";
 import Modal from "/emcJS/ui/modal/Modal.js";
 import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
@@ -11,7 +12,6 @@ import ItemViewHost from "/GameTrackerJS/util/rtc/itemview/ItemViewHost.js";
 import {SYNCED_STORAGES} from "../../../config/rtc/ItemViewConfig.js";
 import TPL from "./ItemViewerModal.js.html" assert {type: "html"};
 import STYLE from "./ItemViewerModal.js.css" assert {type: "css"};
-import {uniqueKey} from "/emcJS/util/helper/UniqueGenerator.js";
 
 export default class ItemViewerModal extends Modal {
 

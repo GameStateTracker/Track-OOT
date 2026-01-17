@@ -1,4 +1,5 @@
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
+import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import MultiplayerClient from "/GameTrackerJS/util/rtc/multiplayer/peer/MultiplayerClient.js";
 import MultiplayerControllerInst from "../../../../util/rtc/MultiplayerControllerInst.js";
@@ -6,17 +7,20 @@ import "./entry/MultiplayerUser.js";
 import "../logger/MultiplayerLogger.js";
 import TPL from "./MultiplayerRoomClient.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerRoomClient.js.css" assert {type: "css"};
+import ICON_STANDBY from "../../../../../images/iconpaths/standby.path" assert {type: "text"};
 
 export default class MultiplayerRoomClient extends CustomElement {
+
+    #roomNameEl;
 
     #disconnectEl;
 
     constructor() {
         super();
-        TPL.apply(this.shadowRoot);
+        TPL.apply(this.shadowRoot, {ICON_STANDBY});
         STYLE.apply(this.shadowRoot);
         /* --- */
-
+        this.#roomNameEl = this.shadowRoot.getElementById("room-name");
         this.#disconnectEl = this.shadowRoot.getElementById("disconnect");
 
         this.#disconnectEl.addEventListener("click", async () => {
@@ -26,6 +30,17 @@ export default class MultiplayerRoomClient extends CustomElement {
             }
             this.dispatchEvent(new Event("disconnected"));
         });
+        MultiplayerControllerInst.addEventListener("disconnected", () => {
+            Toast.warn("Multiplayer: Connection lost");
+            this.dispatchEvent(new Event("disconnected"));
+        });
+    }
+
+    refreshRoomName() {
+        const rtcPeer = MultiplayerControllerInst.getPeer();
+        if (rtcPeer instanceof MultiplayerClient) {
+            this.#roomNameEl.innerText = rtcPeer.roomName;
+        }
     }
 
     updateRoom(data) {

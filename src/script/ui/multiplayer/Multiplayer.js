@@ -16,6 +16,8 @@ export default class Multiplayer extends Panel {
 
     #loggerEl;
 
+    #mode = "lobby";
+
     constructor() {
         super();
         TPL.apply(this.shadowRoot);
@@ -30,26 +32,38 @@ export default class Multiplayer extends Panel {
         MultiplayerControllerInst.setLogger(this.#loggerEl);
 
         MultiplayerControllerInst.addEventListener("roomupdate", (event) => {
-            this.#roomHostEl.updateRoom(event.data);
-            this.#roomClientEl.updateRoom(event.data);
+            if  (this.#mode === "host") {
+                this.#roomHostEl.updateRoom(event.data);
+            } else if (this.#mode === "client") {
+                this.#roomClientEl.updateRoom(event.data);
+            } else {
+                this.#roomHostEl.updateRoom(event.data);
+                this.#roomClientEl.updateRoom(event.data);
+            }
         });
 
         this.#lobbyViewEl.addEventListener("hosting", () => {
+            this.#mode = "host";
             this.#lobbyViewEl.classList.remove("active");
             this.#roomHostEl.classList.add("active");
+            this.#roomHostEl.refreshRoomName();
         });
 
         this.#lobbyViewEl.addEventListener("joined", () => {
+            this.#mode = "client";
             this.#lobbyViewEl.classList.remove("active");
             this.#roomClientEl.classList.add("active");
+            this.#roomClientEl.refreshRoomName();
         });
 
         this.#roomHostEl.addEventListener("disconnected", () => {
+            this.#mode = "lobby";
             this.#roomHostEl.classList.remove("active");
             this.#lobbyViewEl.classList.add("active");
         });
 
         this.#roomClientEl.addEventListener("disconnected", () => {
+            this.#mode = "lobby";
             this.#roomClientEl.classList.remove("active");
             this.#lobbyViewEl.classList.add("active");
         });

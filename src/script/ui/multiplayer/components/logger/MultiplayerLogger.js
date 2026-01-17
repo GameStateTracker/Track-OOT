@@ -2,6 +2,7 @@ import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import TPL from "./MultiplayerLogger.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerLogger.js.css" assert {type: "css"};
+import ICON_CHEVRON_UP from "../../../../../images/iconpaths/chevron-up.path" assert {type: "text"};
 
 export default class MultiplayerLogger extends CustomElement {
 
@@ -11,7 +12,7 @@ export default class MultiplayerLogger extends CustomElement {
 
     constructor() {
         super();
-        TPL.apply(this.shadowRoot);
+        TPL.apply(this.shadowRoot, {ICON_CHEVRON_UP});
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.#titleEl = this.shadowRoot.getElementById("title");

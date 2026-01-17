@@ -4,6 +4,15 @@
     height: 100%;
 }
 
+.view-container-title {
+    display: flex;
+    align-items: center;
+}
+
+#room-name {
+    margin-left: 0.3em;
+}
+
 #content {
     position: relative;
     display: flex;

@@ -5,6 +5,8 @@ import VersionData from "/GameTrackerJS/data/VersionData.js";
 import MultiplayerControllerInst from "../../../../../util/rtc/MultiplayerControllerInst.js";
 import TPL from "./MultiplayerLobbyRoomDetails.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerLobbyRoomDetails.js.css" assert {type: "css"};
+import ICON_JOIN from "../../../../../../images/iconpaths/join.path" assert {type: "text"};
+import {isStringNotEmpty} from "/emcJS/util/helper/CheckType.js";
 
 export default class MultiplayerLobbyRoomDetails extends CustomElement {
 
@@ -20,7 +22,7 @@ export default class MultiplayerLobbyRoomDetails extends CustomElement {
 
     constructor() {
         super();
-        TPL.apply(this.shadowRoot);
+        TPL.apply(this.shadowRoot, {ICON_JOIN});
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.#nameEl = this.shadowRoot.getElementById("name");
@@ -30,10 +32,10 @@ export default class MultiplayerLobbyRoomDetails extends CustomElement {
         this.#joinEl = this.shadowRoot.getElementById("join");
 
         this.#joinEl.addEventListener("click", async () => {
-            const pass = this.#promptPassword();
+            const pass = await this.#promptPassword();
             const res = await MultiplayerControllerInst.join(this.name, pass, VersionData.version);
             if (res) {
-                const peer = res.getPeer();
+                const peer = MultiplayerControllerInst.getPeer();
                 const ev = new Event("joined");
                 ev.peer = peer;
                 this.dispatchEvent(ev);
@@ -80,33 +82,38 @@ export default class MultiplayerLobbyRoomDetails extends CustomElement {
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case "pass":
+                case "pass": {
                     if (!!newValue && newValue != "false") {
                         this.#iconEl.classList.add("lock-closed");
                     } else {
                         this.#iconEl.classList.remove("lock-closed");
                     }
-                    break;
-                case "name":
+                } break;
+                case "name": {
                     this.#nameEl.innerHTML = newValue;
-                    break;
-                case "desc":
+                    if (isStringNotEmpty) {
+                        this.#joinEl.disabled = false;
+                    } else {
+                        this.#joinEl.disabled = true;
+                    }
+                } break;
+                case "desc": {
                     this.#descEl.innerHTML = newValue;
-                    break;
-                case "version":
+                } break;
+                case "version": {
                     if (newValue != "") {
                         this.#versionEl.innerHTML = newValue.toLowerCase();
                     } else {
                         this.#versionEl.innerHTML = "";
                     }
-                    break;
+                } break;
             }
         }
     }
 
     async #promptPassword() {
         if (!!this.pass && this.pass != "false") {
-            return await ModalDialog.prompt("password required", "please enter password");
+            return await ModalDialog.promptSensitive("Password required", "Please enter password!");
         }
         return "";
     }

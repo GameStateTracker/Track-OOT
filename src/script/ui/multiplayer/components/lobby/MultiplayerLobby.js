@@ -1,4 +1,5 @@
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
+import EventManager from "/emcJS/util/event/EventManager.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import MultiplayerControllerInst from "../../../../util/rtc/MultiplayerControllerInst.js";
 import MultiplayerHostModal from "../modal/MultiplayerHostModal.js";
@@ -6,6 +7,7 @@ import "./entry/MultiplayerLobbyRoom.js";
 import "./detail/MultiplayerLobbyRoomDetails.js";
 import TPL from "./MultiplayerLobby.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerLobby.js.css" assert {type: "css"};
+import ICON_ADD from "../../../../../images/iconpaths/add.path" assert {type: "text"};
 
 export default class MultiplayerLobby extends CustomElement {
 
@@ -17,9 +19,11 @@ export default class MultiplayerLobby extends CustomElement {
 
     #hostModal = new MultiplayerHostModal();
 
+    #roomEventManager = new EventManager();
+
     constructor() {
         super();
-        TPL.apply(this.shadowRoot);
+        TPL.apply(this.shadowRoot, {ICON_ADD});
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.#refreshEl = this.shadowRoot.getElementById("refresh");
@@ -48,13 +52,14 @@ export default class MultiplayerLobby extends CustomElement {
             const res = await MultiplayerControllerInst.getInstances(supressError);
             if (res != null) {
                 this.innerHTML = "";
+                this.#roomEventManager.clear();
                 for (const inst of res) {
                     const el = document.createElement("ootrt-multiplayer-lobby-room");
                     el.name = inst.name;
                     el.pass = inst.pass;
                     el.desc = inst.data?.desc;
                     el.version = inst.version;
-                    el.addEventListener("click", () => {
+                    this.#roomEventManager.set(el, "click", () => {
                         this.#roomDetailsEl.name = inst.name;
                         this.#roomDetailsEl.pass = inst.pass;
                         this.#roomDetailsEl.desc = inst.data?.desc;
@@ -69,6 +74,13 @@ export default class MultiplayerLobby extends CustomElement {
             refresh(false);
         });
         refresh(true);
+    }
+
+    clearSelection() {
+        this.#roomDetailsEl.name = "";
+        this.#roomDetailsEl.pass = false;
+        this.#roomDetailsEl.desc = "";
+        this.#roomDetailsEl.version = "";
     }
 
 }

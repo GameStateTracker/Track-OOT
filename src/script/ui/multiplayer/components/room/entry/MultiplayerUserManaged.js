@@ -1,9 +1,10 @@
 import I18nOption from "/emcJS/ui/i18n/builtin/I18nOption.js";
 import "/emcJS/ui/form/element/select/simple/SimpleSelect.js";
+import "/emcJS/ui/form/button/Button.js";
 import {ClientTypes} from "/GameTrackerJS/util/rtc/multiplayer/config/MultiplayerConfig.js";
 import MultiplayerUser from "./MultiplayerUser.js";
-import TPL from "./MultiplayerUser.js.html" assert {type: "html"};
-import STYLE from "./MultiplayerUser.js.css" assert {type: "css"};
+import TPL from "./MultiplayerUserManaged.js.html" assert {type: "html"};
+import STYLE from "./MultiplayerUserManaged.js.css" assert {type: "css"};
 
 export default class MultiplayerUserManaged extends MultiplayerUser {
 
@@ -20,9 +21,12 @@ export default class MultiplayerUserManaged extends MultiplayerUser {
         this.#kickEl = this.shadowRoot.getElementById("kick");
 
         this.#clientTypeEl.addEventListener("change", () => {
-            const ev = new Event("type");
-            ev.data = this.#clientTypeEl.value;
-            this.dispatchEvent(ev);
+            const newRole = this.#clientTypeEl.value;
+            if (this.role != newRole) {
+                const ev = new Event("role");
+                ev.data = newRole;
+                this.dispatchEvent(ev);
+            }
         });
         this.#kickEl.addEventListener("click", () => {
             this.dispatchEvent(new Event("kick"));
@@ -34,6 +38,17 @@ export default class MultiplayerUserManaged extends MultiplayerUser {
             } = clientType;
             const option = I18nOption.create(value, label);
             this.#clientTypeEl.append(option);
+        }
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        super.attributeChangedCallback?.(name, oldValue, newValue);
+        switch (name) {
+            case "role": {
+                if (oldValue != newValue) {
+                    this.#clientTypeEl.value = newValue;
+                }
+            } break;
         }
     }
 

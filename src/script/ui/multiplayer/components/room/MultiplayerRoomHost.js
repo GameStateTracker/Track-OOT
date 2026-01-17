@@ -1,4 +1,5 @@
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
+import EventManager from "/emcJS/util/event/EventManager.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import MultiplayerHost from "/GameTrackerJS/util/rtc/multiplayer/peer/MultiplayerHost.js";
 import MultiplayerControllerInst from "../../../../util/rtc/MultiplayerControllerInst.js";
@@ -7,19 +8,29 @@ import "./entry/MultiplayerUserManaged.js";
 import "../logger/MultiplayerLogger.js";
 import TPL from "./MultiplayerRoomHost.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerRoomHost.js.css" assert {type: "css"};
+import ICON_EYE from "../../../../../images/iconpaths/eye.path" assert {type: "text"};
+import ICON_EYE_STRIKED from "../../../../../images/iconpaths/eye-striked.path" assert {type: "text"};
+import ICON_STANDBY from "../../../../../images/iconpaths/standby.path" assert {type: "text"};
 
 export default class MultiplayerRoomHost extends CustomElement {
+
+    #roomNameEl;
 
     #disconnectEl;
 
     #visibilityEl;
 
+    #clientEventManager = new EventManager();
+
     constructor() {
         super();
-        TPL.apply(this.shadowRoot);
+        TPL.apply(this.shadowRoot, {
+            ICON_STANDBY,
+            ICON_EYE_STRIKED
+        });
         STYLE.apply(this.shadowRoot);
         /* --- */
-
+        this.#roomNameEl = this.shadowRoot.getElementById("room-name");
         this.#disconnectEl = this.shadowRoot.getElementById("disconnect");
         this.#visibilityEl = this.shadowRoot.getElementById("visibility");
 
@@ -35,22 +46,45 @@ export default class MultiplayerRoomHost extends CustomElement {
             const rtcPeer = MultiplayerControllerInst.getPeer();
             if (rtcPeer instanceof MultiplayerHost) {
                 if (rtcPeer.isRoomVisible()) {
-                    const res = await rtcPeer.setRoomVisible(false);
+                    const res = await rtcPeer.setRoomVisibility(false);
                     if (res) {
-                        this.#visibilityEl.text = "show room";
+                        this.#visibilityEl.text = "Set Room To Visible";
+                        this.#visibilityEl.icon = ICON_EYE;
                     }
                 } else {
-                    const res = await rtcPeer.setRoomVisible(true);
+                    const res = await rtcPeer.setRoomVisibility(true);
                     if (res) {
-                        this.#visibilityEl.text = "hide room";
+                        this.#visibilityEl.text = "Set Room To Invisible";
+                        this.#visibilityEl.icon = ICON_EYE_STRIKED;
                     }
                 }
             }
         });
     }
 
+    initRoomVisibility() {
+        const rtcPeer = MultiplayerControllerInst.getPeer();
+        if (rtcPeer instanceof MultiplayerHost) {
+            if (rtcPeer.isRoomVisible()) {
+                this.#visibilityEl.text = "Set Room To Invisible";
+                this.#visibilityEl.icon = ICON_EYE_STRIKED;
+            } else {
+                this.#visibilityEl.text = "Set Room To Visible";
+                this.#visibilityEl.icon = ICON_EYE;
+            }
+        }
+    }
+
+    refreshRoomName() {
+        const rtcPeer = MultiplayerControllerInst.getPeer();
+        if (rtcPeer instanceof MultiplayerHost) {
+            this.#roomNameEl.innerText = rtcPeer.roomName;
+        }
+    }
+
     updateRoom(data) {
         this.innerHTML = "";
+        this.#clientEventManager.clear();
         if (data.host) {
             const el = document.createElement("ootrt-multiplayer-user");
             el.name = data.host;
@@ -62,7 +96,12 @@ export default class MultiplayerRoomHost extends CustomElement {
                 const el = document.createElement("ootrt-multiplayer-user-managed");
                 el.name = inst;
                 el.role = "player";
-                el.addEventListener("kick", kickUser);
+                this.#clientEventManager.set(el, "kick", () => {
+                    this.#kickUser(inst);
+                });
+                this.#clientEventManager.set(el, "role", (event) => {
+                    this.#updateRole(inst, event.data);
+                });
                 this.append(el);
             }
         }
@@ -71,19 +110,31 @@ export default class MultiplayerRoomHost extends CustomElement {
                 const el = document.createElement("ootrt-multiplayer-user-managed");
                 el.name = inst;
                 el.role = "spectator";
-                el.addEventListener("kick", kickUser);
+                this.#clientEventManager.set(el, "kick", () => {
+                    this.#kickUser(inst);
+                });
+                this.#clientEventManager.set(el, "role", (event) => {
+                    this.#updateRole(inst, event.data);
+                });
                 this.append(el);
             }
         }
     }
 
-}
-
-function kickUser(event) {
-    const rtcPeer = MultiplayerControllerInst.getPeer();
-    if (rtcPeer instanceof MultiplayerHost) {
-        rtcPeer.kick(event.target.name);
+    #kickUser(name) {
+        const rtcPeer = MultiplayerControllerInst.getPeer();
+        if (rtcPeer instanceof MultiplayerHost) {
+            rtcPeer.kick(name);
+        }
     }
+
+    #updateRole(name, role) {
+        const rtcPeer = MultiplayerControllerInst.getPeer();
+        if (rtcPeer instanceof MultiplayerHost) {
+            rtcPeer.updateRole(name, role);
+        }
+    }
+
 }
 
 customElements.define("ootrt-multiplayer-room-host", MultiplayerRoomHost);
