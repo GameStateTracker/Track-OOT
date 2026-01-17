@@ -1,4 +1,7 @@
 import FileSystem from "/emcJS/util/file/FileSystem.js";
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
+import {beforeUnloadHandler} from "/emcJS/util/helper/BeforeUnloadHandler.js";
+import {debounce} from "/emcJS/util/Debouncer.js";
 import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
 import OptionGroupRegistry from "/emcJS/data/registry/form/OptionGroupRegistry.js";
 import LogicOperatorRegistry from "/emcJS/data/registry/LogicOperatorRegistry.js";
@@ -41,22 +44,28 @@ async function laodResources() {
     };
 }
 
+const beforeUnloadEventTargetManager = new EventTargetManager(window, false);
+beforeUnloadEventTargetManager.set("beforeunload", beforeUnloadHandler);
+
+const editorEventTargetManager = new EventTargetManager();
+const editorStateHandler = debounce(() => {
+    const editorEl = editorEventTargetManager.target;
+    if (editorEl.checkWorldDataHasChanges() || editorEl.checkCurrentEditorHasChanges()) {
+        beforeUnloadEventTargetManager.active = true;
+        console.log("beforeunload is active");
+    } else {
+        beforeUnloadEventTargetManager.active = false;
+        console.log("beforeunload is inactive");
+    }
+});
+
+editorEventTargetManager.set("statechange", editorStateHandler);
+
 export default async function() {
     const editorEl = document.createElement("gt-edt-world-editor");
-    editorEl.addEventListener("change", () => {
-        const config = editorEl.getConfig();
-        console.log("change config:", config);
-    });
+    editorEventTargetManager.switchTarget(editorEl);
 
-    window.onbeforeunload = function() {
-        if (editorEl.checkWorldDataHasChanges() || editorEl.checkCurrentEditorHasChanges()) {
-            return "You have unsaved changes in the current form. Discard changes and continue?";
-        }
-    };
-
-    LogicOperatorRegistry.setAndLinkOperator("$IS_AP_STATE", {
-        type: "value"
-    }, "special");
+    LogicOperatorRegistry.setAndLinkOperator("$IS_AP_STATE", {type: "value"}, "special");
 
     // refresh
     async function refreshFn() {

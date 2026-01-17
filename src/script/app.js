@@ -59,10 +59,6 @@ function updateLoadingMessage(msg = "loading...") {
 
 LoadingMessageHandler.registerCallback(updateLoadingMessage);
 
-window.onbeforeunload = function() {
-    return "Are you sure you want to close the tracker?\nUnsafed progress will be lost.";
-};
-
 // mixed entrances
 {
     const detachedEntrancesObserver = new OptionsObserver("detached_entrances");

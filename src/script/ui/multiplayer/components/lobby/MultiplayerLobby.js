@@ -9,6 +9,10 @@ import TPL from "./MultiplayerLobby.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerLobby.js.css" assert {type: "css"};
 import ICON_ADD from "../../../../../images/iconpaths/add.path" assert {type: "text"};
 
+function roomDataComparator(a, b) {
+    return a.name.localeCompare(b.name);
+}
+
 export default class MultiplayerLobby extends CustomElement {
 
     #refreshEl;
@@ -53,6 +57,7 @@ export default class MultiplayerLobby extends CustomElement {
             if (res != null) {
                 this.innerHTML = "";
                 this.#roomEventManager.clear();
+                res.sort(roomDataComparator);
                 for (const inst of res) {
                     const el = document.createElement("ootrt-multiplayer-lobby-room");
                     el.name = inst.name;

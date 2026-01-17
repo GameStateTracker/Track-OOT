@@ -52,7 +52,7 @@ class DungeonState extends Panel {
         const activeTypesOption = this.activeTypesOption;
         if (!activeTypesOption) {
             this.#activeTypesOptionsObserver = null;
-            this.#activeTypesOptionsObserverEventManager.switchTarget(null);
+            this.#activeTypesOptionsObserverEventManager.disconnect();
             this.#switchActive(this.active);
         } else {
             this.#activeTypesOptionsObserver = new OptionsObserver(activeTypesOption);
@@ -101,7 +101,7 @@ class DungeonState extends Panel {
                     const activeTypesOption = this.activeTypesOption;
                     if (!activeTypesOption) {
                         this.#activeTypesOptionsObserver = null;
-                        this.#activeTypesOptionsObserverEventManager.switchTarget(null);
+                        this.#activeTypesOptionsObserverEventManager.disconnect();
                         this.#switchActive(this.active);
                     } else {
                         this.#activeTypesOptionsObserver = new OptionsObserver(activeTypesOption);

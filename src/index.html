@@ -30,6 +30,15 @@
                 alert("StateRecovery is currently not registered.\nPlease try again in a few seconds.\n\nIf this does still not work after some time, please report it as a bug.");
             }
         }
+        if ("serviceWorker" in navigator) {
+            const NOSW = (new URL(location.href)).searchParams.get("nosw") !== null;
+            if (NOSW) {
+                const cacheControl = await navigator.serviceWorker.getRegistration("/sw.js");
+                if (cacheControl != null) {
+                    cacheControl.unregister();
+                }
+            }
+        }
     </script>
     <script nomodule defer>
         const spl = document.getElementById("splash").querySelector('.loading');
