@@ -25,7 +25,15 @@ Application:    Track-OOT
 - add wonderitems (only in full locationlist for now)
 - add empty pots (only in full locationlist for now)
 - add empty crates (only in full locationlist for now)
-
+- add remote item view
+  - a readonly connection similar to multiplayer feature
+  - remote view will join via token
+  - can be used as browser source in streamlabs, obs, etc.
+- rework multiplayer
+  - redesign ui
+  - replace the close function with a visibility change function
+  - add spectator functionality
+- do not ask to confirm to close page any longer, as all interaction is stored locally
 
 ### BUG FIXES
 
@@ -35,6 +43,7 @@ Application:    Track-OOT
 - fix tooltip bubble directions in map
 - fix import of framework style rules
 - reduce content reflow on splash screen by not lazy loading styles
+- fix multiplayer handling connection issues
 
 ---
 

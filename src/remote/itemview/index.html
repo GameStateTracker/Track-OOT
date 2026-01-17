@@ -40,6 +40,7 @@
             max-height: 100dvh;
             width: min-content;
             height: min-content;
+            z-index: 0;
         }
 
         #container.fill {
@@ -55,6 +56,15 @@
             min-width: 600px;
             min-height: 350px;
         }
+
+        .click-prevent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 100;
+        }
     </style>
 </head>
 
@@ -63,6 +73,7 @@
         <emc-layout id="layout">
         </emc-layout>
     </div>
+    <div class="click-prevent"></div>
 </body>
 
 </html>
