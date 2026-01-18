@@ -1,7 +1,7 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
-import LobbyClient from "/rtc/LobbyClient.js";
+import LobbyClient from "/RTCClient/LobbyClient.js";
 
 // Track-OOT
 import RTCPeerHost from "/script/util/rtc/RTCPeerHost.js";

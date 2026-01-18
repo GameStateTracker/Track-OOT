@@ -13,7 +13,7 @@
   "dependencies": {
     "archipelagojs": "git+https://bitbucket.org/zidargs/archipelagojs.git/#1.1.1",
     "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git/#0.27.7",
-    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.9.0",
+    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.9.1",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.3.0",
     "jswebservice": "git+https://bitbucket.org/zidargs/jswebservice.git/#3.0.4",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git/#1.2.7"

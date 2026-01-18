@@ -17,7 +17,7 @@
             "/JSEditors/*": [
                 "../node_modules/jseditors/src/*"
             ],
-            "/rtc/*": [
+            "/RTCClient/*": [
                 "../node_modules/rtcclient/src/*"
             ],
             "/ArchipelagoJS/*": [

@@ -33,10 +33,11 @@
         if ("serviceWorker" in navigator) {
             const NOSW = (new URL(location.href)).searchParams.get("nosw") !== null;
             if (NOSW) {
-                const cacheControl = await navigator.serviceWorker.getRegistration("/sw.js");
-                if (cacheControl != null) {
-                    cacheControl.unregister();
-                }
+                navigator.serviceWorker.getRegistration("/sw.js").then((cacheControl) => {
+                    if (cacheControl != null) {
+                        cacheControl.unregister();
+                    }
+                });
             }
         }
     </script>

@@ -98,7 +98,7 @@ function copyRTCClient(dest = DEV_PATH) {
         `${MODULE_PATHS.RTCClient}/**/*.js`
     ];
     const SRC = MODULE_PATHS.RTCClient;
-    const DST = `${dest}/rtc`;
+    const DST = `${dest}/RTCClient`;
     return copyJS(FILES, SRC, DST, dest);
 }
 
