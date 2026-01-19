@@ -8,14 +8,4 @@ const service = new WebService(port, {enableCors});
 service.registerServiceModule(StaticService, "", {serveFolder: "./editor/build"});
 service.registerServiceModule(StaticService, "/database", {serveFolder: "./src/database"});
 
-const po = service.port.toString().padEnd(5);
-
-console.log(``);
-console.log(`╔════════════════════════════════════════╗`);
-console.log(`║ ┌╦┐ ╭────────────────────────────╮ ┌╦┐ ║`);
-console.log(`║  │  │                            │  │  ║`);
-console.log(`╠─═╬═─╡   http://localhost:${po}   ╞─═╬═─╣`);
-console.log(`║  │  │                            │  │  ║`);
-console.log(`║ └╩┘ ╰────────────────────────────╯ └╩┘ ║`);
-console.log(`╚════════════════════════════════════════╝`);
-console.log(``);
+service.printServerInfoPanel();

@@ -315,6 +315,13 @@
                 "full": "shuffle_bosses_all"
             }
         },
+        "shuffle_ganon_tower": {
+            "name": "shuffle_ganon_tower",
+            "values": {
+                "true": true,
+                "false": false
+            }
+        },
         "shuffle_overworld_entrances": {
             "name": "shuffle_overworld",
             "values": {
@@ -5019,6 +5026,7 @@
         "KF Top of Sarias Recovery Heart 3": "kokiri.top_of_sarias_recovery_heart_3",
         "King Dodongo Heart": "dodongo.c_dodongo",
         "King Dodongo": "",
+        "Deliver Rutos Letter": "zoras.c_deliver_letter",
         "King Zora Thawed": "zoras.c_king_zora",
         "Kokiri Forest Storms Grotto Chest": "kokiri.c_storm_grotto",
         "Kokiri Shop Item 1": "kokiri.kokiri_shop_1",

@@ -240,6 +240,26 @@
                 "type": "true"
             }
         },
+        "region[ganons_castle_ganons_tower_gateway:in]{child}": {
+            "region[ganons_tower_ganons_castle_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[ganons_castle_ganons_tower_gateway:in]{adult}": {
+            "region[ganons_tower_ganons_castle_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[ganons_tower_ganons_castle_gateway:in]{child}": {
+            "region[ganons_castle_ganons_tower_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[ganons_tower_ganons_castle_gateway:in]{adult}": {
+            "region[ganons_castle_ganons_tower_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
         "region[kakariko_well_gateway:in]{child}": {
             "region[well_kakariko_gateway:out]{child}": {
                 "type": "true"
@@ -7113,7 +7133,7 @@
             }
         },
         "region[ganons_castle_tower]{child}": {
-            "region[ganons_castle_main]{child}": {
+            "region[ganons_tower_ganons_castle_gateway:in]{child}": {
                 "type": "true"
             },
             "region[ganons_castle_tower_below_boss]{child}": {
@@ -7192,7 +7212,7 @@
             }
         },
         "region[ganons_castle_tower]{adult}": {
-            "region[ganons_castle_main]{adult}": {
+            "region[ganons_tower_ganons_castle_gateway:in]{adult}": {
                 "type": "true"
             },
             "region[ganons_castle_tower_below_boss]{adult}": {
@@ -30446,113 +30466,86 @@
                     }
                 ]
             },
-            "region[ganons_castle_tower]{child}": {
-                "type": "gte",
+            "region[ganons_castle_ganons_tower_gateway:in]{child}": {
+                "type": "and",
                 "content": [
                     {
-                        "type": "add",
+                        "type": "or",
                         "content": [
                             {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[forest_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[forest_trial_clear]"
-                                    }
-                                ]
+                                "type": "value",
+                                "ref": "skipped_trials[Forest]"
                             },
                             {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[fire_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[fire_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[water_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[water_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[shadow_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[shadow_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[spirit_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[spirit_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[light_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[light_trial_clear]"
-                                    }
-                                ]
+                                "type": "value",
+                                "ref": "event[forest_trial_clear]"
                             }
                         ]
                     },
                     {
-                        "type": "value",
-                        "ref": "option[number_trials]"
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "skipped_trials[Fire]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[fire_trial_clear]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "skipped_trials[Water]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[water_trial_clear]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "skipped_trials[Shadow]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[shadow_trial_clear]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "skipped_trials[Spirit]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[spirit_trial_clear]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "skipped_trials[Light]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[light_trial_clear]"
+                            }
+                        ]
                     }
                 ]
             }
@@ -30687,113 +30680,86 @@
                     }
                 ]
             },
-            "region[ganons_castle_tower]{adult}": {
-                "type": "gte",
+            "region[ganons_castle_ganons_tower_gateway:in]{adult}": {
+                "type": "and",
                 "content": [
                     {
-                        "type": "add",
+                        "type": "or",
                         "content": [
                             {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[forest_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[forest_trial_clear]"
-                                    }
-                                ]
+                                "type": "value",
+                                "ref": "skipped_trials[Forest]"
                             },
                             {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[fire_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[fire_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[water_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[water_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[shadow_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[shadow_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[spirit_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[spirit_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[light_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[light_trial_clear]"
-                                    }
-                                ]
+                                "type": "value",
+                                "ref": "event[forest_trial_clear]"
                             }
                         ]
                     },
                     {
-                        "type": "value",
-                        "ref": "option[number_trials]"
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "skipped_trials[Fire]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[fire_trial_clear]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "skipped_trials[Water]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[water_trial_clear]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "skipped_trials[Shadow]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[shadow_trial_clear]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "skipped_trials[Spirit]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[spirit_trial_clear]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "skipped_trials[Light]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[light_trial_clear]"
+                            }
+                        ]
                     }
                 ]
             }
@@ -32730,7 +32696,7 @@
                     }
                 ]
             },
-            "region[ganons_castle_tower]{child}": {
+            "region[ganons_castle_ganons_tower_gateway:in]{child}": {
                 "type": "and",
                 "content": [
                     {
@@ -32870,7 +32836,7 @@
                     }
                 ]
             },
-            "region[ganons_castle_tower]{adult}": {
+            "region[ganons_castle_ganons_tower_gateway:in]{adult}": {
                 "type": "and",
                 "content": [
                     {
@@ -81684,7 +81650,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "reach_location[deliver_letter]"
+                        "ref": "reach_location[zoras.c_deliver_letter]"
                     },
                     {
                         "type": "state",
@@ -81759,7 +81725,7 @@
                     }
                 ]
             },
-            "reach_location[deliver_letter]": {
+            "reach_location[zoras.c_deliver_letter]": {
                 "type": "and",
                 "content": [
                     {
@@ -82121,7 +82087,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "reach_location[deliver_letter]"
+                        "ref": "reach_location[zoras.c_deliver_letter]"
                     },
                     {
                         "type": "state",
@@ -82196,7 +82162,7 @@
                     }
                 ]
             },
-            "reach_location[deliver_letter]": {
+            "reach_location[zoras.c_deliver_letter]": {
                 "type": "and",
                 "content": [
                     {
@@ -82542,7 +82508,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "reach_location[deliver_letter]"
+                        "ref": "reach_location[zoras.c_deliver_letter]"
                     },
                     {
                         "type": "state",
@@ -82597,7 +82563,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "reach_location[deliver_letter]"
+                        "ref": "reach_location[zoras.c_deliver_letter]"
                     },
                     {
                         "type": "state",

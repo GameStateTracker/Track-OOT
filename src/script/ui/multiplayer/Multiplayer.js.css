@@ -14,10 +14,18 @@
     flex: 1;
 }
 
-#content > :not(.active) {
+#logger {
+    margin-top: 10px;
+}
+
+#content[active-panel]:not([active-panel=""]):not([active-panel="lobby"]) #lobby-view {
     display: none;
 }
 
-#logger {
-    margin-top: 10px;
+#content:not([active-panel="host"]) #room-host {
+    display: none;
+}
+
+#content:not([active-panel="client"]) #room-client {
+    display: none;
 }

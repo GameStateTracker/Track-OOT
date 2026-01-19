@@ -8,6 +8,8 @@ import STYLE from "./Multiplayer.js.css" assert {type: "css"};
 
 export default class Multiplayer extends Panel {
 
+    #contentEl;
+
     #lobbyViewEl;
 
     #roomHostEl;
@@ -24,6 +26,7 @@ export default class Multiplayer extends Panel {
         STYLE.apply(this.shadowRoot);
         /* --- */
 
+        this.#contentEl = this.shadowRoot.getElementById("content");
         this.#lobbyViewEl = this.shadowRoot.getElementById("lobby-view");
         this.#roomHostEl = this.shadowRoot.getElementById("room-host");
         this.#roomClientEl = this.shadowRoot.getElementById("room-client");
@@ -44,28 +47,24 @@ export default class Multiplayer extends Panel {
 
         this.#lobbyViewEl.addEventListener("hosting", () => {
             this.#mode = "host";
-            this.#lobbyViewEl.classList.remove("active");
-            this.#roomHostEl.classList.add("active");
-            this.#roomHostEl.refreshRoomName();
+            this.#contentEl.setAttribute("active-panel", "host");
+            this.#roomClientEl.refreshRoomName();
         });
 
         this.#lobbyViewEl.addEventListener("joined", () => {
             this.#mode = "client";
-            this.#lobbyViewEl.classList.remove("active");
-            this.#roomClientEl.classList.add("active");
+            this.#contentEl.setAttribute("active-panel", "client");
             this.#roomClientEl.refreshRoomName();
         });
 
         this.#roomHostEl.addEventListener("disconnected", () => {
             this.#mode = "lobby";
-            this.#roomHostEl.classList.remove("active");
-            this.#lobbyViewEl.classList.add("active");
+            this.#contentEl.setAttribute("active-panel", "lobby");
         });
 
         this.#roomClientEl.addEventListener("disconnected", () => {
             this.#mode = "lobby";
-            this.#roomClientEl.classList.remove("active");
-            this.#lobbyViewEl.classList.add("active");
+            this.#contentEl.setAttribute("active-panel", "lobby");
         });
     }
 
