@@ -1,11 +1,9 @@
 import PageSwitcher from "../util/PageSwitcher.js";
 
-PageSwitcher.addNavigationMixin("fullscreen", [{
+PageSwitcher.setNavigationMixin("fullscreen", [{
     "content": "TOGGLE FULLSCREEN",
     "handler": toggleFullscreen
 }]);
-
-PageSwitcher.addHotkeyHandler("hk_fullscreen", toggleFullscreen);
 
 function toggleFullscreen() {
     if (document.fullscreenEnabled) {

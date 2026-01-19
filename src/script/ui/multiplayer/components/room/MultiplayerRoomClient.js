@@ -7,7 +7,6 @@ import "./entry/MultiplayerUser.js";
 import "../logger/MultiplayerLogger.js";
 import TPL from "./MultiplayerRoomClient.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerRoomClient.js.css" assert {type: "css"};
-import ICON_STANDBY from "../../../../../images/iconpaths/standby.path" assert {type: "text"};
 
 export default class MultiplayerRoomClient extends CustomElement {
 
@@ -17,7 +16,7 @@ export default class MultiplayerRoomClient extends CustomElement {
 
     constructor() {
         super();
-        TPL.apply(this.shadowRoot, {ICON_STANDBY});
+        TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.#roomNameEl = this.shadowRoot.getElementById("room-name");

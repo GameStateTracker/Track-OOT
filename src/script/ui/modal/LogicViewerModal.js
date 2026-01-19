@@ -19,7 +19,11 @@ export default class LogicViewerModal extends Modal {
 
     constructor(ref, caption = ref ?? "") {
         super(caption);
-        this.setImageIcon("/images/icons/logic.svg", {shadow: "#000000"});
+        this.setIcon({
+            type: "url",
+            content: "/images/icons/logic.svg",
+            style: {shadow: true}
+        });
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */

@@ -7,7 +7,6 @@ import "./entry/MultiplayerLobbyRoom.js";
 import "./detail/MultiplayerLobbyRoomDetails.js";
 import TPL from "./MultiplayerLobby.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerLobby.js.css" assert {type: "css"};
-import ICON_ADD from "../../../../../images/iconpaths/add.path" assert {type: "text"};
 
 function roomDataComparator(a, b) {
     return a.name.localeCompare(b.name);
@@ -27,7 +26,7 @@ export default class MultiplayerLobby extends CustomElement {
 
     constructor() {
         super();
-        TPL.apply(this.shadowRoot, {ICON_ADD});
+        TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.#refreshEl = this.shadowRoot.getElementById("refresh");

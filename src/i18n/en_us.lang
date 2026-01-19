@@ -3547,7 +3547,6 @@ setting[debug_spoiler]=Debug Spoiler Importer
 setting[detached_window_background]=Background color for detached window (e.g. for chromakey)
 setting[font]=Select Font
 setting[hk_detached_window]=Open detached item window
-setting[hk_fullscreen]=Toggle fullscreen
 setting[hk_import_spoiler]=Open spoilerlog import
 setting[hk_options]=Open rom settings
 setting[hk_settings]=Open tracker settings

@@ -1,12 +1,11 @@
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
+import {isStringNotEmpty} from "/emcJS/util/helper/CheckType.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import VersionData from "/GameTrackerJS/data/VersionData.js";
 import MultiplayerControllerInst from "../../../../../util/rtc/MultiplayerControllerInst.js";
 import TPL from "./MultiplayerLobbyRoomDetails.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerLobbyRoomDetails.js.css" assert {type: "css"};
-import ICON_JOIN from "../../../../../../images/iconpaths/join.path" assert {type: "text"};
-import {isStringNotEmpty} from "/emcJS/util/helper/CheckType.js";
 
 export default class MultiplayerLobbyRoomDetails extends CustomElement {
 
@@ -22,7 +21,7 @@ export default class MultiplayerLobbyRoomDetails extends CustomElement {
 
     constructor() {
         super();
-        TPL.apply(this.shadowRoot, {ICON_JOIN});
+        TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.#nameEl = this.shadowRoot.getElementById("name");

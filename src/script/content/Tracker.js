@@ -31,14 +31,6 @@ PageSwitcher.register("main", [{
         "handler": states_Manage
     }]
 }, {
-    "content": "DISCORD",
-    "href": "https://discord.gg/wgFVtuv",
-    "target": "_blank"
-}, {
-    "content": "PATREON",
-    "href": "https://www.patreon.com/zidargs",
-    "target": "_blank"
-}, {
     "content": "EXTRAS",
     "submenu": [{"mixin": "fullscreen"}, {
         "content": "UPLOAD SPOILER",
@@ -47,17 +39,22 @@ PageSwitcher.register("main", [{
         "content": "CLEAR SPECIFIC DATA",
         "handler": openClearDataWindow
     }, {
-        "content": "REMOTE ITEM WINDOW SETTINGS",
+        "content": "REMOTE ITEM VIEW",
         "handler": openItemViewerWindow
     }, {
-        "content": "DETACHED ITEM WINDOW",
-        "handler": openDetachedItems
-    }, {
-        "content": "DETACHED LOCATIONLIST WINDOW",
-        "handler": openDetachedLocationlist
-    }, {
-        "content": "DETACHED WORLDMAP WINDOW",
-        "handler": openDetachedWorldmap
+        "content": "DETACHED WINDOWS",
+        "submenu": [
+            {
+                "content": "DETACHED ITEM WINDOW",
+                "handler": openDetachedItems
+            }, {
+                "content": "DETACHED LOCATIONLIST WINDOW",
+                "handler": openDetachedLocationlist
+            }, {
+                "content": "DETACHED WORLDMAP WINDOW",
+                "handler": openDetachedWorldmap
+            }
+        ]
     }, {
         "content": "EDITORS",
         "handler": showEditors

@@ -30,11 +30,6 @@
     transform-origin: center;
 }
 
-#collapse-icon path {
-    stroke: var(--page-text-color, #000000);
-    fill: var(--page-text-color, #000000);
-}
-
 :host([expanded]:not([expanded="false"])) #collapse-icon {
     transform: rotate(180deg);
 }

@@ -54,6 +54,19 @@ class PageSwitcher {
         }
     }
 
+    setNavigationMixin(name, config) {
+        NavBar.addMixin(name, config);
+    }
+
+    setHotkeyHandler(name, handler) {
+        if (typeof handler === "function") {
+            DEFAULT_HOTKEYS.set(name, handler);
+            if (!ACTIVE_HOTKEYS.has(name)) {
+                this.#registerHotkey(name, handler);
+            }
+        }
+    }
+
     #registerHotkey(name, handler) {
         const hotkey = SettingsStorage.get(name) ?? "";
         if (hotkey) {
@@ -62,19 +75,6 @@ class PageSwitcher {
             HotkeyHandler.setAction(name, handler);
         }
         ACTIVE_HOTKEYS.add(name);
-    }
-
-    addNavigationMixin(name, config) {
-        NavBar.addMixin(name, config);
-    }
-
-    addHotkeyHandler(name, handler) {
-        if (typeof handler === "function") {
-            DEFAULT_HOTKEYS.set(name, handler);
-            if (!ACTIVE_HOTKEYS.has(name)) {
-                this.#registerHotkey(name, handler);
-            }
-        }
     }
 
 }

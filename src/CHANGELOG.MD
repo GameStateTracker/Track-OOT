@@ -35,6 +35,13 @@ Application:    Track-OOT
   - add spectator functionality
 - do not ask to confirm to close page any longer, as all interaction is stored locally
 
+-  redesign navigation menu
+-  add deliver rutos letter check
+-  add ganon tower entrance to shuffle
+   -  add standalone ganon tower map
+- remove fullscreen hotkey, as `F11` already exists for this in browsers (`Ctrl ⌘ F` for safari)
+- replace some old "windows" with newer designs
+
 ### BUG FIXES
 
 - fix logic calculation in LogicViewer

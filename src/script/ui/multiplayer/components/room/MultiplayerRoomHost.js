@@ -8,9 +8,6 @@ import "./entry/MultiplayerUserManaged.js";
 import "../logger/MultiplayerLogger.js";
 import TPL from "./MultiplayerRoomHost.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerRoomHost.js.css" assert {type: "css"};
-import ICON_EYE from "../../../../../images/iconpaths/eye.path" assert {type: "text"};
-import ICON_EYE_STRIKED from "../../../../../images/iconpaths/eye-striked.path" assert {type: "text"};
-import ICON_STANDBY from "../../../../../images/iconpaths/standby.path" assert {type: "text"};
 
 export default class MultiplayerRoomHost extends CustomElement {
 
@@ -24,10 +21,7 @@ export default class MultiplayerRoomHost extends CustomElement {
 
     constructor() {
         super();
-        TPL.apply(this.shadowRoot, {
-            ICON_STANDBY,
-            ICON_EYE_STRIKED
-        });
+        TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.#roomNameEl = this.shadowRoot.getElementById("room-name");
@@ -49,13 +43,13 @@ export default class MultiplayerRoomHost extends CustomElement {
                     const res = await rtcPeer.setRoomVisibility(false);
                     if (res) {
                         this.#visibilityEl.text = "Set Room To Visible";
-                        this.#visibilityEl.icon = ICON_EYE;
+                        this.#visibilityEl.icon = "eye";
                     }
                 } else {
                     const res = await rtcPeer.setRoomVisibility(true);
                     if (res) {
                         this.#visibilityEl.text = "Set Room To Invisible";
-                        this.#visibilityEl.icon = ICON_EYE_STRIKED;
+                        this.#visibilityEl.icon = "eye-striked";
                     }
                 }
             }
@@ -67,10 +61,10 @@ export default class MultiplayerRoomHost extends CustomElement {
         if (rtcPeer instanceof MultiplayerHost) {
             if (rtcPeer.isRoomVisible()) {
                 this.#visibilityEl.text = "Set Room To Invisible";
-                this.#visibilityEl.icon = ICON_EYE_STRIKED;
+                this.#visibilityEl.icon = "eye-striked";
             } else {
                 this.#visibilityEl.text = "Set Room To Visible";
-                this.#visibilityEl.icon = ICON_EYE;
+                this.#visibilityEl.icon = "eye";
             }
         }
     }

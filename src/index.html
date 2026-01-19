@@ -103,7 +103,7 @@
             text-align: center;
         }
 
-        .button {
+        #splash .button {
             display: inline-block;
             padding: 5px;
             margin: 5px;
@@ -116,11 +116,11 @@
             text-transform: uppercase;
         }
 
-        .button:hover {
+        #splash .button:hover {
             background-color: #e7be6b;
         }
 
-        .out-links {
+        #splash .out-links {
             position: absolute;
             display: flex;
             justify-content: flex-end;
@@ -130,27 +130,27 @@
             background: #cb9c3d;
         }
 
-        .out-links .out-link {
+        #splash .out-links .out-link {
             margin: 5px;
+            padding: 4px;
             border: solid 2px black;
         }
 
-        .out-links .out-link:hover {
+        #splash .out-links .out-link:hover {
             background: #00000055;
         }
 
-        .out-links .out-link .out-link-image {
-            width: 17.5vmin;
-            height: 5.6vmin;
+        #splash .out-links .out-link .out-link-image {
+            height: 4vmin;
         }
 
         @media (max-width: 500px) {
-            .out-links .out-link .out-link-image {
+            #splash .out-links .out-link .out-link-image {
                 width: 35vmin;
                 height: 11.2vmin;
             }
 
-            #git-link {
+            #splash #git-link {
                 display: none;
             }
         }
@@ -161,13 +161,13 @@
     <div id="splash">
         <div class="out-links">
             <a id="patreon-link" class="out-link" href="https://www.patreon.com/zidargs" target="_BLANK">
-                <img class="out-link-image" src="/images/patreon.svg">
+                <img class="out-link-image" src="/images/third_party/icon_text/patreon.svg">
             </a>
             <a id="discord-link" class="out-link" href="https://discord.gg/wgFVtuv" target="_BLANK">
-                <img class="out-link-image" src="/images/discord.svg">
+                <img class="out-link-image" src="/images/third_party/icon_text/discord.svg">
             </a>
             <a id="git-link" class="out-link" href="https://bitbucket.org/zidargs/track-oot" target="_BLANK">
-                <img class="out-link-image" src="/images/git.svg">
+                <img class="out-link-image" src="/images/third_party/icon_text/git.svg">
             </a>
         </div>
         <img class="splash-image" src="/images/logo.svg">

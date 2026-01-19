@@ -29,7 +29,11 @@ export default class ItemViewerModal extends Modal {
 
     constructor() {
         super("Remote Item View");
-        this.setImageIcon("/images/icons/stream.svg", {shadow: "#000000"});
+        this.setIcon({
+            type: "url",
+            content: "/images/icons/stream.svg",
+            style: {shadow: true}
+        });
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */

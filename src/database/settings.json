@@ -274,12 +274,6 @@
         "default": "ctrl+m",
         "resettable": true
     },
-    "hk_fullscreen": {
-        "category": "hotkeys",
-        "type": "hotkey",
-        "default": "alt+enter",
-        "resettable": true
-    },
     "hk_detached_window": {
         "category": "hotkeys",
         "type": "hotkey",

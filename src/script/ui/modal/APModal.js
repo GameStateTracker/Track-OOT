@@ -37,7 +37,11 @@ export default class APModal extends Modal {
 
     constructor() {
         super("Archipelago");
-        this.setImageIcon("/images/icons/ap.svg", {shadow: "#000000"});
+        this.setIcon({
+            type: "url",
+            content: "/images/icons/ap.svg",
+            style: {shadow: true}
+        });
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */

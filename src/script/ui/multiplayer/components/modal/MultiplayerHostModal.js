@@ -29,7 +29,11 @@ export default class MultiplayerHostModal extends Modal {
 
     constructor() {
         super("Create Multiplayer Room");
-        this.setImageIcon("/images/icons/multi.svg", {shadow: "#000000"});
+        this.setIcon({
+            type: "url",
+            content: "/images/icons/multi.svg",
+            style: {shadow: true}
+        });
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */

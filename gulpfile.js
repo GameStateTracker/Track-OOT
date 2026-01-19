@@ -299,6 +299,24 @@ function copyFonts(src = SRC_PATH, dest = DEV_PATH) {
     return res;
 }
 
+function copyEmcJSFonts(dest = DEV_PATH) {
+    const FILES = [
+        `${MODULE_PATHS.emcJS}/_fonts/**/*.ttf`,
+        `${MODULE_PATHS.emcJS}/_fonts/**/*.eot`,
+        `${MODULE_PATHS.emcJS}/_fonts/**/*.otf`,
+        `${MODULE_PATHS.emcJS}/_fonts/**/*.woff`,
+        `${MODULE_PATHS.emcJS}/_fonts/**/*.woff2`,
+        `${MODULE_PATHS.emcJS}/_fonts/**/*.svg`
+    ];
+    let res = gulp.src(FILES);
+    res = res.pipe(FileIndex.register(`${MODULE_PATHS.emcJS}/_fonts`, `${dest}/emcJS/_fonts`));
+    if (!REBUILD) {
+        res = res.pipe(newer(`${dest}/emcJS/_fonts`));
+    }
+    res = res.pipe(gulp.dest(`${dest}/emcJS/_fonts`));
+    return res;
+}
+
 function finish(dest, done) {
     FileIndex.add(LanguageManager.finish(`${dest}/i18n`));
     const config = {
@@ -330,6 +348,7 @@ export const build = gulp.series(gulp.parallel(
     copyCSS.bind(this, SRC_PATH, PRD_PATH),
     copyEmcJSCSS.bind(this, PRD_PATH),
     copyFonts.bind(this, SRC_PATH, PRD_PATH),
+    copyEmcJSFonts.bind(this, PRD_PATH),
     copyScript.bind(this, SRC_PATH, PRD_PATH),
     copyGameTrackerJS.bind(this, PRD_PATH),
     copyEmcJS.bind(this, PRD_PATH),
@@ -354,6 +373,7 @@ export const buildDev = gulp.series(gulp.parallel(
     copyCSS.bind(this, SRC_PATH, DEV_PATH),
     copyEmcJSCSS.bind(this, DEV_PATH),
     copyFonts.bind(this, SRC_PATH, DEV_PATH),
+    copyEmcJSFonts.bind(this, DEV_PATH),
     copyScript.bind(this, SRC_PATH, DEV_PATH),
     copyGameTrackerJS.bind(this, DEV_PATH),
     copyEmcJS.bind(this, DEV_PATH),
