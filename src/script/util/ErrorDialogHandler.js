@@ -1,4 +1,4 @@
-import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 
 export default class ErrorDialogHandler {
 
@@ -53,7 +53,7 @@ export default class ErrorDialogHandler {
         if (errors.size) {
             const title = this.#title;
             const message = this.#message;
-            await Dialog.error(title, message, errors);
+            await ModalDialog.error(title, message, errors);
             errors.clear();
         }
     }

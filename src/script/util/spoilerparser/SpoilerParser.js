@@ -1,5 +1,5 @@
 // frameworks
-import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
 
 // GameTrackerJS
@@ -21,8 +21,7 @@ import parseEntrances from "./parseEntrances.js";
 import parseDisabledLocations from "./parseDisabledLocations.js";
 import ErrorDialogHandler from "../ErrorDialogHandler.js";
 
-const errorDialogHandler = new ErrorDialogHandler(
-    "Spoiler Loaded Partially",
+const errorDialogHandler = new ErrorDialogHandler("Spoiler Loaded Partially",
     `Not all settings in your spoiler log were loaded correctly.
 Please report this issue on discord and provide...
 
@@ -30,8 +29,7 @@ Please report this issue on discord and provide...
 - the tracker version (${VersionData.version})
 - the errors listed below
 
-The following errors were recorded:`
-);
+The following errors were recorded:`);
 
 function addError(error, category) {
     console.warn(category, error);
@@ -85,7 +83,7 @@ class SpoilerParser {
         }
         if (versionType == "unknown") {
             await BusyIndicatorManager.unbusy();
-            const cont = await Dialog.confirm("Unknown Spoiler log version", "The file you loaded might not be a valid OOTR Spoiler log.<br>This could break the Tracker.<br>Do you want to continue loading the file?");
+            const cont = await ModalDialog.confirm("Unknown Spoiler log version", "The file you loaded might not be a valid OOTR Spoiler log.<br>This could break the Tracker.<br>Do you want to continue loading the file?");
             await BusyIndicatorManager.busy();
             if (!cont) {
                 return;
@@ -111,7 +109,9 @@ class SpoilerParser {
         }
         if (debugSpoiler || settings["item_association"]) {
             // locationItems
-            parseItemLocations(addError, result, getWorldData(spoiler["locations"], world), world, debugSpoiler || settings["ignore_world_locking"], trans);
+            parseItemLocations(
+                addError, result, getWorldData(spoiler["locations"], world), world, debugSpoiler || settings["ignore_world_locking"], trans
+            );
         }
         if (debugSpoiler || settings["woth_hints"]) {
             // areaHints

@@ -198,9 +198,9 @@
         "logic_rules": {
             "name": "logic_rules",
             "values": [
-                "logic_rules_glitchless",
-                "logic_rules_glitched",
-                "logic_rules_glitched"
+                "logic_rules_ap_glitchless",
+                "logic_rules_ap_glitched",
+                "logic_rules_ap_glitched"
             ]
         },
         "logic_no_night_tokens_without_suns_song": {
@@ -541,7 +541,7 @@
         "spirit temple main room jump from hands to upper ledges": "skip.spirit_lobby_jump",
         "spirit temple main room hookshot to boss platform": "skip.spirit_platform_hookshot",
         "spirit temple map chest with bow": "skip.spirit_map_chest",
-        "spirit temple sun block room chest with bow": "skip.spirit_sun_chest",
+        "spirit temple sun block room chest with bow": "skip.spirit_sun_chest_bow",
         "spirit temple shifting wall with no additional items": "skip.spirit_wall",
         "spirit temple mq without lens of truth": "skip.lens_spirit_mq",
         "spirit temple mq sun block room as child without song of time": "skip.spirit_mq_sun_block_sot",

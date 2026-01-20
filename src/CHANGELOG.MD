@@ -40,7 +40,10 @@ Application:    Track-OOT
 -  add ganon tower entrance to shuffle
    -  add standalone ganon tower map
 - remove fullscreen hotkey, as `F11` already exists for this in browsers (`Ctrl ⌘ F` for safari)
-- replace some old "windows" with newer designs
+- replace some old "windows" with newer "modal" designs
+- add seperate logic for archipelago (glitched and glitchless)
+  - switches automatically if settings sync is active
+  - can be manually selected in the randomizer options
 
 ### BUG FIXES
 

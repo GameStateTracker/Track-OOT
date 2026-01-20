@@ -5,7 +5,9 @@
         "default": "logic_rules_glitchless",
         "values": [
             "logic_rules_glitchless",
-            "logic_rules_glitched"
+            "logic_rules_glitched",
+            "logic_rules_ap_glitchless",
+            "logic_rules_ap_glitched"
         ]
     },
     "starting_age": {
@@ -859,6 +861,9 @@
             "skip.dmt_soil_gs",
             "skip.dmt_bombable",
             "skip.trail_gs_lower",
+            "skip.trail_gs_lower_hookshot",
+            "skip.trail_gs_lower_hovers",
+            "skip.trail_gs_lower_bean",
             "skip.dmt_climb_hovers",
             "skip.trail_gs_upper",
             "skip.biggoron_bolero",
@@ -944,6 +949,7 @@
             "skip.gtg_fake_wall",
             "skip.lens_gtg_mq",
             "skip.gtg_mq_with_hookshot",
+            "skip.gtg_mq_without_hookshot",
             "skip.gtg_mq_eye_statue_jumpslash",
             "skip.gtg_mq_maze_right",
             "skip.lens_castle",
@@ -1007,6 +1013,7 @@
             "skip.water_north_basement",
             "skip.water_north_basement_ledge_jump",
             "skip.water_bk_jump_dive",
+            "skip.water_boss_key_region",
             "skip.water_central_gs_fw",
             "skip.water_central_gs_irons",
             "skip.water_central_bow",

@@ -1,12 +1,8 @@
 // frameworks
-import {
-    deepClone
-} from "/emcJS/util/helper/DeepClone.js";
+import {deepClone} from "/emcJS/util/helper/DeepClone.js";
 
 // GameTrackerJS
-import {
-    getRegion
-} from "/GameTrackerJS/data/resource/WorldResource.js";
+import {getRegion} from "/GameTrackerJS/data/resource/WorldResource.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
@@ -15,6 +11,8 @@ import LogicResource from "/script/resource/LogicResource.js";
 import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 import LogicStorage from "../../content/logic/storages/LogicStorage.js";
 import LogicGlitchedStorage from "../../content/logic/storages/LogicGlitchedStorage.js";
+import LogicAPGlitchedResource from "../../resource/LogicAPGlitchedResource.js";
+import LogicAPResource from "../../resource/LogicAPResource.js";
 
 const logicRuleTypeObserver = new OptionsObserver("logic_rules");
 const useCustomLogicObserver = new SettingsObserver("use_custom_logic");
@@ -53,25 +51,55 @@ export default class CustomLogicUpdater {
     #getLogicData() {
         switch (logicRuleTypeObserver.value) {
             case "logic_rules_glitched": {
-                return LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
+                return LogicGlitchedResource.get() ?? {
+                    edges:{},
+                    logic:{}
+                };
             }
-            case "logic_rules_glitchless":
-            default: {
-                return LogicResource.get() ?? {edges:{}, logic:{}};
+            case "logic_rules_glitchless": {
+                return LogicResource.get() ?? {
+                    edges:{},
+                    logic:{}
+                };
+            }
+            case "logic_rules_ap_glitched": {
+                return LogicAPGlitchedResource.get() ?? {
+                    edges:{},
+                    logic:{}
+                };
+            }
+            case "logic_rules_ap_glitchless": {
+                return LogicAPResource.get() ?? {
+                    edges:{},
+                    logic:{}
+                };
             }
         }
+        return {
+            edges:{},
+            logic:{}
+        };
     }
 
     #getCustomLogicData() {
         switch (logicRuleTypeObserver.value) {
             case "logic_rules_glitched": {
-                return LogicGlitchedStorage.getAll() ?? {edges:{}, logic:{}};
+                return LogicGlitchedStorage.getAll() ?? {
+                    edges:{},
+                    logic:{}
+                };
             }
-            case "logic_rules_glitchless":
-            default: {
-                return LogicStorage.getAll() ?? {edges:{}, logic:{}};
+            case "logic_rules_glitchless": {
+                return LogicStorage.getAll() ?? {
+                    edges:{},
+                    logic:{}
+                };
             }
         }
+        return {
+            edges:{},
+            logic:{}
+        };
     }
 
     #augmentLogic(logic) {

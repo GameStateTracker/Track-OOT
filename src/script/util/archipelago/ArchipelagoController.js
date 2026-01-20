@@ -1,4 +1,4 @@
-import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import {
     IS_SECURE_PAGE, isLocalhost
@@ -231,7 +231,7 @@ class ArchipelagoController extends EventTarget {
                     console.warn("errors converting data:", errors);
                 }
             } else {
-                Dialog.alert("No slot data found!", "Your game has not send any slot data.");
+                ModalDialog.alert("No slot data found!", "Your game has not send any slot data.");
             }
         }
 
@@ -253,7 +253,7 @@ class ArchipelagoController extends EventTarget {
     #onDisonnectedEvent() {
         clearTimeout(this.#connectionTimeout);
         clearTimeout(this.#periodTimer);
-        Dialog.alert("AP Connection Lost", "The connection to Archipelago has been lost");
+        ModalDialog.alert("AP Connection Lost", "The connection to Archipelago has been lost");
 
         const ev = new Event("disconnected");
         this.dispatchEvent(ev);
@@ -383,7 +383,7 @@ class ArchipelagoController extends EventTarget {
             }
         }
         if (unknownLocations.length) {
-            Dialog.error("Unknown AP Locations", "Some locations could not be translated", unknownLocations);
+            ModalDialog.error("Unknown AP Locations", "Some locations could not be translated", unknownLocations);
         }
         return resLocations;
     }
@@ -416,7 +416,7 @@ class ArchipelagoController extends EventTarget {
             }
         }
         if (unknownItems.length) {
-            Dialog.error("Unknown AP Items", "Some items could not be translated", unknownItems);
+            ModalDialog.error("Unknown AP Items", "Some items could not be translated", unknownItems);
         }
         return resultItems;
     }

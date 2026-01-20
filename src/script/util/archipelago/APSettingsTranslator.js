@@ -1,7 +1,5 @@
 import OptionsTransAPResource from "../../resource/OptionsTransAPResource.js";
-import {
-    translateLocation
-} from "./APNameTranslator.js";
+import {translateLocation} from "./APNameTranslator.js";
 
 const trans = OptionsTransAPResource.get();
 
@@ -95,7 +93,9 @@ export function translateAPSettings(data = {}) {
                 if (typeof transData === "string") {
                     target.options[transData] = parsedValue;
                 } else {
-                    const {name, values, overwrite = false} = transData;
+                    const {
+                        name, values, overwrite = false
+                    } = transData;
                     const transValue = values[parsedValue];
                     if (transValue == null) {
                         // ignore value

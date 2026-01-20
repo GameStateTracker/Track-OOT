@@ -1,4 +1,4 @@
-import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import {delimitInteger} from "/emcJS/util/helper/number/Integer.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldListLocation from "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
@@ -55,7 +55,7 @@ export default class TrackerWorldListScrubLocation extends WorldListLocation {
         this.addDefaultContextMenuHandler("set_price", async () => {
             const state = this.getState();
             if (state != null) {
-                const price = await Dialog.promptNumber("Set Price", "Please enter a price");
+                const price = await ModalDialog.promptNumber("Set Price", "Please enter a price", 0, 999);
                 if (typeof price === "number") {
                     if (!isNaN(price)) {
                         state.price = delimitInteger(price, 0, 999);

@@ -1,6 +1,6 @@
 // frameworks
 import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
-import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
 
 // GameTrackerJS
@@ -113,7 +113,7 @@ async function state_Load() {
 
 async function state_New() {
     if (await SavestateHandler.isDirty()) {
-        if (!await Dialog.confirm("Warning, you have unsaved changes.", "Do you want to discard your changes and create a new state?")) {
+        if (!await ModalDialog.confirm("Warning, you have unsaved changes.", "Do you want to discard your changes and create a new state?")) {
             return;
         }
     }

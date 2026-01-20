@@ -15,9 +15,9 @@
             }
         ]
     },
-    "base": "/rtc/",
+    "base": "/",
     "services": {
         "multiplayer": "lobby",
-        "itemview": "itemview"
+        "itemview": "rtc"
     }
 }
