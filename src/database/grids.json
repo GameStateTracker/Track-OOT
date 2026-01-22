@@ -2260,7 +2260,7 @@
             }
         ]
     ],
-    "ap-hint-groups": [
+    "ap-hint-items": [
         [
             {
                 "type": "icon",
@@ -2298,9 +2298,7 @@
                 "icon": "/images/items/rewards.png",
                 "visible": true
             }
-        ]
-    ],
-    "ap-hint-items": [
+        ],
         [
             {
                 "type": "icon",

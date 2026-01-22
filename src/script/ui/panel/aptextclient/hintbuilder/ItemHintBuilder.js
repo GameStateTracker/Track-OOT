@@ -37,16 +37,8 @@ export default class ItemHintBuilder extends CustomElement {
         TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
-        const hintGroupPickerEl = this.shadowRoot.getElementById("hint-group-picker");
-        hintGroupPickerEl.addEventListener("iconclick", (event) => {
-            const {value} = event;
-            const ev = new Event("hint");
-            ev.value = value;
-            this.dispatchEvent(ev);
-        });
-        /* --- */
         const hintItemPickerEl = this.shadowRoot.getElementById("hint-item-picker");
-        hintItemPickerEl.addEventListener("iconclick", (event) => {
+        this.registerTargetEventHandler(hintItemPickerEl, "iconclick", (event) => {
             const {value} = event;
             const ev = new Event("hint");
             ev.value = value;

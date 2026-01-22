@@ -1,13 +1,7 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import {
-    VALID_JSON_MESSAGE_TYPE
-} from "/ArchipelagoJS/types/JSONMessagePart.js";
-import {
-    PRINT_JSON_TYPE
-} from "/ArchipelagoJS/consts/PrintJSONType.js";
-import {
-    HINT_STATUS
-} from "/ArchipelagoJS/consts/HintStatus.js";
+import DataListEntry from "/emcJS/ui/dataview/datalist/components/DataListEntry.js";
+import {VALID_JSON_MESSAGE_TYPE} from "/ArchipelagoJS/types/JSONMessagePart.js";
+import {PRINT_JSON_TYPE} from "/ArchipelagoJS/consts/PrintJSONType.js";
+import {HINT_STATUS} from "/ArchipelagoJS/consts/HintStatus.js";
 import TPL from "./ChatListEntry.js.html" assert {type: "html"};
 import STYLE from "./ChatListEntry.js.css" assert {type: "css"};
 
@@ -16,7 +10,7 @@ const hintTypes = Object.entries(HINT_STATUS).reduce((prev, [key, value]) => {
     return prev;
 }, {});
 
-export default class ChatListEntry extends CustomElement {
+export default class ChatListEntry extends DataListEntry {
 
     #containerEl;
 
@@ -31,14 +25,6 @@ export default class ChatListEntry extends CustomElement {
     setData(data) {
         const convertedMessage = this.#consolidateMessage(data);
         this.#containerEl.innerHTML = convertedMessage;
-    }
-
-    set key(value) {
-        this.setAttribute("key", value);
-    }
-
-    get key() {
-        return this.getAttribute("key");
     }
 
     #consolidateMessage(packet) {

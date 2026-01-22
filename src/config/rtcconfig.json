@@ -1,0 +1,48 @@
+{
+    "ice": {
+        "iceTransportPolicy": "all",
+        "iceServers": [
+            {
+                "urls": "stun:stun.zidargs.net:18001"
+            },
+            {
+                "urls": "stun:stun.l.google.com:19302"
+            },
+            {
+                "urls": "turn:turn.zidargs.net:18001",
+                "credential": "fHNsIeqdgVcUAypvaxDVE6tywaMlP1fA",
+                "username": "iamgroot"
+            }
+        ]
+    },
+    "base": "/",
+    "services": {
+        "multiplayer": "lobby",
+        "itemview": "itemview"
+    },
+    "storages": {
+        "multiplayer": [
+            "items",
+            "locations",
+            "exitBindings",
+            "areaHints",
+            "locationItems",
+            "startItems",
+            "options",
+            "dungeonRewards",
+            "dungeonTypes",
+            "shopItems",
+            "shopItemsPrice",
+            "shopItemsBought",
+            "songNotes",
+            "gossipstoneLocations",
+            "gossipstoneItems"
+        ],
+        "itemview": [
+            "items",
+            "startItems",
+            "options",
+            "dungeonRewards"
+        ]
+    }
+}

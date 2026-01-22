@@ -55,6 +55,10 @@
     --input-color-hover: #eeeeee;
     --input-focus-color: #06b5ff;
 
+    --select-overlay-border-color: #cb9c3d;
+    --select-option-marked-text-color: #000000;
+    --select-option-marked-back-color: #e3cfa6;
+
     --button-text-color: #000000;
     --button-back-color: #e3cfa6;
     --button-hover-text-color: #000000;

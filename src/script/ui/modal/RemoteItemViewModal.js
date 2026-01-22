@@ -9,13 +9,12 @@ import "/emcJS/ui/form/element/input/switch/SwitchInput.js";
 import VersionData from "/GameTrackerJS/data/VersionData.js";
 import ParameterStorage from "/GameTrackerJS/storage/ParameterStorage.js";
 import ItemViewHost from "/GameTrackerJS/util/rtc/itemview/ItemViewHost.js";
-import {SYNCED_STORAGES} from "../../../config/rtc/ItemViewConfig.js";
-import TPL from "./ItemViewerModal.js.html" assert {type: "html"};
-import STYLE from "./ItemViewerModal.js.css" assert {type: "css"};
+import TPL from "./RemoteItemViewModal.js.html" assert {type: "html"};
+import STYLE from "./RemoteItemViewModal.js.css" assert {type: "css"};
 
-export default class ItemViewerModal extends Modal {
+export default class RemoteItemViewModal extends Modal {
 
-    #itemViewHost = new ItemViewHost(window.location.hostname == "localhost" ? 8001 : "", SYNCED_STORAGES);
+    #itemViewHost = new ItemViewHost(window.location.hostname == "localhost" ? 8001 : "");
 
     #connectionTokenEl;
 
@@ -89,8 +88,12 @@ export default class ItemViewerModal extends Modal {
         ParameterStorage.set("item_view_modal.token", connectionToken);
         try {
             this.#onConnecting();
-            await this.#itemViewHost.host(connectionToken, "", VersionData.version);
-            this.#onConnected();
+            const connected = await this.#itemViewHost.host(connectionToken, "", VersionData.version);
+            if (connected) {
+                this.#onConnected();
+            } else {
+                this.#onDisonnected();
+            }
         } catch (error) {
             this.#onDisonnected();
             console.error(error);
@@ -143,4 +146,4 @@ export default class ItemViewerModal extends Modal {
 
 }
 
-customElements.define("tootr-modal-itemviewer", ItemViewerModal);
+customElements.define("tootr-modal-remote-item-view", RemoteItemViewModal);

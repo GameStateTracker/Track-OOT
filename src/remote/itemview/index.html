@@ -36,6 +36,7 @@
 
         #container {
             display: flex;
+            flex-direction: column;
             max-width: 100dvw;
             max-height: 100dvh;
             width: min-content;
@@ -48,6 +49,11 @@
             height: 100dvh;
             min-width: 600px;
             min-height: 350px;
+        }
+
+        #container #layout {
+            min-width: 0px;
+            min-height: 0px;
         }
 
         #container.fill #layout>.panel {
@@ -81,10 +87,11 @@
             white-space: pre;
         }
 
-        #panel-size {
+        .size-panel {
             position: absolute;
-            bottom: 0;
-            right: 0;
+            top: 0;
+            left: 0;
+            padding: 2px;
             color: white;
             background-color: black;
         }
@@ -97,6 +104,20 @@
             right: 0;
             z-index: 100;
         }
+
+        #location-state {
+            display: inline;
+            text-align: end;
+            padding: 0 5px;
+            color: var(--navigation-text-color, #000000);
+            background-color: var(--navigation-back-color, #ffffff);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .hidden {
+            display: none !important;
+        }
     </style>
 </head>
 
@@ -104,14 +125,25 @@
     <div id="container">
         <emc-layout id="layout">
         </emc-layout>
+        <div id="location-state" class="hidden">
+            <span id="locations-done">#</span> done • <span id="locations-available">#</span> avail • <span id="locations-missing">#</span> miss • <span id="exits-available">#</span> exits
+        </div>
     </div>
     <div id="info-panel">
         <div class="text">NOT CONNECTED</div>
-        <div id="panel-size">
-            Size:
-            <span id="panel-width">0</span>
-            x
-            <span id="panel-height">0</span>
+        <div class="size-panel">
+            <div class="size-panel-line">
+                Itemgrid Size:
+                <span id="panel-width">0</span>
+                x
+                <span id="panel-height">0</span>
+            </div>
+            <div class="size-panel-line">
+                Full Size:
+                <span id="page-width">0</span>
+                x
+                <span id="page-height">0</span>
+            </div>
         </div>
     </div>
     <div class="click-prevent"></div>

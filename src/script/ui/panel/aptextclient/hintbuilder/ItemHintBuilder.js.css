@@ -4,3 +4,7 @@
     padding: 5px;
     color: #ffffff;
 }
+
+#hint-item-picker {
+    border: none;
+}
