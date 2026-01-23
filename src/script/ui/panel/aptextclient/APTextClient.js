@@ -3,25 +3,29 @@ import ArraySet from "/emcJS/data/collection/ArraySet.js";
 import {
     recordsToDict, dictToRecords
 } from "/emcJS/util/helper/storage/Records.js";
+import SearchExact from "/emcJS/util/search/SearchExact.js";
 import {isStringNotEmpty} from "/emcJS/util/helper/CheckType.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
+import "/emcJS/ui/dataview/datagrid/DataGrid.js";
+import "/emcJS/ui/form/element/input/string/StringInput.js";
+import "/emcJS/ui/form/element/select/simple/SimpleSelect.js";
+import "/emcJS/ui/form/element/select/token/TokenSelect.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import {VALID_JSON_MESSAGE_TYPE} from "/ArchipelagoJS/types/JSONMessagePart.js";
 import {ITEM_FLAGS} from "/ArchipelagoJS/consts/ItemFlags.js";
 import {PRINT_JSON_TYPE} from "/ArchipelagoJS/consts/PrintJSONType.js";
 import ArchipelagoController from "../../../util/archipelago/ArchipelagoController.js";
-import "/emcJS/ui/dataview/datagrid/DataGrid.js";
-import "/emcJS/ui/form/element/input/string/StringInput.js";
-import "/emcJS/ui/form/element/select/token/TokenSelect.js";
+import {AP_STORAGES} from "../../../util/archipelago/storage/RegisterAPStorage.js";
 import "./chat/ChatList.js";
 import "./hintbuilder/ItemHintBuilder.js";
 import "./cell/itemcell/DataGridCellAPItem.js";
-import "./cell/itemcell/DataGridCellAPUser.js";
+import "./cell/usercell/DataGridCellAPUser.js";
+import "./cell/foundcell/DataGridCellFound.js";
+import "./cell/statuscell/DataGridCellAPStatus.js";
 import TPL from "./APTextClient.js.html" assert {type: "html"};
 import STYLE from "./APTextClient.js.css" assert {type: "css"};
-import {AP_STORAGES} from "../../../util/archipelago/storage/RegisterAPStorage.js";
 
-const ITEM_CLASSES = {
+const ITEM_FLAG_NAMES = {
     [ITEM_FLAGS.PROGRESSION]: "progressive",
     [ITEM_FLAGS.NEVER_EXCLUDE]: "useful",
     [ITEM_FLAGS.FILLER]: "normal",
@@ -70,9 +74,9 @@ class APTextClient extends Panel {
         const apHintsStatusEl = this.shadowRoot.getElementById("ap-hints-status");
         const apHintGridDataProvider = new SimpleDataProvider(apHintGridEl, dictToRecords(AP_STORAGES.hints.getAll()), {
             config: {
-                searchFields: ["finder", "item.item", "receiver", "location", "entrance"],
+                searchFields: ["finder.alias", "item.itemName", "receiver.alias", "location.locationName", "entrance"],
                 filterIgnoreNullValues: true,
-                sort: ["found"]
+                sort: ["status.statusId"]
             }
         });
         const apItemHintBuilderEl = this.shadowRoot.getElementById("ap-item-hint-builder");
@@ -98,31 +102,35 @@ class APTextClient extends Panel {
             apLogListDataProvider.updateConfig({search: apLogSearchEl.value});
         });
         apLogMsgTypeEl.addEventListener("change", () => {
-            const {filter} = apLogListDataProvider.getOptions();
-            filter.type = apLogMsgTypeEl.value;
+            const {filter} = apLogListDataProvider.getConfig();
+            if (apLogMsgTypeEl.value) {
+                filter.type = new SearchExact(apLogMsgTypeEl.value);
+            } else {
+                filter.type = "";
+            }
             apLogListDataProvider.updateConfig({filter});
         });
         apLogItemClassEl.addEventListener("change", () => {
-            const {filter} = apLogListDataProvider.getOptions();
+            const {filter} = apLogListDataProvider.getConfig();
             filter.itemClass = apLogItemClassEl.value;
             apLogListDataProvider.updateConfig({filter});
         });
         apLogDirectionEl.addEventListener("change", () => {
-            const {filter} = apLogListDataProvider.getOptions();
+            const {filter} = apLogListDataProvider.getConfig();
             const value = apLogDirectionEl.value;
             if (value.includes("sender")) {
                 if (value.includes("receiver")) {
-                    filter.isSender = null;
+                    filter.isFinder = null;
                     filter.isReceiver = null;
                 } else {
-                    filter.isSender = true;
+                    filter.isFinder = true;
                     filter.isReceiver = null;
                 }
             } else if (value.includes("receiver")) {
-                filter.isSender = null;
+                filter.isFinder = null;
                 filter.isReceiver = true;
             } else {
-                filter.isSender = false;
+                filter.isFinder = false;
                 filter.isReceiver = false;
             }
             apLogListDataProvider.updateConfig({filter});
@@ -143,12 +151,12 @@ class APTextClient extends Panel {
             apHintGridDataProvider.updateConfig({search: apHintsSearchEl.value});
         });
         apHintsItemClassEl.addEventListener("change", () => {
-            const {filter} = apHintGridDataProvider.getOptions();
+            const {filter} = apHintGridDataProvider.getConfig();
             filter["item.itemClass"] = apHintsItemClassEl.value;
             apHintGridDataProvider.updateConfig({filter});
         });
         apHintsDirectionEl.addEventListener("change", () => {
-            const {filter} = apHintGridDataProvider.getOptions();
+            const {filter} = apHintGridDataProvider.getConfig();
             const value = apHintsDirectionEl.value;
             if (value.includes("finder")) {
                 if (value.includes("receiver")) {
@@ -168,7 +176,7 @@ class APTextClient extends Panel {
             apHintGridDataProvider.updateConfig({filter});
         });
         apHintsStatusEl.addEventListener("change", () => {
-            const {filter} = apHintGridDataProvider.getOptions();
+            const {filter} = apHintGridDataProvider.getConfig();
             const value = apHintsStatusEl.value;
             if (value.includes("found")) {
                 if (value.includes("missing")) {
@@ -311,7 +319,7 @@ class APTextClient extends Panel {
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.ITEM_ID: {
-                    const itemClass = ITEM_CLASSES[piece.flags];
+                    const itemClass = ITEM_FLAG_NAMES[piece.flags];
                     const itemId = parseInt(piece.text);
                     const itemName = ArchipelagoController.getItemName(piece.player, itemId);
                     return {
@@ -356,13 +364,13 @@ class APTextClient extends Panel {
         if (packet.type === PRINT_JSON_TYPE.ITEM_SEND) {
             const senderAlias = ArchipelagoController.getPlayerAlias(packet.item.player);
             const receiverAlias = ArchipelagoController.getPlayerAlias(packet.receiving);
-            const itemClass = ITEM_CLASSES[packet.item.flags];
+            const itemClass = ITEM_FLAG_NAMES[packet.item.flags];
             const itemName = ArchipelagoController.getItemName(packet.receiving, packet.item.item);
             const locationName = ArchipelagoController.getLocationName(packet.item.player, packet.item.location);
 
             return {
                 type: packet.type,
-                isSender: packet.item.player === apPlayerId,
+                isFinder: packet.item.player === apPlayerId,
                 isReceiver: packet.receiving === apPlayerId,
                 sender: senderAlias,
                 receiver: receiverAlias,
@@ -387,35 +395,48 @@ class APTextClient extends Panel {
             item,
             found,
             entrance,
-            item_flags
+            item_flags,
+            status
         } = data;
 
         const apPlayerId = ArchipelagoController.playerId;
 
         const finderAlias = ArchipelagoController.getPlayerAlias(finding_player);
+        const isFinder = finding_player === apPlayerId;
         const receiverAlias = ArchipelagoController.getPlayerAlias(receiving_player);
+        const isReceiver = receiving_player === apPlayerId;
         const locationName = ArchipelagoController.getLocationName(finding_player, location);
         const itemName = ArchipelagoController.getItemName(receiving_player, item);
-        const itemClass = ITEM_CLASSES[item_flags];
+        const itemClass = ITEM_FLAG_NAMES[item_flags];
 
         return {
             key: `${finding_player}_${location}`,
-            isSender: finding_player === apPlayerId,
-            isReceiver: receiving_player === apPlayerId,
+            isFinder,
+            isReceiver,
             finder: {
+                playerId: finding_player,
                 alias: finderAlias,
-                current: finding_player === apPlayerId
+                current: isFinder
             },
             receiver: {
+                playerId: receiving_player,
                 alias: receiverAlias,
-                current: receiving_player === apPlayerId
+                current: isReceiver
             },
-            location: locationName,
+            location: {
+                locationId: location,
+                locationName
+            },
             item: {
-                item: itemName,
+                itemId: item,
+                itemName,
                 itemClass: itemClass
             },
             entrance,
+            status: {
+                statusId: status,
+                receiving: isReceiver
+            },
             found
         };
     }

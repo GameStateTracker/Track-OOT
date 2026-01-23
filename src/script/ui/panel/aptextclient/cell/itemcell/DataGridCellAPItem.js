@@ -27,8 +27,10 @@ export default class DataGridCellAPItem extends DataGridCell {
             this.#valueEl.innerText = "";
             this.#valueEl.className = "";
         } else {
-            const {item, itemClass} = value;
-            this.#valueEl.innerText = item;
+            const {
+                itemName, itemClass
+            } = value;
+            this.#valueEl.innerText = itemName;
             this.#valueEl.className = `item-${itemClass}`;
         }
     }

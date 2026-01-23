@@ -166,7 +166,7 @@
     "ap_color_hint_no_priority": {
         "category": "a11y",
         "type": "color",
-        "default": "#00eeee",
+        "default": "#6d8be8",
         "resettable": true
     },
     "ap_color_hint_priority": {

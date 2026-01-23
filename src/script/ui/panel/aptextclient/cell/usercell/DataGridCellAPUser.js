@@ -27,7 +27,9 @@ export default class DataGridCellAPUser extends DataGridCell {
             this.#valueEl.innerText = "";
             this.#valueEl.className = "";
         } else {
-            const {alias, current} = value;
+            const {
+                alias, current
+            } = value;
             this.#valueEl.innerText = alias;
             this.#valueEl.className = `player-${current ? "current" : "other"}`;
         }

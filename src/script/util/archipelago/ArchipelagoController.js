@@ -450,6 +450,18 @@ class ArchipelagoController extends EventTarget {
         return this.#client.items.name(playerId, itemId);
     }
 
+    updateHintStatus(findingPlayerId, locationId, statusId) {
+        const msg = {
+            cmd: CLIENT_PACKET_TYPE.UPDATE_HINT,
+            player: findingPlayerId,
+            location: locationId
+        };
+        if (statusId != null) {
+            msg.status = statusId;
+        }
+        this.#client.send(msg);
+    }
+
 }
 
 export default new ArchipelagoController();

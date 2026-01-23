@@ -46,6 +46,8 @@ Application:    Track-OOT
   - can be manually selected in the randomizer options
 - add access info to remote itemview
 - dont differentiate between groups and items in ap hint builder
+- fix ap panel design
+- add hint status control to ap hint list
 
 ### BUG FIXES
 

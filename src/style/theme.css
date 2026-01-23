@@ -91,6 +91,9 @@
     --slider-thumb-border-color: var(--page-border-color-inverted);
     --slider-thumb-border-radius: 0px;
 
+    --datagrid-text-color: #ffffff;
+    --datagrid-back-color: #333333;
+
     --datagrid-empty-text-color: #666666;
     --datagrid-empty-back-color: #dadada;
     --datagrid-empty-back-image: none;
@@ -99,6 +102,10 @@
     --datagrid-empty-border-radius: 6px;
 
     --datagrid-column-seperator-width: 2px;
+    --datagrid-column-seperator-color: #000000;
+
+    --datagrid-row-hover-text-color: #ffffff;
+    --datagrid-row-hover-back-color: #222222;
 
     --datagrid-header-text-color: #000000;
     --datagrid-header-back-color: #cb9c3d;
@@ -106,6 +113,8 @@
 
     --datagrid-row-seperator-width: 1px;
     --datagrid-row-seperator-color: #cb9c3d91;
+
+    --datalist-back-color: #333333;
 
     --scrollbar-size: 12px;
     --scrollbar-corner-color: #000000;

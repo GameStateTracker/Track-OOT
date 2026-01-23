@@ -3,11 +3,10 @@
         <div class="container">
             <div class="filter-bar">
                 <emc-input-search id="ap-log-search" class="search-field" placeholder="Search" nohover></emc-input-search>
-                <emc-select-token id="ap-log-msgtype" class="filter-choice" placeholder="Message Type" nohover chooseonly multiple value="[&quot;ServerChat&quot;,&quot;Chat&quot;,&quot;ItemSend&quot;]">
-                    <option value="ServerChat" label="Server Messages"></option>
-                    <option value="Chat" label="Chat Messages"></option>
-                    <option value="ItemSend" label="Item Transfers"></option>
-                </emc-select-token>
+                <emc-select-simple id="ap-log-msgtype" class="filter-choice" placeholder="Message Type" nohover chooseonly value="">
+                    <option value="" label="Show All Messages"></option>
+                    <option value="ItemSend" label="Item Transfers Only"></option>
+                </emc-select-simple>
                 <emc-select-token id="ap-log-itemclass" class="filter-choice" placeholder="Item Class" nohover chooseonly multiple value="[&quot;progressive&quot;,&quot;useful&quot;,&quot;normal&quot;,&quot;trap&quot;]">
                     <option value="progressive" label="Progressive"></option>
                     <option value="useful" label="Useful"></option>
@@ -42,12 +41,12 @@
                 </emc-select-token>
             </div>
             <emc-datagrid id="ap-hints" stretched="location">
-                <emc-datagrid-column name="finder" label="Finder" type="apuser" sortable width="300"></emc-datagrid-column>
-                <emc-datagrid-column name="item" label="Item" type="apitems" sortable width="400"></emc-datagrid-column>
-                <emc-datagrid-column name="receiver" label="Receiver" type="apuser" sortable width="300"></emc-datagrid-column>
-                <emc-datagrid-column name="location" label="Location" type="text" sortable width="400" textcolor="var(--ap-color-location, #00ff7f)"></emc-datagrid-column>
-                <emc-datagrid-column name="entrance" label="Entrance" type="text" sortable width="300" textcolor="var(--ap-color-entrance, #6495ed)"></emc-datagrid-column>
-                <emc-datagrid-column name="found" label="Found" type="boolean" sortable width="120"></emc-datagrid-column>
+                <emc-datagrid-column name="finder" label="Finder" type="apuser" sortable sortby="finder.alias" width="15%"></emc-datagrid-column>
+                <emc-datagrid-column name="item" label="Item" type="apitems" sortable sortby="item.itemName" width="20%"></emc-datagrid-column>
+                <emc-datagrid-column name="receiver" label="Receiver" type="apuser" sortable sortby="receiver.alias" width="15%"></emc-datagrid-column>
+                <emc-datagrid-column name="location.locationName" label="Location" type="text" sortable width="20%" textColor="var(--ap-color-location, #00ff7f)"></emc-datagrid-column>
+                <emc-datagrid-column name="entrance" label="Entrance" type="text" sortable width="20%" textColor="var(--ap-color-entrance, #6495ed)"></emc-datagrid-column>
+                <emc-datagrid-column name="status" label="Status" type="apstatus" sortable sortby="status.statusId" width="10%" halign="center"></emc-datagrid-column>
             </emc-datagrid>
         </div>
     </div>

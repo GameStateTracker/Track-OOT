@@ -1,15 +1,19 @@
 :host {
     position: relative;
     margin: 1px;
-    color: #ffffff;
-    background: #222222;
 }
 
 #container {
-    position: relative;
-    box-sizing: border-box;
-    padding: 6px;
     user-select: text;
+    color: #ffffff;
+    background: #222222;
+    background-image: none;
+}
+
+#container:hover {
+    color: #ffffff;
+    background-color: #000000;
+    background-image: none;
 }
 
 #container .player-current {

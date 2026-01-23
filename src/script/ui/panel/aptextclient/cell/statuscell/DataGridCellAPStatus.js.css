@@ -1,0 +1,35 @@
+#content {
+    justify-content: center;
+}
+
+#value {
+    white-space: pre-wrap;
+}
+
+#content.editable {
+    cursor: pointer;
+}
+
+#content.editable #value {
+    text-decoration: underline;
+}
+
+#value.hint-found {
+    color: var(--ap-color-hint-found, #00ff7f);
+}
+
+#value.hint-unspecified {
+    color: var(--ap-color-hint-unspecified, #ffffff);
+}
+
+#value.hint-no-priority {
+    color: var(--ap-color-hint-no-priority, #6d8be8);
+}
+
+#value.hint-avoid {
+    color: var(--ap-color-hint-avoid, #fa8072);
+}
+
+#value.hint-priority {
+    color: var(--ap-color-hint-priority, #af99ef);
+}

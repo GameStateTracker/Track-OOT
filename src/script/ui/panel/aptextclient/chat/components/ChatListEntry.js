@@ -2,7 +2,6 @@ import DataListEntry from "/emcJS/ui/dataview/datalist/components/DataListEntry.
 import {VALID_JSON_MESSAGE_TYPE} from "/ArchipelagoJS/types/JSONMessagePart.js";
 import {PRINT_JSON_TYPE} from "/ArchipelagoJS/consts/PrintJSONType.js";
 import {HINT_STATUS} from "/ArchipelagoJS/consts/HintStatus.js";
-import TPL from "./ChatListEntry.js.html" assert {type: "html"};
 import STYLE from "./ChatListEntry.js.css" assert {type: "css"};
 
 const hintTypes = Object.entries(HINT_STATUS).reduce((prev, [key, value]) => {
@@ -16,7 +15,6 @@ export default class ChatListEntry extends DataListEntry {
 
     constructor() {
         super();
-        TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.#containerEl = this.shadowRoot.getElementById("container");
