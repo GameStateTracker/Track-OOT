@@ -2,15 +2,27 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--page-border-color-inverted);
 }
 
 .view-container-title {
     display: flex;
     align-items: center;
+    padding: 0 5px;
+    color: #000000;
+    background-color: #cb9c3d;
+    font-weight: bold;
 }
 
 #room-name {
     margin-left: 0.3em;
+}
+
+#disconnect {
+    margin-left: auto;
+    margin-right: 0;
 }
 
 #content {

@@ -1,7 +1,7 @@
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import EventManager from "/emcJS/util/event/EventManager.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
-import MultiplayerControllerInst from "../../../../util/rtc/MultiplayerControllerInst.js";
+import MultiplayerControllerInst from "../../../../../util/rtc/MultiplayerControllerInst.js";
 import MultiplayerHostModal from "../modal/MultiplayerHostModal.js";
 import "./entry/MultiplayerLobbyRoom.js";
 import "./detail/MultiplayerLobbyRoomDetails.js";
@@ -14,9 +14,13 @@ function roomDataComparator(a, b) {
 
 export default class MultiplayerLobby extends CustomElement {
 
+    #containerSwitchEl;
+
     #refreshEl;
 
     #hostEl;
+
+    #closeDetailsEl;
 
     #roomDetailsEl;
 
@@ -29,8 +33,10 @@ export default class MultiplayerLobby extends CustomElement {
         TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.#containerSwitchEl = this.shadowRoot.getElementById("container-switch");
         this.#refreshEl = this.shadowRoot.getElementById("refresh");
         this.#hostEl = this.shadowRoot.getElementById("host");
+        this.#closeDetailsEl = this.shadowRoot.getElementById("close-details");
         this.#roomDetailsEl = this.shadowRoot.getElementById("room-details");
 
         this.#hostEl.addEventListener("click", async () => {
@@ -42,6 +48,14 @@ export default class MultiplayerLobby extends CustomElement {
             const ev = new Event("hosting");
             ev.peer = peer;
             this.dispatchEvent(ev);
+        });
+
+        this.#closeDetailsEl.addEventListener("click", () => {
+            this.#containerSwitchEl.removeAttribute("active");
+            this.#roomDetailsEl.name = null;
+            this.#roomDetailsEl.pass = false;
+            this.#roomDetailsEl.desc = null;
+            this.#roomDetailsEl.version = null;
         });
 
         this.#roomDetailsEl.addEventListener("joined", (event) => {
@@ -64,6 +78,7 @@ export default class MultiplayerLobby extends CustomElement {
                     el.desc = inst.data?.desc;
                     el.version = inst.version;
                     this.#roomEventManager.set(el, "click", () => {
+                        this.#containerSwitchEl.setAttribute("active", "details");
                         this.#roomDetailsEl.name = inst.name;
                         this.#roomDetailsEl.pass = inst.pass;
                         this.#roomDetailsEl.desc = inst.data?.desc;

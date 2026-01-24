@@ -9,7 +9,7 @@ import "/emcJS/ui/form/element/input/text/TextInput.js";
 import "/emcJS/ui/form/element/select/simple/SimpleSelect.js";
 import VersionData from "/GameTrackerJS/data/VersionData.js";
 import {ClientTypes} from "/GameTrackerJS/util/rtc/multiplayer/config/MultiplayerConfig.js";
-import MultiplayerControllerInst from "../../../../util/rtc/MultiplayerControllerInst.js";
+import MultiplayerControllerInst from "../../../../../util/rtc/MultiplayerControllerInst.js";
 import TPL from "./MultiplayerHostModal.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerHostModal.js.css" assert {type: "css"};
 
@@ -45,8 +45,8 @@ export default class MultiplayerHostModal extends Modal {
         this.#hostEl = els.getElementById("host");
 
         contentEl.append(formEl);
-        footerEl.append(this.#hostEl);
         footerEl.append(this.#cancelEl);
+        footerEl.append(this.#hostEl);
 
         this.#nameEl = this.shadowRoot.getElementById("name");
         this.#passwordEl = this.shadowRoot.getElementById("password");
@@ -100,7 +100,7 @@ export default class MultiplayerHostModal extends Modal {
     }
 
     focusLast() {
-        this.#cancelEl.focus();
+        this.#hostEl.focus();
     }
 
     #onRegistering() {

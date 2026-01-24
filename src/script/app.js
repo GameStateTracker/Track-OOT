@@ -43,7 +43,7 @@ import NewGameWindow from "/script/ui/window/NewGameWindow.js";
 import SpoilerLogWindow from "/script/ui/window/SpoilerLogWindow.js";
 import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
 import "/script/ui/LayoutContainer.js";
-import "/script/ui/multiplayer/Multiplayer.js";
+import "./ui/panel/multiplayer/Multiplayer.js";
 import RemoteItemViewModal from "./ui/modal/RemoteItemViewModal.js";
 import APModal from "./ui/modal/APModal.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";

@@ -1,5 +1,5 @@
 import Panel from "/emcJS/ui/layout/Panel.js";
-import MultiplayerControllerInst from "../../util/rtc/MultiplayerControllerInst.js";
+import MultiplayerControllerInst from "../../../util/rtc/MultiplayerControllerInst.js";
 import "./components/lobby/MultiplayerLobby.js";
 import "./components/room/MultiplayerRoomClient.js";
 import "./components/room/MultiplayerRoomHost.js";
@@ -48,7 +48,7 @@ export default class Multiplayer extends Panel {
         this.#lobbyViewEl.addEventListener("hosting", () => {
             this.#mode = "host";
             this.#contentEl.setAttribute("active-panel", "host");
-            this.#roomClientEl.refreshRoomName();
+            this.#roomHostEl.refreshRoomName();
         });
 
         this.#lobbyViewEl.addEventListener("joined", () => {

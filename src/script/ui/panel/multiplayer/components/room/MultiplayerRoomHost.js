@@ -2,7 +2,7 @@ import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import EventManager from "/emcJS/util/event/EventManager.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import MultiplayerHost from "/GameTrackerJS/util/rtc/multiplayer/peer/MultiplayerHost.js";
-import MultiplayerControllerInst from "../../../../util/rtc/MultiplayerControllerInst.js";
+import MultiplayerControllerInst from "../../../../../util/rtc/MultiplayerControllerInst.js";
 import "./entry/MultiplayerUser.js";
 import "./entry/MultiplayerUserManaged.js";
 import "../logger/MultiplayerLogger.js";

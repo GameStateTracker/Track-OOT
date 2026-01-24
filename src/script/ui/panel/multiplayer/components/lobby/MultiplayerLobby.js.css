@@ -4,11 +4,23 @@
     overflow: hidden;
 }
 
+#container-switch {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    container-type: inline-size;
+}
+
 .caption {
     display: flex;
     align-items: center;
-    height: 2em;
     flex-shrink: 0;
+    height: 2em;
+    padding: 0 5px;
+    color: #000000;
+    background-color: #cb9c3d;
+    font-weight: bold;
 }
 
 .container {
@@ -16,6 +28,9 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--page-border-color-inverted);
 }
 
 .container:not(:first-child) {
@@ -48,14 +63,35 @@
 }
 
 #room-details {
-    width: max(500px, 50dvw);
+    width: max(300px, 50dvw);
     height: 100%;
     border-style: solid;
     border-width: 2px;
     border-color: var(--page-border-color, #ffffff);
 }
 
-#host {
+#host,
+#close-details {
     margin-left: auto;
     margin-right: 0px;
+}
+
+#container-switch:not([active="details"]) #room-details-container {
+    display: none;
+}
+
+@container (width < 1000px) {
+
+    #room-details-container {
+        flex: 1;
+        margin: 0;
+    }
+
+    #room-details {
+        width: 100%;
+    }
+
+    #container-switch[active]:not([active=""]):not([active="lobby"]) #lobby-container {
+        display: none;
+    }
 }

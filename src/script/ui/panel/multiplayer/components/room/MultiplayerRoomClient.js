@@ -2,7 +2,7 @@ import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import MultiplayerClient from "/GameTrackerJS/util/rtc/multiplayer/peer/MultiplayerClient.js";
-import MultiplayerControllerInst from "../../../../util/rtc/MultiplayerControllerInst.js";
+import MultiplayerControllerInst from "../../../../../util/rtc/MultiplayerControllerInst.js";
 import "./entry/MultiplayerUser.js";
 import "../logger/MultiplayerLogger.js";
 import TPL from "./MultiplayerRoomClient.js.html" assert {type: "html"};

@@ -3,7 +3,7 @@ import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import {isStringNotEmpty} from "/emcJS/util/helper/CheckType.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import VersionData from "/GameTrackerJS/data/VersionData.js";
-import MultiplayerControllerInst from "../../../../../util/rtc/MultiplayerControllerInst.js";
+import MultiplayerControllerInst from "../../../../../../util/rtc/MultiplayerControllerInst.js";
 import TPL from "./MultiplayerLobbyRoomDetails.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerLobbyRoomDetails.js.css" assert {type: "css"};
 
@@ -51,27 +51,27 @@ export default class MultiplayerLobbyRoomDetails extends CustomElement {
     }
 
     set name(val) {
-        this.setAttribute("name", val);
+        this.setStringAttribute("name", val);
     }
 
     get name() {
-        return this.getAttribute("name");
+        return this.getStringAttribute("name");
     }
 
     set desc(val) {
-        this.setAttribute("desc", val);
+        this.setStringAttribute("desc", val);
     }
 
     get desc() {
-        return this.getAttribute("desc");
+        return this.getStringAttribute("desc");
     }
 
     set version(val) {
-        this.setAttribute("version", val);
+        this.setStringAttribute("version", val);
     }
 
     get version() {
-        return this.getAttribute("version");
+        return this.getStringAttribute("version");
     }
 
     static get observedAttributes() {
@@ -82,7 +82,7 @@ export default class MultiplayerLobbyRoomDetails extends CustomElement {
         if (oldValue != newValue) {
             switch (name) {
                 case "pass": {
-                    if (!!newValue && newValue != "false") {
+                    if (this.pass) {
                         this.#iconEl.classList.add("lock-closed");
                     } else {
                         this.#iconEl.classList.remove("lock-closed");
@@ -90,17 +90,21 @@ export default class MultiplayerLobbyRoomDetails extends CustomElement {
                 } break;
                 case "name": {
                     this.#nameEl.innerHTML = newValue;
-                    if (isStringNotEmpty) {
+                    if (isStringNotEmpty(newValue)) {
                         this.#joinEl.disabled = false;
                     } else {
                         this.#joinEl.disabled = true;
                     }
                 } break;
                 case "desc": {
-                    this.#descEl.innerHTML = newValue;
+                    if (isStringNotEmpty(newValue)) {
+                        this.#descEl.innerHTML = newValue.toLowerCase();
+                    } else {
+                        this.#descEl.innerHTML = "";
+                    }
                 } break;
                 case "version": {
-                    if (newValue != "") {
+                    if (isStringNotEmpty(newValue)) {
                         this.#versionEl.innerHTML = newValue.toLowerCase();
                     } else {
                         this.#versionEl.innerHTML = "";
