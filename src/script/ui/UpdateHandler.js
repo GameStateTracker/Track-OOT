@@ -165,11 +165,12 @@ export default class UpdateHandler extends CustomElement {
         }
     }
 
-    checkUpdate() {
+    async checkUpdate() {
         if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.getRegistration().then(function(registration) {
-                registration.active.postMessage("check");
-            });
+            const cacheControl = await navigator.serviceWorker.getRegistration("/sw.js");
+            if (cacheControl != null) {
+                cacheControl.active.postMessage("check");
+            }
         }
     }
 

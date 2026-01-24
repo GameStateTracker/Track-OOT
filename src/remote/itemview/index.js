@@ -21,11 +21,16 @@ const availEl = document.getElementById("locations-available");
 const missEl = document.getElementById("locations-missing");
 const exitsEl = document.getElementById("exits-available");
 
+const SHOW_DISCONNECTED_TIMEOUT = 10000;
+let disconnectedTimer = null;
+
 const client = new ItemViewClient(window.location.hostname == "localhost" ? 8001 : "");
 client.addEventListener("disconnected", () => {
     console.info("lost connection to rtc host");
     Savestate.purge();
-    infoPanelEl.style.display = "";
+    disconnectedTimer = setTimeout(() => {
+        infoPanelEl.style.display = "";
+    }, SHOW_DISCONNECTED_TIMEOUT);
     connect();
 });
 
@@ -113,6 +118,8 @@ async function connect() {
                 connect();
             }, 5000);
         } else {
+            clearTimeout(disconnectedTimer);
+            disconnectedTimer = null;
             infoPanelEl.style.display = "none";
             console.info("rtc connection successful");
         }

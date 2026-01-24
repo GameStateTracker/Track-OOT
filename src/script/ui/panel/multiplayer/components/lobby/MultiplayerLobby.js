@@ -65,34 +65,10 @@ export default class MultiplayerLobby extends CustomElement {
             this.dispatchEvent(ev);
         });
 
-        const refresh = async (supressError) => {
-            const res = await MultiplayerControllerInst.getInstances(supressError);
-            if (res != null) {
-                this.innerHTML = "";
-                this.#roomEventManager.clear();
-                res.sort(roomDataComparator);
-                for (const inst of res) {
-                    const el = document.createElement("ootrt-multiplayer-lobby-room");
-                    el.name = inst.name;
-                    el.pass = inst.pass;
-                    el.desc = inst.data?.desc;
-                    el.version = inst.version;
-                    this.#roomEventManager.set(el, "click", () => {
-                        this.#containerSwitchEl.setAttribute("active", "details");
-                        this.#roomDetailsEl.name = inst.name;
-                        this.#roomDetailsEl.pass = inst.pass;
-                        this.#roomDetailsEl.desc = inst.data?.desc;
-                        this.#roomDetailsEl.version = inst.version;
-                    });
-                    this.append(el);
-                }
-            }
-        };
-
-        this.#refreshEl.addEventListener("click", function() {
-            refresh(false);
+        this.#refreshEl.addEventListener("click", () => {
+            this.refreshRoomList(false);
         });
-        refresh(true);
+        this.refreshRoomList(true);
     }
 
     clearSelection() {
@@ -101,6 +77,30 @@ export default class MultiplayerLobby extends CustomElement {
         this.#roomDetailsEl.desc = "";
         this.#roomDetailsEl.version = "";
     }
+
+    async refreshRoomList(supressError) {
+        const res = await MultiplayerControllerInst.getInstances(supressError);
+        if (res != null) {
+            this.innerHTML = "";
+            this.#roomEventManager.clear();
+            res.sort(roomDataComparator);
+            for (const inst of res) {
+                const el = document.createElement("ootrt-multiplayer-lobby-room");
+                el.name = inst.name;
+                el.pass = inst.pass;
+                el.desc = inst.data?.desc;
+                el.version = inst.version;
+                this.#roomEventManager.set(el, "click", () => {
+                    this.#containerSwitchEl.setAttribute("active", "details");
+                    this.#roomDetailsEl.name = inst.name;
+                    this.#roomDetailsEl.pass = inst.pass;
+                    this.#roomDetailsEl.desc = inst.data?.desc;
+                    this.#roomDetailsEl.version = inst.version;
+                });
+                this.append(el);
+            }
+        }
+    };
 
 }
 

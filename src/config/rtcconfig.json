@@ -42,7 +42,8 @@
             "items",
             "startItems",
             "options",
-            "dungeonRewards"
+            "dungeonRewards",
+            "APItems"
         ]
     }
 }
