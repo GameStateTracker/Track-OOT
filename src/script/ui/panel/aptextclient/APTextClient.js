@@ -20,7 +20,6 @@ import "./chat/ChatList.js";
 import "./hintbuilder/ItemHintBuilder.js";
 import "./cell/itemcell/DataGridCellAPItem.js";
 import "./cell/usercell/DataGridCellAPUser.js";
-import "./cell/foundcell/DataGridCellFound.js";
 import "./cell/statuscell/DataGridCellAPStatus.js";
 import TPL from "./APTextClient.js.html" assert {type: "html"};
 import STYLE from "./APTextClient.js.css" assert {type: "css"};
