@@ -47,7 +47,7 @@ Application:    Track-OOT
 - dont differentiate between groups and items in ap hint builder
 - add hint status control to ap hint list
 - redesign some old components
-- replace "tracker settings" and "randomizer options" with more modern ssetttings panel
+- replace "tracker settings" and "randomizer options" with more modern settings panel
 - add dedicated panel for "About"
 
 ### BUG FIXES
