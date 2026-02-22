@@ -45,7 +45,6 @@ Application:    Track-OOT
   - can be manually selected in the randomizer options
 - add access info to remote itemview
 - dont differentiate between groups and items in ap hint builder
-- fix ap panel design
 - add hint status control to ap hint list
 - redesign some old components
 - replace "tracker settings" and "randomizer options" with more modern ssetttings panel
@@ -60,6 +59,7 @@ Application:    Track-OOT
 - fix import of framework style rules
 - reduce content reflow on splash screen by not lazy loading styles
 - fix multiplayer handling connection issues
+- fix ap panel design
 
 ---
 
