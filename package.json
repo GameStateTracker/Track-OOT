@@ -12,9 +12,9 @@
   "type": "module",
   "dependencies": {
     "archipelagojs": "git+https://bitbucket.org/zidargs/archipelagojs.git/#1.1.2",
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git/#0.28.4",
-    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.9.7",
-    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.3.0",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git/#0.29.0",
+    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.10.0",
+    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.3.3",
     "jswebservice": "git+https://bitbucket.org/zidargs/jswebservice.git/#3.1.1",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git/#1.2.11"
   },
@@ -30,11 +30,11 @@
     "glob-all": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-changed": "^5.0.4",
     "gulp-eslint": "^6.0.0",
     "gulp-filelist": "^2.0.5",
     "gulp-htmlmin": "^5.0.1",
     "gulp-jsonminify": "^1.1.0",
-    "gulp-newer": "^1.4.0",
     "gulp-svgo": "^2.1.0",
     "gulp-terser": "^1.4.1",
     "through": "^2.3.8"

@@ -104,13 +104,13 @@ export default class MultiplayerHostModal extends Modal {
     }
 
     #onRegistering() {
-        this.busy = true;
+        this.busyIndicator.busy();
         this.#hostEl.text = "Creating...";
         this.#hostEl.disabled = true;
     }
 
     #onDefault() {
-        this.busy = false;
+        this.busyIndicator.reset();
         this.#hostEl.text = "Create";
         this.#hostEl.disabled = false;
     }

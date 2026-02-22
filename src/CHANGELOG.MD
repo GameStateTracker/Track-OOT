@@ -34,13 +34,12 @@ Application:    Track-OOT
   - replace the close function with a visibility change function
   - add spectator functionality
 - do not ask to confirm to close page any longer, as all interaction is stored locally
-
 -  redesign navigation menu
 -  add deliver rutos letter check
 -  add ganon tower entrance to shuffle
    -  add standalone ganon tower map
 - remove fullscreen hotkey, as `F11` already exists for this in browsers (`Ctrl ⌘ F` for safari)
-- replace some old "windows" with newer "modal" designs
+- replace old "windows" with newer "modal" designs
 - add seperate logic for archipelago (glitched and glitchless)
   - switches automatically if settings sync is active
   - can be manually selected in the randomizer options
@@ -48,6 +47,9 @@ Application:    Track-OOT
 - dont differentiate between groups and items in ap hint builder
 - fix ap panel design
 - add hint status control to ap hint list
+- redesign some old components
+- replace "tracker settings" and "randomizer options" with more modern ssetttings panel
+- add dedicated panel for "About"
 
 ### BUG FIXES
 

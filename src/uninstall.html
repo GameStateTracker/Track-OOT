@@ -3,8 +3,7 @@
 <head>
     <title>[uninstall] Track-OOT</title>
     <meta charset="UTF-8">
-    <meta name="description"
-        content="Track items and locations in 'The Legend of Zelda - Ocarina of Time Randomizer' (OOTR)">
+    <meta name="description" content="Track items and locations in 'The Legend of Zelda - Ocarina of Time Randomizer' (OOTR)">
     <meta name="robots" content="nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <script>
@@ -30,7 +29,7 @@
             }
         });
 
-        if (window.navigator && navigator.serviceWorker) {
+        if ("serviceWorker" in navigator) {
             navigator.serviceWorker.getRegistrations().then(function (registrations) {
                 for (let registration of registrations) {
                     registration.unregister();

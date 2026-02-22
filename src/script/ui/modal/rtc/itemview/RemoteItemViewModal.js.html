@@ -1,0 +1,19 @@
+<emc-form-container id="form">
+    <form>
+        <emc-form-field label="Connection Token">
+            <emc-input-string id="connection-token" name="connectionToken"></emc-input-string>
+        </emc-form-field>
+        <emc-form-row>
+            <emc-button id="generate-token" text="generate token"></emc-button>
+        </emc-form-row>
+        <emc-form-field label="View Link" control-buttons="copy">
+            <emc-input-string id="view-link" name="viewLink" readonly></emc-input-string>
+        </emc-form-field>
+        <emc-form-field label="Autoconnect on reload">
+            <emc-input-switch id="auto-connect" name="autoConnect" value="true"></emc-input-switch>
+        </emc-form-field>
+    </form>
+</emc-form-container>
+
+<emc-button id="connect" class="button" variant="primary" text="Connect"></emc-button>
+<emc-button id="disconnect" class="button" variant="primary" text="Disconnect" hidden></emc-button>

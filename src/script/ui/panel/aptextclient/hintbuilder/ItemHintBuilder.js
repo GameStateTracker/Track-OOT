@@ -38,7 +38,7 @@ export default class ItemHintBuilder extends CustomElement {
         STYLE.apply(this.shadowRoot);
         /* --- */
         const hintItemPickerEl = this.shadowRoot.getElementById("hint-item-picker");
-        this.registerTargetEventHandler(hintItemPickerEl, "iconclick", (event) => {
+        hintItemPickerEl.addEventListener("iconclick", (event) => {
             const {value} = event;
             const ev = new Event("hint");
             ev.value = value;

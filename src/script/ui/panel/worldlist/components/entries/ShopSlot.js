@@ -7,7 +7,7 @@ import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/
 import Language from "/GameTrackerJS/util/Language.js";
 import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
 import "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
-import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
+import {shopItemChoiceModal} from "../../../../modal/shopitem/ShopItemChoiceModal.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
 import LogicViewerModal from "../../../../modal/LogicViewerModal.js";
 import APHintLocations from "../../../../../resource/APHintLocations.js";
@@ -157,22 +157,15 @@ export default class WorldListShopSlot extends BaseClass {
         }
     }
 
-    #editItem() {
+    async #editItem() {
         const state = this.getState();
         if (state != null) {
-            const d = new ShopItemChoiceDialog(`location[${this.ref}]`);
-            d.item = state.item;
-            d.price = state.price;
-            d.addEventListener("submit", (result) => {
-                if (result) {
-                    const state = this.getState();
-                    if (state != null) {
-                        state.item = result.item;
-                        state.price = result.price;
-                    }
-                }
-            });
-            d.show();
+            shopItemChoiceModal.caption = `location[${this.ref}]`;
+            const result = await shopItemChoiceModal.show(state.item, state.price);
+            if (result) {
+                state.item = result.item;
+                state.price = result.price;
+            }
         }
     }
 

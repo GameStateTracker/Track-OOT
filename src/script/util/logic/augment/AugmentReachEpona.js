@@ -5,9 +5,9 @@ export function augment(cache) {
     // augment epona
     if (cache.hasChange("option[skip_epona_race]")) {
         if (cache.get("option[skip_epona_race]")) {
-            LogicCaller.addReachable("event.epona");
+            LogicCaller.addReachable("event[epona]");
         } else {
-            LogicCaller.deleteReachable("event.epona");
+            LogicCaller.deleteReachable("event[epona]");
         }
     }
 }

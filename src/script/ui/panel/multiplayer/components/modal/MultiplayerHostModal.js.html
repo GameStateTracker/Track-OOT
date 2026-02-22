@@ -1,9 +1,17 @@
 <emc-form-container id="form">
     <form>
-        <emc-input-string id="name" name="name" label="Room name"></emc-input-string>
-        <emc-input-password id="password" name="password" label="Password"></emc-input-password>
-        <emc-input-text id="description" name="description" label="Description"></emc-input-text>
-        <emc-select-simple id="client-type" name="clientType" label="Clients join as..."></emc-select-simple>
+        <emc-form-field label="Room name">
+            <emc-input-string id="name" name="name"></emc-input-string>
+        </emc-form-field>
+        <emc-form-field label="Password">
+            <emc-input-password id="password" name="password"></emc-input-password>
+        </emc-form-field>
+        <emc-form-field label="Description">
+            <emc-input-text id="description" name="description"></emc-input-text>
+        </emc-form-field>
+        <emc-form-field label="Clients join as...">
+            <emc-select-simple id="client-type" name="clientType"></emc-select-simple>
+        </emc-form-field>
     </form>
 </emc-form-container>
 

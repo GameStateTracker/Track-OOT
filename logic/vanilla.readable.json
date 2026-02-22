@@ -7447,6 +7447,10 @@
             }
         },
         "region[ganondorf_boss_room]{child}": {
+            "reach_location[castle_ganon.ganondorf_hint]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
+            },
             "reach_location[castle_ganon.c_boss]": {
                 "type": "and",
                 "content": [
@@ -7462,6 +7466,10 @@
             }
         },
         "region[ganondorf_boss_room]{adult}": {
+            "reach_location[castle_ganon.ganondorf_hint]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
             "reach_location[castle_ganon.c_boss]": {
                 "type": "and",
                 "content": [
@@ -30473,8 +30481,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Forest]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[forest_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -30486,8 +30497,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Fire]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[fire_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -30499,8 +30513,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Water]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[water_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -30512,8 +30529,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Shadow]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[shadow_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -30525,8 +30545,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Spirit]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[spirit_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -30538,8 +30561,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Light]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[light_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -30687,8 +30713,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Forest]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[forest_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -30700,8 +30729,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Fire]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[fire_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -30713,8 +30745,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Water]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[water_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -30726,8 +30761,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Shadow]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[shadow_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -30739,8 +30777,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Spirit]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[spirit_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -30752,8 +30793,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Light]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[light_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -32703,8 +32747,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Forest]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[forest_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -32716,8 +32763,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Fire]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[fire_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -32729,8 +32779,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Water]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[water_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -32742,8 +32795,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Shadow]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[shadow_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -32755,8 +32811,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Spirit]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[spirit_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -32768,8 +32827,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Light]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[light_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -32843,8 +32905,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Forest]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[forest_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -32856,8 +32921,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Fire]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[fire_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -32869,8 +32937,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Water]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[water_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -32882,8 +32953,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Shadow]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[shadow_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -32895,8 +32969,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Spirit]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[spirit_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -32908,8 +32985,11 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "value",
-                                "ref": "skipped_trials[Light]"
+                                "type": "not",
+                                "content": {
+                                    "type": "value",
+                                    "ref": "option[light_trial]"
+                                }
                             },
                             {
                                 "type": "value",
@@ -70698,23 +70778,27 @@
                     }
                 ]
             },
-            "reach_location[10_skulltulas_reward_hint]": {
+            "reach_location[kak.10_skulltulas_reward_hint]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
             },
-            "reach_location[20_skulltulas_reward_hint]": {
+            "reach_location[kak.20_skulltulas_reward_hint]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
             },
-            "reach_location[30_skulltulas_reward_hint]": {
+            "reach_location[kak.30_skulltulas_reward_hint]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
             },
-            "reach_location[40_skulltulas_reward_hint]": {
+            "reach_location[kak.40_skulltulas_reward_hint]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
             },
-            "reach_location[50_skulltulas_reward_hint]": {
+            "reach_location[kak.50_skulltulas_reward_hint]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[kak.100_skulltulas_reward_hint]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
             }
@@ -70825,23 +70909,27 @@
                     }
                 ]
             },
-            "reach_location[10_skulltulas_reward_hint]": {
+            "reach_location[kak.10_skulltulas_reward_hint]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
             },
-            "reach_location[20_skulltulas_reward_hint]": {
+            "reach_location[kak.20_skulltulas_reward_hint]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
             },
-            "reach_location[30_skulltulas_reward_hint]": {
+            "reach_location[kak.30_skulltulas_reward_hint]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
             },
-            "reach_location[40_skulltulas_reward_hint]": {
+            "reach_location[kak.40_skulltulas_reward_hint]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
             },
-            "reach_location[50_skulltulas_reward_hint]": {
+            "reach_location[kak.50_skulltulas_reward_hint]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[kak.100_skulltulas_reward_hint]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
             }
@@ -73040,7 +73128,7 @@
             "region[dampes_house_graveyard_gateway:in]{child}": {
                 "type": "true"
             },
-            "reach_location[dampe_diary_hint]": {
+            "reach_location[graveyard.dampe_diary_hint]": {
                 "type": "and",
                 "content": [
                     {
@@ -73058,7 +73146,7 @@
             "region[dampes_house_graveyard_gateway:in]{adult}": {
                 "type": "true"
             },
-            "reach_location[dampe_diary_hint]": {
+            "reach_location[graveyard.dampe_diary_hint]": {
                 "type": "and",
                 "content": [
                     {
@@ -85257,6 +85345,14 @@
                         ]
                     }
                 ]
+            },
+            "reach_location[woods.theater_skull_mask_hint]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[woods.theater_mask_of_truth_hint]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
             }
         },
         "region[deku_theater]{adult}": {
@@ -85306,6 +85402,14 @@
                         ]
                     }
                 ]
+            },
+            "reach_location[woods.theater_skull_mask_hint]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[woods.theater_mask_of_truth_hint]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
             }
         },
         "region[lw_scrubs_grotto]{child}": {
@@ -120117,15 +120221,15 @@
                 },
                 {
                     "type": "value",
-                    "ref": "'Goron Mask'"
+                    "ref": "item[mask_goron]"
                 },
                 {
                     "type": "value",
-                    "ref": "'Zora Mask'"
+                    "ref": "item[mask_zora]"
                 },
                 {
                     "type": "value",
-                    "ref": "'Gerudo Mask'"
+                    "ref": "item[mask_gerudo]"
                 },
                 {
                     "type": "value",
@@ -120166,15 +120270,15 @@
                 },
                 {
                     "type": "value",
-                    "ref": "'Goron Mask'"
+                    "ref": "item[mask_goron]"
                 },
                 {
                     "type": "value",
-                    "ref": "'Zora Mask'"
+                    "ref": "item[mask_zora]"
                 },
                 {
                     "type": "value",
-                    "ref": "'Gerudo Mask'"
+                    "ref": "item[mask_gerudo]"
                 },
                 {
                     "type": "value",

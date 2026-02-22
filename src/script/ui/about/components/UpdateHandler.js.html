@@ -1,0 +1,27 @@
+<div id="update-check">
+    <emc-i18n-label i18n-value="Checking for new version..."></emc-i18n-label>
+</div>
+<div id="update-available" class="text-block" style="display: none;">
+    <emc-i18n-label i18n-value="Newer version found"></emc-i18n-label>
+    <emc-button id="download-update" text="Download"></emc-button>
+    <emc-button-link text="View the update changelog" href="CHANGELOG.MD?nosw"></emc-button-link>
+</div>
+<div id="update-unavailable" class="text-block" style="display: none;">
+    <emc-i18n-label i18n-value="Already up to date"></emc-i18n-label>
+    <emc-button id="check-update" text="Check again"></emc-button>
+</div>
+<div id="update-running" style="display: none;">
+    <emc-i18n-label i18n-value="Downloading update..."></emc-i18n-label>
+    <emc-form-group id="progress-group">
+        <emc-progressbar id="update-progress" value="0" max="0" animated></emc-progressbar>
+        <emc-button id="update-progress-text" variant="label">0/0</emc-button>
+    </emc-form-group>
+</div>
+<div id="update-finished" class="text-block" style="display: none;">
+    <emc-i18n-label i18n-value="You need to reload for the new version to apply..."></emc-i18n-label>
+    <emc-button id="reload" text="Reload now"></emc-button>
+</div>
+<div id="update-force" class="text-block" style="display: none;">
+    <emc-i18n-label i18n-value="If files seem corrupt, you can try this"></emc-i18n-label>
+    <emc-button id="download-forced" text="Force download"></emc-button>
+</div>

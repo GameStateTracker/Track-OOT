@@ -1,0 +1,48 @@
+:host {
+    display: inline-block;
+    width: 100%;
+    background-color: black;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#buttons div {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 5px;
+}
+
+#buttons div:hover {
+    box-shadow: 0 0 3px 2px #cb9c3d, inset 0 0 3px 0px #cb9c3d;
+}
+
+#buttons #A {
+    background-image: url("/images/songs/note_A.svg");
+}
+
+#buttons #D {
+    background-image: url("/images/songs/note_D.svg");
+}
+
+#buttons #R {
+    background-image: url("/images/songs/note_R.svg");
+}
+
+#buttons #L {
+    background-image: url("/images/songs/note_L.svg");
+}
+
+#buttons #U {
+    background-image: url("/images/songs/note_U.svg");
+}
+
+#buttons #X {
+    background-image: url("/images/songs/note_X.svg");
+}

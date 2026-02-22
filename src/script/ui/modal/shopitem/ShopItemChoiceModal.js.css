@@ -1,0 +1,40 @@
+#modal {
+    height: 600px;
+    width: 1000px;
+}
+
+#content {
+    padding: 0px;
+}
+
+#categories {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#price-container {
+    display: flex;
+
+    #rupee {
+        width: 2.5em;
+        height: 2em;
+        margin-right: calc(-1 * var(--input-border-width, 2px));
+        background-color: var(--input-back-color, #ffffff);
+        border-style: solid;
+        border-width: var(--input-border-width, 2px);
+        border-color: var(--input-border-color, #222222);
+        border-bottom-left-radius: var(--input-border-radius, 6px);
+        border-top-left-radius: var(--input-border-radius, 6px);
+        background-image: url('/images/items/rupees.png');
+        background-size: 1.6em;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #price {
+        width: 60px;
+        min-width: 60px;
+        --border-top-left-radius: 0px;
+        --border-bottom-left-radius: 0px;
+    }
+}

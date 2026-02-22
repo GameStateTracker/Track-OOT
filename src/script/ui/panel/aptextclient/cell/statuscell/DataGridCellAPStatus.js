@@ -39,7 +39,7 @@ export default class DataGridCellAPStatus extends ContextMenuManagerMixin(DataGr
         this.#contentEl.append(els);
         this.#valueEl = this.shadowRoot.getElementById("value");
         /* --- */
-        this.registerTargetEventHandler(this, "click", (event) => {
+        this.addEventListener("click", (event) => {
             if (this.#isReceiver) {
                 this.showDefaultContextMenu(event);
                 event.stopPropagation();

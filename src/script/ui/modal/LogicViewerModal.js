@@ -89,7 +89,7 @@ export default class LogicViewerModal extends Modal {
                 }
                 const logicEl = LogicUIAbstractElement.buildLogic(logic);
                 logicEl.className = "logic";
-                logicEl.readonly = true;
+                logicEl.readOnly = true;
                 edgeEl.append(logicEl);
                 this.#logicContainerEl.append(edgeEl);
                 logicEl.calculate(Logic.getMemory());

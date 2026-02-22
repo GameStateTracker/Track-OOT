@@ -69,7 +69,7 @@ class HTMLTrackerDungeonHint extends StateDataEventManagerMixin(CustomElement) {
     }
 
     connectedCallback() {
-        super.connectedCallback();
+        super.connectedCallback?.();
         // state
         const state = this.getState();
         if (state != null) {
@@ -103,12 +103,12 @@ class HTMLTrackerDungeonHint extends StateDataEventManagerMixin(CustomElement) {
         this.setAttribute("value", val);
     }
 
-    get readonly() {
+    get readOnly() {
         const val = this.getAttribute("readonly");
         return !!val && val != "false";
     }
 
-    set readonly(val) {
+    set readOnly(val) {
         this.setAttribute("readonly", val);
     }
 
@@ -143,7 +143,7 @@ class HTMLTrackerDungeonHint extends StateDataEventManagerMixin(CustomElement) {
     }
 
     next(event) {
-        if (!this.readonly) {
+        if (!this.readOnly) {
             const state = this.getState();
             if (state != null) {
                 if (state.hint == "woth") {
@@ -158,7 +158,7 @@ class HTMLTrackerDungeonHint extends StateDataEventManagerMixin(CustomElement) {
     }
 
     revert(event) {
-        if (!this.readonly) {
+        if (!this.readOnly) {
             const state = this.getState();
             if (state != null) {
                 state.hint = "";

@@ -88,16 +88,16 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
                 window.location.reload();
             });
         };
-        navigator.serviceWorker.register("/sw.js").then(function(registration) {
+        navigator.serviceWorker.register("/sw.js").then(function(cacheControl) {
             updateLoadingMessage("call servant...");
 
             function callSW() {
-                if (!registration.active) {
+                if (!cacheControl.active) {
                     setTimeout(callSW, 10);
                     return;
                 }
                 navigator.serviceWorker.addEventListener("message", swMsgRecieve);
-                registration.active.postMessage("start");
+                cacheControl.active.postMessage("start");
             }
 
             callSW();

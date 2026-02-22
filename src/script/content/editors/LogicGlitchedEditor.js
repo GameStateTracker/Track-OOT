@@ -1,5 +1,5 @@
 // frameworks
-import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import FileSystem from "/emcJS/util/file/FileSystem.js";
 import "/JSEditors/modules/logic/Editor.js";
 
@@ -123,7 +123,7 @@ export default async function() {
     }, {
         "content": "CREATE MIXIN",
         "handler": async () => {
-            const name = await Dialog.prompt("Create Mixin", "please enter a name");
+            const name = await ModalDialog.prompt("Create Mixin", "please enter a name");
             if (typeof name == "string") {
                 const logic = LogicGlitchedStorage.getAll();
                 logic.logic[name] = {};

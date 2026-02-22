@@ -1,103 +1,13 @@
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import ContextMenuManagerMixin from "/emcJS/ui/mixin/ContextMenuManagerMixin.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import WorldStateManagerRegistry from "/GameTrackerJS/statemanager/WorldStateManagerRegistry.js";
-import ShopItemChoiceDialog from "../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
+import {shopItemChoiceModal} from "../../../modal/shopitem/ShopItemChoiceModal.js";
 import ShopSlotContextMenu from "../../../ctxmenu/ShopSlotContextMenu.js";
-
-const TPL = new HTMLTemplate(`
-<div id="image"></div>
-<div id="title"></div>
-<div id="info">
-    <input id="name" placeholder="you" autocomplete="off">
-    <div id="price"></div>
-</div>
-`);
-
-const STYLE = new CSSTemplate(`
-:host {
-    display: inline-flex;
-    flex-direction: column;
-    width: 200px;
-    height: 150px;
-    padding: 10px;
-    margin: 5px;
-    color: white;
-    background-color: black;
-    cursor: pointer;
-}
-:host([data-mark]) {
-    --shop-item-color-border: rgb(99 99 99);
-    --shop-item-color-back: rgb(99 99 99 / 0.2);
-    background-color: var(--shop-item-color-back, rgb(99 99 99 / 0.2));
-    box-shadow:
-        var(--shop-item-color-border, rgb(99 99 99)) 0px 0px 2px 2px inset,
-        var(--shop-item-color-border, rgb(99 99 99)) 0px 0px 2px 1px;
-}
-:host([data-mark="red"]) {
-    --shop-item-color-border: rgb(109 0 36);
-    --shop-item-color-back: rgb(109 0 36 / 0.2);
-}
-:host([data-mark="green"]) {
-    --shop-item-color-border: rgb(9 82 3);
-    --shop-item-color-back: rgb(9 82 3 / 0.2);
-}
-:host([data-mark="turquoise"]) {
-    --shop-item-color-border: rgb(51 129 136);
-    --shop-item-color-back: rgb(51 129 136 / 0.2);
-}
-:host([data-mark="silver"]) {
-    --shop-item-color-border: rgb(204 212 226);
-    --shop-item-color-back: rgb(204 212 226 / 0.2);
-}
-:host([data-mark="gold"]) {
-    --shop-item-color-border: rgb(203 156 61);
-    --shop-item-color-back: rgb(203 156 61 / 0.2);
-}
-#image {
-    height: 40px;
-    margin-bottom: 5px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-origin: content-box;
-}
-#title {
-    flex: 1;
-}
-#info {
-    display: flex;
-    align-items: center;
-    height: 28px;
-}
-#name {
-    width: 120px;
-    height: 100%;
-    background-color: #2b2b2b;
-    color: white;
-    border: solid 1px #929292;
-    padding: 2px;
-}
-#price {
-    flex: 1;
-    text-align: right;
-}
-#price::after {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin-left: 5px;
-    background-image: url('/images/items/rupees.png');
-    background-size: 14px;
-    background-position: center;
-    background-repeat: no-repeat;
-    content: " ";
-}
-`);
+import TPL from "./ShopItem.js.html" assert {type: "html"};
+import STYLE from "./ShopItem.js.css" assert {type: "css"};
 
 const shopsanityObserver = new OptionsObserver("shopsanity");
 
@@ -114,11 +24,11 @@ function getIcon(itemData, bought) {
     return itemData.image ?? "/images/items/unknown.png";
 }
 
-export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDataEventManagerMixin(CustomElement)) {
+export default class ShopItem extends ContextMenuManagerMixin(StateDataEventManagerMixin(CustomElement)) {
 
     constructor() {
         super();
-        this.shadowRoot.append(TPL.generate());
+        TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
         shopsanityObserver.onChange(() => {
@@ -311,22 +221,15 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         }
     }
 
-    #editItem() {
+    async #editItem() {
         const state = this.getState();
         if (state != null) {
-            const d = new ShopItemChoiceDialog(`location[${this.ref}]`);
-            d.item = state.item;
-            d.price = state.price;
-            d.addEventListener("submit", (result) => {
-                if (result) {
-                    const state = this.getState();
-                    if (state != null) {
-                        state.item = result.item;
-                        state.price = result.price;
-                    }
-                }
-            });
-            d.show();
+            shopItemChoiceModal.caption = `location[${this.ref}]`;
+            const result = await shopItemChoiceModal.show(state.item, state.price);
+            if (result) {
+                state.item = result.item;
+                state.price = result.price;
+            }
         }
     }
 
@@ -355,4 +258,4 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
 
 }
 
-customElements.define("ootrt-shopitem", HTMLTrackerShopItem);
+customElements.define("ootrt-shopitem", ShopItem);

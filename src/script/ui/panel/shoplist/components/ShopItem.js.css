@@ -1,0 +1,89 @@
+:host {
+    display: inline-flex;
+    flex-direction: column;
+    width: 200px;
+    height: 165px;
+    padding: 10px;
+    margin: 5px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+:host([data-mark]) {
+    --shop-item-color-border: rgb(99 99 99);
+    --shop-item-color-back: rgb(99 99 99 / 0.2);
+    background-color: var(--shop-item-color-back, rgb(99 99 99 / 0.2));
+    box-shadow:
+        var(--shop-item-color-border, rgb(99 99 99)) 0px 0px 2px 2px inset,
+        var(--shop-item-color-border, rgb(99 99 99)) 0px 0px 2px 1px;
+}
+
+:host([data-mark="red"]) {
+    --shop-item-color-border: rgb(109 0 36);
+    --shop-item-color-back: rgb(109 0 36 / 0.2);
+}
+
+:host([data-mark="green"]) {
+    --shop-item-color-border: rgb(9 82 3);
+    --shop-item-color-back: rgb(9 82 3 / 0.2);
+}
+
+:host([data-mark="turquoise"]) {
+    --shop-item-color-border: rgb(51 129 136);
+    --shop-item-color-back: rgb(51 129 136 / 0.2);
+}
+
+:host([data-mark="silver"]) {
+    --shop-item-color-border: rgb(204 212 226);
+    --shop-item-color-back: rgb(204 212 226 / 0.2);
+}
+
+:host([data-mark="gold"]) {
+    --shop-item-color-border: rgb(203 156 61);
+    --shop-item-color-back: rgb(203 156 61 / 0.2);
+}
+
+#image {
+    height: 40px;
+    flex-shrink: 0;
+    margin-bottom: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+}
+
+#title {
+    flex: 1;
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-shrink: 0;
+}
+
+#price {
+    margin-bottom: 4px;
+    text-align: right;
+}
+
+#price::before {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    background-image: url('/images/items/rupees.png');
+    background-size: 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+    content: " ";
+}
+
+#name {
+    font-size: 12px;
+    width: 100%;
+    min-width: auto;
+}

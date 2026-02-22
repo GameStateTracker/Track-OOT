@@ -249,7 +249,15 @@
     "shuffle_empty_pots": {
         "category": "item_sanity",
         "type": "check",
-        "default": false
+        "default": false,
+        "visible": {
+            "type": "not",
+            "content": {
+                "type": "state",
+                "ref": "shuffle_pots",
+                "value": "off"
+            }
+        }
     },
     "shuffle_crates": {
         "category": "item_sanity",
@@ -265,7 +273,15 @@
     "shuffle_empty_crates": {
         "category": "item_sanity",
         "type": "check",
-        "default": false
+        "default": false,
+        "visible": {
+            "type": "not",
+            "content": {
+                "type": "state",
+                "ref": "shuffle_crates",
+                "value": "off"
+            }
+        }
     },
     "shuffle_beehives": {
         "category": "item_sanity",
@@ -1088,5 +1104,10 @@
             "skip.invisible_ocarina_midair"
         ],
         "default": []
+    },
+    "dungeonstate_active_types": {
+        "category": "dungeonstate",
+        "type": "DungeonStateActiveTypes",
+        "value": ""
     }
 }

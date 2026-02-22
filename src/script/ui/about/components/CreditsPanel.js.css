@@ -1,0 +1,46 @@
+#credits {
+    height: 100%;
+    display: flex;
+    padding: 5px;
+    color: white;
+    overflow: hidden;
+}
+
+#credits .panel {
+    display: block;
+    flex: 1;
+    padding: 10px;
+    margin: 5px;
+    background-color: #282828;
+}
+
+#credits ul {
+    padding-inline-start: 10px;
+}
+
+#credits .title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#credits .name {
+    list-style: none;
+    padding: 5px 0;
+    font-size: 1.5em;
+}
+
+#credits .name.owner {
+    color: #cb9c3d;
+}
+
+#credits .name.team {
+    color: #0099ff;
+}
+
+#credits .name.contributor {
+    color: #ff2baa;
+}
+
+#credits #supporters .name {
+    color: #a8a8a8;
+}

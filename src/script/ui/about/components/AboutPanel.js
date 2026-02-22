@@ -1,0 +1,70 @@
+import CustomElement from "/emcJS/ui/element/CustomElement.js";
+import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
+import "/emcJS/ui/i18n/I18nLabel.js";
+import "/emcJS/ui/i18n/I18nTextbox.js";
+import "/emcJS/ui/icon/FontIcon.js";
+import "/emcJS/ui/form/button/Button.js";
+import "/emcJS/ui/form/button/LinkButton.js";
+import VersionData from "/GameTrackerJS/data/VersionData.js";
+import "./UpdateHandler.js";
+import TPL from "./AboutPanel.js.html" assert {type: "html"};
+import STYLE from "./AboutPanel.js.css" assert {type: "css"};
+
+const NOSW = (new URL(location.href)).searchParams.get("nosw") !== null;
+
+export default class AboutPanel extends CustomElement {
+
+    #trackerVersionEl;
+
+    #trackerDateEl;
+
+    #eraseButtonEl;
+
+    #updateHandlerEl;
+
+    constructor() {
+        super();
+        TPL.apply(this.shadowRoot);
+        STYLE.apply(this.shadowRoot);
+        /* --- */
+        this.#trackerVersionEl = this.shadowRoot.getElementById("tracker-version");
+        this.#trackerDateEl = this.shadowRoot.getElementById("tracker-date");
+        this.#eraseButtonEl = this.shadowRoot.getElementById("erase-button");
+        this.#updateHandlerEl = this.shadowRoot.getElementById("updatehandler");
+        /* --- */
+        this.#initUpdateHandler();
+        /* --- */
+        this.#trackerVersionEl.innerHTML = VersionData.version;
+        this.#trackerDateEl.innerHTML = VersionData.date;
+        this.#eraseButtonEl.addEventListener("click", async () => {
+            const eraseString = await ModalDialog.prompt("Erase all data", "Warning: All stored data will be lost\nPlease enter \"erase data\" to confirm");
+            if (eraseString == "erase data") {
+                window.location.href = "/uninstall.html?nosw";
+            }
+        });
+    }
+
+    checkUpdate() {
+        if (!NOSW) {
+            this.#updateHandlerEl.checkUpdate();
+        }
+    }
+
+    #initUpdateHandler() {
+        if (NOSW) {
+            this.#updateHandlerEl.style.display = "none";
+        } else {
+            this.#updateHandlerEl.addEventListener("updateavailable", () => {
+                const ev = new Event("updateavailable");
+                this.dispatchEvent(ev);
+            });
+            this.#updateHandlerEl.addEventListener("noconnection", () => {
+                const ev = new Event("updaterror");
+                this.dispatchEvent(ev);
+            });
+        }
+    }
+
+}
+
+customElements.define("tootr-about-panel-about", AboutPanel);

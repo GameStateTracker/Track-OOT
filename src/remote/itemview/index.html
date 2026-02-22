@@ -13,20 +13,20 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/icon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/icon-16x16.png">
     <link rel="stylesheet" type="text/css" href="/style/index.css">
-    </script>
-    <script type="module">
-        window.addEventListener('contextmenu', function () {
+    <script>
+        window.addEventListener("contextmenu", function () {
             event.preventDefault();
             return false;
         });
         if ("serviceWorker" in navigator) {
-            const cacheControl = await navigator.serviceWorker.getRegistration("/sw.js");
-            if (cacheControl != null) {
-                cacheControl.unregister();
-            }
+            navigator.serviceWorker.getRegistration("/sw.js").then((cacheControl) => {
+                if (cacheControl != null) {
+                    cacheControl.unregister();
+                }
+            });
         }
-        import "/remote/itemview/index.js";
     </script>
+    <script type="module" src="/remote/itemview/index.js"></script>
     <style>
         body {
             margin: 0;

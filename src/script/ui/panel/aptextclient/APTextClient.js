@@ -7,6 +7,7 @@ import SearchExact from "/emcJS/util/search/SearchExact.js";
 import {isStringNotEmpty} from "/emcJS/util/helper/CheckType.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/ui/dataview/datagrid/DataGrid.js";
+import "/emcJS/ui/form/FormField.js";
 import "/emcJS/ui/form/element/input/string/StringInput.js";
 import "/emcJS/ui/form/element/select/simple/SimpleSelect.js";
 import "/emcJS/ui/form/element/select/token/TokenSelect.js";

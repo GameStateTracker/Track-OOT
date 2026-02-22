@@ -1,16 +1,14 @@
-// frameworks
-import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
+import modalRegistry from "/emcJS/data/registry/ModalRegistry.js";
 import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
-
-// GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import LoadWindow from "/GameTrackerJS/ui/window/savestate/LoadWindow.js";
-import ManageWindow from "/GameTrackerJS/ui/window/savestate/ManageWindow.js";
-import SaveWindow from "/GameTrackerJS/ui/window/savestate/SaveWindow.js";
-// Track-OOT
 import PageSwitcher from "/script/util/PageSwitcher.js";
 import "/script/savestateConverter/StateConverter.js";
+import {
+    aboutOverlay,
+    romOptionsOverlay,
+    trackerSettingsOverlay
+} from "../registry/OverlayRegistry.js";
 
 PageSwitcher.register("main", [{
     "content": "FILE",
@@ -40,7 +38,7 @@ PageSwitcher.register("main", [{
         "handler": openClearDataWindow
     }, {
         "content": "REMOTE ITEM VIEW",
-        "handler": openItemViewerWindow
+        "handler": openRemoteItemView
     }, {
         "content": "DETACHED WINDOWS",
         "submenu": [
@@ -64,10 +62,13 @@ PageSwitcher.register("main", [{
     "handler": openArchipelagoWindow
 }, {
     "content": "RANDOMIZER OPTIONS",
-    "handler": openRomSettingsWindow
+    "handler": openRomSettingsOverlay
 }, {
     "content": "TRACKER SETTINGS",
-    "handler": openSettingsWindow
+    "handler": openSettingsOverlay
+}, {
+    "content": "ABOUT",
+    "handler": openAboutOverlay
 }], {
     "hk_state_new": state_New,
     "hk_state_load": state_Load,
@@ -76,8 +77,8 @@ PageSwitcher.register("main", [{
     "hk_state_manage": states_Manage,
     "hk_detached_window": openDetachedItems,
     "hk_import_spoiler": openSpoilerSettingsWindow,
-    "hk_options": openRomSettingsWindow,
-    "hk_settings": openSettingsWindow
+    "hk_options": openRomSettingsOverlay,
+    "hk_settings": openSettingsOverlay
 });
 PageSwitcher.switch("main");
 
@@ -91,26 +92,6 @@ async function state_Save() {
     }
 }
 
-async function state_SaveAs() {
-    const activestate = await SavestateHandler.getName();
-    const w = new SaveWindow();
-    if (activestate) {
-        w.show(activestate);
-    } else {
-        w.show();
-    }
-}
-
-async function state_Load() {
-    const activestate = await SavestateHandler.getName();
-    const w = new LoadWindow();
-    if (activestate) {
-        w.show(activestate);
-    } else {
-        w.show();
-    }
-}
-
 async function state_New() {
     if (await SavestateHandler.isDirty()) {
         if (!await ModalDialog.confirm("Warning, you have unsaved changes.", "Do you want to discard your changes and create a new state?")) {
@@ -120,14 +101,19 @@ async function state_New() {
     SavestateHandler.reset();
 }
 
+async function state_Load() {
+    const activestate = await SavestateHandler.getName();
+    modalRegistry.show("LoadSavestate", activestate);
+}
+
+async function state_SaveAs() {
+    const activestate = await SavestateHandler.getName();
+    modalRegistry.show("SaveSavestate", activestate);
+}
+
 async function states_Manage() {
     const activestate = await SavestateHandler.getName();
-    const w = new ManageWindow();
-    if (activestate) {
-        w.show(activestate);
-    } else {
-        w.show();
-    }
+    modalRegistry.show("ManageSavestate", activestate);
 }
 
 function openDetachedItems() {
@@ -148,46 +134,32 @@ function openDetachedWorldmap() {
     popup.resizeTo(screen.availWidth, screen.availHeight);
 }
 
-function openSettingsWindow() {
-    const trackerSettingsWindow = GlobalContext.get("TrackerSettingsWindow");
-    if (trackerSettingsWindow) {
-        trackerSettingsWindow.show();
-    }
+function openSettingsOverlay() {
+    trackerSettingsOverlay.show();
 }
 
-function openItemViewerWindow() {
-    const itemViewerWindow = GlobalContext.get("ItemViewerWindow");
-    if (itemViewerWindow) {
-        itemViewerWindow.show();
-    }
+function openRomSettingsOverlay() {
+    romOptionsOverlay.show();
+}
+
+function openAboutOverlay() {
+    aboutOverlay.show();
+}
+
+function openRemoteItemView() {
+    modalRegistry.show("RemoteItemView");
 }
 
 function openArchipelagoWindow() {
-    const archipelagoWindow = GlobalContext.get("ArchipelagoWindow");
-    if (archipelagoWindow) {
-        archipelagoWindow.show();
-    }
-}
-
-function openRomSettingsWindow() {
-    const romOptionsWindow = GlobalContext.get("RomOptionsWindow");
-    if (romOptionsWindow) {
-        romOptionsWindow.show();
-    }
+    modalRegistry.show("Archipelago");
 }
 
 function openSpoilerSettingsWindow() {
-    const spoilerLogWindow = GlobalContext.get("SpoilerLogWindow");
-    if (spoilerLogWindow) {
-        spoilerLogWindow.show();
-    }
+    modalRegistry.show("SpoilerLog");
 }
 
 function openClearDataWindow() {
-    const clearDataWindow = GlobalContext.get("ClearDataWindow");
-    if (clearDataWindow) {
-        clearDataWindow.show();
-    }
+    modalRegistry.show("ClearData");
 }
 
 function showEditors() {

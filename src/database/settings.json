@@ -204,7 +204,7 @@
     },
     "map_pan_snap_magnet_force": {
         "category": "world",
-        "type": "number",
+        "type": "range",
         "min": 0,
         "max": 50,
         "default": 0
@@ -214,10 +214,15 @@
         "type": "check",
         "default": true
     },
-    "always_show_shop_slots": {
+    "always_show_shop_slots_shopsanity": {
         "category": "world",
         "type": "check",
         "default": true
+    },
+    "always_show_shop_slots_nosanity": {
+        "category": "world",
+        "type": "check",
+        "default": false
     },
     "show_filter_badges": {
         "category": "world",

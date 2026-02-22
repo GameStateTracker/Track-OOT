@@ -1,134 +1,74 @@
-// frameworks
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
-
-// GameTrackerJS
+import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
+import "/emcJS/ui/i18n/I18nLabel.js";
+import "/emcJS/ui/form/button/Button.js";
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
-import Language from "/GameTrackerJS/util/Language.js";
-// Track-OOT
 import SongStateManager from "/script/state/song/SongStateManager.js";
 import "./SongStave.js";
 import "./SongBuilder.js";
+import TPL from "./SongField.js.html" assert {type: "html"};
+import STYLE from "./SongField.js.css" assert {type: "css"};
 
-const TPL = new HTMLTemplate(`
-<div class="caption">
-    <span id="title"></span>
-    <button id="edit" class="button hidden" title="edit">✎</button>
-    <button id="reset" class="button hidden" title="reset">↶</button>
-    <button id="clear" class="button hidden" title="clear">✕</button>
-</div>
-<ootrt-stave id="stave"></ootrt-stave>
-`);
+export default class SongField extends StateDataEventManagerMixin(CustomElement) {
 
-const STYLE = new CSSTemplate(`
-:host {
-    display: inline-block;
-    width: 500px;
-    padding: 10px;
-    margin: 5px;
-    border: solid 2px white;
-}
-.caption {
-    display: flex;
-    align-items: center;
-    height: 30px;
-}
-.button {
-    height: 24px;
-    color: white;
-    background-color: black;
-    border: solid 1px white;
-    margin-left: 15px;
-    font-size: 1em;
-    appearance: none;
-    cursor: pointer;
-}
-.button:hover {
-    color: black;
-    background-color: white;
-}
-.button.hidden {
-    display: none;
-}
-`);
+    #titleEl;
 
-export default class HTMLTrackerSongField extends StateDataEventManagerMixin(CustomElement) {
+    #buttonContainerEl;
+
+    #editEl;
+
+    #resetEl;
+
+    #clearEl;
+
+    #staveEl;
 
     constructor() {
         super();
-        this.shadowRoot.append(TPL.generate());
+        TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.#titleEl = this.shadowRoot.getElementById("title");
+        this.#buttonContainerEl = this.shadowRoot.getElementById("button-container");
+        this.#editEl = this.shadowRoot.getElementById("edit");
+        this.#resetEl = this.shadowRoot.getElementById("reset");
+        this.#clearEl = this.shadowRoot.getElementById("clear");
+        this.#staveEl = this.shadowRoot.getElementById("stave");
+
         this.registerStateHandler("notes", (event) => {
-            const staveEl = this.shadowRoot.getElementById("stave");
-            if (staveEl != null) {
-                staveEl.value = event.value;
-            }
+            this.#staveEl.value = event.value;
         });
 
         /* mouse events */
-        const editEl = this.shadowRoot.getElementById("edit");
-        editEl.onclick = () => {
+        this.#editEl.onclick = () => {
             this.#editSong();
         };
-        const resetEl = this.shadowRoot.getElementById("reset");
-        resetEl.onclick = () => {
+        this.#resetEl.onclick = () => {
             this.#resetSong();
         };
-        const clearEl = this.shadowRoot.getElementById("clear");
-        clearEl.onclick = () => {
+        this.#clearEl.onclick = () => {
             this.#clearSong();
         };
     }
 
     applyDefaultValues() {
-        const editEl = this.shadowRoot.getElementById("edit");
-        if (editEl != null) {
-            editEl.classList.add("hidden");
-        }
-        const resetEl = this.shadowRoot.getElementById("reset");
-        if (resetEl != null) {
-            resetEl.classList.add("hidden");
-        }
-        const clearEl = this.shadowRoot.getElementById("clear");
-        if (clearEl != null) {
-            clearEl.classList.add("hidden");
-        }
-        const staveEl = this.shadowRoot.getElementById("stave");
-        if (staveEl != null) {
-            staveEl.value = "";
-        }
+        this.#buttonContainerEl.classList.add("hidden");
+        this.#staveEl.value = "";
     }
 
     applyStateValues(state) {
         if (state != null) {
-            const editEl = this.shadowRoot.getElementById("edit");
-            if (editEl != null) {
-                editEl.classList.toggle("hidden", !state.props.editable);
-            }
-            const resetEl = this.shadowRoot.getElementById("reset");
-            if (resetEl != null) {
-                resetEl.classList.toggle("hidden", !state.props.editable);
-            }
-            const clearEl = this.shadowRoot.getElementById("clear");
-            if (clearEl != null) {
-                clearEl.classList.toggle("hidden", !state.props.editable);
-            }
-            const staveEl = this.shadowRoot.getElementById("stave");
-            if (staveEl != null) {
-                staveEl.value = state.notes;
-            }
+            this.#buttonContainerEl.classList.toggle("hidden", !state.props.editable);
+            this.#staveEl.value = state.notes;
         }
-    }
-
-    get ref() {
-        return this.getAttribute("ref");
     }
 
     set ref(val) {
         this.setAttribute("ref", val);
+    }
+
+    get ref() {
+        return this.getAttribute("ref");
     }
 
     static get observedAttributes() {
@@ -138,18 +78,18 @@ export default class HTMLTrackerSongField extends StateDataEventManagerMixin(Cus
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             const state = SongStateManager.get(this.ref);
-            const titleEl = this.shadowRoot.getElementById("title");
-            if (titleEl != null) {
-                Language.applyLabel(titleEl, `song[${newValue}]`);
-            }
+            this.#titleEl.i18nValue = `song[${newValue}]`;
             this.switchState(state);
         }
     }
 
     #editSong() {
         const builder = document.createElement("ootrt-songbuilder");
-        builder.value = this.shadowRoot.getElementById("stave").value;
-        const d = new Dialog({title: Language.generateLabel(this.ref), submit: true, cancel: true});
+        builder.value = this.#staveEl.value;
+        const d = new ModalDialog(`song[${this.ref}]`, {
+            submit: true,
+            cancel: true
+        });
         d.addEventListener("submit", (result) => {
             if (result) {
                 const state = this.getState();
@@ -178,4 +118,4 @@ export default class HTMLTrackerSongField extends StateDataEventManagerMixin(Cus
 
 }
 
-customElements.define("ootrt-songfield", HTMLTrackerSongField);
+customElements.define("ootrt-songfield", SongField);

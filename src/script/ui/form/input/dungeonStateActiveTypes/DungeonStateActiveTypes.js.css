@@ -1,9 +1,3 @@
-:host {
-    padding: 0 !important;
-    border: none !important;
-    background-color: transparent !important;
-}
-
 #container {
     display: flex;
     flex-direction: column;
@@ -15,40 +9,51 @@
 #input {
     position: relative;
     box-sizing: border-box;
+    width: auto;
     height: 2em;
-    color: var(--input-text-color, #000000);
-    background-color: var(--input-back-color, #ffffff);
-    border-style: solid;
-    border-width: var(--input-border-width, 2px);
-    border-color: var(--input-border-color, #222222);
-    border-radius: var(--input-border-radius, 6px);
     font-size: 1rem;
-}
-
-#input.append-bottom {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-#input:focus {
-    box-shadow: 0 0 2px 2px var(--input-focus-color, #06b5ff);
-    outline: none;
-}
-
-#input:focus:not(:focus-visible) {
-    box-shadow: none;
-    outline: none;
+    --color: inherit;
+    --background-color: inherit;
+    --border-style: inherit;
+    --border-width: inherit;
+    --border-color: inherit;
+    --border-top-left-radius: inherit;
+    --border-top-right-radius: inherit;
+    --border-bottom-left-radius: inherit;
+    --border-bottom-right-radius: inherit;
+    --focus-color: inherit;
+    --button-color: inherit;
+    --button-background-color: inherit;
+    --button-hover-color: inherit;
+    --button-hover-background-color: inherit;
 }
 
 #selection {
-    display: none;
-    border-style: solid;
-    border-width: var(--input-border-width, 2px);
-    border-color: var(--input-border-color, #222222);
-    border-top: none;
-    border-radius: 0 0 var(--input-border-radius, 6px) var(--input-border-radius, 6px);
+    width: auto;
+    margin-top: calc(-1 * var(--border-width));
+    --color: inherit;
+    --background-color: inherit;
+    --border-style: inherit;
+    --border-width: inherit;
+    --border-color: inherit;
+    --border-top-left-radius: 0;
+    --border-top-right-radius: 0;
+    --border-bottom-left-radius: inherit;
+    --border-bottom-right-radius: inherit;
+    --focus-color: inherit;
+    --button-color: inherit;
+    --button-background-color: inherit;
+    --button-hover-color: inherit;
+    --button-hover-background-color: inherit;
 }
 
-#selection.active {
-    display: flex;
+#container {
+    &:not(.custom) #selection {
+        display: none;
+    }
+
+    &.custom #input {
+        --border-bottom-left-radius: 0;
+        --border-bottom-right-radius: 0;
+    }
 }

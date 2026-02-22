@@ -1,7 +1,7 @@
 // frameworks
 import NavBar from "/emcJS/ui/navigation/NavBar.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
-import KeyInput from "/emcJS/ui/input/KeyInput.js";
+import KeySequence from "/emcJS/util/keyboard/KeySequence.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 
 const NAV = document.querySelector("emc-navbar");
@@ -18,7 +18,7 @@ class PageSwitcher {
             for (const name of ACTIVE_HOTKEYS) {
                 if (event.changes[name] != null) {
                     const hotkey = event.changes[name].newValue;
-                    HotkeyHandler.setConfig(name, KeyInput.parseKeys(hotkey));
+                    HotkeyHandler.setConfig(name, KeySequence.parse(hotkey));
                 }
             }
         });
@@ -70,7 +70,7 @@ class PageSwitcher {
     #registerHotkey(name, handler) {
         const hotkey = SettingsStorage.get(name) ?? "";
         if (hotkey) {
-            HotkeyHandler.setAction(name, handler, KeyInput.parseKeys(hotkey));
+            HotkeyHandler.setAction(name, handler, KeySequence.parse(hotkey));
         } else {
             HotkeyHandler.setAction(name, handler);
         }

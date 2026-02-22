@@ -1,0 +1,18 @@
+#progress-group {
+    width: 100%;
+
+    #update-progress {
+        flex: 1;
+    }
+
+    #update-progress-text {
+        width: 100px;
+    }
+}
+
+.text-block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 5px 0px;
+}

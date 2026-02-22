@@ -1,76 +1,13 @@
-// frameworks
-import LocalStorage from "/emcJS/data/storage/global/LocalStorage.js";
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
-
-// Track-OOT
-import DeveloperData from "/script/data/DeveloperData.js";
+import LocalStorage from "/emcJS/data/storage/global/LocalStorage.js";
+import DeveloperData from "../../../data/DeveloperData.js";
+import TPL from "./CreditsPanel.js.html" assert {type: "html"};
+import STYLE from "./CreditsPanel.js.css" assert {type: "css"};
 
 const SUPPORTER_URL = new URL("/patreon", location);
 if (location.hostname == "localhost") {
     SUPPORTER_URL.port = 10001;
 }
-
-const TPL = new HTMLTemplate(`
-<div id="credits">
-    <div class="panel">
-        <label>
-            <span class="title">Team</span>
-            <ul id="team">
-            </ul>
-        </label>
-        <label>
-            <span class="title">Contributors</span>
-            <ul id="contributor">
-            </ul>
-        </label>
-    </div>
-    <div class="panel" id="supporters">
-    </div>
-</div>
-`);
-
-const STYLE = new CSSTemplate(`
-#credits {
-    height: 100%;
-    display: flex;
-    padding: 5px;
-    color: white;
-    overflow: hidden;
-}
-#credits .panel {
-    display: block;
-    flex: 1;
-    padding: 10px;
-    margin: 5px;
-    background-color: #282828;
-}
-#credits ul {
-    padding-inline-start: 10px;
-}
-#credits .title {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-#credits .name {
-    list-style: none;
-    padding: 5px 0;
-    font-size: 1.5em;
-}
-#credits .name.owner {
-    color: #cb9c3d;
-}
-#credits .name.team {
-    color: #0099ff;
-}
-#credits .name.contributor {
-    color: #ff2baa;
-}
-#credits #supporters .name {
-    color: #a8a8a8;
-}
-`);
 
 function sortNames(a, b) {
     if (a.toLowerCase() < b.toLowerCase()) {
@@ -143,11 +80,11 @@ async function fillCredits(teamList, contributorList, supporterList) {
     }
 }
 
-export default class CreditsTab extends CustomElement {
+export default class CreditsPanel extends CustomElement {
 
     constructor() {
         super();
-        this.shadowRoot.append(TPL.generate());
+        TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
         const teamList = this.shadowRoot.getElementById("team");
@@ -158,4 +95,4 @@ export default class CreditsTab extends CustomElement {
 
 }
 
-customElements.define("tootr-credits", CreditsTab);
+customElements.define("tootr-about-panel-credits", CreditsPanel);

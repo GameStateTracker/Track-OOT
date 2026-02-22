@@ -1,0 +1,40 @@
+.section-block {
+    padding: 5px;
+}
+
+.header-block {
+    display: flex;
+}
+
+.version-info {
+    flex: 1;
+}
+
+.meta-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex: 1;
+    padding: 2px;
+
+    & > * {
+        margin: 2px;
+    }
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-image: url('images/logo.svg');
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
+.text-block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 5px 0px;
+}

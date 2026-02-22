@@ -1,6 +1,4 @@
-import {
-    mix
-} from "/emcJS/util/Mixin.js";
+import {mix} from "/emcJS/util/Mixin.js";
 import "/emcJS/ui/icon/LabeledIcon.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
@@ -8,7 +6,7 @@ import LocationListEntry from "/GameTrackerJS/ui/panel/locationlist/components/a
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
 import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
 import "/GameTrackerJS/ui/panel/locationlist/components/entries/LocationListLocation.js";
-import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
+import {shopItemChoiceModal} from "../../../../modal/shopitem/ShopItemChoiceModal.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu";
 import APHintLocations from "../../../../../resource/APHintLocations.js";
 import TPL from "./TrackerLocationListShopSlot.js.html" assert {type: "html"};
@@ -26,11 +24,7 @@ function applyElements(target) {
 
 const shopsanityObserver = new OptionsObserver("shopsanity");
 
-const BaseClass = mix(
-    LocationListEntry
-).with(
-    AccessTextMarkerMixin
-);
+const BaseClass = mix(LocationListEntry).with(AccessTextMarkerMixin);
 
 export default class TrackerLocationListShopSlot extends BaseClass {
 
@@ -155,22 +149,15 @@ export default class TrackerLocationListShopSlot extends BaseClass {
         }
     }
 
-    #editItem() {
+    async #editItem() {
         const state = this.getState();
         if (state != null) {
-            const d = new ShopItemChoiceDialog(this.ref);
-            d.item = state.item;
-            d.price = state.price;
-            d.addEventListener("submit", (result) => {
-                if (result) {
-                    const state = this.getState();
-                    if (state != null) {
-                        state.item = result.item;
-                        state.price = result.price;
-                    }
-                }
-            });
-            d.show();
+            shopItemChoiceModal.caption = `location[${this.ref}]`;
+            const result = await shopItemChoiceModal.show(state.item, state.price);
+            if (result) {
+                state.item = result.item;
+                state.price = result.price;
+            }
         }
     }
 

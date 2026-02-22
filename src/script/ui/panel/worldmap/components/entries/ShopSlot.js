@@ -2,7 +2,7 @@ import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldMapLocation from "/GameTrackerJS/ui/panel/worldmap/components/entries/Location.js";
 import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
-import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
+import {shopItemChoiceModal} from "../../../../modal/shopitem/ShopItemChoiceModal.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
 import APHintLocations from "../../../../../resource/APHintLocations.js";
 
@@ -131,22 +131,15 @@ export default class WorldMapShopSlot extends WorldMapLocation {
         }
     }
 
-    #editItem() {
+    async #editItem() {
         const state = this.getState();
         if (state != null) {
-            const d = new ShopItemChoiceDialog(`location[${this.ref}]`);
-            d.item = state.item;
-            d.price = state.price;
-            d.addEventListener("submit", (result) => {
-                if (result) {
-                    const state = this.getState();
-                    if (state != null) {
-                        state.item = result.item;
-                        state.price = result.price;
-                    }
-                }
-            });
-            d.show();
+            shopItemChoiceModal.caption = `location[${this.ref}]`;
+            const result = await shopItemChoiceModal.show(state.item, state.price);
+            if (result) {
+                state.item = result.item;
+                state.price = result.price;
+            }
         }
     }
 

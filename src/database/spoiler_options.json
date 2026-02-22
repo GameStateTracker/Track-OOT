@@ -1,28 +1,23 @@
 {
     "multiworld": {
-        "category": "spoilerOptions",
         "type": "number",
         "default": 1,
         "min": 1,
         "max": 100
     },
     "settings": {
-        "category": "spoilerOptions",
         "type": "check",
         "default": true
     },
     "starting_items": {
-        "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
     "item_association": {
-        "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
     "ignore_world_locking": {
-        "category": "spoilerOptions",
         "type": "check",
         "default": false,
         "visible": {
@@ -31,47 +26,38 @@
         }
     },
     "woth_hints": {
-        "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
     "shops": {
-        "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
     "gossip_stones": {
-        "category": "spoilerOptions",
         "type": "hidden",
         "default": false
     },
     "barren": {
-        "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
     "trials": {
-        "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
     "random_settings": {
-        "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
     "dungeons": {
-        "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
     "dungeonReward": {
-        "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
     "entrances": {
-        "category": "spoilerOptions",
         "type": "list",
         "values": [
             "entro_dungeons",

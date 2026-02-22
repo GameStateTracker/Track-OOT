@@ -1,86 +1,30 @@
-// frameworks
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
-
-// Track-OOT
 import "./SongStave.js";
+import TPL from "./SongBuilder.js.html" assert {type: "html"};
+import STYLE from "./SongBuilder.js.css" assert {type: "css"};
 
-const TPL = new HTMLTemplate(`
-<div id="title"></div>
-<ootrt-stave id="stave"></ootrt-stave>
-<div id="buttons">
-    <div id="A"></div>
-    <div id="D"></div>
-    <div id="R"></div>
-    <div id="L"></div>
-    <div id="U"></div>
-    <div id="X"></div>
-</div>
-`);
+export default class SongBuilder extends CustomElement {
 
-const STYLE = new CSSTemplate(`
-:host {
-    display: inline-block;
-    width: 320px;
-    padding: 10px;
-    margin: 5px;
-    background-color: black;
-}
-#buttons {
-    display: flex;
-    justify-content: center;
-}
-#buttons div {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    margin: 5px;
-}
-#buttons div:hover {
-    box-shadow: 0 0 3px 2px #cb9c3d, inset 0 0 3px 0px #cb9c3d;
-}
-#buttons #A {
-    background-image: url("/images/songs/note_A.svg");
-}
-#buttons #D {
-    background-image: url("/images/songs/note_D.svg");
-}
-#buttons #R {
-    background-image: url("/images/songs/note_R.svg");
-}
-#buttons #L {
-    background-image: url("/images/songs/note_L.svg");
-}
-#buttons #U {
-    background-image: url("/images/songs/note_U.svg");
-}
-#buttons #X {
-    background-image: url("/images/songs/note_X.svg");
-}
-`);
+    #staveEl;
 
-export default class HTMLTrackerSongBuilder extends CustomElement {
+    #buttonsEl;
 
     constructor() {
         super();
-        this.shadowRoot.append(TPL.generate());
+        TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.shadowRoot.getElementById("buttons").onclick = (event) => {
-            this.#buttonClick(event);
-        };
-    }
-
-    get value() {
-        return this.shadowRoot.getElementById("stave").value;
+        this.#staveEl = this.shadowRoot.getElementById("stave");
+        this.#buttonsEl = this.shadowRoot.getElementById("buttons");
+        this.#buttonsEl.addEventListener("click", (event) => this.#buttonClick(event));
     }
 
     set value(val) {
-        this.shadowRoot.getElementById("stave").value = val;
+        this.#staveEl.value = val;
+    }
+
+    get value() {
+        return this.#staveEl.value;
     }
 
     #buttonClick(event) {
@@ -104,4 +48,4 @@ export default class HTMLTrackerSongBuilder extends CustomElement {
 
 }
 
-customElements.define("ootrt-songbuilder", HTMLTrackerSongBuilder);
+customElements.define("ootrt-songbuilder", SongBuilder);

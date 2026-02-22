@@ -10,12 +10,12 @@ import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import ArchipelagoController from "../../util/archipelago/ArchipelagoController.js";
 import {AP_STORAGES} from "../../util/archipelago/storage/RegisterAPStorage.js";
-import TPL from "./APModal.js.html" assert {type: "html"};
-import STYLE from "./APModal.js.css" assert {type: "css"};
+import TPL from "./APConnectModal.js.html" assert {type: "html"};
+import STYLE from "./APConnectModal.js.css" assert {type: "css"};
 
 const APStateStorage = Savestate.getStorage("APConfig");
 
-export default class APModal extends Modal {
+export default class APConnectModal extends Modal {
 
     #apHostnameEl;
 
@@ -147,25 +147,25 @@ export default class APModal extends Modal {
     }
 
     #onConnecting() {
-        this.busy = true;
+        this.busyIndicator.busy();
         this.#connectEl.text = "connecting...";
         this.#connectEl.disabled = true;
 
-        this.#apHostnameEl.readonly = true;
-        this.#apPortEl.readonly = true;
-        this.#apSlotNameEl.readonly = true;
-        this.#apPasswordEl.readonly = true;
+        this.#apHostnameEl.readOnly = true;
+        this.#apPortEl.readOnly = true;
+        this.#apSlotNameEl.readOnly = true;
+        this.#apPasswordEl.readOnly = true;
     }
 
     #onConnected() {
-        this.busy = false;
+        this.busyIndicator.reset();
         this.#connectEl.text = "connect";
         this.#connectEl.disabled = false;
 
-        this.#apHostnameEl.readonly = true;
-        this.#apPortEl.readonly = true;
-        this.#apSlotNameEl.readonly = true;
-        this.#apPasswordEl.readonly = true;
+        this.#apHostnameEl.readOnly = true;
+        this.#apPortEl.readOnly = true;
+        this.#apSlotNameEl.readOnly = true;
+        this.#apPasswordEl.readOnly = true;
 
         this.#connectEl.hidden = true;
         this.#purgeEl.hidden = true;
@@ -173,14 +173,14 @@ export default class APModal extends Modal {
     }
 
     #onDisonnected() {
-        this.busy = false;
+        this.busyIndicator.reset();
         this.#connectEl.text = "connect";
         this.#connectEl.disabled = false;
 
-        this.#apHostnameEl.readonly = false;
-        this.#apPortEl.readonly = false;
-        this.#apSlotNameEl.readonly = false;
-        this.#apPasswordEl.readonly = false;
+        this.#apHostnameEl.readOnly = false;
+        this.#apPortEl.readOnly = false;
+        this.#apSlotNameEl.readOnly = false;
+        this.#apPasswordEl.readOnly = false;
 
         this.#connectEl.hidden = false;
         this.#purgeEl.hidden = false;
@@ -189,4 +189,4 @@ export default class APModal extends Modal {
 
 }
 
-customElements.define("tootr-modal-ap", APModal);
+customElements.define("tootr-modal-ap", APConnectModal);

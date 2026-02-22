@@ -1,0 +1,8 @@
+.paragraph {
+    padding: 8px;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+}

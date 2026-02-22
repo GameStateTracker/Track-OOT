@@ -32,7 +32,11 @@ const NOCOMPRESS = process.argv.indexOf("-nocompress") >= 0;
 const REBUILD = process.argv.indexOf("-rebuild") >= 0;
 const REBUILDJS = process.argv.indexOf("-rebuildjs") >= 0;
 
-console.log({NOCOMPRESS, REBUILDJS, REBUILD});
+console.log({
+    NOCOMPRESS,
+    REBUILDJS,
+    REBUILD
+});
 
 /* JS START */
 function copyJS(files, src, dest, target) {
@@ -87,15 +91,34 @@ function copyScript() {
 
 function copyEmcJSCSS() {
     const FILES = [
-        `${MODULE_PATHS.emcJS}/**/*.css`
+        `${MODULE_PATHS.emcJS}/_style/**/*.css`
     ];
-    const DST = `${BUILD_PATH}/emcJS`;
+    const DST = `${BUILD_PATH}/emcJS/_style`;
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(MODULE_PATHS.emcJS, DST));
+    res = res.pipe(FileIndex.register(`${MODULE_PATHS.emcJS}/_style`, DST));
     if (!REBUILD) {
         res = res.pipe(newer(DST));
     }
     res = res.pipe(autoprefixer());
+    res = res.pipe(gulp.dest(DST));
+    return res;
+}
+
+function copyEmcJSFonts() {
+    const FILES = [
+        `${MODULE_PATHS.emcJS}/_fonts/**/*.ttf`,
+        `${MODULE_PATHS.emcJS}/_fonts/**/*.eot`,
+        `${MODULE_PATHS.emcJS}/_fonts/**/*.otf`,
+        `${MODULE_PATHS.emcJS}/_fonts/**/*.woff`,
+        `${MODULE_PATHS.emcJS}/_fonts/**/*.woff2`,
+        `${MODULE_PATHS.emcJS}/_fonts/**/*.svg`
+    ];
+    const DST = `${BUILD_PATH}/emcJS/_fonts`;
+    let res = gulp.src(FILES);
+    res = res.pipe(FileIndex.register(`${MODULE_PATHS.emcJS}/_fonts`, DST));
+    if (!REBUILD) {
+        res = res.pipe(newer(DST));
+    }
     res = res.pipe(gulp.dest(DST));
     return res;
 }
@@ -216,40 +239,39 @@ function copyTrackerImg() {
 function finish(done) {
     FileIndex.add(LanguageManager.finish(`${BUILD_PATH}/i18n`));
     const config = {
-        usedImports: ImportAnalyzer.getUsedImports(
-            BUILD_PATH,
+        usedImports: ImportAnalyzer.getUsedImports(BUILD_PATH,
             path.resolve(BUILD_PATH, "index.js"),
             path.resolve(BUILD_PATH, "emcJS/util/html/template/HTMLTemplate.js"),
-            path.resolve(BUILD_PATH, "emcJS/util/html/template/CSSTemplate.js")
-        ),
+            path.resolve(BUILD_PATH, "emcJS/util/html/template/CSSTemplate.js")),
         ignoreImportPaths: /.*\/(i18n\/fragments\/.*|emcJS\/polyfills\/.*)\.js/,
         deleteUnused: DELETE_UNUSED_FILES
     };
     FileIndex.finish(BUILD_PATH, undefined, config);
     ImageIndex.finish(BUILD_PATH, "images/_index.icons.json", /^\/images\/icons\/.*/);
     ImageIndex.finish(BUILD_PATH, "images/_index.maps.json", /^\/images\/maps\/.*/, /^\/images\/maps\/(.*)\.[^.]+$/);
+    ImportAnalyzer.printUnresolvedImports();
+    ImportAnalyzer.writeImportFile();
     done();
 }
 
-export const build = gulp.series(
-    gulp.parallel(
-        copyHTML,
-        copyJSON,
-        copyCSS,
-        copyFonts,
-        // ---
-        copyTrackerI18N,
-        copyTrackerI18NFragments,
-        copyTrackerImg,
-        // ---
-        copyEmcJS,
-        copyEmcJSCSS,
-        copyGameTrackerJS,
-        copyJSEditors,
-        copyScript
-    ),
-    finish
-);
+export const build = gulp.series(gulp.parallel(
+    copyHTML,
+    copyJSON,
+    copyCSS,
+    copyFonts,
+    // ---
+    copyTrackerI18N,
+    copyTrackerI18NFragments,
+    copyTrackerImg,
+    // ---
+    copyEmcJS,
+    copyEmcJSCSS,
+    copyEmcJSFonts,
+    copyGameTrackerJS,
+    copyJSEditors,
+    copyScript
+),
+finish);
 
 export const watch = function() {
     build();

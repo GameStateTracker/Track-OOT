@@ -1,20 +1,15 @@
-import CustomFormElementDelegating from "/emcJS/ui/element/CustomFormElementDelegating.js";
+import AbstractFormElement from "/emcJS/ui/form/element/AbstractFormElement.js";
 import FormElementRegistry from "/emcJS/data/registry/form/FormElementRegistry.js";
-import {deepClone} from "/emcJS/util/helper/DeepClone.js";
-import {isEqual} from "/emcJS/util/helper/Comparator.js";
-import {safeSetAttribute} from "/emcJS/util/helper/ui/NodeAttributes.js";
-import "/emcJS/ui/input/ListSelect.js";
+import {registerFocusable} from "/emcJS/util/helper/html/ElementFocusHelper.js";
+import {setBooleanAttribute} from "/emcJS/util/helper/ui/NodeAttributes.js";
+import "/emcJS/ui/form/element/select/switch/SwitchSelect.js";
+import "/emcJS/ui/form/element/select/list/ListSelect.js";
 import TPL from "./DungeonStateActiveTypes.js.html" assert {type: "html"};
 import STYLE from "./DungeonStateActiveTypes.js.css" assert {type: "css"};
-import CONFIG_FIELDS from "./DungeonStateActiveTypes.js.json" assert {type: "json"};
 
-export default class DungeonStateActiveTypes extends CustomFormElementDelegating {
+export default class DungeonStateActiveTypes extends AbstractFormElement {
 
-    static get formConfigurationFields() {
-        return deepClone(CONFIG_FIELDS);
-    }
-
-    #value;
+    #containerEl;
 
     #inputEl;
 
@@ -22,35 +17,26 @@ export default class DungeonStateActiveTypes extends CustomFormElementDelegating
 
     constructor() {
         super();
-        this.shadowRoot.append(TPL.generate());
+        TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.#containerEl = this.shadowRoot.getElementById("container");
         this.#inputEl = this.shadowRoot.getElementById("input");
         this.#selectionEl = this.shadowRoot.getElementById("selection");
-        this.#inputEl.addEventListener("change", () => {
+        this.#inputEl.addEventListener("input", () => {
             const value = this.#inputEl.value;
             if (value === "custom") {
-                this.#inputEl.classList.add("append-bottom");
-                this.#selectionEl.classList.add("active");
                 this.value = this.#selectionEl.value;
             } else {
-                this.#inputEl.classList.remove("append-bottom");
-                this.#selectionEl.classList.remove("active");
                 this.value = "";
             }
         });
-        this.#selectionEl.addEventListener("change", () => {
+        this.#selectionEl.addEventListener("input", () => {
             const value = this.#inputEl.value;
             if (value === "custom") {
                 this.value = this.#selectionEl.value;
             }
         });
-    }
-
-    connectedCallback() {
-        super.connectedCallback();
-        const value = this.value;
-        this.#applyValue(value);
     }
 
     formDisabledCallback(disabled) {
@@ -59,79 +45,49 @@ export default class DungeonStateActiveTypes extends CustomFormElementDelegating
         this.#selectionEl.disabled = disabled;
     }
 
-    formResetCallback() {
-        super.formResetCallback();
-        const value = this.value;
-        this.#applyValue(value);
+    focus(options) {
+        this.#inputEl.focus(options);
     }
 
     set value(value) {
         if (value !== "" && !Array.isArray(value)) {
             value = "";
         }
-        if (!isEqual(this.#value, value)) {
-            this.#applyValue(value);
-            this.#value = value;
-            this.internals.setFormValue(value);
-            /* --- */
-            this.dispatchEvent(new Event("change"));
-        }
+        super.value = value;
     }
 
     get value() {
-        return this.#value;
-    }
-
-    set readonly(val) {
-        this.setBooleanAttribute("readonly", val);
-    }
-
-    get readonly() {
-        return this.getBooleanAttribute("readonly");
+        return super.value;
     }
 
     static get observedAttributes() {
-        return ["name", "value"];
+        const superObserved = super.observedAttributes ?? [];
+        return [
+            ...superObserved,
+            "readonly"
+        ];
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback?.(name, oldValue, newValue);
         switch (name) {
-            case "name":{
+            case "readonly": {
                 if (oldValue != newValue) {
-                    this.#selectionEl.name = newValue;
-                }
-            } break;
-            case "value": {
-                if (oldValue != newValue) {
-                    this.#applyValueAttribute(newValue);
-                    if (!this.isChanged) {
-                        this.#applyValue(this.value);
-                    }
+                    setBooleanAttribute(this.#inputEl, name, this.readOnly);
                 }
             } break;
         }
     }
 
-    #applyValue(value) {
+    renderValue(value) {
         if (Array.isArray(value)) {
+            this.#containerEl.classList.add("custom");
             this.#inputEl.value = "custom";
-            this.#selectionEl.classList.add("active");
             this.#selectionEl.value = value;
+            this.scrollIntoView();
         } else {
+            this.#containerEl.classList.remove("custom");
             this.#inputEl.value = "default";
-            this.#selectionEl.classList.remove("active");
-        }
-    }
-
-    #applyValueAttribute(value) {
-        if (Array.isArray(value)) {
-            this.#inputEl.value = "custom";
-            this.#selectionEl.classList.add("active");
-            safeSetAttribute(this.#selectionEl, "value", value);
-        } else {
-            this.#inputEl.value = "default";
-            this.#selectionEl.classList.remove("active");
         }
     }
 
@@ -139,3 +95,4 @@ export default class DungeonStateActiveTypes extends CustomFormElementDelegating
 
 FormElementRegistry.register("DungeonStateActiveTypes", DungeonStateActiveTypes);
 customElements.define("ootrt-input-dungeonstateactivetype", DungeonStateActiveTypes);
+registerFocusable("ootrt-input-dungeonstateactivetype");

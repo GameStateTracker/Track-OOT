@@ -3,9 +3,9 @@
  */
 
 // frameworks
-import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
 import Logger from "/emcJS/util/log/Logger.js";
 import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
+import modalRegistry from "/emcJS/data/registry/ModalRegistry.js";
 import "/emcJS/ui/Page.js";
 import "/emcJS/ui/Paging.js";
 import "/emcJS/ui/LogScreen.js";
@@ -21,7 +21,6 @@ import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import EntranceBindingHandler from "/GameTrackerJS/util/handler/EntranceBindingHandler.js";
 import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
-import RemoteItemViewModal from "/GameTrackerJS/ui/modal/rtc/itemview/RemoteItemViewModal.js";
 import "/GameTrackerJS/savestate/AutosaveHandler.js";
 import "/GameTrackerJS/util/sync/StorageSyncMaster.js";
 import "/GameTrackerJS/util/handler/ExitBindingHandler.js";
@@ -38,16 +37,11 @@ import ArchipelagoController from "/script/util/archipelago/ArchipelagoControlle
 import CustomLogicUpdater from "./util/logic/CustomLogicUpdater.js";
 import "/script/util/logic/AugmentationLoader.js";
 import "/script/util/A11y.js";
-import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
-import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
-import NewGameWindow from "/script/ui/window/NewGameWindow.js";
-import SpoilerLogWindow from "/script/ui/window/SpoilerLogWindow.js";
-import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
 import "/script/ui/LayoutContainer.js";
 import "./ui/panel/multiplayer/Multiplayer.js";
-import APModal from "./ui/modal/APModal.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
+import {initModals} from "./registry/ModalRegistry.js";
 
 Logic.suspended = true;
 
@@ -139,17 +133,7 @@ try {
     window.ArchipelagoController = ArchipelagoController;
 
     updateLoadingMessage("initialize settings...");
-    // windows
-    {
-        GlobalContext.set("TrackerSettingsWindow", new TrackerSettingsWindow());
-        GlobalContext.set("RomOptionsWindow", new RomOptionsWindow());
-        GlobalContext.set("SpoilerLogWindow", new SpoilerLogWindow());
-        GlobalContext.set("ItemViewerWindow", new RemoteItemViewModal());
-        GlobalContext.set("ArchipelagoWindow", new APModal());
-        GlobalContext.set("ClearDataWindow", new ClearDataWindow());
-        const newGameWindow = new NewGameWindow();
-        GlobalContext.set("NewGameWindow", newGameWindow);
-    }
+    initModals();
 
     updateLoadingMessage("update logic...");
     new CustomLogicUpdater();
@@ -167,10 +151,7 @@ try {
             Savestate.setMeta("init_window_shown", true);
             const showInitWindow = SettingsStorage.get("show_state_init_window");
             if (showInitWindow) {
-                const newGameWindow = GlobalContext.get("NewGameWindow");
-                if (newGameWindow) {
-                    newGameWindow.show();
-                }
+                modalRegistry.show("NewGame");
             }
         }
     });
