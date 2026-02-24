@@ -1,3 +1,8 @@
 #purge {
     margin-right: auto;
 }
+
+#form {
+    --border-style: none;
+    --border-radius: none;
+}

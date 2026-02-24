@@ -31,6 +31,7 @@ export default class AboutOverlay extends OverlayPanel {
                     time: 60
                 }).addEventListener("action", () => {
                     this.show();
+                    this.#aboutEl.focusUpdate();
                 });
             }
         });
@@ -40,6 +41,10 @@ export default class AboutOverlay extends OverlayPanel {
             }
         });
         this.#aboutEl.checkUpdate();
+    }
+
+    initialFocus() {
+        this.#aboutEl.initialFocus();
     }
 
 }

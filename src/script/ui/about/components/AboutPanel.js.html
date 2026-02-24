@@ -9,7 +9,7 @@
             <span id="tracker-date">01.01.2019 00:00:00</span>
         </div>
         <div class="text-block">
-            <emc-button-link text="View the changelog" href="CHANGELOG.MD"></emc-button-link>
+            <emc-button-link id="current-changelog" text="View the changelog" href="CHANGELOG.MD"></emc-button-link>
         </div>
     </div>
     <div class="meta-links">
@@ -19,18 +19,15 @@
     </div>
     <div class="logo"></div>
 </div>
-<hr>
-<div class="section-block">
+<div id="update-block" class="section-block">
     <ootrt-updatehandler id="updatehandler"></ootrt-updatehandler>
 </div>
-<hr>
 <div class="section-block">
     <div class="text-block">
         <emc-i18n-label i18n-value="Erase all app data"></emc-i18n-label>
         <emc-button id="erase-button" variant="danger" text="Erase"></emc-button>
     </div>
 </div>
-<hr>
 <div class="section-block">
     <div class="text-block">
         <emc-i18n-textbox i18n-content="about_text_logic"></emc-i18n-textbox>
@@ -44,4 +41,3 @@
         <emc-button-link text="Report the Error" href="https://bitbucket.org/zidargs/track-oot/issues"></emc-button-link>
     </div>
 </div>
-<hr>

@@ -14,11 +14,15 @@ const NOSW = (new URL(location.href)).searchParams.get("nosw") !== null;
 
 export default class AboutPanel extends CustomElement {
 
+    #currentChangelogEl;
+
     #trackerVersionEl;
 
     #trackerDateEl;
 
     #eraseButtonEl;
+
+    #updateBlockEl;
 
     #updateHandlerEl;
 
@@ -27,9 +31,11 @@ export default class AboutPanel extends CustomElement {
         TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.#currentChangelogEl = this.shadowRoot.getElementById("current-changelog");
         this.#trackerVersionEl = this.shadowRoot.getElementById("tracker-version");
         this.#trackerDateEl = this.shadowRoot.getElementById("tracker-date");
         this.#eraseButtonEl = this.shadowRoot.getElementById("erase-button");
+        this.#updateBlockEl = this.shadowRoot.getElementById("update-block");
         this.#updateHandlerEl = this.shadowRoot.getElementById("updatehandler");
         /* --- */
         this.#initUpdateHandler();
@@ -52,7 +58,7 @@ export default class AboutPanel extends CustomElement {
 
     #initUpdateHandler() {
         if (NOSW) {
-            this.#updateHandlerEl.style.display = "none";
+            this.#updateBlockEl.style.display = "none";
         } else {
             this.#updateHandlerEl.addEventListener("updateavailable", () => {
                 const ev = new Event("updateavailable");
@@ -63,6 +69,14 @@ export default class AboutPanel extends CustomElement {
                 this.dispatchEvent(ev);
             });
         }
+    }
+
+    initialFocus() {
+        this.#currentChangelogEl.focus();
+    }
+
+    focusUpdate() {
+        this.#updateHandlerEl.initialFocus();
     }
 
 }

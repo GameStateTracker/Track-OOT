@@ -9,6 +9,8 @@ import STYLE from "./UpdateHandler.js.css" assert {type: "css"};
 
 export default class UpdateHandler extends CustomElement {
 
+    #startCheckUpdate;
+
     #checkUpdateContentEl;
 
     #forceUpdateContentEl;
@@ -57,10 +59,20 @@ export default class UpdateHandler extends CustomElement {
                 if (event.data.type == "state") {
                     switch (event.data.msg) {
                         case "update_available": {
-                            this.#onUpdateAvailable();
+                            const nowDate = new Date();
+                            const startDate = this.#startCheckUpdate;
+                            const remainingTime = 2000 - (nowDate - startDate);
+                            setTimeout(() => {
+                                this.#onUpdateAvailable();
+                            }, remainingTime < 0 ? 0 : remainingTime);
                         } break;
                         case "update_unavailable": {
-                            this.#onUpdateUnavailable();
+                            const nowDate = new Date();
+                            const startDate = this.#startCheckUpdate;
+                            const remainingTime = 2000 - (nowDate - startDate);
+                            setTimeout(() => {
+                                this.#onUpdateUnavailable();
+                            }, remainingTime < 0 ? 0 : remainingTime);
                         } break;
                         case "need_download": {
                             const {total} = event.data;
@@ -104,11 +116,22 @@ export default class UpdateHandler extends CustomElement {
 
     async checkUpdate() {
         if ("serviceWorker" in navigator) {
+            this.#checkUpdate();
+            this.#startCheckUpdate = new Date();
             const cacheControl = await navigator.serviceWorker.getRegistration("/sw.js");
             if (cacheControl != null) {
                 cacheControl.active.postMessage("check");
             }
         }
+    }
+
+    #checkUpdate() {
+        this.#checkUpdateContentEl.style.display = "";
+        this.#forceUpdateContentEl.style.display = "none";
+        this.#updateAvailableContentEl.style.display = "none";
+        this.#updateUnavailableContentEl.style.display = "none";
+        this.#updateRunningContentEl.style.display = "none";
+        this.#updateFinishedContentEl.style.display = "none";
     }
 
     async #startUpdate(force = false) {
@@ -166,6 +189,14 @@ export default class UpdateHandler extends CustomElement {
         this.#progressEl.max = max;
         this.#progressEl.value = value;
         this.#progressTextEl.innerText = `${value}/${max}`;
+    }
+
+    initialFocus() {
+        if (this.#updateAvailableContentEl.style.display === "") {
+            this.#downloadUpdateEl.focus();
+        } else {
+            this.#checkUpdateEl.focus();
+        }
     }
 
 }

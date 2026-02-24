@@ -1,3 +1,7 @@
+#update-check {
+    display: flex;
+}
+
 #progress-group {
     width: 100%;
 
@@ -15,4 +19,30 @@
     flex-wrap: wrap;
     align-items: center;
     padding: 5px 0px;
+}
+
+/* busy animation */
+@keyframes loading {
+    0% {
+        transform: rotate(-35deg)
+    }
+
+    50% {
+        transform: rotate(35deg)
+    }
+
+    100% {
+        transform: rotate(-35deg)
+    }
+}
+
+#busy {
+    animation: loading 4s linear infinite;
+    width: 1.1em;
+    height: 1.1em;
+    margin-left: 8px;
+    background-image: url(/images/fairy.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
 }
