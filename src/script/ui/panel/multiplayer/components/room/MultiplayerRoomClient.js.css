@@ -25,6 +25,24 @@
     margin-right: 0;
 }
 
+#signal-icon {
+    font-size: 2rem;
+    margin-left: 8px;
+    filter: drop-shadow(black 1px 1px 1px);
+
+    &[icon="signal-full"] {
+        color: #08c908;
+    }
+
+    &[icon="signal-medium"] {
+        color: #0bc9c6;
+    }
+
+    &[icon="signal-low"] {
+        color: #c90b0b;
+    }
+}
+
 #content {
     position: relative;
     display: flex;

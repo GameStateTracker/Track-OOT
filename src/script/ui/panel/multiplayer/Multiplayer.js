@@ -48,13 +48,13 @@ export default class Multiplayer extends Panel {
         this.#lobbyViewEl.addEventListener("hosting", () => {
             this.#mode = "host";
             this.#contentEl.setAttribute("active-panel", "host");
-            this.#roomHostEl.refreshRoomName();
+            this.#roomHostEl.initRoom();
         });
 
         this.#lobbyViewEl.addEventListener("joined", () => {
             this.#mode = "client";
             this.#contentEl.setAttribute("active-panel", "client");
-            this.#roomClientEl.refreshRoomName();
+            this.#roomClientEl.initRoom();
         });
 
         this.#roomHostEl.addEventListener("disconnected", () => {

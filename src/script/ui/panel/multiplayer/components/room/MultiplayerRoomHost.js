@@ -69,7 +69,7 @@ export default class MultiplayerRoomHost extends CustomElement {
         }
     }
 
-    refreshRoomName() {
+    initRoom() {
         const rtcPeer = MultiplayerControllerInst.getPeer();
         if (rtcPeer instanceof MultiplayerHost) {
             this.#roomNameEl.innerText = rtcPeer.roomName;

@@ -50,6 +50,9 @@ Application:    Track-OOT
 - replace "tracker settings" and "randomizer options" with more modern settings panel
 - add dedicated panel for "About"
 
+- add ping to multiplayer
+- add send data logging to multiplayer
+
 ### BUG FIXES
 
 - fix logic calculation in LogicViewer
