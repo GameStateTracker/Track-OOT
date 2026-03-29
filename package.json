@@ -12,7 +12,7 @@
   "type": "module",
   "dependencies": {
     "archipelagojs": "git+https://bitbucket.org/zidargs/archipelagojs.git/#1.1.2",
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git/#0.29.2",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git/#0.29.3",
     "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.10.2",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.3.3",
     "jswebservice": "git+https://bitbucket.org/zidargs/jswebservice.git/#3.1.1",
