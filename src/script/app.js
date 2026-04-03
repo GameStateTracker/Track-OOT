@@ -155,6 +155,10 @@ try {
             }
         }
     });
+
+    window.loadTestState = () => {
+        modalRegistry.show("LoadTestState");
+    };
 } catch (err) {
     console.error(err);
     updateLoadingMessage(err.message.replace(/\n/g, "<br>"));

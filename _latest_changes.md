@@ -1,0 +1,3 @@
+- fix "can use item/song" logic for ap
+- fix beat ghoma logic for ap
+- fix "spoiler log window" not opening from "new game window"

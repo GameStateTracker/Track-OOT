@@ -7,6 +7,7 @@ import APConnectModal from "../ui/modal/APConnectModal.js";
 import ClearDataModal from "../ui/modal/ClearDataModal.js";
 import NewGameModal from "../ui/modal/NewGameModal.js";
 import SpoilerLogModal from "../ui/modal/SpoilerLogModal.js";
+import LoadTestStateModal from "../ui/modal/LoadTestStateModal.js";
 
 export function initModals() {
     modalRegistry.register("LoadSavestate", new LoadSavestateModal());
@@ -17,4 +18,6 @@ export function initModals() {
     modalRegistry.register("ClearData", new ClearDataModal());
     modalRegistry.register("NewGame", new NewGameModal());
     modalRegistry.register("SpoilerLog", new SpoilerLogModal());
+    // TestState
+    modalRegistry.register("LoadTestState", new LoadTestStateModal());
 }

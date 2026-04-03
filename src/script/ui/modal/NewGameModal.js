@@ -1,8 +1,8 @@
-import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
 import modalRegistry from "/emcJS/data/registry/ModalRegistry.js";
 import Modal from "/emcJS/ui/modal/Modal.js";
 import "/emcJS/ui/form/button/Button.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import {romOptionsOverlay} from "../../registry/OverlayRegistry.js";
 import TPL from "./NewGameModal.js.html" assert {type: "html"};
 import STYLE from "./NewGameModal.js.css" assert {type: "css"};
 
@@ -26,18 +26,12 @@ export default class NewGameModal extends Modal {
         const romSettingsButton = this.shadowRoot.getElementById("open-options-button");
         romSettingsButton.addEventListener("click", () => {
             this.close();
-            const romOptionsWindow = GlobalContext.get("RomOptionsWindow");
-            if (romOptionsWindow) {
-                romOptionsWindow.show();
-            }
+            romOptionsOverlay.show();
         });
         const uploadSpoilerButton = this.shadowRoot.getElementById("uplaod-spoiler-button");
         uploadSpoilerButton.addEventListener("click", () => {
             this.close();
-            const spoilerLogWindow = modalRegistry.show("SpoilerLogWindow");
-            if (spoilerLogWindow) {
-                spoilerLogWindow.show();
-            }
+            modalRegistry.show("SpoilerLog");
         });
     }
 
