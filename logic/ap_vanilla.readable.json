@@ -5265,10 +5265,16 @@
         "region[bridge_kokiri_gateway:out]{child}": {
             "region[lw_bridge_from_forest]{child}": {
                 "type": "true"
+            },
+            "region[lw_bridge]{child}": {
+                "type": "true"
             }
         },
         "region[bridge_kokiri_gateway:out]{adult}": {
             "region[lw_bridge_from_forest]{adult}": {
+                "type": "true"
+            },
+            "region[lw_bridge]{adult}": {
                 "type": "true"
             }
         },
@@ -6019,31 +6025,40 @@
                     }
                 ]
             },
-            "event[deku_tree_clear]": {
+            "event[defeat_queen_gohma]": {
                 "type": "and",
                 "content": [
                     {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "mixin",
-                                "ref": "mixin[nuts]{child}"
-                            },
-                            {
-                                "type": "function",
-                                "ref": "function[can_use]{child}",
-                                "params": [
-                                    {
-                                        "type": "string",
-                                        "value": "item[slingshot]"
-                                    }
-                                ]
-                            }
-                        ]
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[can_jumpslash]{child}"
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "or",
+                                "content": [
+                                    {
+                                        "type": "mixin",
+                                        "ref": "mixin[nuts]{child}"
+                                    },
+                                    {
+                                        "type": "function",
+                                        "ref": "function[can_use]{child}",
+                                        "params": [
+                                            {
+                                                "type": "string",
+                                                "value": "item[slingshot]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[can_jumpslash]{child}"
+                            }
+                        ]
                     }
                 ]
             }
@@ -6065,31 +6080,40 @@
                     }
                 ]
             },
-            "event[deku_tree_clear]": {
+            "event[defeat_queen_gohma]": {
                 "type": "and",
                 "content": [
                     {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "mixin",
-                                "ref": "mixin[nuts]{adult}"
-                            },
-                            {
-                                "type": "function",
-                                "ref": "function[can_use]{adult}",
-                                "params": [
-                                    {
-                                        "type": "string",
-                                        "value": "item[slingshot]"
-                                    }
-                                ]
-                            }
-                        ]
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[can_jumpslash]{adult}"
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "or",
+                                "content": [
+                                    {
+                                        "type": "mixin",
+                                        "ref": "mixin[nuts]{adult}"
+                                    },
+                                    {
+                                        "type": "function",
+                                        "ref": "function[can_use]{adult}",
+                                        "params": [
+                                            {
+                                                "type": "string",
+                                                "value": "item[slingshot]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[can_jumpslash]{adult}"
+                            }
+                        ]
                     }
                 ]
             }
