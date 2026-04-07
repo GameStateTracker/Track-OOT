@@ -49,7 +49,6 @@ Application:    Track-OOT
 - redesign some old components
 - replace "tracker settings" and "randomizer options" with more modern settings panel
 - add dedicated panel for "About"
-
 - add ping to multiplayer
 - add send data logging to multiplayer
 
