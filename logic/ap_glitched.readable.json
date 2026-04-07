@@ -29783,13 +29783,37 @@
             }
         },
         "region[kf_midos_house]{child}": {
-            "reach_location[kokiri.c_midos_house]": {
+            "reach_location[kokiri.c_midos_house_1]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[kokiri.c_midos_house_2]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[kokiri.c_midos_house_3]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[kokiri.c_midos_house_4]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
             }
         },
         "region[kf_midos_house]{adult}": {
-            "reach_location[kokiri.c_midos_house]": {
+            "reach_location[kokiri.c_midos_house_1]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[kokiri.c_midos_house_2]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[kokiri.c_midos_house_3]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[kokiri.c_midos_house_4]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
             }

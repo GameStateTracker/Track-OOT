@@ -5,6 +5,8 @@ import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import LogicResource from "../../resource/LogicResource.js";
 import LogicGlitchedResource from "../../resource/LogicGlitchedResource.js";
+import LogicAPResource from "../../resource/LogicAPResource.js";
+import LogicAPGlitchedResource from "../../resource/LogicAPGlitchedResource.js";
 
 const CONFIG = WorldResource.get("config");
 const GATEWAYS_VARIANTS = CONFIG.gateways?.variants;
@@ -21,6 +23,14 @@ export function getMixinLogic(ref) {
         const data = LogicGlitchedResource.get();
         return data.logic[ref];
     }
+    if (logicRulesObserver.value == "logic_rules_ap_glitchless") {
+        const data = LogicAPResource.get();
+        return data.logic[ref];
+    }
+    if (logicRulesObserver.value == "logic_rules_ap_glitched") {
+        const data = LogicAPGlitchedResource.get();
+        return data.logic[ref];
+    }
     return null;
 }
 
@@ -30,6 +40,12 @@ export async function getEdgeLogic(ref) {
     }
     if (logicRulesObserver.value == "logic_rules_glitched") {
         return getGlitchedLogic(ref);
+    }
+    if (logicRulesObserver.value == "logic_rules_ap_glitchless") {
+        return getNormalAPLogic(ref);
+    }
+    if (logicRulesObserver.value == "logic_rules_ap_glitched") {
+        return getGlitchedAPLogic(ref);
     }
     return [];
 }
@@ -49,6 +65,28 @@ async function getGlitchedLogic(ref) {
     const data = LogicGlitchedResource.get();
     if (customLogicObserver.value) {
         const LogicsStorage = new IDBStorage("logics_glitched");
+        const customData = await LogicsStorage.getAll();
+        return extractLogic(ref, data, customData);
+    } else {
+        return extractLogic(ref, data);
+    }
+}
+
+async function getNormalAPLogic(ref) {
+    const data = LogicAPResource.get();
+    if (customLogicObserver.value) {
+        const LogicsStorage = new IDBStorage("logics_ap");
+        const customData = await LogicsStorage.getAll();
+        return extractLogic(ref, data, customData);
+    } else {
+        return extractLogic(ref, data);
+    }
+}
+
+async function getGlitchedAPLogic(ref) {
+    const data = LogicAPGlitchedResource.get();
+    if (customLogicObserver.value) {
+        const LogicsStorage = new IDBStorage("logics_ap_glitched");
         const customData = await LogicsStorage.getAll();
         return extractLogic(ref, data, customData);
     } else {

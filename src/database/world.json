@@ -113,7 +113,7 @@
         },
         "kokiri.c_midos_house_1": {
             "type": "chest",
-            "logicAccess": "reach_location[kokiri.c_midos_house]",
+            "logicAccess": "reach_location[kokiri.c_midos_house_1]",
             "visible": true,
             "filter": {
                 "era": {
@@ -153,7 +153,7 @@
         },
         "kokiri.c_midos_house_2": {
             "type": "chest",
-            "logicAccess": "reach_location[kokiri.c_midos_house]",
+            "logicAccess": "reach_location[kokiri.c_midos_house_2]",
             "visible": true,
             "filter": {
                 "era": {
@@ -193,7 +193,7 @@
         },
         "kokiri.c_midos_house_3": {
             "type": "chest",
-            "logicAccess": "reach_location[kokiri.c_midos_house]",
+            "logicAccess": "reach_location[kokiri.c_midos_house_3]",
             "visible": true,
             "filter": {
                 "era": {
@@ -233,7 +233,7 @@
         },
         "kokiri.c_midos_house_4": {
             "type": "chest",
-            "logicAccess": "reach_location[kokiri.c_midos_house]",
+            "logicAccess": "reach_location[kokiri.c_midos_house_4]",
             "visible": true,
             "filter": {
                 "era": {
