@@ -10,6 +10,7 @@
                 "type": "Collection",
                 "name": "spawns"
             },
+            "description": "Open Child/Adult spawns and Warp targets",
             "icon": "/images/icons/spawns.svg"
         },
         "areaContentHints": {

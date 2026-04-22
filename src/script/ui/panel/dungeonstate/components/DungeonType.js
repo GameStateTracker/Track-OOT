@@ -1,73 +1,33 @@
-// frameworks
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
-
-// GameTrackerJS
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
 import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
-// Track-OOT
 import DungeonstateStates from "/script/state/dungeon/DungeonStateManager.js";
+import TPL from "./DungeonType.js.html" assert {type: "html"};
+import STYLE from "./DungeonType.js.css" assert {type: "css"};
 
-const TPL = new HTMLTemplate(`
-<emc-option value style="background-image: url('/images/icons/dungeontype_undefined.svg')"></emc-option>
-<emc-option value="v" style="background-image: url('/images/icons/dungeontype_vanilla.svg')"></emc-option>
-<emc-option value="mq" style="background-image: url('/images/icons/dungeontype_masterquest.svg')"></emc-option>
-`);
+const DESCRIPTION = "Set the area to be either \"Vanilla/Normal\" or \"Master Quest\".\nOnly dungeons can have \"Master Quest\" variants.";
 
-const STYLE = new CSSTemplate(`
-:host {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-}
-slot {
-    width: 100%;
-    height: 100%;
-}
-:not([value]),
-[value]:not(.active) {
-    display: none !important;
-}
-[value] {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    color: white;
-    font-size: 1em;
-    text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
-    background-image: var(--default-unknown-back-image);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-origin: content-box;
-    flex-grow: 0;
-    flex-shrink: 0;
-    min-height: 0;
-    white-space: normal;
-    padding: 0;
-    line-height: 0.7em;
-}
-`);
+export default class DungeonType extends StateDataEventManagerMixin(CustomElement) {
 
-class HTMLTrackerDungeonType extends StateDataEventManagerMixin(CustomElement) {
+    #optionEls =  new Map();
+
+    #selectedEl;
 
     constructor() {
         super();
-        this.shadowRoot.append(TPL.generate());
+        TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.registerStateHandler("type", (event) => {
-            this.value = event.value;
+            this.value = event.value ?? "";
         });
         this.addEventListener("click", (event) => this.next(event));
         this.addEventListener("contextmenu", (event) => this.revert(event));
+
+        this.#optionEls.set("", this.shadowRoot.querySelector("[value='']"));
+        this.#optionEls.set("v", this.shadowRoot.querySelector("[value='v']"));
+        this.#optionEls.set("mq", this.shadowRoot.querySelector("[value='mq']"));
     }
 
     connectedCallback() {
@@ -75,7 +35,7 @@ class HTMLTrackerDungeonType extends StateDataEventManagerMixin(CustomElement) {
         // state
         const state = this.getState();
         if (state != null) {
-            this.value = state.type;
+            this.value = state.type ?? "";
         }
     }
 
@@ -85,7 +45,7 @@ class HTMLTrackerDungeonType extends StateDataEventManagerMixin(CustomElement) {
 
     applyStateValues(state) {
         if (state != null) {
-            this.value = state.type;
+            this.value = state.type ?? "";
         }
     }
 
@@ -121,32 +81,35 @@ class HTMLTrackerDungeonType extends StateDataEventManagerMixin(CustomElement) {
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case "ref":
-                    {
-                        // state
-                        const state = DungeonstateStates.get(newValue);
-                        this.readOnly = true;
-                        if (state != null) {
-                            const area = AreaStateManager.get(newValue);
-                            if (area?.props.lists?.mq != null) {
-                                this.readOnly = false;
-                            }
-                        }
-                        this.switchState(state);
-                    }
-                    break;
-                case "value":
-                    {
-                        const oe = this.shadowRoot.querySelector(`.active`);
-                        if (oe) {
-                            oe.classList.remove("active");
-                        }
-                        const ne = this.shadowRoot.querySelector(`[value="${newValue}"]`) ?? this.shadowRoot.querySelector(`[value]`);
-                        if (ne) {
-                            ne.classList.add("active");
+                case "ref": {
+                    // state
+                    const state = DungeonstateStates.get(newValue);
+                    this.readOnly = true;
+                    if (state != null) {
+                        const area = AreaStateManager.get(newValue);
+                        if (area?.props.lists?.mq != null) {
+                            this.readOnly = false;
                         }
                     }
-                    break;
+                    this.switchState(state);
+                } break;
+                case "value": {
+                    if (this.#selectedEl) {
+                        this.#selectedEl.classList.remove("active");
+                        this.#selectedEl = null;
+                    }
+                    const ne = this.#optionEls.get(newValue);
+                    if (ne) {
+                        ne.classList.add("active");
+                        this.#selectedEl = ne;
+                    }
+                    this.#applyTooltip();
+
+                    const ev = new Event("change");
+                    ev.oldValue = oldValue;
+                    ev.value = newValue;
+                    this.dispatchEvent(ev);
+                } break;
             }
         }
     }
@@ -177,6 +140,14 @@ class HTMLTrackerDungeonType extends StateDataEventManagerMixin(CustomElement) {
         return false;
     }
 
+    #applyTooltip() {
+        if (this.#selectedEl != null) {
+            this.title = `${DESCRIPTION}\n\nActive value: ${this.#selectedEl.dataset.description ?? this.#selectedEl.value}`;
+        } else {
+            this.title = `${DESCRIPTION}\n\nActive value: [No value selected]`;
+        }
+    }
+
 }
 
-customElements.define("ootrt-dungeontype", HTMLTrackerDungeonType);
+customElements.define("ootrt-dungeontype", DungeonType);

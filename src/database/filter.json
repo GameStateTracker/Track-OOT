@@ -2,19 +2,25 @@
     "era": {
         "choice": true,
         "persist": false,
+        "description": "Filter the locations to only show the choosen era.",
         "default": "both",
-        "values": [
-            "both",
-            "child",
-            "adult"
-        ],
-        "images": [
-            "/images/icons/era_both.svg",
-            "/images/icons/era_child.svg",
-            "/images/icons/era_adult.svg"
-        ],
+        "values": {
+            "both": {
+                "image": "/images/icons/era_both.svg",
+                "description": "Both child and adult"
+            },
+            "child": {
+                "image": "/images/icons/era_child.svg",
+                "description": "Child only"
+            },
+            "adult": {
+                "image": "/images/icons/era_adult.svg",
+                "description": "Adult only"
+            }
+        },
         "badge": [
             {
+                "name": "Both child and adult",
                 "values": {
                     "child": true,
                     "adult": true
@@ -22,6 +28,7 @@
                 "image": "/images/icons/era_both.svg"
             },
             {
+                "name": "Child only",
                 "values": {
                     "child": true,
                     "adult": false
@@ -29,6 +36,7 @@
                 "image": "/images/icons/era_child.svg"
             },
             {
+                "name": "Adult only",
                 "values": {
                     "child": false,
                     "adult": true
@@ -36,6 +44,7 @@
                 "image": "/images/icons/era_adult.svg"
             },
             {
+                "name": "No era",
                 "values": {
                     "child": false,
                     "adult": false
@@ -47,33 +56,42 @@
     "era_apply": {
         "choice": true,
         "persist": true,
+        "description": "Controls how the era filter is applied to locations and logic.",
         "default": "loose",
-        "values": [
-            "loose",
-            "force"
-        ],
-        "images": [
-            "/images/icons/era_apply_loose.svg",
-            "/images/icons/era_apply_force.svg"
-        ],
+        "values": {
+            "loose": {
+                "image": "/images/icons/era_apply_loose.svg",
+                "description": "Allow time travel"
+            },
+            "force": {
+                "image": "/images/icons/era_apply_force.svg",
+                "description": "No time travel"
+            }
+        },
         "badge": false
     },
     "time": {
         "choice": true,
         "persist": false,
+        "description": "Filter the locations to only show the choosen time.",
         "default": "both",
-        "values": [
-            "both",
-            "day",
-            "night"
-        ],
-        "images": [
-            "/images/icons/time_always.svg",
-            "/images/icons/time_day.svg",
-            "/images/icons/time_night.svg"
-        ],
+        "values": {
+            "both": {
+                "image": "/images/icons/time_always.svg",
+                "description": "Both night and day"
+            },
+            "day": {
+                "image": "/images/icons/time_day.svg",
+                "description": "Day only"
+            },
+            "night": {
+                "image": "/images/icons/time_night.svg",
+                "description": "Night only"
+            }
+        },
         "badge": [
             {
+                "name": "Both night and day",
                 "values": {
                     "day": true,
                     "night": true
@@ -81,6 +99,7 @@
                 "image": "/images/icons/time_always.svg"
             },
             {
+                "name": "Day only",
                 "values": {
                     "day": true,
                     "night": false
@@ -88,6 +107,7 @@
                 "image": "/images/icons/time_day.svg"
             },
             {
+                "name": "Night only",
                 "values": {
                     "day": false,
                     "night": true
@@ -95,6 +115,7 @@
                 "image": "/images/icons/time_night.svg"
             },
             {
+                "name": "No time",
                 "values": {
                     "day": false,
                     "night": false
@@ -106,75 +127,94 @@
     "chests": {
         "choice": true,
         "persist": true,
+        "description": "Filter chests.",
         "default": "true",
-        "values": [
-            "true",
-            "false"
-        ],
-        "images": [
-            "/images/icons/chest.svg",
-            "/images/icons/chest_no.svg"
-        ],
+        "values": {
+            "true": {
+                "image": "/images/icons/chest.svg",
+                "description": "Show chests"
+            },
+            "false": {
+                "image": "/images/icons/chest_no.svg",
+                "description": "Hide chests"
+            }
+        },
         "badge": false
     },
     "skulltulas": {
         "choice": true,
         "persist": true,
+        "description": "Filter skulltulas.",
         "default": "true",
-        "values": [
-            "true",
-            "dungeons",
-            "overworld",
-            "false"
-        ],
-        "images": [
-            "/images/icons/skulltula.svg",
-            "/images/icons/skulltula_dungeons.svg",
-            "/images/icons/skulltula_overworld.svg",
-            "/images/icons/skulltula_no.svg"
-        ],
+        "values": {
+            "true": {
+                "image": "/images/icons/skulltula.svg",
+                "description": "Show all skulltulas"
+            },
+            "dungeons": {
+                "image": "/images/icons/skulltula_dungeons.svg",
+                "description": "Show only dungeon skulltulas"
+            },
+            "overworld": {
+                "image": "/images/icons/skulltula_overworld.svg",
+                "description": "Show only overworld skulltulas"
+            },
+            "false": {
+                "image": "/images/icons/skulltula_no.svg",
+                "description": "Hide all skulltulas"
+            }
+        },
         "badge": false
     },
     "gossipstones": {
         "choice": true,
         "persist": true,
+        "description": "Filter gossipstones.",
         "default": "false",
-        "values": [
-            "true",
-            "false"
-        ],
-        "images": [
-            "/images/icons/gossipstone.svg",
-            "/images/icons/gossipstone_no.svg"
-        ],
+        "values": {
+            "true": {
+                "image": "/images/icons/gossipstone.svg",
+                "description": "Show gossipstones"
+            },
+            "false": {
+                "image": "/images/icons/gossipstone_no.svg",
+                "description": "Hide gossipstones"
+            }
+        },
         "badge": false
     },
     "show_done": {
         "choice": true,
         "persist": true,
+        "description": "Filter done locations.",
         "default": "true",
-        "values": [
-            "true",
-            "false"
-        ],
-        "images": [
-            "/images/icons/access_opened_visible.svg",
-            "/images/icons/access_opened_invisible.svg"
-        ],
+        "values": {
+            "true": {
+                "image": "/images/icons/access_opened_visible.svg",
+                "description": "Show done locations"
+            },
+            "false": {
+                "image": "/images/icons/access_opened_invisible.svg",
+                "description": "Hide done locations"
+            }
+        },
         "badge": false
     },
     "show_unavailable": {
         "choice": true,
         "persist": true,
+        "description": "Filter unavailable locations.",
         "default": "true",
-        "values": [
-            "true",
-            "false"
-        ],
-        "images": [
-            "/images/icons/access_unavailable_visible.svg",
-            "/images/icons/access_unavailable_invisible.svg"
-        ],
+        "values": {
+            "true": {
+                "image": "/images/icons/access_unavailable_visible.svg",
+                "description": "Show unavailable locations"
+            },
+            "false": {
+                "image": "/images/icons/access_unavailable_invisible.svg",
+                "description": "Hide unavailable locations"
+            }
+        },
         "badge": false
     }
 }
