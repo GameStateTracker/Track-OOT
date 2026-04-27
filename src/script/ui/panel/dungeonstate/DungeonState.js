@@ -1,4 +1,6 @@
 import Panel from "/emcJS/ui/layout/Panel.js";
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
+import "/emcJS/ui/i18n/I18nTooltip.js";
 import ItemsResource from "/GameTrackerJS/data/resource/ItemsResource.js";
 import ItemGridInteractive from "/GameTrackerJS/ui/itemgrid/interactive/ItemGridInteractive.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
@@ -10,12 +12,16 @@ import "./components/DungeonReward.js";
 import "./components/DungeonType.js";
 import "./components/DungeonHint.js";
 import STYLE from "./DungeonState.js.css" assert {type: "css"};
-import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 
-function createItemText(text) {
-    const el = document.createElement("DIV");
-    el.classList.add("text");
-    el.innerHTML = text;
+function createItemText(text, description) {
+    const el = document.createElement("emc-i18n-tooltip");
+    if (description != null) {
+        el.i18nTooltip = description;
+    }
+    const textEl = document.createElement("DIV");
+    textEl.classList.add("text");
+    textEl.innerHTML = text;
+    el.append(textEl);
     return el;
 }
 
@@ -157,7 +163,7 @@ function createRow(target, ref, data) {
 
     //////////////////////////////////
     // title
-    const title = createItemText(data.title);
+    const title = createItemText(data.title, data.description);
     title.style.color = data.color;
     el.append(title);
     //////////////////////////////////
@@ -225,6 +231,7 @@ function createRow(target, ref, data) {
         }
         const itm = ItemGridInteractive.createItemMirrorCollection(target, {
             icon: "/images/items/rupee_silver.png",
+            tooltip: "silver_rupees",
             halign: "end",
             valign: "end",
             contentGrid,

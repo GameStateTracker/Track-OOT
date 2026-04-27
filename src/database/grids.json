@@ -183,6 +183,7 @@
                 "onTrue": {
                     "type": "collection",
                     "value": "ocarina",
+                    "tooltip": "ocarina_and_notes",
                     "counting": true,
                     "valign": "end",
                     "halign": "end",
@@ -345,6 +346,7 @@
             {
                 "type": "collection",
                 "icon": "/images/items/zelda_letter.png",
+                "tooltip": "trading_items_child",
                 "counting": true,
                 "valign": "end",
                 "halign": "end",
@@ -416,6 +418,7 @@
             {
                 "type": "collection",
                 "icon": "/images/items/cojiro.png",
+                "tooltip": "trading_items_adult",
                 "counting": true,
                 "valign": "end",
                 "halign": "end",
@@ -591,6 +594,7 @@
             {
                 "type": "collection",
                 "icon": "/images/icons/rupees.svg",
+                "tooltip": "rupees_group",
                 "counting": true,
                 "hideMax": true,
                 "valign": "end",
@@ -770,6 +774,7 @@
                 "onTrue": {
                     "type": "collection",
                     "value": "ocarina",
+                    "tooltip": "ocarina_and_notes",
                     "counting": true,
                     "valign": "end",
                     "halign": "end",
@@ -976,6 +981,7 @@
             {
                 "type": "collection",
                 "icon": "/images/items/zelda_letter.png",
+                "tooltip": "trading_items_child",
                 "counting": true,
                 "valign": "end",
                 "halign": "end",
@@ -1047,6 +1053,7 @@
             {
                 "type": "collection",
                 "icon": "/images/items/cojiro.png",
+                "tooltip": "trading_items_adult",
                 "counting": true,
                 "valign": "end",
                 "halign": "end",
@@ -1366,6 +1373,7 @@
             {
                 "type": "collection",
                 "icon": "/images/items/zelda_letter.png",
+                "tooltip": "trading_items_child",
                 "counting": true,
                 "valign": "end",
                 "halign": "end",
@@ -1437,6 +1445,7 @@
             {
                 "type": "collection",
                 "icon": "/images/items/cojiro.png",
+                "tooltip": "trading_items_adult",
                 "counting": true,
                 "valign": "end",
                 "halign": "end",
@@ -1784,6 +1793,7 @@
             {
                 "type": "collection",
                 "icon": "/images/items/zelda_letter.png",
+                "tooltip": "trading_items_child",
                 "counting": true,
                 "valign": "end",
                 "halign": "end",
@@ -1855,6 +1865,7 @@
             {
                 "type": "collection",
                 "icon": "/images/items/cojiro.png",
+                "tooltip": "trading_items_adult",
                 "counting": true,
                 "valign": "end",
                 "halign": "end",

@@ -1,61 +1,12 @@
-// frameworks
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import ContextMenuManagerMixin from "/emcJS/ui/mixin/ContextMenuManagerMixin.js";
-import "/emcJS/ui/input/Option.js";
-
-// GameTrackerJS
+import "/emcJS/ui/i18n/I18nTooltip.js";
 import ItemsResource from "/GameTrackerJS/data/resource/ItemsResource.js";
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
 import ItemPickerContextMenu from "/GameTrackerJS/ui/ctxmenu/ItemPickerContextMenu.js";
-// Track-OOT
 import DungeonstateStates from "/script/state/dungeon/DungeonStateManager.js";
-
-const TPL = new HTMLTemplate(`
-<slot>
-</slot>
-`);
-
-const STYLE = new CSSTemplate(`
-:host {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-}
-slot {
-    width: 100%;
-    height: 100%;
-}
-::slotted(:not([value])),
-::slotted([value]:not(.active)) {
-    display: none !important;
-}
-::slotted([value]) {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    color: white;
-    font-size: 1em;
-    text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
-    background-image: var(--default-unknown-back-image);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-origin: content-box;
-    flex-grow: 0;
-    flex-shrink: 0;
-    min-height: 0;
-    white-space: normal;
-    padding: 0;
-    line-height: 0.7em;
-}
-`);
+import TPL from "./DungeonReward.js.html" assert {type: "html"};
+import STYLE from "./DungeonReward.js.css" assert {type: "css"};
 
 const REWARDS = [
     {
@@ -116,11 +67,15 @@ function resolveIcon(icon) {
     return icon;
 }
 
-class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventManagerMixin(CustomElement)) {
+export default class DungeonReward extends ContextMenuManagerMixin(StateDataEventManagerMixin(CustomElement)) {
+
+    #optionEls =  new Map();
+
+    #selectedEl;
 
     constructor() {
         super();
-        this.shadowRoot.append(TPL.generate());
+        TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.registerStateHandler("reward", (event) => {
@@ -184,43 +139,45 @@ class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventMan
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case "ref":
-                    {
-                        // state
-                        const state = DungeonstateStates.get(newValue);
-                        if (state != null) {
-                            this.append(createOption("", "/images/items/unknown.png"));
-                            const items = ItemsResource.get();
-                            for (const reward of REWARDS) {
-                                const name = reward.value;
-                                const icon = resolveIcon(items[name].icon);
-                                this.append(createOption(name, icon));
-                            }
-                        }
-                        if (newValue === "") {
-                            this.innerHTML = "";
-                        }
-                        this.switchState(state);
-                    }
-                    break;
-                case "value":
-                    {
-                        const oe = this.querySelector(`.active`);
-                        if (oe) {
-                            oe.classList.remove("active");
-                        }
-                        const ne = this.querySelector(`[value="${newValue}"]`);
-                        if (ne) {
-                            ne.classList.add("active");
-                        }
-                        if (oldValue != "" && TAKEN_REWARDS.get(oldValue) == this) {
-                            TAKEN_REWARDS.delete(oldValue);
-                        }
-                        if (newValue != "") {
-                            TAKEN_REWARDS.set(newValue, this);
+                case "ref": {
+                    // state
+                    const state = DungeonstateStates.get(newValue);
+                    if (state != null) {
+                        this.append(this.#createOption("", "/images/items/unknown.png"));
+                        const items = ItemsResource.get();
+                        for (const reward of REWARDS) {
+                            const name = reward.value;
+                            const icon = resolveIcon(items[name].icon);
+                            this.append(this.#createOption(name, icon));
                         }
                     }
-                    break;
+                    if (newValue === "") {
+                        this.innerHTML = "";
+                    }
+                    this.switchState(state);
+                } break;
+                case "value": {
+                    if (this.#selectedEl) {
+                        this.#selectedEl.classList.remove("active");
+                        this.#selectedEl = null;
+                    }
+                    const ne = this.#optionEls.get(newValue);
+                    if (ne) {
+                        ne.classList.add("active");
+                        this.#selectedEl = ne;
+                    }
+                    if (oldValue != "" && TAKEN_REWARDS.get(oldValue) == this) {
+                        TAKEN_REWARDS.delete(oldValue);
+                    }
+                    if (newValue != "") {
+                        TAKEN_REWARDS.set(newValue, this);
+                    }
+
+                    const ev = new Event("change");
+                    ev.oldValue = oldValue;
+                    ev.value = newValue;
+                    this.dispatchEvent(ev);
+                } break;
             }
         }
     }
@@ -234,15 +191,43 @@ class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventMan
         return false;
     }
 
-}
-
-customElements.define("ootrt-dungeonreward", HTMLTrackerDungeonReward);
-
-function createOption(value, icon) {
-    const optionEl = document.createElement("emc-option");
-    optionEl.value = value;
-    if (icon != null) {
-        optionEl.style.backgroundImage = `url('${icon}')`;
+    #createOption(value, icon) {
+        const el = document.createElement("emc-i18n-tooltip");
+        el.classList.add("option");
+        if (value) {
+            el.i18nTooltip = `item[${value}]`;
+        } else {
+            el.i18nTooltip = `dungeon_reward_item_unknown`;
+        }
+        const iconEl = document.createElement("DIV");
+        iconEl.style.display = "inline-flex";
+        iconEl.style.alignItems = "center";
+        iconEl.style.justifyContent = "center";
+        iconEl.style.width = "100%";
+        iconEl.style.height = "100%";
+        iconEl.style.color = "white";
+        iconEl.style.fontSize = "1em";
+        iconEl.style.textShadow = "-1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black";
+        iconEl.style.backgroundImage = "var(--default-unknown-back-image)";
+        iconEl.style.backgroundSize = "contain";
+        iconEl.style.backgroundRepeat = "no-repeat";
+        iconEl.style.backgroundPosition = "center";
+        iconEl.style.backgroundOrigin = "content-box";
+        iconEl.style.flexGrow = 0;
+        iconEl.style.flexShrink = 0;
+        iconEl.style.minHeight = 0;
+        iconEl.style.whiteSpace = "normal";
+        iconEl.style.padding = 0;
+        iconEl.style.lineHeight = "0.7em";
+        if (icon != null) {
+            iconEl.style.backgroundImage = `url('${icon}')`;
+        }
+        el.classList.add("icon");
+        el.append(iconEl);
+        this.#optionEls.set(value, el);
+        return el;
     }
-    return optionEl;
+
 }
+
+customElements.define("ootrt-dungeonreward", DungeonReward);

@@ -1,6 +1,7 @@
 {
     "pocket": {
         "title": "Link",
+        "description": "Links Pocket / Gift from Rauru",
         "color": "#ffffff",
         "keys": false,
         "bosskey": false,
@@ -15,6 +16,7 @@
     },
     "deku": {
         "title": "DT",
+        "description": "Deku Tree",
         "color": "#92ff92",
         "keys": false,
         "bosskey": false,
@@ -29,6 +31,7 @@
     },
     "dodongo": {
         "title": "DC",
+        "description": "Dodongos Cavern",
         "color": "#ff6a6a",
         "keys": false,
         "bosskey": false,
@@ -45,6 +48,7 @@
     },
     "jabujabu": {
         "title": "JB",
+        "description": "Jabu Jabus Belly",
         "color": "#8be4f3",
         "keys": false,
         "bosskey": false,
@@ -59,6 +63,7 @@
     },
     "temple_forest": {
         "title": "FoT",
+        "description": "Forest Temple",
         "color": "#1bf11b",
         "keys": "key_small_forest",
         "bosskey": "key_boss_forest",
@@ -73,6 +78,7 @@
     },
     "temple_fire": {
         "title": "FiT",
+        "description": "Fire Temple",
         "color": "#ff3c3c",
         "keys": "key_small_fire",
         "bosskey": "key_boss_fire",
@@ -87,6 +93,7 @@
     },
     "temple_water": {
         "title": "WT",
+        "description": "Water Temple",
         "color": "#7cb6ff",
         "keys": "key_small_water",
         "bosskey": "key_boss_water",
@@ -101,6 +108,7 @@
     },
     "temple_shadow": {
         "title": "ShT",
+        "description": "Shadow Temple",
         "color": "#d967fd",
         "keys": "key_small_shadow",
         "bosskey": "key_boss_shadow",
@@ -120,6 +128,7 @@
     },
     "temple_spirit": {
         "title": "SpT",
+        "description": "Spirit Temple",
         "color": "#ffcd71",
         "keys": "key_small_spirit",
         "bosskey": "key_boss_spirit",
@@ -140,6 +149,7 @@
     },
     "well": {
         "title": "BotW",
+        "description": "Bottom of the Well",
         "color": "#ff99ff",
         "keys": "key_small_well",
         "bosskey": false,
@@ -156,6 +166,7 @@
     },
     "ice_cavern": {
         "title": "IC",
+        "description": "Ice Cavern",
         "color": "#abfdf5",
         "keys": false,
         "bosskey": false,
@@ -173,6 +184,7 @@
     },
     "gerudo": {
         "title": "GF",
+        "description": "Gerudo Fortress / Thieves Hideout",
         "color": "#ffb47d",
         "keys": "key_small_gerudo",
         "bosskey": "membership",
@@ -187,6 +199,7 @@
     },
     "training_grounds": {
         "title": "GTG",
+        "description": "Gerudo Training Grounds",
         "color": "#ffffa4",
         "keys": "key_small_training",
         "bosskey": false,
@@ -205,6 +218,7 @@
     },
     "castle_ganon": {
         "title": "GC",
+        "description": "Ganons Castle",
         "color": "#969696",
         "keys": "key_small_ganon",
         "bosskey": "key_boss_ganon",
@@ -226,6 +240,7 @@
     },
     "treasure_game": {
         "title": "TCG",
+        "description": "Treasure Chest Game",
         "color": "#ff50a6",
         "keys": "key_small_treasure_game",
         "bosskey": false,
