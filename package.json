@@ -12,7 +12,7 @@
   "type": "module",
   "dependencies": {
     "@emcjs/core": "https://github.com/ZidArgs/emcJS-Core.git/#1.0.7",
-    "@emcjs/fe": "https://github.com/ZidArgs/emcJS-FE.git/#0.0.8",
+    "@emcjs/fe": "https://github.com/ZidArgs/emcJS-FE.git/#0.0.9",
     "archipelagojs": "git+https://bitbucket.org/zidargs/archipelagojs.git/#1.1.2",
     "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.10.6",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.4.2",
@@ -25,20 +25,15 @@
     "@babel/plugin-syntax-import-assertions": "^7.27.1",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
     "@stylistic/eslint-plugin": "^5.4.0",
-    "del": "^5.1.0",
+    "@zidargs/buildtools": "https://github.com/ZidArgs/buildtools.git/#1.1.0",
     "electron": "^28.1.0",
     "eslint": "^9.36.0",
-    "glob-all": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-changed": "^5.0.4",
-    "gulp-eslint": "^6.0.0",
-    "gulp-filelist": "^2.0.5",
     "gulp-htmlmin": "^5.0.1",
     "gulp-jsonminify": "^1.1.0",
-    "gulp-svgo": "^2.1.0",
-    "gulp-terser": "^1.4.1",
-    "through": "^2.3.8"
+    "gulp-svgo": "^2.1.0"
   },
   "exports": {
     "./*": "./src/*"

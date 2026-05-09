@@ -5,13 +5,14 @@ import jsonminify from "gulp-jsonminify";
 import svgo from "gulp-svgo";
 import changed, {compareContents} from "gulp-changed";
 import autoprefixer from "gulp-autoprefixer";
-import FileIndex from "@emcjs/core/build_tools/FileIndex.js";
-import LanguageManager from "@emcjs/core/build_tools/LanguageManager.js";
-import ImportAnalyzer from "@emcjs/core/build_tools/ImportAnalyzer.js";
-import {readJSONFile} from "@emcjs/core/build_tools/util/ReadJSONFile.js";
-import {mergeStream} from "@emcjs/core/build_tools/util/MergeStream.js";
-import {packScript} from "@emcjs/core/build_tools/PackScript.js";
-import sourceImport from "@emcjs/fe/build_tools/sourceImport.js";
+import FileIndex from "@zidargs/buildtools/FileIndex.js";
+import LanguageManager from "@zidargs/buildtools/LanguageManager.js";
+import ImportAnalyzer from "@zidargs/buildtools/ImportAnalyzer.js";
+import {readJSONFile} from "@zidargs/buildtools/util/ReadJSONFile.js";
+import {mergeStream} from "@zidargs/buildtools/util/MergeStream.js";
+import {packScript} from "@zidargs/buildtools/PackScript.js";
+import SourceImport from "@zidargs/buildtools/SourceImport.js";
+import "@emcjs/fe/_build_tools/RegisterImportHandlers.js";
 
 const __dirname = path.resolve();
 
@@ -47,7 +48,7 @@ function copyJS(files, src, dest, distRoot) {
     let res = gulp.src(files);
     res = res.pipe(FileIndex.register(src, dest));
     res = res.pipe(ImportAnalyzer.register(src, dest, __dirname, distRoot));
-    res = res.pipe(sourceImport());
+    res = res.pipe(SourceImport.compiler());
     if (!REBUILDJS && !REBUILD) {
         res = res.pipe(changed(dest, {hasChanged: compareContents}));
     }
