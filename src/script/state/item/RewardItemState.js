@@ -1,4 +1,4 @@
-import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
+import ItemStateManager from "gametrackerjs/statemanager/item/ItemStateManager.js";
 import RewardItemObserver from "../../util/observer/RewardItemObserver.js";
 import DefaultAPItemState from "./DefaultAPItemState.js";
 

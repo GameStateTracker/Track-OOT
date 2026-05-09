@@ -1,5 +1,5 @@
-import AbstractElement from "/emcJS/ui/logic/abstract/AbstractElement.js";
-import AbstractLiteralValueElement from "/emcJS/ui/logic/abstract/AbstractLiteralValueElement.js";
+import AbstractElement from "@emcjs/fe/ui/logic/abstract/AbstractElement.js";
+import AbstractLiteralValueElement from "@emcjs/fe/ui/logic/abstract/AbstractLiteralValueElement.js";
 import {getMixinLogic} from "../../../util/logic/LogicExtractor.js";
 import TPL from "./LiteralMixin.js.html" assert {type: "html"};
 import STYLE from "./LiteralMixin.js.css" assert {type: "css"};

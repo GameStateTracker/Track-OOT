@@ -11,12 +11,13 @@
   "main": "parse.js",
   "type": "module",
   "dependencies": {
+    "@emcjs/core": "https://github.com/ZidArgs/emcJS-Core.git/#1.0.7",
+    "@emcjs/fe": "https://github.com/ZidArgs/emcJS-FE.git/#0.0.8",
     "archipelagojs": "git+https://bitbucket.org/zidargs/archipelagojs.git/#1.1.2",
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git/#0.29.4",
-    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.10.5",
-    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.3.3",
-    "jswebservice": "git+https://bitbucket.org/zidargs/jswebservice.git/#3.1.1",
-    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git/#1.2.12"
+    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.10.6",
+    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.4.2",
+    "jswebservice": "git+https://bitbucket.org/zidargs/jswebservice.git/#3.1.5",
+    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git/#1.2.13"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
@@ -39,17 +40,20 @@
     "gulp-terser": "^1.4.1",
     "through": "^2.3.8"
   },
+  "exports": {
+    "./*": "./src/*"
+  },
   "scripts": {
     "lint": "yarn eslint .",
     "lintfix": "yarn eslint --fix .",
     "integrityCheck": "node ./test/verifyWorldFile.js",
     "build": "gulp build",
-    "buildDev": "gulp buildDev",
+    "buildDev": "gulp buildDev -nocompress",
     "watch": "gulp watch -nocompress",
     "serve": "node --trace-deprecation ./server.js",
     "correctWorld": "node ./correctWorldData.js",
-    "buildEditor": "gulp --gulpfile ./editor/gulpfile.js build -rebuild -nocompress",
+    "buildEditor": "gulp --gulpfile ./editor/gulpfile.js build -rebuild -nocompress -nodelete",
     "edit": "gulp --gulpfile ./editor/gulpfile.js build -rebuild -nocompress && electron ./editor --no-sandbox > ./editor/info.log 2>&1 -debug",
-    "editWeb": "gulp --gulpfile ./editor/gulpfile.js build -rebuild -nocompress && node ./editor/server.js"
+    "editWeb": "node ./editor/server.js"
   }
 }

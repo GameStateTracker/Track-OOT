@@ -1,10 +1,10 @@
 // frameworks
 import {
     filterObject
-} from "/emcJS/util/helper/collection/ObjectContent.js";
-import ObservableStorageObserver from "/emcJS/util/observer/data/storage/ObservableStorageObserver.js";
+} from "@emcjs/core/util/helper/collection/ObjectContent.js";
+import ObservableStorageObserver from "@emcjs/core/util/observer/data/storage/ObservableStorageObserver.js";
 // GameTrackerJS
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import Savestate from "gametrackerjs/savestate/Savestate.js";
 // Track-OOT
 import DungeonstateResource from "../../resource/DungeonstateResource.js";
 import "../registerStorages.js";

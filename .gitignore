@@ -15,6 +15,7 @@ editor/build
 editor/info.log
 import_tree.json
 import_removed.json
+import_unresolved.json
 .pnp.cjs
 .pnp.loader.mjs
 .yarn/install-state.gz

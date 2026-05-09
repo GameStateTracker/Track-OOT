@@ -2,7 +2,7 @@
  * move to serverside earliest past 2023‑06‑30
  */
 
-import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
+import SavestateConverter from "gametrackerjs/savestate/SavestateConverter.js";
 
 const URL = import.meta.url;
 const VER_REGEX = /([0-9]+)\.js$/;

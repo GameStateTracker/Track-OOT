@@ -1,5 +1,5 @@
-import LogicCaller from "/GameTrackerJS/util/logic/LogicCaller.js";
-import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
+import LogicCaller from "gametrackerjs/util/logic/LogicCaller.js";
+import MetaObserver from "gametrackerjs/util/observer/MetaObserver.js";
 
 const archipelagoActiveObserver = new MetaObserver("archipelago");
 

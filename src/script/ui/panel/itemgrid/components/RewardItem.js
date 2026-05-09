@@ -1,12 +1,12 @@
 // frameworks
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
-import "/emcJS/ui/input/Option.js";
-import "/emcJS/ui/i18n/I18nLabel.js";
+import HTMLTemplate from "@emcjs/fe/util/template/HTMLTemplate.js";
+import CSSTemplate from "@emcjs/fe/util/template/CSSTemplate.js";
+import "@emcjs/fe/ui/input/Option.js";
+import "@emcjs/fe/ui/i18n/I18nLabel.js";
 
 // GameTrackerJS
-import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import ItemElement from "/GameTrackerJS/ui/itemgrid/interactive/components/abstract/ItemElement.js";
+import UIRegistry from "gametrackerjs/registry/UIRegistry.js";
+import ItemElement from "gametrackerjs/ui/itemgrid/interactive/components/abstract/ItemElement.js";
 
 const TPL = new HTMLTemplate(`
 <div id="icon">

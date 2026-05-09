@@ -1,19 +1,19 @@
 // frameworks
-import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
-import Layout from "/emcJS/ui/layout/Layout.js";
+import CSSTemplate from "@emcjs/fe/util/template/CSSTemplate.js";
+import Layout from "@emcjs/fe/ui/layout/Layout.js";
 
 // GameTrackerJS
-import "/GameTrackerJS/ui/panel/exitlist/ExitList.js";
+import "gametrackerjs/ui/panel/exitlist/ExitList.js";
 // Track-OOT
-import LayoutsResource from "/script/resource/LayoutsResource.js";
-import "/script/ui/panel/itemgrid/ItemGrid.js";
-import "/script/ui/panel/locationlist/TrackerLocationList.js";
-import "/script/ui/panel/worldlist/WorldList.js";
-import "/script/ui/panel/worldmap/WorldMap.js";
-import "/script/ui/panel/shoplist/ShopList.js";
-import "/script/ui/panel/songlist/SongList.js";
-import "/script/ui/panel/dungeonstate/DungeonState.js";
-import "/script/ui/panel/aptextclient/APTextClient.js";
+import LayoutsResource from "../resource/LayoutsResource.js";
+import "../ui/panel/itemgrid/ItemGrid.js";
+import "../ui/panel/locationlist/TrackerLocationList.js";
+import "../ui/panel/worldlist/WorldList.js";
+import "../ui/panel/worldmap/WorldMap.js";
+import "../ui/panel/shoplist/ShopList.js";
+import "../ui/panel/songlist/SongList.js";
+import "../ui/panel/dungeonstate/DungeonState.js";
+import "../ui/panel/aptextclient/APTextClient.js";
 
 const STYLE = new CSSTemplate(`
 .state {

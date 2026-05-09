@@ -1,5 +1,5 @@
 // frameworks
-import ObservableIDBProxyStorage from "/emcJS/data/storage/observable/ObservableIDBProxyStorage.js";
+import ObservableIDBProxyStorage from "@emcjs/core/data/storage/observable/ObservableIDBProxyStorage.js";
 
 class LogicGlitchedStorage extends ObservableIDBProxyStorage {
 

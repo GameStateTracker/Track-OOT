@@ -1,6 +1,6 @@
-import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
-import DefaultAreaState from "/GameTrackerJS/state/world/area/DefaultAreaState.js";
-import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
+import AreaStateManager from "gametrackerjs/statemanager/world/area/AreaStateManager.js";
+import DefaultAreaState from "gametrackerjs/state/world/area/DefaultAreaState.js";
+import OptionsObserver from "gametrackerjs/util/observer/OptionsObserver.js";
 
 const mixedEntrancePoolObserver = new OptionsObserver("mixed_entrance_pool");
 

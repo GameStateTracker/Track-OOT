@@ -1,9 +1,9 @@
-import AbstractFormElement from "/emcJS/ui/form/element/AbstractFormElement.js";
-import FormElementRegistry from "/emcJS/data/registry/form/FormElementRegistry.js";
-import {registerFocusable} from "/emcJS/util/helper/html/ElementFocusHelper.js";
-import {setBooleanAttribute} from "/emcJS/util/helper/ui/NodeAttributes.js";
-import "/emcJS/ui/form/element/select/switch/SwitchSelect.js";
-import "/emcJS/ui/form/element/select/list/ListSelect.js";
+import AbstractFormElement from "@emcjs/fe/ui/form/element/AbstractFormElement.js";
+import FormElementRegistry from "@emcjs/fe/registry/form/FormElementRegistry.js";
+import {setBooleanAttribute} from "@emcjs/fe/util/node/NodeAttributes.js";
+import {registerFocusable} from "@emcjs/fe/util/element/ElementFocusManager.js";
+import "@emcjs/fe/ui/form/element/select/switch/SwitchSelect.js";
+import "@emcjs/fe/ui/form/element/select/list/ListSelect.js";
 import TPL from "./DungeonStateActiveTypes.js.html" assert {type: "html"};
 import STYLE from "./DungeonStateActiveTypes.js.css" assert {type: "css"};
 

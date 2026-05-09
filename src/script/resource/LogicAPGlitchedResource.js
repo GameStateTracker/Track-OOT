@@ -1,3 +1,5 @@
-import JSONCResource from "/emcJS/data/resource/file/JSONCResource.js";
+import JSONCResource from "@emcjs/core/data/resource/file/JSONCResource.js";
 
-export default await JSONCResource.get("/logic/ap_glitched.min.json");
+const LogicAPGlitchedResource = await JSONCResource.get("/logic/ap_glitched.min.json");
+
+export default LogicAPGlitchedResource;

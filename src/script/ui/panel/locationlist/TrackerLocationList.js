@@ -1,6 +1,6 @@
-import Panel from "/emcJS/ui/layout/Panel.js";
-import LocationList from "/GameTrackerJS/ui/panel/locationlist/LocationList.js";
-import "/script/state/StateTypesLoader.js";
+import Panel from "@emcjs/fe/ui/layout/Panel.js";
+import LocationList from "gametrackerjs/ui/panel/locationlist/LocationList.js";
+import "../../../state/StateTypesLoader.js";
 import "./components/entries/TrackerLocationListLocation.js";
 import "./components/entries/TrackerLocationListGossipstone.js";
 import "./components/entries/TrackerLocationListShopSlot.js";

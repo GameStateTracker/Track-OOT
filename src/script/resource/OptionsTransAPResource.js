@@ -1,5 +1,5 @@
-import JSONCResource from "/emcJS/data/resource/file/JSONCResource.js";
+import JSONCResource from "@emcjs/core/data/resource/file/JSONCResource.js";
 
-const data = await JSONCResource.get("/database/options_trans_ap.json");
+const OptionsTransAPResource = await JSONCResource.get("/database/options_trans_ap.json");
 
-export default data;
+export default OptionsTransAPResource;

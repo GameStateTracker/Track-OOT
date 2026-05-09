@@ -1,12 +1,12 @@
-import ModalFormDialog from "/emcJS/ui/modal/ModalFormDialog.js";
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
-import "/emcJS/ui/Paging.js";
-import "/emcJS/ui/form/element/input/file/FileInput.js";
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import SettingsConfigHandler from "/GameTrackerJS/util/settings/SettingsConfigHandler.js";
-import SpoilerOptionsResource from "/script/resource/SpoilerOptionsResource.js";
-import SpoilerParser from "/script/util/spoilerparser/SpoilerParser.js";
+import ModalFormDialog from "@emcjs/fe/ui/modal/ModalFormDialog.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import BusyIndicatorManager from "@emcjs/fe/util/busy/BusyIndicatorManager.js";
+import "@emcjs/fe/ui/Paging.js";
+import "@emcjs/fe/ui/form/element/input/file/FileInput.js";
+import SavestateHandler from "gametrackerjs/savestate/SavestateHandler.js";
+import SettingsConfigHandler from "gametrackerjs/util/settings/SettingsConfigHandler.js";
+import SpoilerOptionsResource from "../../resource/SpoilerOptionsResource.js";
+import SpoilerParser from "../../util/spoilerparser/SpoilerParser.js";
 import TPL from "./SpoilerLogModal.js.html" assert {type: "html"};
 import STYLE from "./SpoilerLogModal.js.css" assert {type: "css"};
 

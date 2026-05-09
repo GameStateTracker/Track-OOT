@@ -5,10 +5,13 @@ import jsonminify from "gulp-jsonminify";
 import svgo from "gulp-svgo";
 import changed, {compareContents} from "gulp-changed";
 import autoprefixer from "gulp-autoprefixer";
-import FileIndex from "emcjs/_build_tools/FileIndex.js";
-import LanguageManager from "emcjs/_build_tools/LanguageManager.js";
-import sourceImport from "emcjs/_build_tools/sourceImport.js";
-import ImportAnalyzer from "emcjs/_build_tools/ImportAnalyzer.js";
+import FileIndex from "@emcjs/core/build_tools/FileIndex.js";
+import LanguageManager from "@emcjs/core/build_tools/LanguageManager.js";
+import ImportAnalyzer from "@emcjs/core/build_tools/ImportAnalyzer.js";
+import {readJSONFile} from "@emcjs/core/build_tools/util/ReadJSONFile.js";
+import {mergeStream} from "@emcjs/core/build_tools/util/MergeStream.js";
+import {packScript} from "@emcjs/core/build_tools/PackScript.js";
+import sourceImport from "@emcjs/fe/build_tools/sourceImport.js";
 
 const __dirname = path.resolve();
 
@@ -19,94 +22,155 @@ const LOGIC_PATH = path.resolve(__dirname, "logic");
 const DEV_PATH = path.resolve(__dirname, "dev");
 const PRD_PATH = path.resolve(__dirname, "prod");
 
-const MODULE_PATHS = {
-    emcJS: path.resolve(NODE_FOLDER, "emcjs/src"),
-    GameTrackerJS: path.resolve(NODE_FOLDER, "gametrackerjs/src"),
-    JSEditors: path.resolve(NODE_FOLDER, "jseditors/src"),
-    RTCClient: path.resolve(NODE_FOLDER, "rtcclient/src"),
-    ArchipelagoJS: path.resolve(NODE_FOLDER, "archipelagojs/src")
-};
+const DEPENDENCIES = readJSONFile(path.resolve(__dirname, "build_dependencies.json"));
+const SCRIPT_PATHS = [
+    "script",
+    "detached",
+    "remote",
+    "config"
+];
 
 /* configuration */
-const DELETE_UNUSED_FILES = true;
+const DELETE_UNUSED_FILES = process.argv.indexOf("-nodelete") < 0;
 const NOCOMPRESS = process.argv.indexOf("-nocompress") >= 0;
 const REBUILD = process.argv.indexOf("-rebuild") >= 0;
 const REBUILDJS = process.argv.indexOf("-rebuildjs") >= 0;
 
 console.log({
+    DELETE_UNUSED_FILES,
     NOCOMPRESS,
     REBUILDJS,
     REBUILD
 });
 
-/* JS START */
-function copyJS(files, src, dest, target) {
+function copyJS(files, src, dest, distRoot) {
     let res = gulp.src(files);
     res = res.pipe(FileIndex.register(src, dest));
-    res = res.pipe(ImportAnalyzer.register(src, dest, target));
+    res = res.pipe(ImportAnalyzer.register(src, dest, __dirname, distRoot));
+    res = res.pipe(sourceImport());
     if (!REBUILDJS && !REBUILD) {
         res = res.pipe(changed(dest, {hasChanged: compareContents}));
     }
-    res = res.pipe(sourceImport());
     res = res.pipe(gulp.dest(dest));
     return res;
 }
 
-function copyScript(src = SRC_PATH, dest = DEV_PATH) {
-    const FILES = [
-        `${src}/script/**/*.js`
-    ];
-    const SRC = `${src}/script`;
-    const DST = `${dest}/script`;
-    return copyJS(FILES, SRC, DST, dest);
+function buildWorker(files, src, dest) {
+    let res = gulp.src(files);
+    res = res.pipe(ImportAnalyzer.register(src, dest, __dirname));
+    res = res.pipe(FileIndex.addThrough(src, dest, true));
+    res = res.pipe(packScript());
+    res = res.pipe(FileIndex.addThrough(src, dest, true));
+    if (!REBUILD) {
+        res = res.pipe(changed(dest, {hasChanged: compareContents}));
+    }
+    res = res.pipe(gulp.dest(dest));
+    return res;
 }
 
-function copyGameTrackerJS(dest = DEV_PATH) {
-    const FILES = [
-        `${MODULE_PATHS.GameTrackerJS}/**/*.js`,
-        `!${MODULE_PATHS.GameTrackerJS}/*.js`
-    ];
-    const SRC = MODULE_PATHS.GameTrackerJS;
-    const DST = `${dest}/GameTrackerJS`;
-    return copyJS(FILES, SRC, DST, dest);
+/* PREPARE */
+function prepareDependencyPathRewrites(dest = DEV_PATH, done = () => {}) {
+    for (const dependency of DEPENDENCIES) {
+        if ("js" in dependency) {
+            const SRC = path.resolve(NODE_FOLDER, dependency.js.src);
+            const DST = `${dest}/${dependency.js.dest}`;
+            ImportAnalyzer.setPathRewriteRule(SRC, DST);
+        }
+    }
+    done();
 }
 
-function copyEmcJS(dest = DEV_PATH) {
-    const FILES = [
-        `${MODULE_PATHS.emcJS}/**/*.js`,
-        `!${MODULE_PATHS.emcJS}/*.js`
-    ];
-    const SRC = MODULE_PATHS.emcJS;
-    const DST = `${dest}/emcJS`;
-    return copyJS(FILES, SRC, DST, dest);
+/* DEPENDENCIES START */
+function copyDependencyScripts(dest = DEV_PATH) {
+    const result = [];
+    for (const dependency of DEPENDENCIES) {
+        if ("js" in dependency) {
+            const SRC = path.resolve(NODE_FOLDER, dependency.js.src);
+            const DST = `${dest}/${dependency.js.dest}`;
+            const FILES = [
+                `${SRC}/**/*.js`
+            ];
+            result.push(copyJS(FILES, SRC, DST));
+        }
+    }
+    return mergeStream(...result);
 }
 
-function copyJSEditors(dest = DEV_PATH) {
-    const FILES = [
-        `${MODULE_PATHS.JSEditors}/**/*.js`,
-        `!${MODULE_PATHS.JSEditors}/node_modules/**/*.js`
-    ];
-    const SRC = MODULE_PATHS.JSEditors;
-    const DST = `${dest}/JSEditors`;
-    return copyJS(FILES, SRC, DST, dest);
+function buildDependencyWorker(dest = DEV_PATH) {
+    const result = [];
+    for (const dependency of DEPENDENCIES) {
+        if ("js" in dependency) {
+            const SRC = path.resolve(NODE_FOLDER, dependency.js.src);
+            const DST = `${dest}/${dependency.js.dest}`;
+            const FILES = [
+                `${SRC}/**/*.w.js`
+            ];
+            result.push(buildWorker(FILES, SRC, DST));
+        }
+    }
+    return mergeStream(...result);
 }
 
-function copyRTCClient(dest = DEV_PATH) {
-    const FILES = [
-        `${MODULE_PATHS.RTCClient}/**/*.js`
-    ];
-    const SRC = MODULE_PATHS.RTCClient;
-    const DST = `${dest}/RTCClient`;
-    return copyJS(FILES, SRC, DST, dest);
+function copyDependencyCSS(dest = DEV_PATH) {
+    const result = [];
+    for (const dependency of DEPENDENCIES) {
+        if ("css" in dependency) {
+            const SRC = path.resolve(NODE_FOLDER, dependency.css.src);
+            const DST = `${dest}/${dependency.css.dest}`;
+            const FILES = [
+                `${SRC}/**/*.css`
+            ];
+            let res = gulp.src(FILES);
+            res = res.pipe(FileIndex.register(SRC, DST));
+            if (!REBUILD) {
+                res = res.pipe(changed(DST));
+            }
+            res = res.pipe(autoprefixer());
+            res = res.pipe(gulp.dest(DST));
+            result.push(res);
+        }
+    }
+    return mergeStream(...result);
 }
 
-function copyArchipelagoJS(dest = DEV_PATH) {
-    const FILES = [
-        `${MODULE_PATHS.ArchipelagoJS}/**/*.js`
-    ];
-    const SRC = MODULE_PATHS.ArchipelagoJS;
-    const DST = `${dest}/ArchipelagoJS`;
-    return copyJS(FILES, SRC, DST, dest);
+function copyDependencyFonts(dest = DEV_PATH) {
+    const result = [];
+    for (const dependency of DEPENDENCIES) {
+        if ("css" in dependency) {
+            const SRC = path.resolve(NODE_FOLDER, dependency.font.src);
+            const DST = `${dest}/${dependency.font.dest}`;
+            const FILES = [
+                `${SRC}/**/*.ttf`,
+                `${SRC}/**/*.eot`,
+                `${SRC}/**/*.otf`,
+                `${SRC}/**/*.woff`,
+                `${SRC}/**/*.woff2`,
+                `${SRC}/**/*.svg`
+            ];
+            let res = gulp.src(FILES);
+            res = res.pipe(FileIndex.register(SRC, DST));
+            if (!REBUILD) {
+                res = res.pipe(changed(DST));
+            }
+            res = res.pipe(gulp.dest(DST));
+            result.push(res);
+        }
+    }
+    return mergeStream(...result);
+}
+/* DEPENDENCIES END */
+
+function copyScripts(src = SRC_PATH, dest = DEV_PATH) {
+    const result = [];
+    for (const scriptPath of SCRIPT_PATHS) {
+        const FILES = [
+            `${src}/${scriptPath}/**/*.js`
+        ];
+        const SRC = `${src}/${scriptPath}`;
+        const DST = `${dest}/${scriptPath}`;
+        result.push(copyJS(FILES, SRC, DST, dest));
+    }
+    return mergeStream(...result);
 }
 
 function copyInitializer(src = SRC_PATH, dest = DEV_PATH) {
@@ -118,34 +182,6 @@ function copyInitializer(src = SRC_PATH, dest = DEV_PATH) {
     const DST = dest;
     return copyJS(FILES, SRC, DST, dest);
 }
-
-function copyDetachedScript(src = SRC_PATH, dest = DEV_PATH) {
-    const FILES = [
-        `${src}/detached/**/*.js`
-    ];
-    const SRC = `${src}/detached`;
-    const DST = `${dest}/detached`;
-    return copyJS(FILES, SRC, DST, dest);
-}
-
-function copyRemoteScript(src = SRC_PATH, dest = DEV_PATH) {
-    const FILES = [
-        `${src}/remote/**/*.js`
-    ];
-    const SRC = `${src}/remote`;
-    const DST = `${dest}/remote`;
-    return copyJS(FILES, SRC, DST, dest);
-}
-
-function copyConfigScript(src = SRC_PATH, dest = DEV_PATH) {
-    const FILES = [
-        `${src}/config/**/*.js`
-    ];
-    const SRC = `${src}/config`;
-    const DST = `${dest}/config`;
-    return copyJS(FILES, SRC, DST, dest);
-}
-/* JS END */
 
 function copyHTML(src = SRC_PATH, dest = DEV_PATH) {
     const FILES = [
@@ -265,20 +301,6 @@ function copyCSS(src = SRC_PATH, dest = DEV_PATH) {
     return res;
 }
 
-function copyEmcJSCSS(dest = DEV_PATH) {
-    const FILES = [
-        `${MODULE_PATHS.emcJS}/_style/*.css`
-    ];
-    let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(`${MODULE_PATHS.emcJS}/_style`, `${dest}/emcJS/_style`));
-    if (!REBUILD) {
-        res = res.pipe(changed(`${dest}/emcJS/_style`));
-    }
-    res = res.pipe(autoprefixer());
-    res = res.pipe(gulp.dest(`${dest}/emcJS/_style`));
-    return res;
-}
-
 function copyFonts(src = SRC_PATH, dest = DEV_PATH) {
     const FILES = [
         `${src}/fonts/**/*.ttf`,
@@ -297,98 +319,80 @@ function copyFonts(src = SRC_PATH, dest = DEV_PATH) {
     return res;
 }
 
-function copyEmcJSFonts(dest = DEV_PATH) {
-    const FILES = [
-        `${MODULE_PATHS.emcJS}/_fonts/**/*.ttf`,
-        `${MODULE_PATHS.emcJS}/_fonts/**/*.eot`,
-        `${MODULE_PATHS.emcJS}/_fonts/**/*.otf`,
-        `${MODULE_PATHS.emcJS}/_fonts/**/*.woff`,
-        `${MODULE_PATHS.emcJS}/_fonts/**/*.woff2`,
-        `${MODULE_PATHS.emcJS}/_fonts/**/*.svg`
-    ];
-    let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(`${MODULE_PATHS.emcJS}/_fonts`, `${dest}/emcJS/_fonts`));
-    if (!REBUILD) {
-        res = res.pipe(changed(`${dest}/emcJS/_fonts`));
-    }
-    res = res.pipe(gulp.dest(`${dest}/emcJS/_fonts`));
-    return res;
-}
-
 function finish(dest, done) {
     ImportAnalyzer.printUnresolvedImports();
     FileIndex.add(LanguageManager.finish(`${dest}/i18n`));
+    FileIndex.add(path.resolve(dest, "_libs/emcjs/fe/polyfills/**/*.js"), true);
+    FileIndex.add(path.resolve(dest, "./**/StateConverter*.js"), true);
+    FileIndex.add(path.resolve(dest, "./**/i18n/fragments/**/*.js"), true);
     const config = {
         usedImports: ImportAnalyzer.getUsedImports(
-            dest,
             path.resolve(dest, "script/app.js"),
             path.resolve(dest, "sw.js"),
             path.resolve(dest, "index.js"),
             path.resolve(dest, "script/StateRecovery.js"),
             path.resolve(dest, "detached/index.js"),
             path.resolve(dest, "remote/itemview/index.js"),
-            path.resolve(dest, "emcJS/util/html/template/HTMLTemplate.js"),
-            path.resolve(dest, "emcJS/util/html/template/CSSTemplate.js")
+            path.resolve(dest, "_libs/emcjs/fe/util/template/HTMLTemplate.js"),
+            path.resolve(dest, "_libs/emcjs/fe/util/template/CSSTemplate.js")
         ),
-        ignoreImportPaths: /.*\/(i18n\/fragments\/.*|emcJS\/polyfills\/.*|worker\/.*|StateConverter[0-9]+)\.js/,
         deleteUnused: DELETE_UNUSED_FILES
     };
+    ImportAnalyzer.writeImportFile();
+    ImportAnalyzer.writeUnresolvedImports();
     FileIndex.finish(dest, undefined, config);
     done();
 }
 
-export const build = gulp.series(gulp.parallel(
-    copyHTML.bind(this, SRC_PATH, PRD_PATH),
-    copyJSON.bind(this, SRC_PATH, PRD_PATH),
-    copyLogic.bind(this, SRC_PATH, PRD_PATH),
-    copyI18N.bind(this, SRC_PATH, PRD_PATH),
-    copyI18NFragments.bind(this, SRC_PATH, PRD_PATH),
-    copyImg.bind(this, SRC_PATH, PRD_PATH),
-    copyCSS.bind(this, SRC_PATH, PRD_PATH),
-    copyEmcJSCSS.bind(this, PRD_PATH),
-    copyFonts.bind(this, SRC_PATH, PRD_PATH),
-    copyEmcJSFonts.bind(this, PRD_PATH),
-    copyScript.bind(this, SRC_PATH, PRD_PATH),
-    copyGameTrackerJS.bind(this, PRD_PATH),
-    copyEmcJS.bind(this, PRD_PATH),
-    copyJSEditors.bind(this, PRD_PATH),
-    copyRTCClient.bind(this, PRD_PATH),
-    copyArchipelagoJS.bind(this, PRD_PATH),
-    copyInitializer.bind(this, SRC_PATH, PRD_PATH),
-    copyDetachedScript.bind(this, SRC_PATH, PRD_PATH),
-    copyRemoteScript.bind(this, SRC_PATH, PRD_PATH),
-    copyConfigScript.bind(this, SRC_PATH, PRD_PATH),
-    copyChangelog.bind(this, SRC_PATH, PRD_PATH)
-),
-finish.bind(this, PRD_PATH));
+export const build = gulp.series(
+    prepareDependencyPathRewrites.bind(this, DEV_PATH),
+    gulp.parallel(
+        // dependencies
+        copyDependencyCSS.bind(this, PRD_PATH),
+        copyDependencyFonts.bind(this, PRD_PATH),
+        copyDependencyScripts.bind(this, PRD_PATH),
+        buildDependencyWorker.bind(this, PRD_PATH),
+        // application
+        copyHTML.bind(this, SRC_PATH, PRD_PATH),
+        copyJSON.bind(this, SRC_PATH, PRD_PATH),
+        copyLogic.bind(this, SRC_PATH, PRD_PATH),
+        copyI18N.bind(this, SRC_PATH, PRD_PATH),
+        copyI18NFragments.bind(this, SRC_PATH, PRD_PATH),
+        copyImg.bind(this, SRC_PATH, PRD_PATH),
+        copyCSS.bind(this, SRC_PATH, PRD_PATH),
+        copyFonts.bind(this, SRC_PATH, PRD_PATH),
+        copyScripts.bind(this, SRC_PATH, PRD_PATH),
+        copyInitializer.bind(this, SRC_PATH, PRD_PATH),
+        copyChangelog.bind(this, SRC_PATH, PRD_PATH)
+    ),
+    finish.bind(this, PRD_PATH)
+);
 
-export const buildDev = gulp.series(gulp.parallel(
-    copyHTML.bind(this, SRC_PATH, DEV_PATH),
-    copyJSON.bind(this, SRC_PATH, DEV_PATH),
-    copyLogic.bind(this, SRC_PATH, DEV_PATH),
-    copyI18N.bind(this, SRC_PATH, DEV_PATH),
-    copyI18NFragments.bind(this, SRC_PATH, DEV_PATH),
-    copyImg.bind(this, SRC_PATH, DEV_PATH),
-    copyCSS.bind(this, SRC_PATH, DEV_PATH),
-    copyEmcJSCSS.bind(this, DEV_PATH),
-    copyFonts.bind(this, SRC_PATH, DEV_PATH),
-    copyEmcJSFonts.bind(this, DEV_PATH),
-    copyScript.bind(this, SRC_PATH, DEV_PATH),
-    copyGameTrackerJS.bind(this, DEV_PATH),
-    copyEmcJS.bind(this, DEV_PATH),
-    copyJSEditors.bind(this, DEV_PATH),
-    copyRTCClient.bind(this, DEV_PATH),
-    copyArchipelagoJS.bind(this, DEV_PATH),
-    copyInitializer.bind(this, SRC_PATH, DEV_PATH),
-    copyDetachedScript.bind(this, SRC_PATH, DEV_PATH),
-    copyRemoteScript.bind(this, SRC_PATH, DEV_PATH),
-    copyConfigScript.bind(this, SRC_PATH, DEV_PATH),
-    copyChangelog.bind(this, SRC_PATH, DEV_PATH)
-),
-finish.bind(this, DEV_PATH));
+export const buildDev = gulp.series(
+    prepareDependencyPathRewrites.bind(this, DEV_PATH),
+    gulp.parallel(
+        // dependencies
+        copyDependencyCSS.bind(this, DEV_PATH),
+        copyDependencyFonts.bind(this, DEV_PATH),
+        copyDependencyScripts.bind(this, DEV_PATH),
+        buildDependencyWorker.bind(this, DEV_PATH),
+        // application
+        copyHTML.bind(this, SRC_PATH, DEV_PATH),
+        copyJSON.bind(this, SRC_PATH, DEV_PATH),
+        copyLogic.bind(this, SRC_PATH, DEV_PATH),
+        copyI18N.bind(this, SRC_PATH, DEV_PATH),
+        copyI18NFragments.bind(this, SRC_PATH, DEV_PATH),
+        copyImg.bind(this, SRC_PATH, DEV_PATH),
+        copyCSS.bind(this, SRC_PATH, DEV_PATH),
+        copyFonts.bind(this, SRC_PATH, DEV_PATH),
+        copyScripts.bind(this, SRC_PATH, DEV_PATH),
+        copyInitializer.bind(this, SRC_PATH, DEV_PATH),
+        copyChangelog.bind(this, SRC_PATH, DEV_PATH)
+    ),
+    finish.bind(this, DEV_PATH)
+);
 
 export const watch = function() {
     buildDev();
-    return gulp.watch(SRC_PATH,
-        buildDev);
+    return gulp.watch(SRC_PATH, buildDev);
 };

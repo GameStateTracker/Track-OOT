@@ -1,4 +1,4 @@
-import LogicCaller from "/GameTrackerJS/util/logic/LogicCaller.js";
+import LogicCaller from "gametrackerjs/util/logic/LogicCaller.js";
 import ShopsResource from "../../../resource/ShopsResource.js";
 
 const BUYABLE_ITEMS = {

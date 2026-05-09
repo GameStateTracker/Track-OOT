@@ -1,4 +1,4 @@
-@import "/emcJS/_style/index.css";
+@import "/_libs/emcjs/fe/_style/index.css";
 @import "./theme.css";
 @import "./font.css";
 @import "./iOS-fix.css";

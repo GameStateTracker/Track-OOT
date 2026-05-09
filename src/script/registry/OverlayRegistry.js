@@ -1,5 +1,5 @@
-import TrackerSettingsOverlay from "/GameTrackerJS/ui/settings/TrackerSettingsOverlay.js";
-import SavestateOptionsOverlay from "/GameTrackerJS/ui/settings/SavestateOptionsOverlay.js";
+import TrackerSettingsOverlay from "gametrackerjs/ui/settings/TrackerSettingsOverlay.js";
+import SavestateOptionsOverlay from "gametrackerjs/ui/settings/SavestateOptionsOverlay.js";
 import AboutOverlay from "../ui/about/AboutOverlay.js";
 import "../ui/form/input/dungeonStateActiveTypes/DungeonStateActiveTypes.js";
 

@@ -1,5 +1,5 @@
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import ShopItemsResource from "/script/resource/ShopItemsResource.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import ShopItemsResource from "../../../resource/ShopItemsResource.js";
 import "./components/ShopEditItem.js";
 import TPL from "./ShopItemChoiceModal.js.html" assert {type: "html"};
 import STYLE from "./ShopItemChoiceModal.js.css" assert {type: "css"};

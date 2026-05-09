@@ -1,9 +1,9 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import "/emcJS/ui/i18n/I18nLabel.js";
-import "/emcJS/ui/form/button/Button.js";
-import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
-import SongStateManager from "/script/state/song/SongStateManager.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import "@emcjs/fe/ui/i18n/I18nLabel.js";
+import "@emcjs/fe/ui/form/button/Button.js";
+import StateDataEventManagerMixin from "gametrackerjs/ui/mixin/StateDataEventManagerMixin.js";
+import SongStateManager from "../../../../state/song/SongStateManager.js";
 import "./SongStave.js";
 import "./SongBuilder.js";
 import TPL from "./SongField.js.html" assert {type: "html"};

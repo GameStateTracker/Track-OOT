@@ -1,8 +1,8 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import Toast from "/emcJS/ui/overlay/message/Toast.js";
-import "/emcJS/ui/i18n/I18nLabel.js";
-import "/emcJS/ui/icon/FontIcon.js";
-import MultiplayerClient from "/GameTrackerJS/util/rtc/multiplayer/peer/MultiplayerClient.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
+import Toast from "@emcjs/fe/ui/overlay/message/Toast.js";
+import "@emcjs/fe/ui/i18n/I18nLabel.js";
+import "@emcjs/fe/ui/icon/FontIcon.js";
+import MultiplayerClient from "gametrackerjs/util/rtc/multiplayer/peer/MultiplayerClient.js";
 import MultiplayerControllerInst from "../../../../../util/rtc/MultiplayerControllerInst.js";
 import "./entry/MultiplayerUser.js";
 import "../logger/MultiplayerLogger.js";

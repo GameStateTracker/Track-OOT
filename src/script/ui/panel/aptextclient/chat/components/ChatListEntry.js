@@ -1,7 +1,7 @@
-import DataListEntry from "/emcJS/ui/dataview/datalist/components/DataListEntry.js";
-import {VALID_JSON_MESSAGE_TYPE} from "/ArchipelagoJS/types/JSONMessagePart.js";
-import {PRINT_JSON_TYPE} from "/ArchipelagoJS/consts/PrintJSONType.js";
-import {HINT_STATUS} from "/ArchipelagoJS/consts/HintStatus.js";
+import DataListEntry from "@emcjs/fe/ui/dataview/datalist/components/DataListEntry.js";
+import {VALID_JSON_MESSAGE_TYPE} from "archipelagojs/types/JSONMessagePart.js";
+import {PRINT_JSON_TYPE} from "archipelagojs/consts/PrintJSONType.js";
+import {HINT_STATUS} from "archipelagojs/consts/HintStatus.js";
 import STYLE from "./ChatListEntry.js.css" assert {type: "css"};
 
 const hintTypes = Object.entries(HINT_STATUS).reduce((prev, [key, value]) => {

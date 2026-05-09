@@ -1,9 +1,9 @@
 // frameworks
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import Panel from "/emcJS/ui/layout/Panel.js";
+import HTMLTemplate from "@emcjs/fe/util/template/HTMLTemplate.js";
+import Panel from "@emcjs/fe/ui/layout/Panel.js";
 
 // GameTrackerJS
-import WorldMap from "/GameTrackerJS/ui/panel/worldmap/WorldMap.js";
+import WorldMap from "gametrackerjs/ui/panel/worldmap/WorldMap.js";
 
 // Track-OOT
 import "../../../state/StateTypesLoader.js";

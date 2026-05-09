@@ -1,6 +1,6 @@
-import {getGatewayIn} from "/GameTrackerJS/data/resource/WorldResource.js";
-import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import WorldListExit from "/GameTrackerJS/ui/panel/worldlist/components/entries/Exit.js";
+import {getGatewayIn} from "gametrackerjs/data/resource/WorldResource.js";
+import UIRegistry from "gametrackerjs/registry/UIRegistry.js";
+import WorldListExit from "gametrackerjs/ui/panel/worldlist/components/entries/Exit.js";
 import LogicViewerModal from "../../../../modal/LogicViewerModal.js";
 
 export default class TrackerWorldListExit extends WorldListExit {

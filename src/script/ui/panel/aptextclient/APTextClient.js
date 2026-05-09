@@ -1,20 +1,20 @@
-import SimpleDataProvider from "/emcJS/util/dataprovider/SimpleDataProvider.js";
-import ArraySet from "/emcJS/data/collection/ArraySet.js";
+import SimpleDataProvider from "@emcjs/core/util/dataprovider/SimpleDataProvider.js";
+import ArraySet from "@emcjs/core/data/collection/ArraySet.js";
 import {
     recordsToDict, dictToRecords
-} from "/emcJS/util/helper/storage/Records.js";
-import SearchExact from "/emcJS/util/search/SearchExact.js";
-import {isStringNotEmpty} from "/emcJS/util/helper/CheckType.js";
-import Panel from "/emcJS/ui/layout/Panel.js";
-import "/emcJS/ui/dataview/datagrid/DataGrid.js";
-import "/emcJS/ui/form/FormField.js";
-import "/emcJS/ui/form/element/input/string/StringInput.js";
-import "/emcJS/ui/form/element/select/simple/SimpleSelect.js";
-import "/emcJS/ui/form/element/select/token/TokenSelect.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import {VALID_JSON_MESSAGE_TYPE} from "/ArchipelagoJS/types/JSONMessagePart.js";
-import {ITEM_FLAGS} from "/ArchipelagoJS/consts/ItemFlags.js";
-import {PRINT_JSON_TYPE} from "/ArchipelagoJS/consts/PrintJSONType.js";
+} from "@emcjs/core/util/helper/storage/Records.js";
+import SearchExact from "@emcjs/core/util/search/SearchExact.js";
+import {isStringNotEmpty} from "@emcjs/core/util/helper/CheckType.js";
+import Panel from "@emcjs/fe/ui/layout/Panel.js";
+import "@emcjs/fe/ui/dataview/datagrid/DataGrid.js";
+import "@emcjs/fe/ui/form/FormField.js";
+import "@emcjs/fe/ui/form/element/input/string/StringInput.js";
+import "@emcjs/fe/ui/form/element/select/simple/SimpleSelect.js";
+import "@emcjs/fe/ui/form/element/select/token/TokenSelect.js";
+import Savestate from "gametrackerjs/savestate/Savestate.js";
+import {VALID_JSON_MESSAGE_TYPE} from "archipelagojs/types/JSONMessagePart.js";
+import {ITEM_FLAGS} from "archipelagojs/consts/ItemFlags.js";
+import {PRINT_JSON_TYPE} from "archipelagojs/consts/PrintJSONType.js";
 import ArchipelagoController from "../../../util/archipelago/ArchipelagoController.js";
 import {AP_STORAGES} from "../../../util/archipelago/storage/RegisterAPStorage.js";
 import "./chat/ChatList.js";

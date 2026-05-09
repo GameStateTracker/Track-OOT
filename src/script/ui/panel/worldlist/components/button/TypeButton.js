@@ -1,13 +1,13 @@
 // frameworks
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import {mix} from "/emcJS/util/Mixin.js";
+import HTMLTemplate from "@emcjs/fe/util/template/HTMLTemplate.js";
+import {mix} from "@emcjs/core/mixin/Mixin.js";
 
 // GameTrackerJS
-import WorldListAreaListButton from "/GameTrackerJS/ui/panel/worldlist/components/button/AreaListButton.js";
-import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
-import "/GameTrackerJS/ui/BadgeAccess.js";
+import WorldListAreaListButton from "gametrackerjs/ui/panel/worldlist/components/button/AreaListButton.js";
+import AccessTextMarkerMixin from "gametrackerjs/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
+import "gametrackerjs/ui/BadgeAccess.js";
 // Track-OOT
-import "/script/state/StateTypesLoader.js";
+import "../../../../../state/StateTypesLoader.js";
 
 const TPL = new HTMLTemplate(`
 <gt-badge-access id="badge"></gt-badge-access>

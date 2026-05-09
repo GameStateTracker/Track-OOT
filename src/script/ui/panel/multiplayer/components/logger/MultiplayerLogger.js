@@ -1,5 +1,5 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import "/emcJS/ui/i18n/I18nLabel.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
+import "@emcjs/fe/ui/i18n/I18nLabel.js";
 import TPL from "./MultiplayerLogger.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerLogger.js.css" assert {type: "css"};
 

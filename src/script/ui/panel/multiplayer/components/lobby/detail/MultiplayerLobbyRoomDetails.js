@@ -1,8 +1,8 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import {isStringNotEmpty} from "/emcJS/util/helper/CheckType.js";
-import "/emcJS/ui/i18n/I18nLabel.js";
-import VersionData from "/GameTrackerJS/data/VersionData.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import {isStringNotEmpty} from "@emcjs/core/util/helper/CheckType.js";
+import "@emcjs/fe/ui/i18n/I18nLabel.js";
+import VersionData from "gametrackerjs/data/VersionData.js";
 import MultiplayerControllerInst from "../../../../../../util/rtc/MultiplayerControllerInst.js";
 import TPL from "./MultiplayerLobbyRoomDetails.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerLobbyRoomDetails.js.css" assert {type: "css"};

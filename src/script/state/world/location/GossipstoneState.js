@@ -1,6 +1,6 @@
-import ObservableStorageObserver from "/emcJS/util/observer/data/storage/ObservableStorageObserver.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
+import ObservableStorageObserver from "@emcjs/core/util/observer/data/storage/ObservableStorageObserver.js";
+import Savestate from "gametrackerjs/savestate/Savestate.js";
+import LocationStateManager from "gametrackerjs/statemanager/world/location/LocationStateManager.js";
 import DefaultAPLocationState from "./DefaultAPLocationState.js";
 import "../../../util/registerStorages.js";
 

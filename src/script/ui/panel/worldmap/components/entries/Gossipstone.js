@@ -1,9 +1,9 @@
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
-import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import WorldMapMarkedEntry from "/GameTrackerJS/ui/panel/worldmap/components/abstract/MarkedEntry.js";
-import "/GameTrackerJS/ui/panel/worldmap/components/entries/Location.js";
-import "/GameTrackerJS/ui/Badge.js";
+import HTMLTemplate from "@emcjs/fe/util/template/HTMLTemplate.js";
+import CSSTemplate from "@emcjs/fe/util/template/CSSTemplate.js";
+import UIRegistry from "gametrackerjs/registry/UIRegistry.js";
+import WorldMapMarkedEntry from "gametrackerjs/ui/panel/worldmap/components/abstract/MarkedEntry.js";
+import "gametrackerjs/ui/panel/worldmap/components/entries/Location.js";
+import "gametrackerjs/ui/Badge.js";
 import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
 import LogicViewerModal from "../../../../modal/LogicViewerModal.js";
 

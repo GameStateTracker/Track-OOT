@@ -1,5 +1,5 @@
-import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
-import Panel from "/emcJS/ui/layout/Panel.js";
+import CSSTemplate from "@emcjs/fe/util/template/CSSTemplate.js";
+import Panel from "@emcjs/fe/ui/layout/Panel.js";
 import ShopsResource from "../../../resource/ShopsResource.js";
 import "./components/ShopField.js";
 

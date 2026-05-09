@@ -1,5 +1,5 @@
-import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
-import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
+import ItemStateManager from "gametrackerjs/statemanager/item/ItemStateManager.js";
+import OptionsObserver from "gametrackerjs/util/observer/OptionsObserver.js";
 import DefaultAPItemState from "./DefaultAPItemState.js";
 
 export default class StartSettingsState extends DefaultAPItemState {

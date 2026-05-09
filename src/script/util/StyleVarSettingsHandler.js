@@ -1,5 +1,5 @@
-import GlobalStyleVariables from "/emcJS/util/html/style/GlobalStyleVariables.js";
-import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
+import GlobalStyleVariables from "@emcjs/fe/util/style/GlobalStyleVariables.js";
+import SettingsObserver from "gametrackerjs/util/observer/SettingsObserver.js";
 
 export default class StyleVarSettingsHandler {
 

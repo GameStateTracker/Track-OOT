@@ -1,9 +1,9 @@
-import modalRegistry from "/emcJS/data/registry/ModalRegistry.js";
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import Toast from "/emcJS/ui/overlay/message/Toast.js";
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import PageSwitcher from "/script/util/PageSwitcher.js";
-import "/script/savestateConverter/StateConverter.js";
+import modalRegistry from "@emcjs/fe/registry/ModalRegistry.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import Toast from "@emcjs/fe/ui/overlay/message/Toast.js";
+import SavestateHandler from "gametrackerjs/savestate/SavestateHandler.js";
+import PageSwitcher from "../util/PageSwitcher.js";
+import "../savestateConverter/StateConverter.js";
 import {
     aboutOverlay,
     romOptionsOverlay,

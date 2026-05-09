@@ -1,8 +1,8 @@
 // frameworks
-import NavBar from "/emcJS/ui/navigation/NavBar.js";
-import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
-import KeySequence from "/emcJS/util/keyboard/KeySequence.js";
-import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import NavBar from "@emcjs/fe/ui/navigation/NavBar.js";
+import HotkeyHandler from "@emcjs/core/util/HotkeyHandler.js";
+import KeySequence from "@emcjs/core/util/keyboard/KeySequence.js";
+import SettingsStorage from "gametrackerjs/storage/SettingsStorage.js";
 
 const NAV = document.querySelector("emc-navbar");
 const PAGER = document.getElementById("view-pager");

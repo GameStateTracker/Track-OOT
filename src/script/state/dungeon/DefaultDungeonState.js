@@ -1,10 +1,10 @@
 // frameworks
-import ObservableStorageObserver from "/emcJS/util/observer/data/storage/ObservableStorageObserver.js";
+import ObservableStorageObserver from "@emcjs/core/util/observer/data/storage/ObservableStorageObserver.js";
 
 // GameTrackerJS
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
-import DataState from "/GameTrackerJS/state/DataState.js";
+import Savestate from "gametrackerjs/savestate/Savestate.js";
+import AreaStateManager from "gametrackerjs/statemanager/world/area/AreaStateManager.js";
+import DataState from "gametrackerjs/state/DataState.js";
 // Track-OOT
 import "../StateTypesLoader.js";
 import "../../util/registerStorages.js";

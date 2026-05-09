@@ -1,6 +1,6 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import EventManager from "/emcJS/util/event/EventManager.js";
-import "/emcJS/ui/i18n/I18nLabel.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
+import EventManager from "@emcjs/core/util/event/EventManager.js";
+import "@emcjs/fe/ui/i18n/I18nLabel.js";
 import MultiplayerControllerInst from "../../../../../util/rtc/MultiplayerControllerInst.js";
 import MultiplayerHostModal from "../modal/MultiplayerHostModal.js";
 import "./entry/MultiplayerLobbyRoom.js";

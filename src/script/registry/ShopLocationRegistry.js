@@ -1,4 +1,4 @@
 // frameworks
-import EntityRegistry from "/emcJS/data/registry/EntityRegistry.js";
+import EntityRegistry from "@emcjs/core/registry/EntityRegistry.js";
 
 export default new EntityRegistry();

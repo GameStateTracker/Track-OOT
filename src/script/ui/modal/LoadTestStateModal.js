@@ -1,9 +1,9 @@
-import Modal from "/emcJS/ui/modal/Modal.js";
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
-import "/emcJS/ui/form/button/Button.js";
-import "/emcJS/ui/form/element/input/file/FileInput.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import Modal from "@emcjs/fe/ui/modal/Modal.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import BusyIndicatorManager from "@emcjs/fe/util/busy/BusyIndicatorManager.js";
+import "@emcjs/fe/ui/form/button/Button.js";
+import "@emcjs/fe/ui/form/element/input/file/FileInput.js";
+import Savestate from "gametrackerjs/savestate/Savestate.js";
 import TPL from "./LoadTestStateModal.js.html" assert {type: "html"};
 import STYLE from "./LoadTestStateModal.js.css" assert {type: "css"};
 

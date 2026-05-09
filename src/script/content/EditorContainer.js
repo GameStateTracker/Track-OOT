@@ -1,5 +1,5 @@
-import EditorContainer from "/JSEditors/EditorContainer.js";
-import PageSwitcher from "/script/util/PageSwitcher.js";
+import EditorContainer from "jseditors/EditorContainer.js";
+import PageSwitcher from "../util/PageSwitcher.js";
 import createLogicEditor from "./editors/LogicEditor.js";
 import createLogicGlitchedEditor from "./editors/LogicGlitchedEditor.js";
 
@@ -46,7 +46,9 @@ export default class TrackerEditorContainer extends EditorContainer {
         });
     }
 
-    register({name, panelEl, navConfig, refreshFn}) {
+    register({
+        name, panelEl, navConfig, refreshFn
+    }) {
         if (typeof name !== "string" || name == "") {
             throw Error("Panel name must be a non empty string");
         }
@@ -54,7 +56,11 @@ export default class TrackerEditorContainer extends EditorContainer {
             throw Error(`Panel with name "${name}" already registered`);
         }
         this.#navConfig.set(name, navConfig);
-        super.register({name, panelEl, refreshFn});
+        super.register({
+            name,
+            panelEl,
+            refreshFn
+        });
     }
 
     async loadEditors() {

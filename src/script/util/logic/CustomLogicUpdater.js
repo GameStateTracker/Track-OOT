@@ -1,14 +1,14 @@
 // frameworks
-import {deepClone} from "/emcJS/util/helper/DeepClone.js";
+import {deepClone} from "@emcjs/core/util/helper/DeepClone.js";
 
 // GameTrackerJS
-import {getRegion} from "/GameTrackerJS/data/resource/WorldResource.js";
-import Logic from "/GameTrackerJS/util/logic/Logic.js";
-import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
-import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
+import {getRegion} from "gametrackerjs/data/resource/WorldResource.js";
+import Logic from "gametrackerjs/util/logic/Logic.js";
+import OptionsObserver from "gametrackerjs/util/observer/OptionsObserver.js";
+import SettingsObserver from "gametrackerjs/util/observer/SettingsObserver.js";
 // Track-OOT
-import LogicResource from "/script/resource/LogicResource.js";
-import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
+import LogicResource from "../../resource/LogicResource.js";
+import LogicGlitchedResource from "../../resource/LogicGlitchedResource.js";
 import LogicStorage from "../../content/logic/storages/LogicStorage.js";
 import LogicGlitchedStorage from "../../content/logic/storages/LogicGlitchedStorage.js";
 import LogicAPGlitchedResource from "../../resource/LogicAPGlitchedResource.js";

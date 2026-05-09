@@ -1,4 +1,4 @@
-import DataGridCell from "/emcJS/ui/dataview/datagrid/components/cell/DataGridCell.js";
+import DataGridCell from "@emcjs/fe/ui/dataview/datagrid/components/cell/DataGridCell.js";
 import TPL from "./DataGridCellAPUser.js.html" assert {type: "html"};
 import STYLE from "./DataGridCellAPUser.js.css" assert {type: "css"};
 

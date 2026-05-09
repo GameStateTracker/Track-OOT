@@ -28,8 +28,8 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
 
     const startApp = async () => {
         try {
-            const {default: Inject} = await import("/emcJS/util/import/Inject.js");
-            const {default: Import} = await import("/emcJS/util/import/Import.js");
+            const {default: Inject} = await import("@emcjs/core/util/import/Inject.js");
+            const {default: Import} = await import("@emcjs/core/util/import/Import.js");
 
             updateLoadingMessage("load framework...");
             if ("serviceWorker" in navigator) {

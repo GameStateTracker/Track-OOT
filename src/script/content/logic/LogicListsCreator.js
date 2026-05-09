@@ -1,15 +1,15 @@
 // frameworks
-import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
+import IDBStorage from "@emcjs/core/data/storage/IDBStorage.js";
 
 // GameTrackerJS
-import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
-import FilterResource from "/GameTrackerJS/data/resource/FilterResource.js";
-import ItemsResource from "/GameTrackerJS/data/resource/ItemsResource.js";
-import OptionsResource from "/GameTrackerJS/data/resource/OptionsResource.js";
-import SettingsResource from "/GameTrackerJS/data/resource/SettingsResource.js";
+import WorldResource from "gametrackerjs/data/resource/WorldResource.js";
+import FilterResource from "gametrackerjs/data/resource/FilterResource.js";
+import ItemsResource from "gametrackerjs/data/resource/ItemsResource.js";
+import OptionsResource from "gametrackerjs/data/resource/OptionsResource.js";
+import SettingsResource from "gametrackerjs/data/resource/SettingsResource.js";
 // Track-OOT
-import LogicResource from "/script/resource/LogicResource.js";
-import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
+import LogicResource from "../../resource/LogicResource.js";
+import LogicGlitchedResource from "../../resource/LogicGlitchedResource.js";
 
 // TODO create storage files for these
 const LogicsStorage = new IDBStorage("logics");
@@ -47,9 +47,15 @@ const LOGIC_OPERATORS = [
 
 function getLogicData(glitched = false) {
     if (glitched) {
-        return LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
+        return LogicGlitchedResource.get() ?? {
+            edges:{},
+            logic:{}
+        };
     } else {
-        return LogicResource.get() ?? {edges:{}, logic:{}};
+        return LogicResource.get() ?? {
+            edges:{},
+            logic:{}
+        };
     }
 }
 

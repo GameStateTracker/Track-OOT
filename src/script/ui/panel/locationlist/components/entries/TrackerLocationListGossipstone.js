@@ -1,13 +1,11 @@
-import {
-    mix
-} from "/emcJS/util/Mixin.js";
-import Language from "/GameTrackerJS/util/Language.js";
-import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import LocationListEntry from "/GameTrackerJS/ui/panel/locationlist/components/abstract/LocationListEntry.js";
-import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
-import "/GameTrackerJS/ui/panel/locationlist/components/entries/LocationListLocation.js";
-import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu";
-import LogicViewerModal from "../../../../modal/LogicViewerModal";
+import {mix} from "@emcjs/core/mixin/Mixin.js";
+import Language from "gametrackerjs/util/Language.js";
+import UIRegistry from "gametrackerjs/registry/UIRegistry.js";
+import LocationListEntry from "gametrackerjs/ui/panel/locationlist/components/abstract/LocationListEntry.js";
+import AccessTextMarkerMixin from "gametrackerjs/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
+import "gametrackerjs/ui/panel/locationlist/components/entries/LocationListLocation.js";
+import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
+import LogicViewerModal from "../../../../modal/LogicViewerModal.js";
 import TPL from "./TrackerLocationListGossipstone.js.html" assert {type: "html"};
 
 function applyElements(target) {
@@ -16,11 +14,7 @@ function applyElements(target) {
     headerEl.append(tpl);
 }
 
-const BaseClass = mix(
-    LocationListEntry
-).with(
-    AccessTextMarkerMixin
-);
+const BaseClass = mix(LocationListEntry).with(AccessTextMarkerMixin);
 
 export default class TrackerLocationListGossipstone extends BaseClass {
 

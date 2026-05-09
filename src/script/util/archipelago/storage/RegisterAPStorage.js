@@ -1,7 +1,7 @@
-import ObservableDefaultValueStorage from "/emcJS/data/storage/observable/ObservableDefaultValueStorage.js";
-import ObservableStorage from "/emcJS/data/storage/observable/ObservableStorage.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import TrackerLogicDataCollector from "/GameTrackerJS/util/logic/TrackerLogicDataCollector.js";
+import ObservableDefaultValueStorage from "@emcjs/core/data/storage/observable/ObservableDefaultValueStorage.js";
+import ObservableStorage from "@emcjs/core/data/storage/observable/ObservableStorage.js";
+import Savestate from "gametrackerjs/savestate/Savestate.js";
+import TrackerLogicDataCollector from "gametrackerjs/util/logic/TrackerLogicDataCollector.js";
 
 const STORAGES = {
     items: Savestate.getStorage("items"),

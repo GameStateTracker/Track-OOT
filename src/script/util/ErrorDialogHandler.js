@@ -1,4 +1,4 @@
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
 
 export default class ErrorDialogHandler {
 

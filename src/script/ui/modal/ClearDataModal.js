@@ -1,7 +1,7 @@
-import Modal from "/emcJS/ui/modal/Modal.js";
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import "/emcJS/ui/form/button/Button.js";
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import Modal from "@emcjs/fe/ui/modal/Modal.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import "@emcjs/fe/ui/form/button/Button.js";
+import SavestateHandler from "gametrackerjs/savestate/SavestateHandler.js";
 import TPL from "./ClearDataModal.js.html" assert {type: "html"};
 import STYLE from "./ClearDataModal.js.css" assert {type: "css"};
 

@@ -1,4 +1,4 @@
-import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
+import AreaStateManager from "gametrackerjs/statemanager/world/area/AreaStateManager.js";
 import ShopSlotState from "../location/ShopSlotState.js";
 import AreaState from "./AreaState.js";
 

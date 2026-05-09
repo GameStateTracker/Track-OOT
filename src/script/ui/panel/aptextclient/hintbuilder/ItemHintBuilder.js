@@ -1,4 +1,4 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
 import TPL from "./ItemHintBuilder.js.html" assert {type: "html"};
 import STYLE from "./ItemHintBuilder.js.css" assert {type: "css"};
 

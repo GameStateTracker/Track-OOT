@@ -8,11 +8,19 @@
     <meta name="robots" content="nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#cb9c3d">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval'">
-    <link rel="stylesheet" href="/emcJS/_style/index.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "@emcjs/core/": "/_libs/emcjs/core/",
+            "@emcjs/fe/": "/_libs/emcjs/fe/",
+            "gametrackerjs/": "/_libs/gametrackerjs/",
+            "jseditors/": "/_libs/jseditors/"
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="/_libs/emcjs/fe/_style/index.css">
     <link rel="stylesheet" href="/theme.css">
     <script src="index.js" type="module"></script>
-
 </head>
 <style>
     body {

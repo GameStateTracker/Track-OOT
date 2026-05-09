@@ -1,16 +1,16 @@
 // frameworks
-import ObservableStorageObserver from "/emcJS/util/observer/data/storage/ObservableStorageObserver.js";
+import ObservableStorageObserver from "@emcjs/core/util/observer/data/storage/ObservableStorageObserver.js";
 import {
     mix
-} from "/emcJS/util/Mixin.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
-import DataState from "/GameTrackerJS/state/DataState.js";
-import StateVisibilityMixin from "/GameTrackerJS/state/mixins/StateVisibilityMixin.js";
+} from "@emcjs/core/mixin/Mixin.js";
+import Savestate from "gametrackerjs/savestate/Savestate.js";
+import ItemStateManager from "gametrackerjs/statemanager/item/ItemStateManager.js";
+import DataState from "gametrackerjs/state/DataState.js";
+import StateVisibilityMixin from "gametrackerjs/state/mixins/StateVisibilityMixin.js";
 import {
     parseSafeRange
-} from "/GameTrackerJS/util/helper/ItemHelper.js";
-import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
+} from "gametrackerjs/util/helper/ItemHelper.js";
+import OptionsObserver from "gametrackerjs/util/observer/OptionsObserver.js";
 import {
     AP_STORAGES
 } from "../../util/archipelago/storage/RegisterAPStorage.js";

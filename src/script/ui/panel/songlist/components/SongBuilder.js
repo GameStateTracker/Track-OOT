@@ -1,4 +1,4 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
 import "./SongStave.js";
 import TPL from "./SongBuilder.js.html" assert {type: "html"};
 import STYLE from "./SongBuilder.js.css" assert {type: "css"};

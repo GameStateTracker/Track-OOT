@@ -1,7 +1,7 @@
-import modalRegistry from "/emcJS/data/registry/ModalRegistry.js";
-import Modal from "/emcJS/ui/modal/Modal.js";
-import "/emcJS/ui/form/button/Button.js";
-import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import modalRegistry from "@emcjs/fe/registry/ModalRegistry.js";
+import Modal from "@emcjs/fe/ui/modal/Modal.js";
+import "@emcjs/fe/ui/form/button/Button.js";
+import SettingsStorage from "gametrackerjs/storage/SettingsStorage.js";
 import {romOptionsOverlay} from "../../registry/OverlayRegistry.js";
 import TPL from "./NewGameModal.js.html" assert {type: "html"};
 import STYLE from "./NewGameModal.js.css" assert {type: "css"};

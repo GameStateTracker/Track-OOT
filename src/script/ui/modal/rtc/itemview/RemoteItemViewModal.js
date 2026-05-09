@@ -1,15 +1,15 @@
-import SessionStorage from "/emcJS/data/storage/global/SessionStorage.js";
-import {uniqueKey} from "/emcJS/util/helper/UniqueGenerator.js";
-import Modal from "/emcJS/ui/modal/Modal.js";
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import "/emcJS/ui/i18n/I18nLabel.js";
-import "/emcJS/ui/form/button/Button.js";
-import "/emcJS/ui/form/element/input/password/PasswordInput.js";
-import "/emcJS/ui/form/element/input/string/StringInput.js";
-import "/emcJS/ui/form/element/input/switch/SwitchInput.js";
-import ItemViewHost from "/GameTrackerJS/util/rtc/itemview/ItemViewHost.js";
-import ParameterStorage from "/GameTrackerJS/storage/ParameterStorage.js";
-import VersionData from "/GameTrackerJS/data/VersionData.js";
+import SessionStorage from "@emcjs/core/data/storage/global/SessionStorage.js";
+import {uniqueKey} from "@emcjs/core/util/helper/UniqueGenerator.js";
+import Modal from "@emcjs/fe/ui/modal/Modal.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import "@emcjs/fe/ui/i18n/I18nLabel.js";
+import "@emcjs/fe/ui/form/button/Button.js";
+import "@emcjs/fe/ui/form/element/input/password/PasswordInput.js";
+import "@emcjs/fe/ui/form/element/input/string/StringInput.js";
+import "@emcjs/fe/ui/form/element/input/switch/SwitchInput.js";
+import ItemViewHost from "gametrackerjs/util/rtc/itemview/ItemViewHost.js";
+import ParameterStorage from "gametrackerjs/storage/ParameterStorage.js";
+import VersionData from "gametrackerjs/data/VersionData.js";
 import TPL from "./RemoteItemViewModal.js.html" assert {type: "html"};
 import STYLE from "./RemoteItemViewModal.js.css" assert {type: "css"};
 

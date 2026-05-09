@@ -3,44 +3,44 @@
  */
 
 // frameworks
-import Logger from "/emcJS/util/log/Logger.js";
-import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
-import modalRegistry from "/emcJS/data/registry/ModalRegistry.js";
-import "/emcJS/ui/Page.js";
-import "/emcJS/ui/Paging.js";
-import "/emcJS/ui/LogScreen.js";
-import "/emcJS/ui/icon/Icon.js";
-import "/emcJS/ui/layout/Layout.js";
+import Logger from "@emcjs/core/util/log/Logger.js";
+import BusyIndicatorManager from "@emcjs/fe/util/busy/BusyIndicatorManager.js";
+import modalRegistry from "@emcjs/fe/registry/ModalRegistry.js";
+import "@emcjs/fe/ui/Page.js";
+import "@emcjs/fe/ui/Paging.js";
+import "@emcjs/fe/ui/LogScreen.js";
+import "@emcjs/fe/ui/icon/Icon.js";
+import "@emcjs/fe/ui/layout/Layout.js";
 
 // GameTrackerJS
-import VersionData from "/GameTrackerJS/data/VersionData.js";
-import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
-import Language from "/GameTrackerJS/util/Language.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
-import EntranceBindingHandler from "/GameTrackerJS/util/handler/EntranceBindingHandler.js";
-import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
-import "/GameTrackerJS/savestate/AutosaveHandler.js";
-import "/GameTrackerJS/util/sync/StorageSyncMaster.js";
-import "/GameTrackerJS/util/handler/ExitBindingHandler.js";
-import "/GameTrackerJS/util/logic/LogicCaller.js";
-import "/GameTrackerJS/ui/TextEditor.js";
-import "/GameTrackerJS/ui/layout/ViewChoice.js";
-import "/GameTrackerJS/ui/LocationState.js";
+import VersionData from "gametrackerjs/data/VersionData.js";
+import LoadingMessageHandler from "gametrackerjs/util/LoadingMessageHandler.js";
+import Language from "gametrackerjs/util/Language.js";
+import Savestate from "gametrackerjs/savestate/Savestate.js";
+import SavestateHandler from "gametrackerjs/savestate/SavestateHandler.js";
+import SettingsStorage from "gametrackerjs/storage/SettingsStorage.js";
+import EntranceBindingHandler from "gametrackerjs/util/handler/EntranceBindingHandler.js";
+import MetaObserver from "gametrackerjs/util/observer/MetaObserver.js";
+import "gametrackerjs/savestate/AutosaveHandler.js";
+import "gametrackerjs/util/sync/StorageSyncMaster.js";
+import "gametrackerjs/util/handler/ExitBindingHandler.js";
+import "gametrackerjs/util/logic/LogicCaller.js";
+import "gametrackerjs/ui/TextEditor.js";
+import "gametrackerjs/ui/layout/ViewChoice.js";
+import "gametrackerjs/ui/LocationState.js";
 // Track-OOT
-import "/script/content/index.js";
-import "/script/content/Tracker.js";
-import "/script/content/EditorContainer.js";
-import "/script/savestateConverter/StateConverter.js";
-import ArchipelagoController from "/script/util/archipelago/ArchipelagoController.js";
+import "./content/index.js";
+import "./content/Tracker.js";
+import "./content/EditorContainer.js";
+import "./savestateConverter/StateConverter.js";
+import ArchipelagoController from "./util/archipelago/ArchipelagoController.js";
 import CustomLogicUpdater from "./util/logic/CustomLogicUpdater.js";
-import "/script/util/logic/AugmentationLoader.js";
-import "/script/util/A11y.js";
-import "/script/ui/LayoutContainer.js";
+import "./util/logic/AugmentationLoader.js";
+import "./util/A11y.js";
+import "./ui/LayoutContainer.js";
 import "./ui/panel/multiplayer/Multiplayer.js";
-import Logic from "/GameTrackerJS/util/logic/Logic.js";
-import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
+import Logic from "gametrackerjs/util/logic/Logic.js";
+import OptionsObserver from "gametrackerjs/util/observer/OptionsObserver.js";
 import {initModals} from "./registry/ModalRegistry.js";
 
 Logic.suspended = true;

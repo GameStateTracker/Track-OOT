@@ -1,10 +1,10 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import ContextMenuManagerMixin from "/emcJS/ui/mixin/ContextMenuManagerMixin.js";
-import "/emcJS/ui/i18n/I18nTooltip.js";
-import ItemsResource from "/GameTrackerJS/data/resource/ItemsResource.js";
-import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
-import ItemPickerContextMenu from "/GameTrackerJS/ui/ctxmenu/ItemPickerContextMenu.js";
-import DungeonstateStates from "/script/state/dungeon/DungeonStateManager.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
+import ContextMenuManagerMixin from "@emcjs/fe/ui/mixin/ContextMenuManagerMixin.js";
+import "@emcjs/fe/ui/i18n/I18nTooltip.js";
+import ItemsResource from "gametrackerjs/data/resource/ItemsResource.js";
+import StateDataEventManagerMixin from "gametrackerjs/ui/mixin/StateDataEventManagerMixin.js";
+import ItemPickerContextMenu from "gametrackerjs/ui/ctxmenu/ItemPickerContextMenu.js";
+import DungeonstateStates from "../../../../state/dungeon/DungeonStateManager.js";
 import TPL from "./DungeonReward.js.html" assert {type: "html"};
 import STYLE from "./DungeonReward.js.css" assert {type: "css"};
 

@@ -1,7 +1,7 @@
 // frameworks
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
+import HTMLTemplate from "@emcjs/fe/util/template/HTMLTemplate.js";
+import CSSTemplate from "@emcjs/fe/util/template/CSSTemplate.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
 
 const TPL = new HTMLTemplate(`
 <div id="notes">

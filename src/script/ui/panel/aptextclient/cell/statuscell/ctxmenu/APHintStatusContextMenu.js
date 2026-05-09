@@ -1,4 +1,4 @@
-import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
+import ContextMenu from "@emcjs/fe/ui/overlay/ctxmenu/ContextMenu.js";
 
 export default class APHintStatusContextMenu extends ContextMenu {
 

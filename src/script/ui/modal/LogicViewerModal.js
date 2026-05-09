@@ -1,7 +1,7 @@
-import Modal from "/emcJS/ui/modal/Modal.js";
-import EventManager from "/emcJS/util/event/EventManager.js";
-import LogicUIAbstractElement from "/emcJS/ui/logic/abstract/AbstractElement.js";
-import Logic from "/GameTrackerJS/util/logic/Logic.js";
+import Modal from "@emcjs/fe/ui/modal/Modal.js";
+import EventManager from "@emcjs/core/util/event/EventManager.js";
+import LogicUIAbstractElement from "@emcjs/fe/ui/logic/abstract/AbstractElement.js";
+import Logic from "gametrackerjs/util/logic/Logic.js";
 import "../../content/logic/LogicElementsLoader.js";
 import {getEdgeLogic} from "../../util/logic/LogicExtractor.js";
 import TPL from "./LogicViewerModal.js.html" assert {type: "html"};

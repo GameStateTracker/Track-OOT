@@ -1,5 +1,5 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import LocalStorage from "/emcJS/data/storage/global/LocalStorage.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
+import LocalStorage from "@emcjs/core/data/storage/global/LocalStorage.js";
 import DeveloperData from "../../../data/DeveloperData.js";
 import TPL from "./CreditsPanel.js.html" assert {type: "html"};
 import STYLE from "./CreditsPanel.js.css" assert {type: "css"};

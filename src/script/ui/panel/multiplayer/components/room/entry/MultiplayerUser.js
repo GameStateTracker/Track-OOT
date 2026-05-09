@@ -1,5 +1,5 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import {ClientTypes} from "/GameTrackerJS/util/rtc/multiplayer/config/MultiplayerConfig.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
+import {ClientTypes} from "gametrackerjs/util/rtc/multiplayer/config/MultiplayerConfig.js";
 import TPL from "./MultiplayerUser.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerUser.js.css" assert {type: "css"};
 

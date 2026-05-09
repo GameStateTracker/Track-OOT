@@ -1,8 +1,8 @@
 
-import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
-import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
-import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
-import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
+import IDBStorage from "@emcjs/core/data/storage/IDBStorage.js";
+import WorldResource from "gametrackerjs/data/resource/WorldResource.js";
+import SettingsObserver from "gametrackerjs/util/observer/SettingsObserver.js";
+import OptionsObserver from "gametrackerjs/util/observer/OptionsObserver.js";
 import LogicResource from "../../resource/LogicResource.js";
 import LogicGlitchedResource from "../../resource/LogicGlitchedResource.js";
 import LogicAPResource from "../../resource/LogicAPResource.js";

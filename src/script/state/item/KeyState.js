@@ -1,8 +1,8 @@
-import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
-import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
+import ItemStateManager from "gametrackerjs/statemanager/item/ItemStateManager.js";
+import AreaStateManager from "gametrackerjs/statemanager/world/area/AreaStateManager.js";
 import {
     parseSafeRange
-} from "/GameTrackerJS/util/helper/ItemHelper.js";
+} from "gametrackerjs/util/helper/ItemHelper.js";
 import DefaultAPItemState from "./DefaultAPItemState.js";
 
 const AREA = new WeakMap();

@@ -1,5 +1,6 @@
 ### CHANGES
 - add missing tooltips
+- add infotext to ap modal
 
 ### BUG FIXES
 - fix logic viewer not loading ap logic

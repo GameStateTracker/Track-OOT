@@ -5,6 +5,7 @@ a11y=Barrierefreiheit
 about=Über
 about_text_logic=Bitte beachte, dass die Logik dieses Trackers (größtenteils) der Logik des Randomizers folgt.\nDies liegt daran, dass die Logik des Randomizers eine gute Annäherung an die Logik des Spiels selbst darstellt.\nSollte der Tracker sich ungewöhnlich verhalten, melde denn Fehler bitte!
 adult=Erwachsener
+ap.hostname.subtext=Für eine lokale Verbindung bitte "localhost" benutzen
 App settings=App-Einstellungen
 area.temple_fire=Feuertempel Skips
 area.temple_forest=Waldtempel Skips

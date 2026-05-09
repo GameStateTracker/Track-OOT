@@ -1,5 +1,5 @@
-import LogicCaller from "/GameTrackerJS/util/logic/LogicCaller.js";
-import DungeonstateResource from "/script/resource/DungeonstateResource.js";
+import LogicCaller from "gametrackerjs/util/logic/LogicCaller.js";
+import DungeonstateResource from "../../../resource/DungeonstateResource.js";
 import "./AugmentOptions.js";
 import KEY_LOCATION_INDEX from "./AugmentDungeonState.js.json" assert {type: "json"};
 

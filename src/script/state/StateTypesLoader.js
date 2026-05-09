@@ -1,11 +1,11 @@
 // GameTrackerJS
-import "/GameTrackerJS/statemanager/item/ItemStateManager.js";
-import "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
-import "/GameTrackerJS/statemanager/world/collection/CollectionStateManager.js";
-import "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
-import "/GameTrackerJS/statemanager/world/entrance/EntranceStateManager.js";
-import "/GameTrackerJS/statemanager/world/exit/ExitStateManager.js";
-import "/GameTrackerJS/state/world/area/OverworldState.js";
+import "gametrackerjs/statemanager/item/ItemStateManager.js";
+import "gametrackerjs/statemanager/world/location/LocationStateManager.js";
+import "gametrackerjs/statemanager/world/collection/CollectionStateManager.js";
+import "gametrackerjs/statemanager/world/area/AreaStateManager.js";
+import "gametrackerjs/statemanager/world/entrance/EntranceStateManager.js";
+import "gametrackerjs/statemanager/world/exit/ExitStateManager.js";
+import "gametrackerjs/state/world/area/OverworldState.js";
 
 // Track-OOT
 import "./item/DefaultAPItemState.js";

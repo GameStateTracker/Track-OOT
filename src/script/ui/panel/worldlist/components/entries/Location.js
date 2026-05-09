@@ -1,6 +1,6 @@
-import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import WorldListLocation from "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
-import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
+import UIRegistry from "gametrackerjs/registry/UIRegistry.js";
+import WorldListLocation from "gametrackerjs/ui/panel/worldlist/components/entries/Location.js";
+import MetaObserver from "gametrackerjs/util/observer/MetaObserver.js";
 import LogicViewerModal from "../../../../modal/LogicViewerModal.js";
 import APHintLocations from "../../../../../resource/APHintLocations.js";
 

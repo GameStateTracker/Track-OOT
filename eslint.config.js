@@ -25,7 +25,14 @@ const browserGlobals = {
 delete browserGlobals["AudioWorkletGlobalScope "];
 
 export default defineConfig([
-    globalIgnores(["**/node_modules", "**/.idea", "**/.vscode", "dev", "prod"]),
+    globalIgnores([
+        "**/node_modules",
+        "**/.idea",
+        "**/.vscode",
+        "dev",
+        "prod",
+        "**/gulpfile.js"
+    ]),
     {
         extends: compat.extends("eslint:recommended"),
 

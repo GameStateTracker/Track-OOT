@@ -8,6 +8,18 @@
     <meta name="robots" content="nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#cb9c3d">
+    <script type="importmap">
+    {
+        "imports": {
+            "@emcjs/core/": "/_libs/emcjs/core/",
+            "@emcjs/fe/": "/_libs/emcjs/fe/",
+            "rtcclient/": "/_libs/rtcclient/",
+            "gametrackerjs/": "/_libs/gametrackerjs/",
+            "archipelagojs/": "/_libs/archipelagojs/",
+            "jseditors/": "/_libs/jseditors/"
+        }
+    }
+    </script>
     <link rel="icon" type="image/png" sizes="192x192" href="/images/favicons/default_192.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/default_96.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/default_32.png">
@@ -16,7 +28,7 @@
     <link rel="apple-touch-icon" href="/images/favicons/default_192.png">
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" type="text/css" href="/style/index.css">
-    <script src="/emcJS/polyfills/contextmenuEvent.polyfill.js"></script>
+    <script src="/_libs/emcjs/fe/polyfills/contextmenuEvent.polyfill.js"></script>
     <script type="module" src="/script/StateRecovery.js"></script>
     <script>
         window.addEventListener('contextmenu', function () {

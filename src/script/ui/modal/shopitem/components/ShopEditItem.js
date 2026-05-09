@@ -1,6 +1,6 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import "/emcJS/ui/i18n/I18nLabel.js";
-import ShopItemsResource from "/script/resource/ShopItemsResource.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
+import "@emcjs/fe/ui/i18n/I18nLabel.js";
+import ShopItemsResource from "../../../../resource/ShopItemsResource.js";
 import TPL from "./ShopEditItem.js.html" assert {type: "html"};
 import STYLE from "./ShopEditItem.js.css" assert {type: "css"};
 

@@ -1,7 +1,7 @@
 import {
     createMixin
-} from "/emcJS/util/Mixin.js";
-import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
+} from "@emcjs/core/mixin/Mixin.js";
+import OptionsObserver from "gametrackerjs/util/observer/OptionsObserver.js";
 
 export default createMixin((superclass) => class ExcludedLocationMixin extends superclass {
 

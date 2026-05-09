@@ -1,19 +1,19 @@
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import Toast from "/emcJS/ui/overlay/message/Toast.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import Toast from "@emcjs/fe/ui/overlay/message/Toast.js";
 import {
     IS_SECURE_PAGE, isLocalhost
-} from "/emcJS/util/net/URLUtils.js";
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
-import Client from "/ArchipelagoJS/Client.js";
-import {COMMON_TAGS} from "/ArchipelagoJS/consts/CommonTags.js";
-import {ITEMS_HANDLING_FLAGS} from "/ArchipelagoJS/consts/ItemsHandlingFlags.js";
-import {CONNECTION_STATUS} from "/ArchipelagoJS/consts/ConnectionStatus.js";
+} from "@emcjs/core/util/net/URLUtils.js";
+import SavestateHandler from "gametrackerjs/savestate/SavestateHandler.js";
+import Savestate from "gametrackerjs/savestate/Savestate.js";
+import WorldResource from "gametrackerjs/data/resource/WorldResource.js";
+import Client from "archipelagojs/Client.js";
+import {COMMON_TAGS} from "archipelagojs/consts/CommonTags.js";
+import {ITEMS_HANDLING_FLAGS} from "archipelagojs/consts/ItemsHandlingFlags.js";
+import {CONNECTION_STATUS} from "archipelagojs/consts/ConnectionStatus.js";
 import {
     CLIENT_PACKET_TYPE,
     SERVER_PACKET_TYPE
-} from "/ArchipelagoJS/consts/CommandPacketType.js";
+} from "archipelagojs/consts/CommandPacketType.js";
 import {AP_STORAGES} from "./storage/RegisterAPStorage.js";
 import {
     translateItem,

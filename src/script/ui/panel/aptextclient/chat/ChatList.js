@@ -1,4 +1,4 @@
-import DataList from "/emcJS/ui/dataview/datalist/DataList.js";
+import DataList from "@emcjs/fe/ui/dataview/datalist/DataList.js";
 import ChatListEntry from "./components/ChatListEntry.js";
 import STYLE from "./ChatList.js.css" assert {type: "css"};
 

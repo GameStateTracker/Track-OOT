@@ -1,6 +1,6 @@
-import OverlayPanel from "/emcJS/ui/overlay/OverlayPanel.js";
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import ActionMessage from "/emcJS/ui/overlay/message/ActionMessage.js";
+import OverlayPanel from "@emcjs/fe/ui/overlay/OverlayPanel.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import ActionMessage from "@emcjs/fe/ui/overlay/message/ActionMessage.js";
 import "./components/AboutPanel.js";
 import "./components/CreditsPanel.js";
 import TPL from "./AboutOverlay.js.html" assert {type: "html"};

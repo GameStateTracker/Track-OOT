@@ -1,9 +1,9 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import "/emcJS/ui/i18n/I18nLabel.js";
-import "/emcJS/ui/form/button/Button.js";
-import "/emcJS/ui/form/button/LinkButton.js";
-import "/emcJS/ui/form/FormGroup.js";
-import "/emcJS/ui/progress/ProgressBar.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
+import "@emcjs/fe/ui/i18n/I18nLabel.js";
+import "@emcjs/fe/ui/form/button/Button.js";
+import "@emcjs/fe/ui/form/button/LinkButton.js";
+import "@emcjs/fe/ui/form/FormGroup.js";
+import "@emcjs/fe/ui/progress/ProgressBar.js";
 import TPL from "./UpdateHandler.js.html" assert {type: "html"};
 import STYLE from "./UpdateHandler.js.css" assert {type: "css"};
 

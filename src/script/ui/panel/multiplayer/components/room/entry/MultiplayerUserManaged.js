@@ -1,7 +1,7 @@
-import I18nOption from "/emcJS/ui/i18n/builtin/I18nOption.js";
-import "/emcJS/ui/form/element/select/simple/SimpleSelect.js";
-import "/emcJS/ui/form/button/Button.js";
-import {ClientTypes} from "/GameTrackerJS/util/rtc/multiplayer/config/MultiplayerConfig.js";
+import I18nOption from "@emcjs/fe/ui/i18n/builtin/I18nOption.js";
+import "@emcjs/fe/ui/form/element/select/simple/SimpleSelect.js";
+import "@emcjs/fe/ui/form/button/Button.js";
+import {ClientTypes} from "gametrackerjs/util/rtc/multiplayer/config/MultiplayerConfig.js";
 import MultiplayerUser from "./MultiplayerUser.js";
 import TPL from "./MultiplayerUserManaged.js.html" assert {type: "html"};
 import STYLE from "./MultiplayerUserManaged.js.css" assert {type: "css"};

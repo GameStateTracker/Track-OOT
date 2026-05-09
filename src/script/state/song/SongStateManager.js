@@ -1,7 +1,7 @@
 // GameTrackerJS
-import SimpleStateManager from "/GameTrackerJS/statemanager/SimpleStateManager.js";
+import SimpleStateManager from "gametrackerjs/statemanager/SimpleStateManager.js";
 // Track-OOT
-import SongsResource from "/script/resource/SongsResource.js";
+import SongsResource from "../../resource/SongsResource.js";
 import DefaultSongState from "./DefaultSongState.js";
 
 const resourceData = SongsResource.get();

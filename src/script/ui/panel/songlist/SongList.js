@@ -1,9 +1,9 @@
 // frameworks
-import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
-import Panel from "/emcJS/ui/layout/Panel.js";
+import CSSTemplate from "@emcjs/fe/util/template/CSSTemplate.js";
+import Panel from "@emcjs/fe/ui/layout/Panel.js";
 
 // Track-OOT
-import SongsResource from "/script/resource/SongsResource.js";
+import SongsResource from "../../../resource/SongsResource.js";
 import "./components/SongField.js";
 
 const STYLE = new CSSTemplate(`

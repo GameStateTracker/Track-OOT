@@ -1,7 +1,7 @@
 // GameTrackerJS
-import SimpleStateManager from "../../../GameTrackerJS/statemanager/SimpleStateManager.js";
+import SimpleStateManager from "gametrackerjs/statemanager/SimpleStateManager.js";
 // Track-OOT
-import DungeonstateResource from "/script/resource/DungeonstateResource.js";
+import DungeonstateResource from "../../resource/DungeonstateResource.js";
 import DefaultDungeonState from "./DefaultDungeonState.js";
 
 const resourceData = DungeonstateResource.get();

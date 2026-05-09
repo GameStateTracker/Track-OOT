@@ -1,4 +1,4 @@
-import Panel from "/emcJS/ui/layout/Panel.js";
+import Panel from "@emcjs/fe/ui/layout/Panel.js";
 import MultiplayerControllerInst from "../../../util/rtc/MultiplayerControllerInst.js";
 import "./components/lobby/MultiplayerLobby.js";
 import "./components/room/MultiplayerRoomClient.js";

@@ -6,3 +6,8 @@
     --border-style: none;
     --border-radius: none;
 }
+
+.form-text {
+    padding: 6px;
+    margin: 0px;
+}

@@ -1,9 +1,9 @@
 // frameworks
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import FileSystem from "/emcJS/util/file/FileSystem.js";
-import "/JSEditors/modules/logic/Editor.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import FileSystem from "@emcjs/core/util/file/FileSystem.js";
+import "jseditors/modules/logic/Editor.js";
 
-import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
+import LogicGlitchedResource from "../../resource/LogicGlitchedResource.js";
 import LogicListsCreator from "../logic/LogicListsCreator.js";
 import LogicGlitchedStorage from "../logic/storages/LogicGlitchedStorage.js";
 import "../logic/LogicElementsLoader.js";

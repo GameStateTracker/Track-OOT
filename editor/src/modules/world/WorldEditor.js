@@ -1,13 +1,13 @@
-import FileSystem from "/emcJS/util/file/FileSystem.js";
-import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
-import {beforeUnloadHandler} from "/emcJS/util/helper/BeforeUnloadHandler.js";
-import {debounce} from "/emcJS/util/Debouncer.js";
-import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
-import OptionGroupRegistry from "/emcJS/data/registry/form/OptionGroupRegistry.js";
-import LogicOperatorRegistry from "/emcJS/data/registry/LogicOperatorRegistry.js";
-import FileLoader from "/emcJS/util/file/FileLoader.js";
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import "/GameTrackerJS/_editor/world/WorldEditor.js";
+import FileSystem from "@emcjs/core/util/file/FileSystem.js";
+import EventTargetManager from "@emcjs/core/util/event/EventTargetManager.js";
+import {beforeUnloadHandler} from "@emcjs/fe/util/BeforeUnloadHandler.js";
+import {debounce} from "@emcjs/core/util/Debouncer.js";
+import BusyIndicatorManager from "@emcjs/fe/util/busy/BusyIndicatorManager.js";
+import OptionGroupRegistry from "@emcjs/fe/registry/form/OptionGroupRegistry.js";
+import LogicOperatorRegistry from "@emcjs/core/registry/LogicOperatorRegistry.js";
+import FileLoader from "@emcjs/core/util/file/FileLoader.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import "gametrackerjs/_editor/world/WorldEditor.js";
 
 async function laodResources() {
     const [

@@ -1,9 +1,9 @@
-import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
-import {mix} from "/emcJS/util/Mixin.js";
-import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
-import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
-import "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
+import HTMLTemplate from "@emcjs/fe/util/template/HTMLTemplate.js";
+import {mix} from "@emcjs/core/mixin/Mixin.js";
+import UIRegistry from "gametrackerjs/registry/UIRegistry.js";
+import WorldListElement from "gametrackerjs/ui/panel/worldlist/components/abstract/Element.js";
+import AccessTextMarkerMixin from "gametrackerjs/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
+import "gametrackerjs/ui/panel/worldlist/components/entries/Location.js";
 import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
 import LogicViewerModal from "../../../../modal/LogicViewerModal.js";
 

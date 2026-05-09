@@ -1,8 +1,8 @@
 
-import ObservableStorageObserver from "/emcJS/util/observer/data/storage/ObservableStorageObserver.js";
-import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
-import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import ObservableStorageObserver from "@emcjs/core/util/observer/data/storage/ObservableStorageObserver.js";
+import LocationStateManager from "gametrackerjs/statemanager/world/location/LocationStateManager.js";
+import ItemStateManager from "gametrackerjs/statemanager/item/ItemStateManager.js";
+import Savestate from "gametrackerjs/savestate/Savestate.js";
 import DefaultAPLocationState from "./DefaultAPLocationState.js";
 
 const STORAGES = {

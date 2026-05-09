@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import TypeConfigMap from "emcJS/data/type/TypeConfigMap.js";
-import TypeGenerator from "emcJS/util/type/TypeGenerator.js";
+import TypeConfigMap from "@emcjs/core/data/type/TypeConfigMap.js";
+import TypeGenerator from "@emcjs/core/util/type/TypeGenerator.js";
 
 const typeFolderPath = "./node_modules/gametrackerjs/_types";
 const inFileName = "./src/database/world.json";

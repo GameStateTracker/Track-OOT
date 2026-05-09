@@ -1,9 +1,9 @@
-import ObservableMultiDefaultValueStorage from "/emcJS/data/storage/observable/ObservableMultiDefaultValueStorage.js";
-import ObservableDefaultValueStorage from "/emcJS/data/storage/observable/ObservableDefaultValueStorage.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import LogicCaller from "/GameTrackerJS/util/logic/LogicCaller.js";
+import ObservableMultiDefaultValueStorage from "@emcjs/core/data/storage/observable/ObservableMultiDefaultValueStorage.js";
+import ObservableDefaultValueStorage from "@emcjs/core/data/storage/observable/ObservableDefaultValueStorage.js";
+import Savestate from "gametrackerjs/savestate/Savestate.js";
+import LogicCaller from "gametrackerjs/util/logic/LogicCaller.js";
 
-import SongsResource from "/script/resource/SongsResource.js";
+import SongsResource from "../resource/SongsResource.js";
 
 // dungeons
 Savestate.registerStorage("dungeonRewards", new ObservableDefaultValueStorage(""));

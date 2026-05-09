@@ -1,8 +1,8 @@
-import "/emcJS/ui/layout/Layout.js";
-import VersionData from "/GameTrackerJS/data/VersionData.js";
-import Language from "/GameTrackerJS/util/Language.js";
-import ItemViewClient from "/GameTrackerJS/util/rtc/itemview/ItemViewClient.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import "@emcjs/fe/ui/layout/Layout.js";
+import VersionData from "gametrackerjs/data/VersionData.js";
+import Language from "gametrackerjs/util/Language.js";
+import ItemViewClient from "gametrackerjs/util/rtc/itemview/ItemViewClient.js";
+import Savestate from "gametrackerjs/savestate/Savestate.js";
 import "/script/ui/panel/itemgrid/ItemGrid.js";
 import "/script/ui/panel/dungeonstate/DungeonState.js";
 import "./styles.js";

@@ -1,13 +1,13 @@
 // frameworks
-import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
-import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
+import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
+import BusyIndicatorManager from "@emcjs/fe/util/busy/BusyIndicatorManager.js";
 
 // GameTrackerJS
-import VersionData from "/GameTrackerJS/data/VersionData.js";
-import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import VersionData from "gametrackerjs/data/VersionData.js";
+import SettingsStorage from "gametrackerjs/storage/SettingsStorage.js";
 
 // Track-OOT
-import OptionsTransResource from "/script/resource/OptionsTransResource.js";
+import OptionsTransResource from "../../resource/OptionsTransResource.js";
 import parseSettings from "./parseSettings.js";
 import parseStartingInventory from "./parseStartingInventory.js";
 import parseItemLocations from "./parseItemLocations.js";

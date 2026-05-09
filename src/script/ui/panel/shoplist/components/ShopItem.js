@@ -1,9 +1,9 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import ContextMenuManagerMixin from "/emcJS/ui/mixin/ContextMenuManagerMixin.js";
-import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
-import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
-import Language from "/GameTrackerJS/util/Language.js";
-import WorldStateManagerRegistry from "/GameTrackerJS/statemanager/WorldStateManagerRegistry.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
+import ContextMenuManagerMixin from "@emcjs/fe/ui/mixin/ContextMenuManagerMixin.js";
+import OptionsObserver from "gametrackerjs/util/observer/OptionsObserver.js";
+import StateDataEventManagerMixin from "gametrackerjs/ui/mixin/StateDataEventManagerMixin.js";
+import Language from "gametrackerjs/util/Language.js";
+import WorldStateManagerRegistry from "gametrackerjs/statemanager/WorldStateManagerRegistry.js";
 import {shopItemChoiceModal} from "../../../modal/shopitem/ShopItemChoiceModal.js";
 import ShopSlotContextMenu from "../../../ctxmenu/ShopSlotContextMenu.js";
 import TPL from "./ShopItem.js.html" assert {type: "html"};

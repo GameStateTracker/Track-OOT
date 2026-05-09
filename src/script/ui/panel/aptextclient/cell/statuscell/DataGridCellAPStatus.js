@@ -1,6 +1,6 @@
-import DataGridCell from "/emcJS/ui/dataview/datagrid/components/cell/DataGridCell.js";
-import ContextMenuManagerMixin from "/emcJS/ui/mixin/ContextMenuManagerMixin.js";
-import {HINT_STATUS} from "/ArchipelagoJS/consts/HintStatus.js";
+import DataGridCell from "@emcjs/fe/ui/dataview/datagrid/components/cell/DataGridCell.js";
+import ContextMenuManagerMixin from "@emcjs/fe/ui/mixin/ContextMenuManagerMixin.js";
+import {HINT_STATUS} from "archipelagojs/consts/HintStatus.js";
 import ArchipelagoController from "../../../../../util/archipelago/ArchipelagoController.js";
 import APHintStatusContextMenu from "./ctxmenu/APHintStatusContextMenu.js";
 import TPL from "./DataGridCellAPStatus.js.html" assert {type: "html"};

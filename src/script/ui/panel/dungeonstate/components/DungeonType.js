@@ -1,8 +1,8 @@
-import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import "/emcJS/ui/input/Option.js";
-import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
-import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
-import DungeonstateStates from "/script/state/dungeon/DungeonStateManager.js";
+import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
+import "@emcjs/fe/ui/input/Option.js";
+import StateDataEventManagerMixin from "gametrackerjs/ui/mixin/StateDataEventManagerMixin.js";
+import AreaStateManager from "gametrackerjs/statemanager/world/area/AreaStateManager.js";
+import DungeonstateStates from "../../../../state/dungeon/DungeonStateManager.js";
 import TPL from "./DungeonType.js.html" assert {type: "html"};
 import STYLE from "./DungeonType.js.css" assert {type: "css"};
 
