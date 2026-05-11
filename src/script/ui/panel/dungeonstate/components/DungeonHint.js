@@ -2,16 +2,16 @@
 import HTMLTemplate from "@emcjs/fe/util/template/HTMLTemplate.js";
 import CSSTemplate from "@emcjs/fe/util/template/CSSTemplate.js";
 import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
-import "@emcjs/fe/ui/input/Option.js";
+import "@emcjs/fe/ui/form/element/components/IconOption.js";
 
 // GameTrackerJS
 import StateDataEventManagerMixin from "gametrackerjs/ui/mixin/StateDataEventManagerMixin.js";
 import AreaStateManager from "gametrackerjs/statemanager/world/area/AreaStateManager.js";
 
 const TPL = new HTMLTemplate(`
-<emc-option value="" style="background-image: url('images/icons/area_nohint.svg')"></emc-option>
-<emc-option value="woth" style="background-image: url('images/icons/area_woth.svg')"></emc-option>
-<emc-option value="barren" style="background-image: url('images/icons/area_barren.svg')"></emc-option>
+<emc-icon-option value="" icon="/images/icons/area_nohint.svg"></emc-icon-option>
+<emc-icon-option value="woth" icon="/images/icons/area_woth.svg"></emc-icon-option>
+<emc-icon-option value="barren" icon="/images/icons/area_barren.svg"></emc-icon-option>
 `);
 
 const STYLE = new CSSTemplate(`
@@ -40,11 +40,6 @@ slot {
     color: white;
     font-size: 1em;
     text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
-    background-image: var(--default-unknown-back-image);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-origin: content-box;
     flex-grow: 0;
     flex-shrink: 0;
     min-height: 0;

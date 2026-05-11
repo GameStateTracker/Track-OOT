@@ -1,7 +1,6 @@
 // frameworks
 import HTMLTemplate from "@emcjs/fe/util/template/HTMLTemplate.js";
 import CSSTemplate from "@emcjs/fe/util/template/CSSTemplate.js";
-import "@emcjs/fe/ui/input/Option.js";
 import "@emcjs/fe/ui/i18n/I18nLabel.js";
 
 // GameTrackerJS

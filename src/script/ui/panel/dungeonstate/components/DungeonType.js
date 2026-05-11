@@ -1,5 +1,5 @@
 import CustomElement from "@emcjs/fe/ui/element/CustomElement.js";
-import "@emcjs/fe/ui/input/Option.js";
+import "@emcjs/fe/ui/form/element/components/IconOption.js";
 import StateDataEventManagerMixin from "gametrackerjs/ui/mixin/StateDataEventManagerMixin.js";
 import AreaStateManager from "gametrackerjs/statemanager/world/area/AreaStateManager.js";
 import DungeonstateStates from "../../../../state/dungeon/DungeonStateManager.js";
