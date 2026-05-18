@@ -5,9 +5,7 @@ import ItemStateManager from "gametrackerjs/statemanager/item/ItemStateManager.j
 import Savestate from "gametrackerjs/savestate/Savestate.js";
 import DefaultAPLocationState from "./DefaultAPLocationState.js";
 
-const STORAGES = {
-    scrubPrices: Savestate.getStorage("scrubPrices")
-};
+const STORAGES = {scrubPrices: Savestate.getStorage("scrubPrices")};
 
 const WALLET = ItemStateManager.get("wallet");
 const WALLET_CAPACITIES = [99, 200, 500, 999];

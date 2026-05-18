@@ -15,10 +15,15 @@ await import(FORMER_CONVERTER_URL);
 SavestateConverter.register(function(state) {
     state = state ?? {};
 
-    const {exits = {}, ...data} = state.data ?? {};
+    const {
+        exits = {}, ...data
+    } = state.data ?? {};
 
     const res = {
-        data: {...data, exits: {}},
+        data: {
+            ...data,
+            exits: {}
+        },
         options: state.options ?? {},
         filter: state.filter ?? {},
         notes: state.notes ?? "",

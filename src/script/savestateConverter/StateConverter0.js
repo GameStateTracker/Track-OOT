@@ -10,7 +10,7 @@ import SavestateConverter from "gametrackerjs/savestate/SavestateConverter.js";
 
 // REGISTER CONVERTER
 SavestateConverter.register(function(state) {
-    if (!state["data"] != null) {
+    if (state["data"] == null) {
         state = {data: state ?? {}};
     }
     const res = {

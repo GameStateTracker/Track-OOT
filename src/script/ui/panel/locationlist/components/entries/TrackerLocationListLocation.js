@@ -15,9 +15,19 @@ export default class TrackerLocationListLocation extends LocationListLocation {
         /* context menu */
         this.setAddedDefaultContextMenuItems([
             "splitter",
-            {menuAction: "show_logic", content: "Show Logic"},
-            {type: "splitter", group: "ap"},
-            {group: "ap", menuAction: "hint_ap_location", content: "AP Hint Location"}
+            {
+                menuAction: "show_logic",
+                content: "Show Logic"
+            },
+            {
+                type: "splitter",
+                group: "ap"
+            },
+            {
+                group: "ap",
+                menuAction: "hint_ap_location",
+                content: "AP Hint Location"
+            }
         ]);
         this.addDefaultContextMenuHandler("show_logic", () => {
             const state = this.getState();

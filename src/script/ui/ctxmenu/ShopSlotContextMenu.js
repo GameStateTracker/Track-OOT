@@ -5,16 +5,41 @@ export default class ShopSlotContextMenu extends ContextMenu {
 
     initItems() {
         super.setItems([
-            {menuAction: "check", content: "Check"},
-            {menuAction: "uncheck", content: "Uncheck"},
+            {
+                menuAction: "check",
+                content: "Check"
+            },
+            {
+                menuAction: "uncheck",
+                content: "Uncheck"
+            },
             "splitter",
-            {menuAction: "associate", content: "Set Item"},
-            {menuAction: "junk", content: "Set Junk"},
-            {menuAction: "disassociate", content: "Clear Item"},
+            {
+                menuAction: "associate",
+                content: "Set Item"
+            },
+            {
+                menuAction: "junk",
+                content: "Set Junk"
+            },
+            {
+                menuAction: "disassociate",
+                content: "Clear Item"
+            },
             "splitter",
-            {menuAction: "show_logic", content: "Show Logic"},
-            {type: "splitter", group: "AP"},
-            {group: "AP", menuAction: "hint_ap_location", content: "AP Hint Location"}
+            {
+                menuAction: "show_logic",
+                content: "Show Logic"
+            },
+            {
+                type: "splitter",
+                group: "AP"
+            },
+            {
+                group: "AP",
+                menuAction: "hint_ap_location",
+                content: "AP Hint Location"
+            }
         ]);
     }
 

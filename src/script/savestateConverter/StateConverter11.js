@@ -33,7 +33,11 @@ SavestateConverter.register(function(state) {
         dungeontype[translation[i] ?? i] = translation[state.extra.dungeontype[i]] ?? state.extra.dungeontype[i];
     }
     // collect data
-    res.extra = {...state.extra, dungeonreward, dungeontype};
+    res.extra = {
+        ...state.extra,
+        dungeonreward,
+        dungeontype
+    };
     return res;
 });
 

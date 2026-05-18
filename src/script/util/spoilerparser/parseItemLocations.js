@@ -26,7 +26,9 @@ export default function parseItemLocations(addError, target = {}, data = {}, tar
 
     for (const i in data) {
         const value = data[i];
-        const {player, item} = getData(value);
+        const {
+            player, item
+        } = getData(value);
         const itemTrans = item_trans[item];
         if (itemTrans == null) {
             addError("[" + item + "] is a invalid value", "Item");

@@ -14,9 +14,15 @@ await import(FORMER_CONVERTER_URL);
 // REGISTER CONVERTER
 SavestateConverter.register(function(state) {
     state = state ?? {};
-    const {dungeontype = {}, dungeonreward = {}, ...data} = state.data ?? {};
+    const {
+        dungeontype = {}, dungeonreward = {}, ...data
+    } = state.data ?? {};
     const res = {
-        data: {...data, dungeontype: {}, dungeonreward: {}},
+        data: {
+            ...data,
+            dungeontype: {},
+            dungeonreward: {}
+        },
         options: state.options ?? {},
         filter: state.filter ?? {},
         notes: state.notes ?? "",

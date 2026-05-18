@@ -17,6 +17,7 @@ function cursorToPromise(cursor, fn) {
         };
     });
 }
+
 const crc32 = (() => {
     const table = [];
     const poly = 0xEDB88320;
@@ -35,11 +36,13 @@ const crc32 = (() => {
             table[n] = c >>> 0;
         }
     }
+
     function strToArr(str) {
         return Array.prototype.map.call(str, function(c) {
             return c.charCodeAt(0);
         });
     }
+
     function calcCRC(arr) {
         if (!arr) {
             return;
@@ -50,12 +53,14 @@ const crc32 = (() => {
         }
         return crc ^ -1;
     }
+
     return function crc32(val) {
         val = typeof val === "string" ? strToArr(val) : val;
         const ret = calcCRC(val);
         return ret >>> 0;
-    }
+    };
 })();
+
 async function streamToBlob(stream, type) {
     const reader = stream.getReader();
     let done = false;
@@ -69,12 +74,14 @@ async function streamToBlob(stream, type) {
     }
     return new Blob(data, {type});
 }
+
 function writeStringToDataView(dataView, offset, str) {
     for (let i = 0; i < str.length; i++) {
         const char = str.charCodeAt(i);
         dataView.setUint8(offset + i, char);
     }
 }
+
 function timeToDOS(timestamp = new Date()) {
     let fatTime = 0;
     fatTime |= timestamp.getSeconds() >> 1;
@@ -82,6 +89,7 @@ function timeToDOS(timestamp = new Date()) {
     fatTime |= timestamp.getHours() << 11;
     return fatTime;
 }
+
 function dateToDOS(timestamp = new Date()) {
     let fatTime = 0;
     fatTime |= timestamp.getDate();
@@ -89,6 +97,7 @@ function dateToDOS(timestamp = new Date()) {
     fatTime |= (timestamp.getFullYear() - 1980) << 9;
     return fatTime;
 }
+
 const createArchive = (() => {
     const SIG_FILE = 0x04034b50;
     const SIG_CDFH = 0x02014b50;
@@ -96,6 +105,7 @@ const createArchive = (() => {
     const VERSION_NOW = 63;
     const VERSION_MIN = 20;
     const ATTR_FILE = 0x0020;
+
     async function createLocalFileEntry(file, fileHeaderOffset) {
         const fileContents = await file.text();
         const rawStream = file.stream();
@@ -137,6 +147,7 @@ const createArchive = (() => {
         entry.header = headerBuffer;
         return entry;
     }
+
     function createCentralDirectoryFileHeader(fileEntry) {
         const {
             generalPurpose,
@@ -181,6 +192,7 @@ const createArchive = (() => {
         writeStringToDataView(dataView, 46 + fileNameLength + extraLength, fileComment);
         return headerBuffer;
     }
+
     function createEndOfCentralDirectory(centralDirectories, centralDirectoryOffset) {
         const numberOfDisks = 0;
         const centralDirectoryStartDisk = 0;
@@ -205,6 +217,7 @@ const createArchive = (() => {
         writeStringToDataView(dataView, 22, comment);
         return headerBuffer;
     }
+
     return async function createArchive(files = []) {
         const blobData = [];
         const localFileEntries = [];
@@ -225,8 +238,9 @@ const createArchive = (() => {
         const eocdEntry = createEndOfCentralDirectory(centralDirectoryFileHeaders, offset);
         blobData.push(eocdEntry);
         return new Blob(blobData);
-    }
+    };
 })();
+
 function formatDate(date, formatter) {
     return formatter.replace(/[YMDhmsz]/g, function(m) {
         switch (m) {
@@ -240,8 +254,11 @@ function formatDate(date, formatter) {
         }
     });
 }
+
 class StateRecoveryModule {
+
     #dl = null;
+
     constructor() {
         this.#dl = document.createElement("a");
         this.#dl.style.position = "absolute !important";
@@ -249,6 +266,7 @@ class StateRecoveryModule {
         this.#dl.style.opacity = "0 !important";
         this.#dl.style.visibility = "hidden !important";
     }
+
     static #openDB(name) {
         return new Promise(function(resolve, reject) {
             const request = indexedDB.open(name);
@@ -266,10 +284,12 @@ class StateRecoveryModule {
             };
         });
     }
+
     async #getStoreReadonly(name) {
         const iDBinst = await StateRecoveryModule.#openDB(name);
         return iDBinst.transaction("data", "readonly").objectStore("data");
     }
+
     async #getAll(name, filter) {
         if (typeof filter != "string") {
             filter = "";
@@ -279,6 +299,7 @@ class StateRecoveryModule {
         const result = await cursorToPromise(request, (key) => key.startsWith(filter));
         return result;
     }
+
     #save(data, fileName) {
         const url = window.URL.createObjectURL(new Blob([data], {type: "octet/stream"}));
         this.#dl.href = url;
@@ -288,6 +309,7 @@ class StateRecoveryModule {
         window.URL.revokeObjectURL(url);
         this.#dl.remove();
     }
+
     async downloadStates(name, filter) {
         const states = await this.#getAll(name, filter);
         const files = [];
@@ -301,7 +323,10 @@ class StateRecoveryModule {
         const archiveDate = formatDate(new Date(), "YMDhms");
         this.#save(archive, `track-oot-states.${archiveDate}.zip`);
     }
+
 }
+
 const StateRecovery = new StateRecoveryModule();
 window.StateRecovery = StateRecovery;
+
 export default StateRecovery;

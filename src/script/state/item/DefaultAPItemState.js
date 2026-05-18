@@ -1,30 +1,20 @@
 // frameworks
 import ObservableStorageObserver from "@emcjs/core/util/observer/data/storage/ObservableStorageObserver.js";
-import {
-    mix
-} from "@emcjs/core/mixin/Mixin.js";
+import {mix} from "@emcjs/core/mixin/Mixin.js";
 import Savestate from "gametrackerjs/savestate/Savestate.js";
 import ItemStateManager from "gametrackerjs/statemanager/item/ItemStateManager.js";
 import DataState from "gametrackerjs/state/DataState.js";
 import StateVisibilityMixin from "gametrackerjs/state/mixins/StateVisibilityMixin.js";
-import {
-    parseSafeRange
-} from "gametrackerjs/util/helper/ItemHelper.js";
+import {parseSafeRange} from "gametrackerjs/util/helper/ItemHelper.js";
 import OptionsObserver from "gametrackerjs/util/observer/OptionsObserver.js";
-import {
-    AP_STORAGES
-} from "../../util/archipelago/storage/RegisterAPStorage.js";
+import {AP_STORAGES} from "../../util/archipelago/storage/RegisterAPStorage.js";
 
 const STORAGES = {
     items: Savestate.getStorage("items"),
     startItems: Savestate.getStorage("startItems")
 };
 
-const BaseClass = mix(
-    DataState
-).with(
-    StateVisibilityMixin
-);
+const BaseClass = mix(DataState).with(StateVisibilityMixin);
 
 export default class DefaultAPItemState extends BaseClass {
 

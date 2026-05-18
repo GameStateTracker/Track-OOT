@@ -14,7 +14,9 @@ const outData = {
     missing_locations: []
 };
 
-const {item_name_to_id, location_name_to_id} = apData["Ocarina of Time"];
+const {
+    item_name_to_id, location_name_to_id
+} = apData["Ocarina of Time"];
 
 for (const itemName in item_name_to_id) {
     if (itemName in transData.itemList && !!transData.itemList[itemName]) {

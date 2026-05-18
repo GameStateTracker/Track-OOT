@@ -1,7 +1,5 @@
 // frameworks
-import {
-    filterObject
-} from "@emcjs/core/util/helper/collection/ObjectContent.js";
+import {filterObject} from "@emcjs/core/util/helper/collection/ObjectContent.js";
 import ObservableStorageObserver from "@emcjs/core/util/observer/data/storage/ObservableStorageObserver.js";
 // GameTrackerJS
 import Savestate from "gametrackerjs/savestate/Savestate.js";

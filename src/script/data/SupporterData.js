@@ -1,8 +1,6 @@
 // frameworks
 import LocalStorage from "@emcjs/core/data/storage/global/LocalStorage.js";
-import {
-    deepClone
-} from "@emcjs/core/util/helper/DeepClone.js";
+import {deepClone} from "@emcjs/core/util/helper/DeepClone.js";
 
 const SUPPORTER_URL = new URL("/patreon", location);
 if (location.hostname == "localhost") {

@@ -26,7 +26,10 @@ SavestateConverter.register(function(state) {
     for (const i of Object.keys(state.extra?.exits ?? {})) {
         exits[i] = translation[state.extra.exits[i]] ?? state.extra.exits[i];
     }
-    res.extra = {...state.extra, exits};
+    res.extra = {
+        ...state.extra,
+        exits
+    };
     return res;
 });
 

@@ -1,66 +1,19 @@
-import {mix} from "@emcjs/core/mixin/Mixin.js";
-import {debounce} from "@emcjs/core/util/Debouncer.js";
-import {immute} from "@emcjs/core/data/Immutable.js";
 import ObservableStorageObserver from "@emcjs/core/util/observer/data/storage/ObservableStorageObserver.js";
-import {isEqual} from "@emcjs/core/util/helper/Comparator.js";
-import ItemStateManager from "gametrackerjs/statemanager/item/ItemStateManager.js";
-import {getDefaultAccess} from "gametrackerjs/util/helper/ListAccessHelper.js";
-import AccessStateEnum from "gametrackerjs/enum/AccessStateEnum.js";
-import Logic from "gametrackerjs/util/logic/Logic.js";
-import DataState from "gametrackerjs/state/DataState.js";
-import StateVisibilityMixin from "gametrackerjs/state/mixins/StateVisibilityMixin.js";
-import StateFilterMixin from "gametrackerjs/state/mixins/StateFilterMixin.js";
 import Savestate from "gametrackerjs/savestate/Savestate.js";
+import DefaultLocationState from "gametrackerjs/state/world/location/DefaultLocationState.js";
 import LocationStateManager from "gametrackerjs/statemanager/world/location/LocationStateManager.js";
 import {AP_STORAGES} from "../../../util/archipelago/storage/RegisterAPStorage.js";
-import ExcludedLocationMixin from "../../mixin/ExcludedLocationMixin.js";
 
 const STORAGES = {
     locations: Savestate.getStorage("locations"),
     locationItems: Savestate.getStorage("locationItems")
 };
 
-function getLogicAccess(checked, reachable) {
-    const res = {
-        done: 0,
-        unopened: 0,
-        reachable: 0,
-        total: 1,
-        value: AccessStateEnum.OPENED,
-        entrances: 0
-    };
-    if (checked) {
-        res.done = 1;
-    } else if (reachable) {
-        res.unopened = 1;
-        res.reachable = 1;
-        res.value = AccessStateEnum.AVAILABLE;
-    } else {
-        res.unopened = 1;
-        res.value = AccessStateEnum.UNAVAILABLE;
-    }
-    return immute(res);
-}
-
-const BaseClass = mix(DataState).with(StateVisibilityMixin,
-    StateFilterMixin,
-    ExcludedLocationMixin);
-
-export default class DefaultAPLocationState extends BaseClass {
+export default class DefaultAPLocationState extends DefaultLocationState {
 
     #value = false;
 
     #apValue = false;
-
-    #item = "";
-
-    #itemData = null;
-
-    #reachable = false;
-
-    #access = this.defaultAccess;
-
-    #visible = true;
 
     #apLocationsObserver;
 
@@ -73,101 +26,18 @@ export default class DefaultAPLocationState extends BaseClass {
             this.setAPValue(event.value);
         });
 
-        const locationsObserver = new ObservableStorageObserver(STORAGES.locations, ref);
-        this.#value = locationsObserver.value;
-        locationsObserver.onChange((event) => {
-            this.value = event.value;
-        });
-
-        const locationItemsObserver = new ObservableStorageObserver(STORAGES.locationItems, ref);
-        this.#item = locationItemsObserver.value;
-        locationItemsObserver.onChange((event) => {
-            this.item = event.value;
-        });
-
-        if (this.#item) {
-            const itemData = ItemStateManager.get(this.#item);
-            this.#itemData = itemData?.props;
-        }
-
-        /* LOGIC */
-        const logicAccess = props.logicAccess ?? "";
-        this.#reachable = !!Logic.getValue(logicAccess);
-        Logic.addEventListener("change", () => {
-            const reachable = !!Logic.getValue(logicAccess);
-            if (reachable != this.#reachable) {
-                this.#reachable = reachable;
-                this.refreshAccess();
-                // external
-                const ev = new Event("reachable");
-                ev.value = reachable;
-                this.dispatchEvent(ev);
-            }
-        });
-
-        this.#init();
-
         /* EVENT */
-        this.addEventListener("visible", () => {
-            this.checkVisibility();
-        });
-        this.addEventListener("filtered", () => {
-            this.checkVisibility();
-        });
         this.addEventListener("excluded", () => {
             this.checkVisibility();
         });
-        this.checkVisibility();
+
+        setTimeout(() => {
+            this.#init();
+        }, 0);
     }
 
-    #init = debounce(() => {
+    #init() {
         this.setAPValue(this.#apLocationsObserver.value, true);
-
-        this.#access = getLogicAccess(this.value, this.reachable);
-        this.setLogicData("$IS_DONE", this.#access.value === AccessStateEnum.OPENED);
-        this.setLogicData("$IS_AVAILABLE", this.#access.value === AccessStateEnum.AVAILABLE);
-        this.setLogicData("$IS_POSSIBLE", false);
-        this.setLogicData("$IS_UNAVAILABLE", this.#access.value === AccessStateEnum.UNAVAILABLE);
-    });
-
-    checkVisibility = debounce(() => {
-        const value = this.visible && !this.filtered && !this.excluded;
-        if (this.#visible != value) {
-            this.#visible = value;
-            // external
-            const ev = new Event("visibility");
-            ev.value = value;
-            this.dispatchEvent(ev);
-        }
-    });
-
-    refreshAccess() {
-        const access = getLogicAccess(this.value, this.reachable);
-        if (!isEqual(access, this.#access)) {
-            this.#access = access;
-            // external
-            const ev = new Event("access");
-            ev.value = access;
-            this.dispatchEvent(ev);
-            // logic data
-            this.setLogicData("$IS_DONE", access.value === AccessStateEnum.OPENED);
-            this.setLogicData("$IS_AVAILABLE", access.value === AccessStateEnum.AVAILABLE);
-            this.setLogicData("$IS_UNAVAILABLE", access.value === AccessStateEnum.UNAVAILABLE);
-        }
-    }
-
-    get reachable() {
-        return this.#reachable;
-    }
-
-    get defaultAccess() {
-        const access = getDefaultAccess();
-        access.total = 1;
-        return access;
-    }
-
-    get access() {
-        return this.#access ?? this.defaultAccess;
     }
 
     set value(value) {
@@ -192,40 +62,6 @@ export default class DefaultAPLocationState extends BaseClass {
 
     get value() {
         return this.#value || this.#apValue || false;
-    }
-
-    set item(value) {
-        const ref = this.ref;
-        if (typeof value != "string") {
-            value = "";
-        }
-        if (value != this.#item) {
-            this.#item = value;
-            STORAGES.locationItems.set(ref, value);
-            // item data
-            if (value) {
-                const itemData = ItemStateManager.get(value);
-                this.#itemData = itemData?.props;
-            } else {
-                this.#itemData = null;
-            }
-            // external
-            const event = new Event("item");
-            event.value = value;
-            this.dispatchEvent(event);
-        }
-    }
-
-    get item() {
-        return this.#item;
-    }
-
-    get itemData() {
-        return this.#itemData;
-    }
-
-    isVisible() {
-        return this.#visible;
     }
 
     setAPValue(value, silent = false) {

@@ -216,5 +216,22 @@
             }
         },
         "badge": false
+    },
+    "show_excluded_locations": {
+        "choice": true,
+        "persist": true,
+        "description": "Filter excluded locations.",
+        "default": "true",
+        "values": {
+            "true": {
+                "image": "/images/icons/excluded_location_visible.svg",
+                "description": "Show excluded locations"
+            },
+            "false": {
+                "image": "/images/icons/excluded_location_invisible.svg",
+                "description": "Hide excluded locations"
+            }
+        },
+        "badge": false
     }
 }

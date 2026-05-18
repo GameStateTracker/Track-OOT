@@ -21,7 +21,8 @@ import parseEntrances from "./parseEntrances.js";
 import parseDisabledLocations from "./parseDisabledLocations.js";
 import ErrorDialogHandler from "../ErrorDialogHandler.js";
 
-const errorDialogHandler = new ErrorDialogHandler("Spoiler Loaded Partially",
+const errorDialogHandler = new ErrorDialogHandler(
+    "Spoiler Loaded Partially",
     `Not all settings in your spoiler log were loaded correctly.
 Please report this issue on discord and provide...
 
@@ -29,7 +30,8 @@ Please report this issue on discord and provide...
 - the tracker version (${VersionData.version})
 - the errors listed below
 
-The following errors were recorded:`);
+The following errors were recorded:`
+);
 
 function addError(error, category) {
     console.warn(category, error);
@@ -109,9 +111,7 @@ class SpoilerParser {
         }
         if (debugSpoiler || settings["item_association"]) {
             // locationItems
-            parseItemLocations(
-                addError, result, getWorldData(spoiler["locations"], world), world, debugSpoiler || settings["ignore_world_locking"], trans
-            );
+            parseItemLocations(addError, result, getWorldData(spoiler["locations"], world), world, debugSpoiler || settings["ignore_world_locking"], trans);
         }
         if (debugSpoiler || settings["woth_hints"]) {
             // areaHints

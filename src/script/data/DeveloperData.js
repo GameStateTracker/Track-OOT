@@ -1,8 +1,6 @@
 // frameworks
 import FileLoader from "@emcjs/core/util/file/FileLoader.js";
-import {
-    deepClone
-} from "@emcjs/core/util/helper/DeepClone.js";
+import {deepClone} from "@emcjs/core/util/helper/DeepClone.js";
 
 async function getData() {
     const res = {};

@@ -64,6 +64,4 @@ SavestateConverter.register(function(state) {
 
 const FULL_TRANSLATION = {};
 
-const TRANSLATION = {
-    "near_scrubs_woods_gateway": "scrubs_grotto_woods_gateway"
-};
+const TRANSLATION = {"near_scrubs_woods_gateway": "scrubs_grotto_woods_gateway"};
