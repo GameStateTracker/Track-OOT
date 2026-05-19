@@ -1,17 +1,13 @@
-// frameworks
 import ObservableStorageObserver from "@emcjs/core/util/observer/data/storage/ObservableStorageObserver.js";
-
-// GameTrackerJS
+import EntityState from "@emcjs/core/data/state/entity/EntityState.js";
 import Savestate from "gametrackerjs/savestate/Savestate.js";
-import DataState from "gametrackerjs/state/DataState.js";
-// Track-OOT
 import "../../util/registerStorages.js";
 
 const STORAGES = {songNotes: Savestate.getStorage("songNotes")};
 
 const NOTES = new WeakMap();
 
-export default class DefaultSongState extends DataState {
+export default class DefaultSongState extends EntityState {
 
     constructor(ref, props) {
         super(ref, props);

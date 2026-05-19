@@ -1,11 +1,7 @@
-// frameworks
 import ObservableStorageObserver from "@emcjs/core/util/observer/data/storage/ObservableStorageObserver.js";
-
-// GameTrackerJS
+import EntityState from "@emcjs/core/data/state/entity/EntityState.js";
 import Savestate from "gametrackerjs/savestate/Savestate.js";
 import AreaStateManager from "gametrackerjs/statemanager/world/area/AreaStateManager.js";
-import DataState from "gametrackerjs/state/DataState.js";
-// Track-OOT
 import "../StateTypesLoader.js";
 import "../../util/registerStorages.js";
 
@@ -14,7 +10,7 @@ const STORAGES = {dungeonRewards: Savestate.getStorage("dungeonRewards")};
 const AREA = new WeakMap();
 const REWARD = new WeakMap();
 
-export default class DefaultDungeonState extends DataState {
+export default class DefaultDungeonState extends EntityState {
 
     constructor(ref, props) {
         super(ref, props);

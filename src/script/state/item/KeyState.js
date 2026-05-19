@@ -64,4 +64,4 @@ export default class KeyState extends DefaultAPItemState {
 
 }
 
-ItemStateManager.register("key", KeyState);
+ItemStateManager.registerStateClass("key", KeyState);

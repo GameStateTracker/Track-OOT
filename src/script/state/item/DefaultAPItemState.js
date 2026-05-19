@@ -1,9 +1,8 @@
-// frameworks
 import ObservableStorageObserver from "@emcjs/core/util/observer/data/storage/ObservableStorageObserver.js";
+import EntityState from "@emcjs/core/data/state/entity/EntityState.js";
 import {mix} from "@emcjs/core/mixin/Mixin.js";
 import Savestate from "gametrackerjs/savestate/Savestate.js";
 import ItemStateManager from "gametrackerjs/statemanager/item/ItemStateManager.js";
-import DataState from "gametrackerjs/state/DataState.js";
 import StateVisibilityMixin from "gametrackerjs/state/mixins/StateVisibilityMixin.js";
 import {parseSafeRange} from "gametrackerjs/util/helper/ItemHelper.js";
 import OptionsObserver from "gametrackerjs/util/observer/OptionsObserver.js";
@@ -14,7 +13,7 @@ const STORAGES = {
     startItems: Savestate.getStorage("startItems")
 };
 
-const BaseClass = mix(DataState).with(StateVisibilityMixin);
+const BaseClass = mix(EntityState).with(StateVisibilityMixin);
 
 export default class DefaultAPItemState extends BaseClass {
 
@@ -271,4 +270,4 @@ export default class DefaultAPItemState extends BaseClass {
 
 }
 
-ItemStateManager.setDefaultState(DefaultAPItemState);
+ItemStateManager.setDefaultStateClass(DefaultAPItemState);

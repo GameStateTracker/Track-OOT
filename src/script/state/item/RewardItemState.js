@@ -48,4 +48,4 @@ export default class RewardItemState extends DefaultAPItemState {
 
 }
 
-ItemStateManager.register("dungeonreward", RewardItemState);
+ItemStateManager.registerStateClass("dungeonreward", RewardItemState);

@@ -59,4 +59,4 @@ export default class ScrubLocationState extends DefaultAPLocationState {
 
 }
 
-LocationStateManager.register("scrub", ScrubLocationState);
+LocationStateManager.registerStateClass("scrub", ScrubLocationState);

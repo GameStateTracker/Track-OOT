@@ -89,4 +89,4 @@ export default class DefaultAPLocationState extends DefaultLocationState {
 
 }
 
-LocationStateManager.setDefaultState(DefaultAPLocationState);
+LocationStateManager.setDefaultStateClass(DefaultAPLocationState);

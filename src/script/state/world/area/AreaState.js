@@ -19,4 +19,4 @@ export default class AreaState extends DefaultAreaState {
 
 }
 
-AreaStateManager.setDefaultState(AreaState);
+AreaStateManager.setDefaultStateClass(AreaState);

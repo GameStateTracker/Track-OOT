@@ -289,4 +289,4 @@ export default class ShopSlotState extends DefaultAPLocationState {
 
 }
 
-LocationStateManager.register("shopslot", ShopSlotState);
+LocationStateManager.registerStateClass("shopslot", ShopSlotState);

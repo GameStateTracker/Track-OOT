@@ -11,10 +11,10 @@
   "main": "parse.js",
   "type": "module",
   "dependencies": {
-    "@emcjs/core": "https://github.com/ZidArgs/emcJS-Core.git/#1.0.7",
+    "@emcjs/core": "https://github.com/ZidArgs/emcJS-Core.git/#1.0.8",
     "@emcjs/fe": "https://github.com/ZidArgs/emcJS-FE.git/#0.0.11",
     "archipelagojs": "git+https://bitbucket.org/zidargs/archipelagojs.git/#1.1.2",
-    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.10.9",
+    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.11.0",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.4.2",
     "jswebservice": "git+https://bitbucket.org/zidargs/jswebservice.git/#3.1.5",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git/#1.2.13"

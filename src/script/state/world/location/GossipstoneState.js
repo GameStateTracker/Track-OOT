@@ -73,4 +73,4 @@ export default class GossipstoneState extends DefaultAPLocationState {
 
 }
 
-LocationStateManager.register("gossipstone", GossipstoneState);
+LocationStateManager.registerStateClass("gossipstone", GossipstoneState);

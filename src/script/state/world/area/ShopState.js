@@ -26,4 +26,4 @@ export default class ShopState extends AreaState  {
 
 }
 
-AreaStateManager.register("shop", ShopState);
+AreaStateManager.registerStateClass("shop", ShopState);
