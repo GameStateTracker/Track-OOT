@@ -54,8 +54,8 @@ Application:    Track-OOT
 - add missing tooltips
 - add infotext to ap modal
 - make excluded locations visible but visually distinct
-  - excludedd locations are striked through
-- add filter rto  show/hide excluded locations
+  - excluded locations are striked through
+- add filter to show/hide excluded locations
 
 ### BUG FIXES
 
