@@ -51,6 +51,11 @@ Application:    Track-OOT
 - add dedicated panel for "About"
 - add ping to multiplayer
 - add send data logging to multiplayer
+- add missing tooltips
+- add infotext to ap modal
+- make excluded locations visible but visually distinct
+  - excludedd locations are striked through
+- add filter rto  show/hide excluded locations
 
 ### BUG FIXES
 
@@ -62,6 +67,8 @@ Application:    Track-OOT
 - reduce content reflow on splash screen by not lazy loading styles
 - fix multiplayer handling connection issues
 - fix ap panel design
+- fix logic viewer not loading ap logic
+- fix settings windows not loading combined listselect values properly
 
 ---
 
