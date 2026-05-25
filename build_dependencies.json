@@ -1,11 +1,13 @@
 [
     {
+        "name": "@emcjs/core",
         "js": {
             "src": "@emcjs/core/src",
             "dest": "_libs/emcjs/core"
         }
     },
     {
+        "name": "@emcjs/fe",
         "js": {
             "src": "@emcjs/fe/src",
             "dest": "_libs/emcjs/fe"
@@ -20,24 +22,28 @@
         }
     },
     {
+        "name": "gametrackerjs",
         "js": {
             "src": "gametrackerjs/src",
             "dest": "_libs/gametrackerjs"
         }
     },
     {
+        "name": "jseditors",
         "js": {
             "src": "jseditors/src",
             "dest": "_libs/jseditors"
         }
     },
     {
+        "name": "rtcclient",
         "js": {
             "src": "rtcclient/src",
             "dest": "_libs/rtcclient"
         }
     },
     {
+        "name": "archipelagojs",
         "js": {
             "src": "archipelagojs/src",
             "dest": "_libs/archipelagojs"

@@ -12,6 +12,7 @@ import {readJSONFile} from "@zidargs/buildtools/util/ReadJSONFile.js";
 import {mergeStream} from "@zidargs/buildtools/util/MergeStream.js";
 import {packScript} from "@zidargs/buildtools/PackScript.js";
 import SourceImport from "@zidargs/buildtools/SourceImport.js";
+import InjectImportMap from "@zidargs/buildtools/InjectImportMap.js";
 import "@emcjs/fe/_build_tools/RegisterImportHandlers.js";
 
 const __dirname = path.resolve();
@@ -59,10 +60,9 @@ function copyJS(files, src, dest, distRoot) {
 function buildWorker(files, src, dest) {
     let res = gulp.src(files);
     res = res.pipe(ImportAnalyzer.register(src, dest, __dirname));
-    res = res.pipe(FileIndex.addThrough(src, dest, true));
     res = res.pipe(packScript());
     res = res.pipe(FileIndex.addThrough(src, dest, true));
-    if (!REBUILD) {
+    if (!REBUILDJS && !REBUILD) {
         res = res.pipe(changed(dest, {hasChanged: compareContents}));
     }
     res = res.pipe(gulp.dest(dest));
@@ -76,6 +76,9 @@ function prepareDependencyPathRewrites(dest = DEV_PATH, done = () => {}) {
             const SRC = path.resolve(NODE_FOLDER, dependency.js.src);
             const DST = `${dest}/${dependency.js.dest}`;
             ImportAnalyzer.setPathRewriteRule(SRC, DST);
+            if ("name" in dependency)  {
+                InjectImportMap.setImport(`${dependency.name}/`, `/${dependency.js.dest}/`);
+            }
         }
     }
     done();
@@ -137,7 +140,7 @@ function copyDependencyCSS(dest = DEV_PATH) {
 function copyDependencyFonts(dest = DEV_PATH) {
     const result = [];
     for (const dependency of DEPENDENCIES) {
-        if ("css" in dependency) {
+        if ("font" in dependency) {
             const SRC = path.resolve(NODE_FOLDER, dependency.font.src);
             const DST = `${dest}/${dependency.font.dest}`;
             const FILES = [
@@ -191,6 +194,7 @@ function copyHTML(src = SRC_PATH, dest = DEV_PATH) {
     ];
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(src, dest));
+    res = res.pipe(InjectImportMap.inject());
     if (!REBUILD) {
         res = res.pipe(changed(dest));
     }
