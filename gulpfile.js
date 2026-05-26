@@ -127,7 +127,7 @@ function copyDependencyCSS(dest = DEV_PATH) {
             let res = gulp.src(FILES);
             res = res.pipe(FileIndex.register(SRC, DST));
             if (!REBUILD) {
-                res = res.pipe(changed(DST));
+                res = res.pipe(changed(DST, {hasChanged: compareContents}));
             }
             res = res.pipe(autoprefixer());
             res = res.pipe(gulp.dest(DST));
@@ -154,7 +154,7 @@ function copyDependencyFonts(dest = DEV_PATH) {
             let res = gulp.src(FILES);
             res = res.pipe(FileIndex.register(SRC, DST));
             if (!REBUILD) {
-                res = res.pipe(changed(DST));
+                res = res.pipe(changed(DST, {hasChanged: compareContents}));
             }
             res = res.pipe(gulp.dest(DST));
             result.push(res);
@@ -196,7 +196,7 @@ function copyHTML(src = SRC_PATH, dest = DEV_PATH) {
     res = res.pipe(FileIndex.register(src, dest));
     res = res.pipe(InjectImportMap.inject());
     if (!REBUILD) {
-        res = res.pipe(changed(dest));
+        res = res.pipe(changed(dest, {hasChanged: compareContents}));
     }
     res = res.pipe(htmlmin({collapseWhitespace: true}));
     res = res.pipe(gulp.dest(dest));
@@ -211,7 +211,7 @@ function copyJSON(src = SRC_PATH, dest = DEV_PATH) {
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(src, dest));
     if (!REBUILD) {
-        res = res.pipe(changed(dest));
+        res = res.pipe(changed(dest, {hasChanged: compareContents}));
     }
     if (!NOCOMPRESS) {
         res = res.pipe(jsonminify());
@@ -228,7 +228,7 @@ function copyLogic(src = SRC_PATH, dest = DEV_PATH) {
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(src, DST));
     if (!REBUILD) {
-        res = res.pipe(changed(DST));
+        res = res.pipe(changed(DST, {hasChanged: compareContents}));
     }
     res = res.pipe(gulp.dest(DST));
     return res;
@@ -242,7 +242,7 @@ function copyI18N(src = SRC_PATH, dest = DEV_PATH) {
     res = res.pipe(FileIndex.register(`${src}/i18n`, `${dest}/i18n`));
     res = res.pipe(LanguageManager.register(`${src}/i18n`, `${dest}/i18n`));
     if (!REBUILD) {
-        res = res.pipe(changed(`${dest}/i18n`));
+        res = res.pipe(changed(`${dest}/i18n`, {hasChanged: compareContents}));
     }
     res = res.pipe(gulp.dest(`${dest}/i18n`));
     return res;
@@ -257,7 +257,7 @@ function copyI18NFragments(src = SRC_PATH, dest = DEV_PATH) {
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(`${src}/i18n/fragments`, `${dest}/i18n/fragments`));
     if (!REBUILD) {
-        res = res.pipe(changed(`${dest}/i18n/fragments`));
+        res = res.pipe(changed(`${dest}/i18n/fragments`, {hasChanged: compareContents}));
     }
     res = res.pipe(gulp.dest(`${dest}/i18n/fragments`));
     return res;
@@ -272,7 +272,7 @@ function copyImg(src = SRC_PATH, dest = DEV_PATH) {
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(`${src}/images`, `${dest}/images`));
     if (!REBUILD) {
-        res = res.pipe(changed(`${dest}/images`));
+        res = res.pipe(changed(`${dest}/images`, {hasChanged: compareContents}));
     }
     res = res.pipe(svgo());
     res = res.pipe(gulp.dest(`${dest}/images`));
@@ -286,7 +286,7 @@ function copyChangelog(src = SRC_PATH, dest = DEV_PATH) {
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(src, dest));
     if (!REBUILD) {
-        res = res.pipe(changed(dest));
+        res = res.pipe(changed(dest, {hasChanged: compareContents}));
     }
     res = res.pipe(gulp.dest(dest));
     return res;
@@ -299,7 +299,7 @@ function copyCSS(src = SRC_PATH, dest = DEV_PATH) {
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(`${src}/style`, `${dest}/style`));
     if (!REBUILD) {
-        res = res.pipe(changed(`${dest}/style`));
+        res = res.pipe(changed(`${dest}/style`, {hasChanged: compareContents}));
     }
     res = res.pipe(autoprefixer());
     res = res.pipe(gulp.dest(`${dest}/style`));
@@ -318,13 +318,13 @@ function copyFonts(src = SRC_PATH, dest = DEV_PATH) {
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(`${src}/fonts`, `${dest}/fonts`));
     if (!REBUILD) {
-        res = res.pipe(changed(`${dest}/fonts`));
+        res = res.pipe(changed(`${dest}/fonts`, {hasChanged: compareContents}));
     }
     res = res.pipe(gulp.dest(`${dest}/fonts`));
     return res;
 }
 
-function finish(dest, done) {
+function finish(dest, done = () => {}) {
     ImportAnalyzer.printUnresolvedImports();
     FileIndex.add(LanguageManager.finish(`${dest}/i18n`));
     FileIndex.add(path.resolve(dest, "_libs/emcjs/fe/polyfills/**/*.js"), true);

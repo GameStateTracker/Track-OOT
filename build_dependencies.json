@@ -7,6 +7,13 @@
         }
     },
     {
+        "name": "@emcjs/logic",
+        "js": {
+            "src": "@emcjs/logic/src",
+            "dest": "_libs/emcjs/logic"
+        }
+    },
+    {
         "name": "@emcjs/fe",
         "js": {
             "src": "@emcjs/fe/src",
