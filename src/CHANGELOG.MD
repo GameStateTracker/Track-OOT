@@ -69,6 +69,7 @@ Application:    Track-OOT
 - fix ap panel design
 - fix logic viewer not loading ap logic
 - fix settings windows not loading combined listselect values properly
+- fix deku not opening properly after closed was set with entrance randomizer active
 
 ---
 

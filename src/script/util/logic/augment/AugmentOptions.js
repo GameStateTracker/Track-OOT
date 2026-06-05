@@ -38,6 +38,8 @@ function augment(cache) {
             } else {
                 cache.deleteAugmented("option[doors_open_forest]");
             }
+        } else {
+            cache.deleteAugmented("option[doors_open_forest]");
         }
     }
     // selected adult trade item
