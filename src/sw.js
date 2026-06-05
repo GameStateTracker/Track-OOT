@@ -1,3 +1,8 @@
+/**
+ * A ServiceWorker providing a manual update mechanism to control
+ * when to get the latest version of the application.
+ */
+
 const CACHE_INDEX = "/index.json";
 const CACHE_NAME = "track-oot";
 const HEADER_CONFIG = new Headers({
@@ -6,8 +11,9 @@ const HEADER_CONFIG = new Headers({
     "Cache-Control": "no-cache"
 });
 
-const BLACKLIST_PATHS = [
-    "/remote/"
+const REMOTE_PATHS = [
+    "/remote/",
+    "/rtc/"
 ];
 
 const cmd = {
@@ -27,13 +33,14 @@ self.addEventListener("activate", () => {
 });
 
 self.addEventListener("fetch", function(event) {
+    const url = new URL(event.request.url);
     if (event.request.cache === "only-if-cached" && event.request.mode !== "same-origin") {
         return;
     }
-    if ((new URL(event.request.url)).searchParams.get("nosw") !== null) {
+    if (url.searchParams.get("nosw") !== null) {
         return;
     }
-    if (BLACKLIST_PATHS.includes((new URL(event.request.url)).pathname)) {
+    if (REMOTE_PATHS.some((pathEntry) => url.pathname.startsWith(pathEntry))) {
         return;
     }
     if (event.request.url == self.location.origin + "/version.json") {
@@ -120,7 +127,6 @@ async function overwriteCachedFile(cache, request, file) {
     try {
         await cache.delete(request);
         await cache.add(request, file);
-        // console.log("installed:", request, file);
     } catch (err) {
         console.log("error caching:", request, file);
         throw err;
