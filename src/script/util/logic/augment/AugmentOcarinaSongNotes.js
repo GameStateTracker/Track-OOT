@@ -51,8 +51,8 @@ export function augment(cache) {
             const hasL = cache.get("item[ocarina_left_button]");
             const hasR = cache.get("item[ocarina_right_button]");
 
-            // cache.setAugmented("calculated[has_all_notes_for_song(song_woods)]", hasA && hasU && hasD && hasL && hasR);
-            // cache.setAugmented("calculated[has_all_notes_for_song(song_frogs)]", hasA && hasU && hasD && hasL && hasR);
+            cache.setAugmented("calculated[has_all_notes_for_song(song_woods)]", hasA && hasU && hasD && hasL && hasR);
+            cache.setAugmented("calculated[has_all_notes_for_song(song_frogs)]", hasA && hasU && hasD && hasL && hasR);
             cache.setAugmented("calculated[has_all_notes_for_song(song_scarecrow)]", (hasA + hasU + hasD + hasL + hasR) > 2);
 
             for (const ref of SONGS) {

@@ -1,0 +1,65 @@
+{
+    "mixin[sticks]": {
+        "type": "or",
+        "content": [
+            {
+                "type": "mixin",
+                "ref": "mixin[sticks]{child}"
+            },
+            {
+                "type": "mixin",
+                "ref": "mixin[sticks]{adult}"
+            }
+        ]
+    },
+    "item[longshot]": {
+        "type": "min",
+        "content": {
+            "type": "value",
+            "ref": "item[hookshot]"
+        },
+        "value": 2
+    },
+    "item[silver_gauntlets]": {
+        "type": "min",
+        "content": {
+            "type": "value",
+            "ref": "item[glove]"
+        },
+        "value": 2
+    },
+    "item[golden_gauntlets]": {
+        "type": "min",
+        "content": {
+            "type": "value",
+            "ref": "item[glove]"
+        },
+        "value": 3
+    },
+    "mixin[scarecrow]": {
+        "type": "or",
+        "content": [
+            {
+                "type": "mixin",
+                "ref": "mixin[scarecrow]{child}"
+            },
+            {
+                "type": "mixin",
+                "ref": "mixin[scarecrow]{adult}"
+            }
+        ]
+    },
+    "mixin[distant_scarecrow]": {
+        "type": "or",
+        "content": [
+            {
+                "type": "mixin",
+                "ref": "mixin[distant_scarecrow]{child}"
+            },
+            {
+                "type": "mixin",
+                "ref": "mixin[distant_scarecrow]{adult}"
+            }
+        ]
+    }
+}

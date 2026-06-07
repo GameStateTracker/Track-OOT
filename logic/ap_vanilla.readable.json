@@ -250,6 +250,16 @@
                 "type": "true"
             }
         },
+        "region[ganons_castle_ganons_tower_gateway:out]{child}": {
+            "region[ganons_castle_main]{child}": {
+                "type": "true"
+            }
+        },
+        "region[ganons_castle_ganons_tower_gateway:out]{adult}": {
+            "region[ganons_castle_main]{adult}": {
+                "type": "true"
+            }
+        },
         "region[ganons_tower_ganons_castle_gateway:in]{child}": {
             "region[ganons_castle_ganons_tower_gateway:out]{child}": {
                 "type": "true"
@@ -257,6 +267,16 @@
         },
         "region[ganons_tower_ganons_castle_gateway:in]{adult}": {
             "region[ganons_castle_ganons_tower_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[ganons_tower_ganons_castle_gateway:out]{child}": {
+            "region[ganons_castle_tower]{child}": {
+                "type": "true"
+            }
+        },
+        "region[ganons_tower_ganons_castle_gateway:out]{adult}": {
+            "region[ganons_castle_tower]{adult}": {
                 "type": "true"
             }
         },
@@ -11098,7 +11118,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -11170,7 +11190,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -11779,7 +11799,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             },
@@ -11965,7 +11985,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             },
@@ -12227,7 +12247,7 @@
             }
         },
         "region[deku_tree_before_boss_mq]{child}": {
-            "region[deku_tree_boss_door_mq]{child}": {
+            "region[deku_tree_boss_door]{child}": {
                 "type": "or",
                 "content": [
                     {
@@ -12289,7 +12309,7 @@
             }
         },
         "region[deku_tree_before_boss_mq]{adult}": {
-            "region[deku_tree_boss_door_mq]{adult}": {
+            "region[deku_tree_boss_door]{adult}": {
                 "type": "or",
                 "content": [
                     {
@@ -17549,7 +17569,7 @@
             }
         },
         "region[dodongos_cavern_before_boss_mq]{child}": {
-            "region[dodongos_cavern_boss_door_mq]{child}": {
+            "region[dodongos_cavern_boss_door]{child}": {
                 "type": "true"
             },
             "reach_location[dodongo_mq.armos_army_room_upper_pot]": {
@@ -17571,7 +17591,7 @@
             }
         },
         "region[dodongos_cavern_before_boss_mq]{adult}": {
-            "region[dodongos_cavern_boss_door_mq]{adult}": {
+            "region[dodongos_cavern_boss_door]{adult}": {
                 "type": "true"
             },
             "reach_location[dodongo_mq.armos_army_room_upper_pot]": {
@@ -18428,7 +18448,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             },
@@ -18589,7 +18609,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             },
@@ -18831,7 +18851,7 @@
                                         "params": [
                                             {
                                                 "type": "string",
-                                                "value": "mixin[longshot]"
+                                                "value": "item[longshot]"
                                             }
                                         ]
                                     }
@@ -18967,7 +18987,7 @@
                                         "params": [
                                             {
                                                 "type": "string",
-                                                "value": "mixin[longshot]"
+                                                "value": "item[longshot]"
                                             }
                                         ]
                                     }
@@ -19055,8 +19075,8 @@
                                 "ref": "item[boots_hover]"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             }
                         ]
                     }
@@ -19356,8 +19376,8 @@
                                 "ref": "item[boots_hover]"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             }
                         ]
                     }
@@ -20255,7 +20275,7 @@
             }
         },
         "region[fire_temple_near_boss_mq]{child}": {
-            "region[fire_temple_boss_door_mq]{child}": {
+            "region[fire_temple_boss_door]{child}": {
                 "type": "and",
                 "content": [
                     {
@@ -20403,8 +20423,8 @@
                                                                         "ref": "item[bow]"
                                                                     },
                                                                     {
-                                                                        "type": "mixin",
-                                                                        "ref": "mixin[longshot]{child}"
+                                                                        "type": "value",
+                                                                        "ref": "item[longshot]"
                                                                     }
                                                                 ]
                                                             }
@@ -20688,7 +20708,7 @@
             }
         },
         "region[fire_temple_near_boss_mq]{adult}": {
-            "region[fire_temple_boss_door_mq]{adult}": {
+            "region[fire_temple_boss_door]{adult}": {
                 "type": "and",
                 "content": [
                     {
@@ -20836,8 +20856,8 @@
                                                                         "ref": "item[bow]"
                                                                     },
                                                                     {
-                                                                        "type": "mixin",
-                                                                        "ref": "mixin[longshot]{adult}"
+                                                                        "type": "value",
+                                                                        "ref": "item[longshot]"
                                                                     }
                                                                 ]
                                                             }
@@ -22038,8 +22058,8 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "and",
@@ -22077,8 +22097,8 @@
                                 "type": "and",
                                 "content": [
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{child}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     },
                                     {
                                         "type": "value",
@@ -22127,8 +22147,8 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "and",
@@ -22166,8 +22186,8 @@
                                 "type": "and",
                                 "content": [
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{adult}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     },
                                     {
                                         "type": "value",
@@ -22614,7 +22634,7 @@
                     }
                 ]
             },
-            "region[fire_temple_boss_door_mq]{child}": {
+            "region[fire_temple_boss_door]{child}": {
                 "type": "true"
             },
             "reach_location[fire_temple_mq.flame_maze_left_pot_1]": {
@@ -22669,8 +22689,8 @@
                                         "ref": "option[skip.fire_mq_above_maze_gs]"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{child}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     }
                                 ]
                             }
@@ -22719,7 +22739,7 @@
                     }
                 ]
             },
-            "region[fire_temple_boss_door_mq]{adult}": {
+            "region[fire_temple_boss_door]{adult}": {
                 "type": "true"
             },
             "reach_location[fire_temple_mq.flame_maze_left_pot_1]": {
@@ -22774,8 +22794,8 @@
                                         "ref": "option[skip.fire_mq_above_maze_gs]"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{adult}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     }
                                 ]
                             }
@@ -23976,8 +23996,8 @@
                                         "ref": "option[skip.fire_scarecrow]"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{child}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     }
                                 ]
                             }
@@ -24025,8 +24045,8 @@
                                         "ref": "option[skip.fire_scarecrow]"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{child}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     }
                                 ]
                             }
@@ -24062,8 +24082,8 @@
                                         "ref": "option[skip.fire_scarecrow]"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{child}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     }
                                 ]
                             }
@@ -24126,8 +24146,8 @@
                                         "ref": "option[skip.fire_scarecrow]"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{adult}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     }
                                 ]
                             }
@@ -24175,8 +24195,8 @@
                                         "ref": "option[skip.fire_scarecrow]"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{adult}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     }
                                 ]
                             }
@@ -24212,8 +24232,8 @@
                                         "ref": "option[skip.fire_scarecrow]"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{adult}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     }
                                 ]
                             }
@@ -26378,7 +26398,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -26446,7 +26466,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -26517,7 +26537,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             },
@@ -26555,7 +26575,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             },
@@ -26961,7 +26981,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             },
@@ -26999,7 +27019,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             },
@@ -27987,7 +28007,7 @@
             }
         },
         "region[forest_temple_before_boss_mq]{child}": {
-            "region[forest_temple_boss_door_mq]{child}": {
+            "region[forest_temple_boss_door]{child}": {
                 "type": "true"
             },
             "reach_location[temple_forest_mq.c_near_boss]": {
@@ -28012,7 +28032,7 @@
             }
         },
         "region[forest_temple_before_boss_mq]{adult}": {
-            "region[forest_temple_boss_door_mq]{adult}": {
+            "region[forest_temple_boss_door]{adult}": {
                 "type": "true"
             },
             "reach_location[temple_forest_mq.c_near_boss]": {
@@ -28790,7 +28810,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             },
@@ -29110,7 +29130,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             },
@@ -29386,7 +29406,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -29764,7 +29784,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -31313,15 +31333,15 @@
                         "ref": "item[tunic_fire]"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[golden_gauntlets]{child}"
+                        "type": "value",
+                        "ref": "item[golden_gauntlets]"
                     },
                     {
                         "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "value",
@@ -31350,7 +31370,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[golden_gauntlets]"
+                        "value": "item[golden_gauntlets]"
                     }
                 ]
             },
@@ -31593,15 +31613,15 @@
                         "ref": "item[tunic_fire]"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[golden_gauntlets]{adult}"
+                        "type": "value",
+                        "ref": "item[golden_gauntlets]"
                     },
                     {
                         "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "value",
@@ -31630,7 +31650,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[golden_gauntlets]"
+                        "value": "item[golden_gauntlets]"
                     }
                 ]
             },
@@ -33318,7 +33338,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[golden_gauntlets]"
+                        "value": "item[golden_gauntlets]"
                     }
                 ]
             },
@@ -33490,7 +33510,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[golden_gauntlets]"
+                        "value": "item[golden_gauntlets]"
                     }
                 ]
             },
@@ -34178,7 +34198,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -34251,7 +34271,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -34402,8 +34422,8 @@
                                 "type": "and",
                                 "content": [
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{child}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     },
                                     {
                                         "type": "value",
@@ -34597,8 +34617,8 @@
                                 "type": "and",
                                 "content": [
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{adult}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     },
                                     {
                                         "type": "value",
@@ -34821,12 +34841,12 @@
                         "ref": "item[tunic_fire]"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[golden_gauntlets]{child}"
+                        "type": "value",
+                        "ref": "item[golden_gauntlets]"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{child}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     }
                 ]
             },
@@ -34848,12 +34868,12 @@
                         "ref": "item[tunic_fire]"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[golden_gauntlets]{adult}"
+                        "type": "value",
+                        "ref": "item[golden_gauntlets]"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{adult}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     }
                 ]
             },
@@ -36192,8 +36212,8 @@
                                 "ref": "item[bow]"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             }
                         ]
                     },
@@ -36261,8 +36281,8 @@
                                 "ref": "item[bow]"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             }
                         ]
                     },
@@ -36406,7 +36426,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -36472,7 +36492,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -36628,7 +36648,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[silver_gauntlets]"
+                                "value": "item[silver_gauntlets]"
                             }
                         ]
                     }
@@ -36748,7 +36768,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[silver_gauntlets]"
+                                "value": "item[silver_gauntlets]"
                             }
                         ]
                     }
@@ -36774,8 +36794,8 @@
                 "ref": "item[hammer]"
             },
             "region[gerudo_training_ground_right_side_mq]{child}": {
-                "type": "mixin",
-                "ref": "mixin[longshot]{child}"
+                "type": "value",
+                "ref": "item[longshot]"
             },
             "reach_location[training_grounds_mq.c_ice_arrows]": {
                 "type": "and",
@@ -36853,8 +36873,8 @@
                 "ref": "item[hammer]"
             },
             "region[gerudo_training_ground_right_side_mq]{adult}": {
-                "type": "mixin",
-                "ref": "mixin[longshot]{adult}"
+                "type": "value",
+                "ref": "item[longshot]"
             },
             "reach_location[training_grounds_mq.c_ice_arrows]": {
                 "type": "and",
@@ -36931,8 +36951,8 @@
                 "type": "or",
                 "content": [
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{child}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     },
                     {
                         "type": "and",
@@ -36967,8 +36987,8 @@
                 "type": "or",
                 "content": [
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{adult}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     },
                     {
                         "type": "and",
@@ -37837,8 +37857,8 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "and",
@@ -37938,8 +37958,8 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "and",
@@ -38202,8 +38222,8 @@
         },
         "region[gerudo_training_ground_eye_statue_upper]{child}": {
             "region[gerudo_training_ground_like_like_room]{child}": {
-                "type": "mixin",
-                "ref": "mixin[silver_gauntlets]{child}"
+                "type": "value",
+                "ref": "item[silver_gauntlets]"
             },
             "region[gerudo_training_ground_eye_statue_lower]{child}": {
                 "type": "true"
@@ -38224,8 +38244,8 @@
         },
         "region[gerudo_training_ground_eye_statue_upper]{adult}": {
             "region[gerudo_training_ground_like_like_room]{adult}": {
-                "type": "mixin",
-                "ref": "mixin[silver_gauntlets]{adult}"
+                "type": "value",
+                "ref": "item[silver_gauntlets]"
             },
             "region[gerudo_training_ground_eye_statue_lower]{adult}": {
                 "type": "true"
@@ -38935,7 +38955,7 @@
                                         "params": [
                                             {
                                                 "type": "string",
-                                                "value": "mixin[longshot]"
+                                                "value": "item[longshot]"
                                             }
                                         ]
                                     }
@@ -39054,7 +39074,7 @@
                                         "params": [
                                             {
                                                 "type": "string",
-                                                "value": "mixin[longshot]"
+                                                "value": "item[longshot]"
                                             }
                                         ]
                                     }
@@ -41545,7 +41565,7 @@
                                                                                     "params": [
                                                                                         {
                                                                                             "type": "string",
-                                                                                            "value": "mixin[longshot]"
+                                                                                            "value": "item[longshot]"
                                                                                         }
                                                                                     ]
                                                                                 },
@@ -41672,7 +41692,7 @@
                                                                                     "params": [
                                                                                         {
                                                                                             "type": "string",
-                                                                                            "value": "mixin[longshot]"
+                                                                                            "value": "item[longshot]"
                                                                                         }
                                                                                     ]
                                                                                 },
@@ -42115,7 +42135,7 @@
                                                                                     "params": [
                                                                                         {
                                                                                             "type": "string",
-                                                                                            "value": "mixin[longshot]"
+                                                                                            "value": "item[longshot]"
                                                                                         }
                                                                                     ]
                                                                                 },
@@ -42242,7 +42262,7 @@
                                                                                     "params": [
                                                                                         {
                                                                                             "type": "string",
-                                                                                            "value": "mixin[longshot]"
+                                                                                            "value": "item[longshot]"
                                                                                         }
                                                                                     ]
                                                                                 },
@@ -42545,7 +42565,7 @@
             }
         },
         "region[jabu_jabus_belly_before_boss_mq]{child}": {
-            "region[jabu_jabus_belly_boss_door_mq]{child}": {
+            "region[jabu_jabus_belly_boss_door]{child}": {
                 "type": "or",
                 "content": [
                     {
@@ -42682,7 +42702,7 @@
             }
         },
         "region[jabu_jabus_belly_before_boss_mq]{adult}": {
-            "region[jabu_jabus_belly_boss_door_mq]{adult}": {
+            "region[jabu_jabus_belly_boss_door]{adult}": {
                 "type": "or",
                 "content": [
                     {
@@ -43775,11 +43795,7 @@
                 "ref": "option[shuffle_child_trade]",
                 "value": "skip_child_zelda"
             },
-            "reach_location[links_pocket]": {
-                "type": "mixin",
-                "ref": "mixin[filter_era]{child}"
-            },
-            "reach_location[sages_gift]": {
+            "reach_location[hyrule.c_gift_from_sages]": {
                 "type": "and",
                 "content": [
                     {
@@ -43812,11 +43828,7 @@
                 "ref": "option[shuffle_child_trade]",
                 "value": "skip_child_zelda"
             },
-            "reach_location[links_pocket]": {
-                "type": "mixin",
-                "ref": "mixin[filter_era]{adult}"
-            },
-            "reach_location[sages_gift]": {
+            "reach_location[hyrule.c_gift_from_sages]": {
                 "type": "and",
                 "content": [
                     {
@@ -46626,8 +46638,8 @@
                                 "ref": "item[boots_hover]"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "or",
@@ -47282,8 +47294,8 @@
                                 "ref": "item[boots_hover]"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "or",
@@ -48116,8 +48128,8 @@
                                                 "type": "or",
                                                 "content": [
                                                     {
-                                                        "type": "mixin",
-                                                        "ref": "mixin[longshot]{child}"
+                                                        "type": "value",
+                                                        "ref": "item[longshot]"
                                                     },
                                                     {
                                                         "type": "value",
@@ -48417,8 +48429,8 @@
                                                 "type": "or",
                                                 "content": [
                                                     {
-                                                        "type": "mixin",
-                                                        "ref": "mixin[longshot]{adult}"
+                                                        "type": "value",
+                                                        "ref": "item[longshot]"
                                                     },
                                                     {
                                                         "type": "value",
@@ -48939,7 +48951,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             }
@@ -48957,7 +48969,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             }
@@ -49567,8 +49579,8 @@
                                         "type": "or",
                                         "content": [
                                             {
-                                                "type": "mixin",
-                                                "ref": "mixin[longshot]{child}"
+                                                "type": "value",
+                                                "ref": "item[longshot]"
                                             },
                                             {
                                                 "type": "value",
@@ -49934,7 +49946,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             },
@@ -50204,8 +50216,8 @@
                                         "type": "or",
                                         "content": [
                                             {
-                                                "type": "mixin",
-                                                "ref": "mixin[longshot]{adult}"
+                                                "type": "value",
+                                                "ref": "item[longshot]"
                                             },
                                             {
                                                 "type": "value",
@@ -50571,7 +50583,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             },
@@ -51365,8 +51377,8 @@
                         "ref": "mixin[is_child]{child}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{child}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     }
                 ]
             },
@@ -51388,8 +51400,8 @@
                                 "ref": "mixin[can_ride_epona]{child}"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "state",
@@ -51470,8 +51482,8 @@
                         "ref": "mixin[is_child]{adult}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{adult}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     }
                 ]
             },
@@ -51493,8 +51505,8 @@
                                 "ref": "mixin[can_ride_epona]{adult}"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "state",
@@ -51866,7 +51878,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[silver_gauntlets]"
+                        "value": "item[silver_gauntlets]"
                     }
                 ]
             },
@@ -51876,7 +51888,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             }
@@ -51891,7 +51903,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[silver_gauntlets]"
+                        "value": "item[silver_gauntlets]"
                     }
                 ]
             },
@@ -51901,7 +51913,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             }
@@ -52055,8 +52067,8 @@
                         "ref": "mixin[can_ride_epona]{child}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{child}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     },
                     {
                         "type": "state",
@@ -52280,8 +52292,8 @@
                         "ref": "mixin[can_ride_epona]{adult}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{adult}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     },
                     {
                         "type": "state",
@@ -52479,7 +52491,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     }
@@ -52491,7 +52503,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             },
@@ -52678,7 +52690,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     }
@@ -52690,7 +52702,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             },
@@ -52842,7 +52854,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             },
@@ -52876,7 +52888,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             },
@@ -52980,8 +52992,8 @@
                                 ]
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             }
                         ]
                     }
@@ -53023,8 +53035,8 @@
                                 ]
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             }
                         ]
                     }
@@ -53047,7 +53059,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             }
@@ -53065,7 +53077,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             }
@@ -53171,7 +53183,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             },
@@ -53244,7 +53256,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             },
@@ -55581,7 +55593,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     }
@@ -55628,7 +55640,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     }
@@ -55701,7 +55713,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     }
@@ -55898,7 +55910,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     }
@@ -56119,7 +56131,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[silver_gauntlets]"
+                        "value": "item[silver_gauntlets]"
                     }
                 ]
             },
@@ -56291,8 +56303,8 @@
                                         ]
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{child}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     },
                                     {
                                         "type": "and",
@@ -56398,7 +56410,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[silver_gauntlets]"
+                        "value": "item[silver_gauntlets]"
                     }
                 ]
             },
@@ -56570,8 +56582,8 @@
                                         ]
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{adult}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     },
                                     {
                                         "type": "and",
@@ -58102,7 +58114,7 @@
                 "type": "true"
             }
         },
-        "region[undefined]{child}": {
+        "region[hc_garden_locations]{child}": {
             "reach_location[castle_town.c_zelda]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
@@ -58112,7 +58124,7 @@
                 "ref": "mixin[filter_era]{child}"
             }
         },
-        "region[undefined]{adult}": {
+        "region[hc_garden_locations]{adult}": {
             "reach_location[castle_town.c_zelda]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
@@ -58215,7 +58227,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[golden_gauntlets]"
+                                "value": "item[golden_gauntlets]"
                             }
                         ]
                     },
@@ -58256,7 +58268,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[golden_gauntlets]"
+                                "value": "item[golden_gauntlets]"
                             }
                         ]
                     },
@@ -63815,8 +63827,8 @@
                                                 ]
                                             },
                                             {
-                                                "type": "mixin",
-                                                "ref": "mixin[longshot]{child}"
+                                                "type": "value",
+                                                "ref": "item[longshot]"
                                             }
                                         ]
                                     }
@@ -64120,8 +64132,8 @@
                                                 ]
                                             },
                                             {
-                                                "type": "mixin",
-                                                "ref": "mixin[longshot]{adult}"
+                                                "type": "value",
+                                                "ref": "item[longshot]"
                                             }
                                         ]
                                     }
@@ -67081,8 +67093,8 @@
                                                 "ref": "item[tunic_fire]"
                                             },
                                             {
-                                                "type": "mixin",
-                                                "ref": "mixin[longshot]{child}"
+                                                "type": "value",
+                                                "ref": "item[longshot]"
                                             },
                                             {
                                                 "type": "function",
@@ -67242,7 +67254,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[silver_gauntlets]"
+                                        "value": "item[silver_gauntlets]"
                                     }
                                 ]
                             },
@@ -67293,7 +67305,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[silver_gauntlets]"
+                                        "value": "item[silver_gauntlets]"
                                     }
                                 ]
                             }
@@ -67321,7 +67333,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[silver_gauntlets]"
+                                        "value": "item[silver_gauntlets]"
                                     }
                                 ]
                             }
@@ -67482,7 +67494,7 @@
                                         "params": [
                                             {
                                                 "type": "string",
-                                                "value": "mixin[silver_gauntlets]"
+                                                "value": "item[silver_gauntlets]"
                                             }
                                         ]
                                     }
@@ -67551,7 +67563,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[silver_gauntlets]"
+                                        "value": "item[silver_gauntlets]"
                                     }
                                 ]
                             }
@@ -67639,7 +67651,7 @@
                                         "params": [
                                             {
                                                 "type": "string",
-                                                "value": "mixin[silver_gauntlets]"
+                                                "value": "item[silver_gauntlets]"
                                             }
                                         ]
                                     }
@@ -67936,8 +67948,8 @@
                                                 "ref": "item[tunic_fire]"
                                             },
                                             {
-                                                "type": "mixin",
-                                                "ref": "mixin[longshot]{adult}"
+                                                "type": "value",
+                                                "ref": "item[longshot]"
                                             },
                                             {
                                                 "type": "function",
@@ -68097,7 +68109,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[silver_gauntlets]"
+                                        "value": "item[silver_gauntlets]"
                                     }
                                 ]
                             },
@@ -68148,7 +68160,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[silver_gauntlets]"
+                                        "value": "item[silver_gauntlets]"
                                     }
                                 ]
                             }
@@ -68176,7 +68188,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[silver_gauntlets]"
+                                        "value": "item[silver_gauntlets]"
                                     }
                                 ]
                             }
@@ -68337,7 +68349,7 @@
                                         "params": [
                                             {
                                                 "type": "string",
-                                                "value": "mixin[silver_gauntlets]"
+                                                "value": "item[silver_gauntlets]"
                                             }
                                         ]
                                     }
@@ -68406,7 +68418,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[silver_gauntlets]"
+                                        "value": "item[silver_gauntlets]"
                                     }
                                 ]
                             }
@@ -68494,7 +68506,7 @@
                                         "params": [
                                             {
                                                 "type": "string",
-                                                "value": "mixin[silver_gauntlets]"
+                                                "value": "item[silver_gauntlets]"
                                             }
                                         ]
                                     }
@@ -68950,7 +68962,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             }
@@ -69031,7 +69043,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             }
@@ -69392,7 +69404,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -69598,7 +69610,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -74132,7 +74144,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[silver_gauntlets]"
+                                "value": "item[silver_gauntlets]"
                             }
                         ]
                     },
@@ -74380,7 +74392,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[silver_gauntlets]"
+                                "value": "item[silver_gauntlets]"
                             }
                         ]
                     },
@@ -80824,8 +80836,8 @@
                                 "ref": "option[skip.shadow_mq_gap]"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             }
                         ]
                     }
@@ -80895,8 +80907,8 @@
                                 "ref": "option[skip.shadow_mq_gap]"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             }
                         ]
                     }
@@ -81719,8 +81731,8 @@
                 ]
             },
             "region[shadow_temple_upper_huge_pit_mq]{child}": {
-                "type": "mixin",
-                "ref": "mixin[longshot]{child}"
+                "type": "value",
+                "ref": "item[longshot]"
             }
         },
         "region[shadow_temple_lower_huge_pit_mq]{adult}": {
@@ -81822,8 +81834,8 @@
                 ]
             },
             "region[shadow_temple_upper_huge_pit_mq]{adult}": {
-                "type": "mixin",
-                "ref": "mixin[longshot]{adult}"
+                "type": "value",
+                "ref": "item[longshot]"
             }
         },
         "region[shadow_temple_falling_spikes_mq]{child}": {
@@ -81835,8 +81847,8 @@
                         "ref": "mixin[filter_era]{child}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{child}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     }
                 ]
             },
@@ -82017,8 +82029,8 @@
                         "ref": "mixin[filter_era]{adult}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{adult}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     }
                 ]
             },
@@ -82731,8 +82743,8 @@
                         ]
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{child}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     }
                 ]
             },
@@ -82772,8 +82784,8 @@
                         ]
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{adult}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     }
                 ]
             },
@@ -83159,7 +83171,7 @@
             }
         },
         "region[shadow_temple_before_boss_mq]{child}": {
-            "region[shadow_temple_boss_door_mq]{child}": {
+            "region[shadow_temple_boss_door]{child}": {
                 "type": "true"
             },
             "reach_location[temple_shadow_mq.s_near_boss_adult]": {
@@ -83198,7 +83210,7 @@
             }
         },
         "region[shadow_temple_before_boss_mq]{adult}": {
-            "region[shadow_temple_boss_door_mq]{adult}": {
+            "region[shadow_temple_boss_door]{adult}": {
                 "type": "true"
             },
             "reach_location[temple_shadow_mq.s_near_boss_adult]": {
@@ -84447,8 +84459,8 @@
                         "ref": "mixin[filter_era]{child}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{child}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     }
                 ]
             }
@@ -84518,8 +84530,8 @@
                         "ref": "mixin[filter_era]{adult}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{adult}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     }
                 ]
             }
@@ -84963,7 +84975,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -84979,7 +84991,7 @@
                                         "params": [
                                             {
                                                 "type": "string",
-                                                "value": "mixin[silver_gauntlets]"
+                                                "value": "item[silver_gauntlets]"
                                             }
                                         ]
                                     },
@@ -85171,7 +85183,7 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -85187,7 +85199,7 @@
                                         "params": [
                                             {
                                                 "type": "string",
-                                                "value": "mixin[silver_gauntlets]"
+                                                "value": "item[silver_gauntlets]"
                                             }
                                         ]
                                     },
@@ -86721,7 +86733,7 @@
                 },
                 "value": 5
             },
-            "region[spirit_temple_boss_door_mq]{child}": {
+            "region[spirit_temple_boss_door]{child}": {
                 "type": "mixin",
                 "ref": "mixin[spirit_temple_shortcuts]{child}"
             },
@@ -86876,7 +86888,7 @@
                 },
                 "value": 5
             },
-            "region[spirit_temple_boss_door_mq]{adult}": {
+            "region[spirit_temple_boss_door]{adult}": {
                 "type": "mixin",
                 "ref": "mixin[spirit_temple_shortcuts]{adult}"
             },
@@ -89095,7 +89107,7 @@
             }
         },
         "region[spirit_temple_mirror_puzzle_mq]{child}": {
-            "region[spirit_temple_boss_door_mq]{child}": {
+            "region[spirit_temple_boss_door]{child}": {
                 "type": "value",
                 "ref": "item[shield_mirror]"
             },
@@ -89142,7 +89154,7 @@
             }
         },
         "region[spirit_temple_mirror_puzzle_mq]{adult}": {
-            "region[spirit_temple_boss_door_mq]{adult}": {
+            "region[spirit_temple_boss_door]{adult}": {
                 "type": "value",
                 "ref": "item[shield_mirror]"
             },
@@ -89281,7 +89293,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[silver_gauntlets]"
+                        "value": "item[silver_gauntlets]"
                     }
                 ]
             },
@@ -89408,7 +89420,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[silver_gauntlets]"
+                        "value": "item[silver_gauntlets]"
                     }
                 ]
             },
@@ -90898,8 +90910,8 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "and",
@@ -91378,8 +91390,8 @@
                                         "ref": "mixin[has_explosives]{child}"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{child}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     },
                                     {
                                         "type": "min",
@@ -92080,8 +92092,8 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "and",
@@ -92560,8 +92572,8 @@
                                         "ref": "mixin[has_explosives]{adult}"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{adult}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     },
                                     {
                                         "type": "min",
@@ -93436,8 +93448,8 @@
                                 "ref": "option[skip.spirit_wall]"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "mixin",
@@ -93521,8 +93533,8 @@
                                 "ref": "option[skip.spirit_wall]"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "mixin",
@@ -94083,19 +94095,19 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     }
                 ]
             },
-            "region[water_temple_boss_door_mq]{child}": {
+            "region[water_temple_boss_door]{child}": {
                 "type": "function",
                 "ref": "function[can_use]{child}",
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             }
@@ -94143,19 +94155,19 @@
                         "params": [
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     }
                 ]
             },
-            "region[water_temple_boss_door_mq]{adult}": {
+            "region[water_temple_boss_door]{adult}": {
                 "type": "function",
                 "ref": "function[can_use]{adult}",
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             }
@@ -96404,8 +96416,8 @@
                         "type": "and",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "mixin",
@@ -96426,8 +96438,8 @@
                         "type": "and",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "mixin",
@@ -96445,8 +96457,8 @@
                         "ref": "mixin[filter_era]{child}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{child}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     }
                 ]
             }
@@ -96553,8 +96565,8 @@
                         "type": "and",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "mixin",
@@ -96575,8 +96587,8 @@
                         "type": "and",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "mixin",
@@ -96594,8 +96606,8 @@
                         "ref": "mixin[filter_era]{adult}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[longshot]{adult}"
+                        "type": "value",
+                        "ref": "item[longshot]"
                     }
                 ]
             }
@@ -98807,8 +98819,8 @@
                                         "ref": "option[skip.water_temple_torch_longshot]"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{child}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     }
                                 ]
                             },
@@ -98843,7 +98855,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             },
@@ -99153,7 +99165,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             }
@@ -99263,8 +99275,8 @@
                                         "ref": "option[skip.water_temple_torch_longshot]"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{adult}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     }
                                 ]
                             },
@@ -99299,7 +99311,7 @@
                 "params": [
                     {
                         "type": "string",
-                        "value": "mixin[longshot]"
+                        "value": "item[longshot]"
                     }
                 ]
             },
@@ -99609,7 +99621,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             }
@@ -99721,8 +99733,8 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "and",
@@ -100022,8 +100034,8 @@
                         "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             },
                             {
                                 "type": "and",
@@ -100425,8 +100437,8 @@
                                 "ref": "item[boots_hover]"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{child}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             }
                         ]
                     }
@@ -100598,8 +100610,8 @@
                                         "type": "or",
                                         "content": [
                                             {
-                                                "type": "mixin",
-                                                "ref": "mixin[longshot]{child}"
+                                                "type": "value",
+                                                "ref": "item[longshot]"
                                             },
                                             {
                                                 "type": "and",
@@ -100893,8 +100905,8 @@
                                 "ref": "item[boots_hover]"
                             },
                             {
-                                "type": "mixin",
-                                "ref": "mixin[longshot]{adult}"
+                                "type": "value",
+                                "ref": "item[longshot]"
                             }
                         ]
                     }
@@ -101066,8 +101078,8 @@
                                         "type": "or",
                                         "content": [
                                             {
-                                                "type": "mixin",
-                                                "ref": "mixin[longshot]{adult}"
+                                                "type": "value",
+                                                "ref": "item[longshot]"
                                             },
                                             {
                                                 "type": "and",
@@ -101692,7 +101704,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             },
@@ -101779,7 +101791,7 @@
                                 "params": [
                                     {
                                         "type": "string",
-                                        "value": "mixin[longshot]"
+                                        "value": "item[longshot]"
                                     }
                                 ]
                             },
@@ -101987,8 +101999,8 @@
                                         "ref": "option[skip.water_river_gs]"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{child}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     },
                                     {
                                         "type": "or",
@@ -102136,8 +102148,8 @@
                                         "ref": "option[skip.water_river_gs]"
                                     },
                                     {
-                                        "type": "mixin",
-                                        "ref": "mixin[longshot]{adult}"
+                                        "type": "value",
+                                        "ref": "item[longshot]"
                                     },
                                     {
                                         "type": "or",
@@ -102286,8 +102298,14 @@
             "type": "and",
             "content": [
                 {
-                    "type": "mixin",
-                    "ref": "function[can_play](item[song_scarecrow]){child}"
+                    "type": "function",
+                    "ref": "function[can_play]{child}",
+                    "params": [
+                        {
+                            "type": "string",
+                            "value": "item[song_scarecrow]"
+                        }
+                    ]
                 },
                 {
                     "type": "value",
@@ -102299,8 +102317,14 @@
             "type": "and",
             "content": [
                 {
-                    "type": "mixin",
-                    "ref": "function[can_play](item[song_scarecrow]){adult}"
+                    "type": "function",
+                    "ref": "function[can_play]{adult}",
+                    "params": [
+                        {
+                            "type": "string",
+                            "value": "item[song_scarecrow]"
+                        }
+                    ]
                 },
                 {
                     "type": "value",
@@ -102312,8 +102336,14 @@
             "type": "and",
             "content": [
                 {
-                    "type": "mixin",
-                    "ref": "function[can_play](item[song_scarecrow]){child}"
+                    "type": "function",
+                    "ref": "function[can_play]{child}",
+                    "params": [
+                        {
+                            "type": "string",
+                            "value": "item[song_scarecrow]"
+                        }
+                    ]
                 },
                 {
                     "type": "mixin",
@@ -102325,8 +102355,14 @@
             "type": "and",
             "content": [
                 {
-                    "type": "mixin",
-                    "ref": "function[can_play](item[song_scarecrow]){adult}"
+                    "type": "function",
+                    "ref": "function[can_play]{adult}",
+                    "params": [
+                        {
+                            "type": "string",
+                            "value": "item[song_scarecrow]"
+                        }
+                    ]
                 },
                 {
                     "type": "mixin",
@@ -107813,7 +107849,7 @@
                             },
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -107826,7 +107862,7 @@
                             },
                             {
                                 "type": "string",
-                                "value": "mixin[silver_gauntlets]"
+                                "value": "item[silver_gauntlets]"
                             }
                         ]
                     },
@@ -107839,7 +107875,7 @@
                             },
                             {
                                 "type": "string",
-                                "value": "mixin[golden_gauntlets]"
+                                "value": "item[golden_gauntlets]"
                             }
                         ]
                     },
@@ -107992,7 +108028,7 @@
                             },
                             {
                                 "type": "string",
-                                "value": "mixin[longshot]"
+                                "value": "item[longshot]"
                             }
                         ]
                     },
@@ -108005,7 +108041,7 @@
                             },
                             {
                                 "type": "string",
-                                "value": "mixin[silver_gauntlets]"
+                                "value": "item[silver_gauntlets]"
                             }
                         ]
                     },
@@ -108018,7 +108054,7 @@
                             },
                             {
                                 "type": "string",
-                                "value": "mixin[golden_gauntlets]"
+                                "value": "item[golden_gauntlets]"
                             }
                         ]
                     },
@@ -108655,6 +108691,28 @@
                                 "ref": "calculated[has_all_notes_for_song(song_scarecrow)]"
                             }
                         ]
+                    },
+                    {
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "eq",
+                                "content": [
+                                    {
+                                        "type": "param",
+                                        "ref": "song"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "value": "item[song_frogs]"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "value",
+                                "ref": "calculated[has_all_notes_for_song(song_frogs)]"
+                            }
+                        ]
                     }
                 ]
             }
@@ -108956,6 +109014,28 @@
                             {
                                 "type": "value",
                                 "ref": "calculated[has_all_notes_for_song(song_scarecrow)]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "eq",
+                                "content": [
+                                    {
+                                        "type": "param",
+                                        "ref": "song"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "value": "item[song_frogs]"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "value",
+                                "ref": "calculated[has_all_notes_for_song(song_frogs)]"
                             }
                         ]
                     }
