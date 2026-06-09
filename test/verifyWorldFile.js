@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import TypeConfigMap from "@emcjs/core/data/type/TypeConfigMap.js";
 import TypeValidator from "@emcjs/core/util/type/TypeValidator.js";
+import "@emcjs/logic/util/LogicValidator.js";
 
 // TODO make packae dependend and verify more than just world file
 // TODO use this as pre compile requirement
