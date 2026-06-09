@@ -72,6 +72,46 @@
         }
     },
     "locations": {
+        "hyrule.c_gift_from_sages": {
+            "type": "chest",
+            "logicAccess": "reach_location[hyrule.c_gift_from_sages]",
+            "visible": true,
+            "filter": {
+                "era": {
+                    "child": false,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "true": true,
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                },
+                "show_unavailable": {
+                    "true": true,
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_UNAVAILABLE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/chest.svg",
+            "tags": []
+        },
         "kokiri.c_sword": {
             "type": "chest",
             "logicAccess": "reach_location[kokiri.c_sword]",
@@ -84495,6 +84535,49 @@
                 }
             },
             "icon": "/images/icons/rupee_silver.svg",
+            "tags": []
+        },
+        "castle_ganon_mq.shadow_trial_explosives_wonderitem": {
+            "type": "chest",
+            "logicAccess": "reach_location[castle_ganon_mq.shadow_trial_explosives_wonderitem]",
+            "visible": {
+                "type": "value",
+                "ref": "option[shuffle_wonderitems]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "true": true,
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                },
+                "show_unavailable": {
+                    "true": true,
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_UNAVAILABLE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/wonderitem.svg",
             "tags": []
         },
         "castle_ganon_mq.fire_trial_silver_rupee_left_back": {

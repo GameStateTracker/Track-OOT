@@ -1,82 +1,162 @@
 {
     "edges": {
+        "region[gohma_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_gohma_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[gohma_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_gohma_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
         "region[blue_warp_gohma_gateway:out]{child}": {
-            "region[kf_outside_deku_tree]{child}": {
+            "region[gohma_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_gohma_gateway:out]{adult}": {
-            "region[kf_outside_deku_tree]{adult}": {
+            "region[gohma_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[dodongo_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_dodongo_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[dodongo_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_dodongo_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_dodongo_gateway:out]{child}": {
-            "region[death_mountain]{child}": {
+            "region[dodongo_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_dodongo_gateway:out]{adult}": {
-            "region[death_mountain]{adult}": {
+            "region[dodongo_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[barinade_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_barinade_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[barinade_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_barinade_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_barinade_gateway:out]{child}": {
-            "region[zoras_fountain]{child}": {
+            "region[barinade_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_barinade_gateway:out]{adult}": {
-            "region[zoras_fountain]{adult}": {
+            "region[barinade_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[phantom_ganon_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_phantom_ganon_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[phantom_ganon_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_phantom_ganon_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_phantom_ganon_gateway:out]{child}": {
-            "region[sacred_forest_meadow]{child}": {
+            "region[phantom_ganon_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_phantom_ganon_gateway:out]{adult}": {
-            "region[sacred_forest_meadow]{adult}": {
+            "region[phantom_ganon_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[volvagia_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_volvagia_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[volvagia_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_volvagia_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_volvagia_gateway:out]{child}": {
-            "region[dmc_central_local]{child}": {
+            "region[volvagia_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_volvagia_gateway:out]{adult}": {
-            "region[dmc_central_local]{adult}": {
+            "region[volvagia_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[morpha_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_morpha_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[morpha_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_morpha_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_morpha_gateway:out]{child}": {
-            "region[lake_hylia]{child}": {
+            "region[morpha_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_morpha_gateway:out]{adult}": {
-            "region[lake_hylia]{adult}": {
+            "region[morpha_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[bongo_bongo_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_bongo_bongo_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[bongo_bongo_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_bongo_bongo_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_bongo_bongo_gateway:out]{child}": {
-            "region[graveyard_warp_pad_region]{child}": {
+            "region[bongo_bongo_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_bongo_bongo_gateway:out]{adult}": {
-            "region[graveyard_warp_pad_region]{adult}": {
+            "region[bongo_bongo_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[twinrova_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_twinrova_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[twinrova_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_twinrova_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_twinrova_gateway:out]{child}": {
-            "region[desert_colossus]{child}": {
+            "region[twinrova_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_twinrova_gateway:out]{adult}": {
-            "region[desert_colossus]{adult}": {
+            "region[twinrova_blue_warp]{adult}": {
                 "type": "true"
             }
         },
@@ -6022,7 +6102,7 @@
             "region[boss_deku_gateway:in]{child}": {
                 "type": "true"
             },
-            "region[queen_gohma_blue_warp]{child}": {
+            "region[gohma_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_queen_gohma]"
             },
@@ -6121,7 +6201,7 @@
             "region[boss_deku_gateway:in]{adult}": {
                 "type": "true"
             },
-            "region[queen_gohma_blue_warp]{adult}": {
+            "region[gohma_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_queen_gohma]"
             },
@@ -6232,7 +6312,7 @@
             "region[boss_dodongo_gateway:in]{child}": {
                 "type": "true"
             },
-            "region[king_dodongo_blue_warp]{child}": {
+            "region[dodongo_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_king_dodongo]"
             },
@@ -6367,7 +6447,7 @@
             "region[boss_dodongo_gateway:in]{adult}": {
                 "type": "true"
             },
-            "region[king_dodongo_blue_warp]{adult}": {
+            "region[dodongo_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_king_dodongo]"
             },
@@ -6514,7 +6594,7 @@
             "region[boss_jabu_gateway:in]{child}": {
                 "type": "false"
             },
-            "region[barinade_blue_warp]{child}": {
+            "region[barinade_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_barinade]"
             },
@@ -6611,7 +6691,7 @@
             "region[boss_jabu_gateway:in]{adult}": {
                 "type": "false"
             },
-            "region[barinade_blue_warp]{adult}": {
+            "region[barinade_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_barinade]"
             },
@@ -6720,7 +6800,7 @@
             "region[boss_forest_temple_gateway:in]{child}": {
                 "type": "false"
             },
-            "region[phantom_ganon_blue_warp]{child}": {
+            "region[phantom_ganon_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_phantom_ganon]"
             },
@@ -6810,7 +6890,7 @@
             "region[boss_forest_temple_gateway:in]{adult}": {
                 "type": "false"
             },
-            "region[phantom_ganon_blue_warp]{adult}": {
+            "region[phantom_ganon_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_phantom_ganon]"
             },
@@ -6912,7 +6992,7 @@
             "region[boss_fire_temple_gateway:in]{child}": {
                 "type": "false"
             },
-            "region[volvagia_blue_warp]{child}": {
+            "region[volvagia_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_volvagia]"
             },
@@ -6978,7 +7058,7 @@
             "region[boss_fire_temple_gateway:in]{adult}": {
                 "type": "false"
             },
-            "region[volvagia_blue_warp]{adult}": {
+            "region[volvagia_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_volvagia]"
             },
@@ -7056,7 +7136,7 @@
             "region[boss_water_temple_gateway:in]{child}": {
                 "type": "false"
             },
-            "region[morpha_blue_warp]{child}": {
+            "region[morpha_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_morpha]"
             },
@@ -7162,7 +7242,7 @@
             "region[boss_water_temple_gateway:in]{adult}": {
                 "type": "false"
             },
-            "region[morpha_blue_warp]{adult}": {
+            "region[morpha_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_morpha]"
             },
@@ -7280,7 +7360,7 @@
             "region[boss_shadow_temple_gateway:in]{child}": {
                 "type": "false"
             },
-            "region[bongo_bongo_blue_warp]{child}": {
+            "region[bongo_bongo_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_bongo_bongo]"
             },
@@ -7407,7 +7487,7 @@
             "region[boss_shadow_temple_gateway:in]{adult}": {
                 "type": "false"
             },
-            "region[bongo_bongo_blue_warp]{adult}": {
+            "region[bongo_bongo_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_bongo_bongo]"
             },
@@ -7546,7 +7626,7 @@
             "region[boss_spirit_temple_gateway:in]{child}": {
                 "type": "false"
             },
-            "region[twinrova_blue_warp]{child}": {
+            "region[twinrova_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_twinrova]"
             },
@@ -7612,7 +7692,7 @@
             "region[boss_spirit_temple_gateway:in]{adult}": {
                 "type": "false"
             },
-            "region[twinrova_blue_warp]{adult}": {
+            "region[twinrova_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_twinrova]"
             },
@@ -9337,7 +9417,7 @@
         "region[bottom_of_the_well_middle_mq]{child}": {
             "region[bottom_of_the_well_west_inner_room_mq]{child}": {
                 "type": "value",
-                "ref": "Bottom_of_the_Well_West_Switch_Pressed"
+                "ref": "event[bottom_of_the_well_west_switch_pressed]"
             },
             "reach_location[well_mq.c_map_chest]": {
                 "type": "mixin",
@@ -9499,7 +9579,7 @@
         "region[bottom_of_the_well_middle_mq]{adult}": {
             "region[bottom_of_the_well_west_inner_room_mq]{adult}": {
                 "type": "value",
-                "ref": "Bottom_of_the_Well_West_Switch_Pressed"
+                "ref": "event[bottom_of_the_well_west_switch_pressed]"
             },
             "reach_location[well_mq.c_map_chest]": {
                 "type": "mixin",
@@ -17898,7 +17978,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "DC_MQ_Lobby_Switch_Under_Boulder_Pressed"
+                        "ref": "event[dc_mq_lobby_switch_under_boulder_pressed]"
                     },
                     {
                         "type": "and",
@@ -18232,7 +18312,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "DC_MQ_Lobby_Switch_Under_Boulder_Pressed"
+                        "ref": "event[dc_mq_lobby_switch_under_boulder_pressed]"
                     },
                     {
                         "type": "and",
@@ -34051,33 +34131,8 @@
                         "ref": "mixin[can_hover]{child}"
                     },
                     {
-                        "type": "and",
-                        "content": [
-                            {
-                                "type": "function",
-                                "ref": "function[can_use]{child}",
-                                "params": [
-                                    {
-                                        "type": "string",
-                                        "value": "item[boots_hover]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "mixin",
-                                "ref": "mixin[has_explosives]{child}"
-                            },
-                            {
-                                "type": "function",
-                                "ref": "function[can_live_dmg]{child}",
-                                "params": [
-                                    {
-                                        "type": "string",
-                                        "value": "0.5"
-                                    }
-                                ]
-                            }
-                        ]
+                        "type": "mixin",
+                        "ref": "mixin[can_hovers_recoil]{child}"
                     }
                 ]
             },
@@ -34417,33 +34472,8 @@
                         "ref": "mixin[can_hover]{adult}"
                     },
                     {
-                        "type": "and",
-                        "content": [
-                            {
-                                "type": "function",
-                                "ref": "function[can_use]{adult}",
-                                "params": [
-                                    {
-                                        "type": "string",
-                                        "value": "item[boots_hover]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "mixin",
-                                "ref": "mixin[has_explosives]{adult}"
-                            },
-                            {
-                                "type": "function",
-                                "ref": "function[can_live_dmg]{adult}",
-                                "params": [
-                                    {
-                                        "type": "string",
-                                        "value": "0.5"
-                                    }
-                                ]
-                            }
-                        ]
+                        "type": "mixin",
+                        "ref": "mixin[can_hovers_recoil]{adult}"
                     }
                 ]
             },
@@ -34730,7 +34760,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "Forest_Temple_Twisted_Hallway_Switch"
+                                "ref": "event[forest_temple_twisted_hallway_switch]"
                             },
                             {
                                 "type": "or",
@@ -35033,7 +35063,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "Forest_Temple_Twisted_Hallway_Switch"
+                                "ref": "event[forest_temple_twisted_hallway_switch]"
                             },
                             {
                                 "type": "or",
@@ -35299,7 +35329,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "Forest_Temple_Twisted_Hallway_Switch"
+                        "ref": "event[forest_temple_twisted_hallway_switch]"
                     },
                     {
                         "type": "min",
@@ -35325,7 +35355,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "Forest_Temple_Twisted_Hallway_Switch"
+                        "ref": "event[forest_temple_twisted_hallway_switch]"
                     },
                     {
                         "type": "min",
@@ -35431,8 +35461,17 @@
                         "ref": "mixin[can_hover]{child}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[can_megajump]{child}"
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[can_megajump]{child}"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "glitch_clipping"
+                            }
+                        ]
                     }
                 ]
             },
@@ -35549,8 +35588,17 @@
                         "ref": "mixin[can_hover]{adult}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[can_megajump]{adult}"
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[can_megajump]{adult}"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "glitch_clipping"
+                            }
+                        ]
                     }
                 ]
             },
@@ -35588,6 +35636,25 @@
             "region[forest_temple_floormaster_room_mq]{child}": {
                 "type": "true"
             },
+            "reach_location[temple_forest_mq.c_redead_chest]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "function",
+                        "ref": "function[has_soul]{child}",
+                        "params": [
+                            {
+                                "type": "string",
+                                "value": "Redead_and_Gibdo"
+                            }
+                        ]
+                    }
+                ]
+            },
             "event[forest_temple_twisted_hallway_switch]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
@@ -35602,6 +35669,25 @@
             },
             "region[forest_temple_floormaster_room_mq]{adult}": {
                 "type": "true"
+            },
+            "reach_location[temple_forest_mq.c_redead_chest]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "function",
+                        "ref": "function[has_soul]{adult}",
+                        "params": [
+                            {
+                                "type": "string",
+                                "value": "Redead_and_Gibdo"
+                            }
+                        ]
+                    }
+                ]
             },
             "event[forest_temple_twisted_hallway_switch]": {
                 "type": "mixin",
@@ -38000,41 +38086,8 @@
                         "ref": "mixin[can_hover]{child}"
                     },
                     {
-                        "type": "and",
-                        "content": [
-                            {
-                                "type": "function",
-                                "ref": "function[can_use]{child}",
-                                "params": [
-                                    {
-                                        "type": "string",
-                                        "value": "item[boots_hover]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "mixin",
-                                "ref": "mixin[has_explosives]{child}"
-                            },
-                            {
-                                "type": "function",
-                                "ref": "function[can_live_dmg]{child}",
-                                "params": [
-                                    {
-                                        "type": "string",
-                                        "value": "0.5"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "value": "False"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "value": "True"
-                                    }
-                                ]
-                            }
-                        ]
+                        "type": "mixin",
+                        "ref": "mixin[can_hovers_recoil]{child}"
                     }
                 ]
             },
@@ -38267,41 +38320,8 @@
                         "ref": "mixin[can_hover]{adult}"
                     },
                     {
-                        "type": "and",
-                        "content": [
-                            {
-                                "type": "function",
-                                "ref": "function[can_use]{adult}",
-                                "params": [
-                                    {
-                                        "type": "string",
-                                        "value": "item[boots_hover]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "mixin",
-                                "ref": "mixin[has_explosives]{adult}"
-                            },
-                            {
-                                "type": "function",
-                                "ref": "function[can_live_dmg]{adult}",
-                                "params": [
-                                    {
-                                        "type": "string",
-                                        "value": "0.5"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "value": "False"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "value": "True"
-                                    }
-                                ]
-                            }
-                        ]
+                        "type": "mixin",
+                        "ref": "mixin[can_hovers_recoil]{adult}"
                     }
                 ]
             },
@@ -38486,8 +38506,17 @@
                         "ref": "mixin[can_hover]{child}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[can_megajump]{child}"
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[can_megajump]{child}"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "glitch_clipping"
+                            }
+                        ]
                     }
                 ]
             },
@@ -38871,8 +38900,17 @@
                         "ref": "mixin[can_hover]{adult}"
                     },
                     {
-                        "type": "mixin",
-                        "ref": "mixin[can_megajump]{adult}"
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[can_megajump]{adult}"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "glitch_clipping"
+                            }
+                        ]
                     }
                 ]
             },
@@ -44183,6 +44221,46 @@
             "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_first_beamos]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[castle_ganon_mq.shadow_trial_explosives_wonderitem]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "item[bow]"
+                            },
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[has_explosives]{child}"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "item[glove]"
+                            },
+                            {
+                                "type": "function",
+                                "ref": "function[can_use]{child}",
+                                "params": [
+                                    {
+                                        "type": "string",
+                                        "value": "item[magic_din]"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[can_gdv]{child}"
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "region[ganons_castle_shadow_trial_moving_platform_mq]{adult}": {
@@ -44214,6 +44292,46 @@
             "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_first_beamos]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[castle_ganon_mq.shadow_trial_explosives_wonderitem]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "item[bow]"
+                            },
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[has_explosives]{adult}"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "item[glove]"
+                            },
+                            {
+                                "type": "function",
+                                "ref": "function[can_use]{adult}",
+                                "params": [
+                                    {
+                                        "type": "string",
+                                        "value": "item[magic_din]"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[can_gdv]{adult}"
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "region[ganons_castle_shadow_trial_second_gap_mq]{child}": {
@@ -50097,7 +50215,7 @@
                     },
                     {
                         "type": "value",
-                        "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                        "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
                     }
                 ]
             },
@@ -50176,7 +50294,7 @@
                     },
                     {
                         "type": "value",
-                        "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                        "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
                     }
                 ]
             },
@@ -50223,13 +50341,13 @@
                     },
                     {
                         "type": "value",
-                        "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                        "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
                     }
                 ]
             },
             "region[gerudo_training_ground_water_room_mq]{child}": {
                 "type": "value",
-                "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
             }
         },
         "region[gerudo_training_ground_water_room_entrance_mq]{adult}": {
@@ -50259,13 +50377,13 @@
                     },
                     {
                         "type": "value",
-                        "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                        "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
                     }
                 ]
             },
             "region[gerudo_training_ground_water_room_mq]{adult}": {
                 "type": "value",
-                "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
             }
         },
         "region[gerudo_training_ground_lava_room_back_mq]{child}": {
@@ -50291,7 +50409,7 @@
                     },
                     {
                         "type": "value",
-                        "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                        "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
                     }
                 ]
             },
@@ -50350,7 +50468,7 @@
                     },
                     {
                         "type": "value",
-                        "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                        "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
                     }
                 ]
             },
@@ -50386,7 +50504,7 @@
                     },
                     {
                         "type": "value",
-                        "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                        "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
                     }
                 ]
             },
@@ -50445,7 +50563,7 @@
                     },
                     {
                         "type": "value",
-                        "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                        "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
                     }
                 ]
             },
@@ -51958,7 +52076,7 @@
                     },
                     {
                         "type": "value",
-                        "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                        "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
                     }
                 ]
             },
@@ -51978,7 +52096,7 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                                "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
                             }
                         ]
                     }
@@ -52061,7 +52179,7 @@
                     },
                     {
                         "type": "value",
-                        "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                        "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
                     }
                 ]
             },
@@ -52081,7 +52199,7 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                                "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
                             }
                         ]
                     }
@@ -52146,7 +52264,7 @@
             },
             "region[gerudo_training_ground_lava_room_back_bubble_mq]{child}": {
                 "type": "value",
-                "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
             },
             "region[gerudo_training_ground_lava_room_back_left_mq]{child}": {
                 "type": "function",
@@ -52203,7 +52321,7 @@
             },
             "region[gerudo_training_ground_lava_room_back_bubble_mq]{adult}": {
                 "type": "value",
-                "ref": "Gerudo_Training_Ground_Lava_Silver_Rupees_Collected"
+                "ref": "event[gerudo_training_ground_lava_silver_rupees_collected]"
             },
             "region[gerudo_training_ground_lava_room_back_left_mq]{adult}": {
                 "type": "function",
@@ -62356,6 +62474,69 @@
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
             },
+            "reach_location[jabujabu_mq.falling_like_like_room_right_cow_wonderitem_1]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_right_cow_wonderitem_2]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_right_cow_wonderitem_3]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_left_cow_wonderitem_1]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_left_cow_wonderitem_2]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_left_cow_wonderitem_3]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_explosives_wonderitem_1]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[has_explosives]{child}"
+                    }
+                ]
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_explosives_wonderitem_2]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[has_explosives]{child}"
+                    }
+                ]
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_explosives_wonderitem_3]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[has_explosives]{child}"
+                    }
+                ]
+            },
             "reach_location[jabujabu_mq.hallway_small_crate_1]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
@@ -62363,6 +62544,28 @@
             "reach_location[jabujabu_mq.hallway_small_crate_2]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[bombable_fairy]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "item[bottle]"
+                            },
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[has_explosives]{child}"
+                            }
+                        ]
+                    }
+                ]
             },
             "event[jabu_jabus_belly_center_tentacle_cleared]": {
                 "type": "and",
@@ -62517,6 +62720,69 @@
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
             },
+            "reach_location[jabujabu_mq.falling_like_like_room_right_cow_wonderitem_1]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_right_cow_wonderitem_2]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_right_cow_wonderitem_3]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_left_cow_wonderitem_1]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_left_cow_wonderitem_2]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_left_cow_wonderitem_3]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_explosives_wonderitem_1]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[has_explosives]{adult}"
+                    }
+                ]
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_explosives_wonderitem_2]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[has_explosives]{adult}"
+                    }
+                ]
+            },
+            "reach_location[jabujabu_mq.falling_like_like_room_explosives_wonderitem_3]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[has_explosives]{adult}"
+                    }
+                ]
+            },
             "reach_location[jabujabu_mq.hallway_small_crate_1]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
@@ -62524,6 +62790,28 @@
             "reach_location[jabujabu_mq.hallway_small_crate_2]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[bombable_fairy]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "item[bottle]"
+                            },
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[has_explosives]{adult}"
+                            }
+                        ]
+                    }
+                ]
             },
             "event[jabu_jabus_belly_center_tentacle_cleared]": {
                 "type": "and",
@@ -65095,8 +65383,12 @@
                 "ref": "option[skip_child_zelda]"
             },
             "region[beyond_door_of_time_skippable_locations]{child}": {
-                "type": "value",
-                "ref": "skip_reward_from_rauru"
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "skip_reward_from_rauru",
+                    "value": "not_free"
+                }
             },
             "region[gf_above_jail_child_locations]{child}": {
                 "type": "or",
@@ -65181,8 +65473,12 @@
                 "ref": "option[skip_child_zelda]"
             },
             "region[beyond_door_of_time_skippable_locations]{adult}": {
-                "type": "value",
-                "ref": "skip_reward_from_rauru"
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "skip_reward_from_rauru",
+                    "value": "not_free"
+                }
             },
             "region[gf_above_jail_child_locations]{adult}": {
                 "type": "or",
@@ -90275,7 +90571,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "'Opened Door of Time'"
+                        "ref": "event[opened_door_of_time]"
                     },
                     {
                         "type": "and",
@@ -90388,7 +90684,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "'Opened Door of Time'"
+                        "ref": "event[opened_door_of_time]"
                     },
                     {
                         "type": "and",
@@ -90498,7 +90794,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "'Opened Door of Time'"
+                        "ref": "event[opened_door_of_time]"
                     },
                     {
                         "type": "and",
@@ -90625,7 +90921,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "'Opened Door of Time'"
+                        "ref": "event[opened_door_of_time]"
                     },
                     {
                         "type": "and",
@@ -96785,15 +97081,47 @@
                                                 "ref": "mixin[is_day]{child}"
                                             },
                                             {
+                                                "type": "value",
+                                                "ref": "glitch_botw_cucco_dive"
+                                            },
+                                            {
                                                 "type": "or",
                                                 "content": [
                                                     {
                                                         "type": "mixin",
-                                                        "ref": "mixin[can_isg]{child}"
+                                                        "ref": "mixin[nuts]{child}"
                                                     },
                                                     {
-                                                        "type": "mixin",
-                                                        "ref": "mixin[nuts]{child}"
+                                                        "type": "and",
+                                                        "content": [
+                                                            {
+                                                                "type": "mixin",
+                                                                "ref": "mixin[can_shield]{child}"
+                                                            },
+                                                            {
+                                                                "type": "or",
+                                                                "content": [
+                                                                    {
+                                                                        "type": "mixin",
+                                                                        "ref": "mixin[sticks]{child}"
+                                                                    },
+                                                                    {
+                                                                        "type": "value",
+                                                                        "ref": "item[sword_kokiri]"
+                                                                    },
+                                                                    {
+                                                                        "type": "function",
+                                                                        "ref": "function[can_use]{child}",
+                                                                        "params": [
+                                                                            {
+                                                                                "type": "string",
+                                                                                "value": "item[hammer]"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
                                                     }
                                                 ]
                                             }
@@ -98084,15 +98412,47 @@
                                                 "ref": "mixin[is_day]{adult}"
                                             },
                                             {
+                                                "type": "value",
+                                                "ref": "glitch_botw_cucco_dive"
+                                            },
+                                            {
                                                 "type": "or",
                                                 "content": [
                                                     {
                                                         "type": "mixin",
-                                                        "ref": "mixin[can_isg]{adult}"
+                                                        "ref": "mixin[nuts]{adult}"
                                                     },
                                                     {
-                                                        "type": "mixin",
-                                                        "ref": "mixin[nuts]{adult}"
+                                                        "type": "and",
+                                                        "content": [
+                                                            {
+                                                                "type": "mixin",
+                                                                "ref": "mixin[can_shield]{adult}"
+                                                            },
+                                                            {
+                                                                "type": "or",
+                                                                "content": [
+                                                                    {
+                                                                        "type": "mixin",
+                                                                        "ref": "mixin[sticks]{adult}"
+                                                                    },
+                                                                    {
+                                                                        "type": "value",
+                                                                        "ref": "item[sword_kokiri]"
+                                                                    },
+                                                                    {
+                                                                        "type": "function",
+                                                                        "ref": "function[can_use]{adult}",
+                                                                        "params": [
+                                                                            {
+                                                                                "type": "string",
+                                                                                "value": "item[hammer]"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
                                                     }
                                                 ]
                                             }
@@ -110945,48 +111305,21 @@
                 "type": "or",
                 "content": [
                     {
-                        "type": "and",
-                        "content": [
-                            {
-                                "type": "mixin",
-                                "ref": "mixin[is_child]{child}"
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "state",
-                                        "ref": "option[shuffle_dungeons]",
-                                        "value": "shuffle_dungeons_simple"
-                                    },
-                                    {
-                                        "type": "state",
-                                        "ref": "option[shuffle_dungeons]",
-                                        "value": "shuffle_dungeons_all"
-                                    }
-                                ]
-                            }
-                        ]
+                        "type": "mixin",
+                        "ref": "mixin[is_adult]{child}"
                     },
                     {
-                        "type": "and",
+                        "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[is_adult]{child}"
+                                "type": "state",
+                                "ref": "option[shuffle_dungeons]",
+                                "value": "shuffle_dungeons_simple"
                             },
                             {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "value",
-                                        "ref": "option[skip.fewer_tunic_requirements]"
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "item[tunic_fire]"
-                                    }
-                                ]
+                                "type": "state",
+                                "ref": "option[shuffle_dungeons]",
+                                "value": "shuffle_dungeons_all"
                             }
                         ]
                     }
@@ -111469,48 +111802,21 @@
                 "type": "or",
                 "content": [
                     {
-                        "type": "and",
-                        "content": [
-                            {
-                                "type": "mixin",
-                                "ref": "mixin[is_child]{adult}"
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "state",
-                                        "ref": "option[shuffle_dungeons]",
-                                        "value": "shuffle_dungeons_simple"
-                                    },
-                                    {
-                                        "type": "state",
-                                        "ref": "option[shuffle_dungeons]",
-                                        "value": "shuffle_dungeons_all"
-                                    }
-                                ]
-                            }
-                        ]
+                        "type": "mixin",
+                        "ref": "mixin[is_adult]{adult}"
                     },
                     {
-                        "type": "and",
+                        "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[is_adult]{adult}"
+                                "type": "state",
+                                "ref": "option[shuffle_dungeons]",
+                                "value": "shuffle_dungeons_simple"
                             },
                             {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "value",
-                                        "ref": "option[skip.fewer_tunic_requirements]"
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "item[tunic_fire]"
-                                    }
-                                ]
+                                "type": "state",
+                                "ref": "option[shuffle_dungeons]",
+                                "value": "shuffle_dungeons_all"
                             }
                         ]
                     }
@@ -122749,11 +123055,37 @@
         "region[kak_redead_grotto]{child}": {
             "region[redead_grotto_kakariko_gateway:in]{child}": {
                 "type": "true"
+            },
+            "reach_location[kakariko.c_redead_grotto]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[can_kill_redead]{child}"
+                    }
+                ]
             }
         },
         "region[kak_redead_grotto]{adult}": {
             "region[redead_grotto_kakariko_gateway:in]{adult}": {
                 "type": "true"
+            },
+            "reach_location[kakariko.c_redead_grotto]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[can_kill_redead]{adult}"
+                    }
+                ]
             }
         },
         "region[kak_open_grotto]{child}": {
@@ -126246,6 +126578,10 @@
             "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_6]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_like_like]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
             }
         },
         "region[shadow_temple_close_proximity_to_invisible_blades_mq]{adult}": {
@@ -126270,6 +126606,10 @@
                 "ref": "mixin[filter_era]{adult}"
             },
             "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_6]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_like_like]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
             }
@@ -137293,7 +137633,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "Spirit_Temple_MQ_Child_Gibdo_Room_Switch_Hit"
+                                "ref": "event[spirit_temple_mq_child_gibdo_room_switch_hit]"
                             },
                             {
                                 "type": "mixin",
@@ -137416,7 +137756,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "Spirit_Temple_MQ_Child_Gibdo_Room_Switch_Hit"
+                                "ref": "event[spirit_temple_mq_child_gibdo_room_switch_hit]"
                             },
                             {
                                 "type": "mixin",
@@ -141154,12 +141494,104 @@
                                         "ref": "option[skip.spirit_mq_water_rupee]"
                                     },
                                     {
+                                        "type": "function",
+                                        "ref": "function[can_use]{child}",
+                                        "params": [
+                                            {
+                                                "type": "string",
+                                                "value": "item[longshot]"
+                                            }
+                                        ]
+                                    },
+                                    {
                                         "type": "min",
                                         "content": {
                                             "type": "value",
                                             "ref": "item[silver_rupee_temple_spirit_lobby_and_lower_adult]"
                                         },
                                         "value": 5
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "and",
+                                "content": [
+                                    {
+                                        "type": "function",
+                                        "ref": "function[can_use]{child}",
+                                        "params": [
+                                            {
+                                                "type": "string",
+                                                "value": "item[boots_hover]"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "or",
+                                        "content": [
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "value",
+                                                        "ref": "adv_hovers_recoil"
+                                                    },
+                                                    {
+                                                        "type": "or",
+                                                        "content": [
+                                                            {
+                                                                "type": "and",
+                                                                "content": [
+                                                                    {
+                                                                        "type": "mixin",
+                                                                        "ref": "mixin[has_explosives]{child}"
+                                                                    },
+                                                                    {
+                                                                        "type": "function",
+                                                                        "ref": "function[can_live_dmg]{child}",
+                                                                        "params": [
+                                                                            {
+                                                                                "type": "string",
+                                                                                "value": "0.5"
+                                                                            },
+                                                                            {
+                                                                                "type": "string",
+                                                                                "value": "False"
+                                                                            },
+                                                                            {
+                                                                                "type": "string",
+                                                                                "value": "True"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "type": "mixin",
+                                                                "ref": "mixin[can_shield]{child}"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "or",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[can_superslide]{child}"
+                                                    },
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[can_hess]{child}"
+                                                    },
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[can_mega]{child}"
+                                                    }
+                                                ]
+                                            }
+                                        ]
                                     }
                                 ]
                             }
@@ -141318,12 +141750,104 @@
                                         "ref": "option[skip.spirit_mq_water_rupee]"
                                     },
                                     {
+                                        "type": "function",
+                                        "ref": "function[can_use]{adult}",
+                                        "params": [
+                                            {
+                                                "type": "string",
+                                                "value": "item[longshot]"
+                                            }
+                                        ]
+                                    },
+                                    {
                                         "type": "min",
                                         "content": {
                                             "type": "value",
                                             "ref": "item[silver_rupee_temple_spirit_lobby_and_lower_adult]"
                                         },
                                         "value": 5
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "and",
+                                "content": [
+                                    {
+                                        "type": "function",
+                                        "ref": "function[can_use]{adult}",
+                                        "params": [
+                                            {
+                                                "type": "string",
+                                                "value": "item[boots_hover]"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "or",
+                                        "content": [
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "value",
+                                                        "ref": "adv_hovers_recoil"
+                                                    },
+                                                    {
+                                                        "type": "or",
+                                                        "content": [
+                                                            {
+                                                                "type": "and",
+                                                                "content": [
+                                                                    {
+                                                                        "type": "mixin",
+                                                                        "ref": "mixin[has_explosives]{adult}"
+                                                                    },
+                                                                    {
+                                                                        "type": "function",
+                                                                        "ref": "function[can_live_dmg]{adult}",
+                                                                        "params": [
+                                                                            {
+                                                                                "type": "string",
+                                                                                "value": "0.5"
+                                                                            },
+                                                                            {
+                                                                                "type": "string",
+                                                                                "value": "False"
+                                                                            },
+                                                                            {
+                                                                                "type": "string",
+                                                                                "value": "True"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "type": "mixin",
+                                                                "ref": "mixin[can_shield]{adult}"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "or",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[can_superslide]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[can_hess]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[can_mega]{adult}"
+                                                    }
+                                                ]
+                                            }
+                                        ]
                                     }
                                 ]
                             }
@@ -150743,7 +151267,7 @@
                     },
                     {
                         "type": "value",
-                        "ref": "Reset_Water_Level"
+                        "ref": "event[reset_water_level]"
                     },
                     {
                         "type": "value",
@@ -150839,8 +151363,17 @@
                         ]
                     },
                     {
-                        "type": "value",
-                        "ref": "item[hookshot]"
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "item[hookshot]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "adv_water_hop"
+                            }
+                        ]
                     }
                 ]
             },
@@ -150877,6 +151410,29 @@
                             {
                                 "type": "value",
                                 "ref": "item[hammer]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "adv_water_hop"
+                            },
+                            {
+                                "type": "function",
+                                "ref": "function[can_use]{child}",
+                                "params": [
+                                    {
+                                        "type": "string",
+                                        "value": "item[boots_iron]"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[raise_water_level]"
                             }
                         ]
                     },
@@ -152196,7 +152752,7 @@
                     },
                     {
                         "type": "value",
-                        "ref": "Reset_Water_Level"
+                        "ref": "event[reset_water_level]"
                     },
                     {
                         "type": "value",
@@ -152292,8 +152848,17 @@
                         ]
                     },
                     {
-                        "type": "value",
-                        "ref": "item[hookshot]"
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "item[hookshot]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "adv_water_hop"
+                            }
+                        ]
                     }
                 ]
             },
@@ -152330,6 +152895,29 @@
                             {
                                 "type": "value",
                                 "ref": "item[hammer]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "adv_water_hop"
+                            },
+                            {
+                                "type": "function",
+                                "ref": "function[can_use]{adult}",
+                                "params": [
+                                    {
+                                        "type": "string",
+                                        "value": "item[boots_iron]"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[raise_water_level]"
                             }
                         ]
                     },
@@ -154215,7 +154803,7 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "Reset_Water_Level"
+                                "ref": "event[reset_water_level]"
                             }
                         ]
                     }
@@ -154387,7 +154975,7 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "Reset_Water_Level"
+                                "ref": "event[reset_water_level]"
                             }
                         ]
                     }
@@ -154643,7 +155231,7 @@
         "region[water_temple_lowered_water_mq]{child}": {
             "region[water_temple_lobby_mq]{child}": {
                 "type": "value",
-                "ref": "Reset_Water_Level"
+                "ref": "event[reset_water_level]"
             },
             "region[water_temple_storage_room_mq]{child}": {
                 "type": "function",
@@ -155008,7 +155596,7 @@
         "region[water_temple_lowered_water_mq]{adult}": {
             "region[water_temple_lobby_mq]{adult}": {
                 "type": "value",
-                "ref": "Reset_Water_Level"
+                "ref": "event[reset_water_level]"
             },
             "region[water_temple_storage_room_mq]{adult}": {
                 "type": "function",
@@ -164000,8 +164588,40 @@
                         ]
                     },
                     {
-                        "type": "value",
-                        "ref": "item[hookshot]"
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "item[hookshot]"
+                            },
+                            {
+                                "type": "and",
+                                "content": [
+                                    {
+                                        "type": "value",
+                                        "ref": "adv_water_hop"
+                                    },
+                                    {
+                                        "type": "function",
+                                        "ref": "function[can_live_dmg]{child}",
+                                        "params": [
+                                            {
+                                                "type": "string",
+                                                "value": "1.0"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "value": "false"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "value": "false"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
@@ -164038,6 +164658,29 @@
                             {
                                 "type": "value",
                                 "ref": "item[hammer]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "adv_water_hop"
+                            },
+                            {
+                                "type": "function",
+                                "ref": "function[can_use]{child}",
+                                "params": [
+                                    {
+                                        "type": "string",
+                                        "value": "item[boots_iron]"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[raise_water_level]"
                             }
                         ]
                     },
@@ -164655,8 +165298,40 @@
                         ]
                     },
                     {
-                        "type": "value",
-                        "ref": "item[hookshot]"
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "item[hookshot]"
+                            },
+                            {
+                                "type": "and",
+                                "content": [
+                                    {
+                                        "type": "value",
+                                        "ref": "adv_water_hop"
+                                    },
+                                    {
+                                        "type": "function",
+                                        "ref": "function[can_live_dmg]{adult}",
+                                        "params": [
+                                            {
+                                                "type": "string",
+                                                "value": "1.0"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "value": "false"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "value": "false"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
@@ -164693,6 +165368,29 @@
                             {
                                 "type": "value",
                                 "ref": "item[hammer]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "adv_water_hop"
+                            },
+                            {
+                                "type": "function",
+                                "ref": "function[can_use]{adult}",
+                                "params": [
+                                    {
+                                        "type": "string",
+                                        "value": "item[boots_iron]"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "value",
+                                "ref": "event[raise_water_level]"
                             }
                         ]
                     },
@@ -170716,6 +171414,10 @@
                     "ref": "reach_location[pond_fairy]"
                 },
                 {
+                    "type": "value",
+                    "ref": "reach_location[bombable_fairy]"
+                },
+                {
                     "type": "and",
                     "content": [
                         {
@@ -170752,6 +171454,10 @@
                 {
                     "type": "value",
                     "ref": "reach_location[pond_fairy]"
+                },
+                {
+                    "type": "value",
+                    "ref": "reach_location[bombable_fairy]"
                 },
                 {
                     "type": "and",

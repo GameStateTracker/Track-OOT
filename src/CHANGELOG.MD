@@ -8,7 +8,7 @@ Application:    Track-OOT
 
 ### CHANGES
 
-- change logic to v9.0
+- change ootr logic to v9.1
 - reorganize map control elements to be inside the map settings panel
 - add poi markers to minimap
 - add border to focus marker in minimap

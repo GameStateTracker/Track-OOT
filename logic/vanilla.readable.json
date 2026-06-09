@@ -1,82 +1,162 @@
 {
     "edges": {
+        "region[gohma_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_gohma_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[gohma_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_gohma_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
         "region[blue_warp_gohma_gateway:out]{child}": {
-            "region[kf_outside_deku_tree]{child}": {
+            "region[gohma_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_gohma_gateway:out]{adult}": {
-            "region[kf_outside_deku_tree]{adult}": {
+            "region[gohma_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[dodongo_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_dodongo_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[dodongo_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_dodongo_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_dodongo_gateway:out]{child}": {
-            "region[death_mountain]{child}": {
+            "region[dodongo_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_dodongo_gateway:out]{adult}": {
-            "region[death_mountain]{adult}": {
+            "region[dodongo_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[barinade_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_barinade_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[barinade_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_barinade_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_barinade_gateway:out]{child}": {
-            "region[zoras_fountain]{child}": {
+            "region[barinade_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_barinade_gateway:out]{adult}": {
-            "region[zoras_fountain]{adult}": {
+            "region[barinade_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[phantom_ganon_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_phantom_ganon_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[phantom_ganon_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_phantom_ganon_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_phantom_ganon_gateway:out]{child}": {
-            "region[sacred_forest_meadow]{child}": {
+            "region[phantom_ganon_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_phantom_ganon_gateway:out]{adult}": {
-            "region[sacred_forest_meadow]{adult}": {
+            "region[phantom_ganon_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[volvagia_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_volvagia_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[volvagia_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_volvagia_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_volvagia_gateway:out]{child}": {
-            "region[dmc_central_local]{child}": {
+            "region[volvagia_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_volvagia_gateway:out]{adult}": {
-            "region[dmc_central_local]{adult}": {
+            "region[volvagia_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[morpha_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_morpha_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[morpha_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_morpha_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_morpha_gateway:out]{child}": {
-            "region[lake_hylia]{child}": {
+            "region[morpha_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_morpha_gateway:out]{adult}": {
-            "region[lake_hylia]{adult}": {
+            "region[morpha_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[bongo_bongo_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_bongo_bongo_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[bongo_bongo_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_bongo_bongo_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_bongo_bongo_gateway:out]{child}": {
-            "region[graveyard_warp_pad_region]{child}": {
+            "region[bongo_bongo_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_bongo_bongo_gateway:out]{adult}": {
-            "region[graveyard_warp_pad_region]{adult}": {
+            "region[bongo_bongo_blue_warp]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[twinrova_blue_warp_gateway:in]{child}": {
+            "region[blue_warp_twinrova_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[twinrova_blue_warp_gateway:in]{adult}": {
+            "region[blue_warp_twinrova_gateway:out]{adult}": {
                 "type": "true"
             }
         },
         "region[blue_warp_twinrova_gateway:out]{child}": {
-            "region[desert_colossus]{child}": {
+            "region[twinrova_blue_warp]{child}": {
                 "type": "true"
             }
         },
         "region[blue_warp_twinrova_gateway:out]{adult}": {
-            "region[desert_colossus]{adult}": {
+            "region[twinrova_blue_warp]{adult}": {
                 "type": "true"
             }
         },
@@ -6022,7 +6102,7 @@
             "region[boss_deku_gateway:in]{child}": {
                 "type": "true"
             },
-            "region[queen_gohma_blue_warp]{child}": {
+            "region[gohma_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_queen_gohma]"
             },
@@ -6081,7 +6161,7 @@
             "region[boss_deku_gateway:in]{adult}": {
                 "type": "true"
             },
-            "region[queen_gohma_blue_warp]{adult}": {
+            "region[gohma_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_queen_gohma]"
             },
@@ -6152,7 +6232,7 @@
             "region[boss_dodongo_gateway:in]{child}": {
                 "type": "true"
             },
-            "region[king_dodongo_blue_warp]{child}": {
+            "region[dodongo_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_king_dodongo]"
             },
@@ -6256,7 +6336,7 @@
             "region[boss_dodongo_gateway:in]{adult}": {
                 "type": "true"
             },
-            "region[king_dodongo_blue_warp]{adult}": {
+            "region[dodongo_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_king_dodongo]"
             },
@@ -6372,7 +6452,7 @@
             "region[boss_jabu_gateway:in]{child}": {
                 "type": "false"
             },
-            "region[barinade_blue_warp]{child}": {
+            "region[barinade_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_barinade]"
             },
@@ -6455,7 +6535,7 @@
             "region[boss_jabu_gateway:in]{adult}": {
                 "type": "false"
             },
-            "region[barinade_blue_warp]{adult}": {
+            "region[barinade_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_barinade]"
             },
@@ -6550,7 +6630,7 @@
             "region[boss_forest_temple_gateway:in]{child}": {
                 "type": "false"
             },
-            "region[phantom_ganon_blue_warp]{child}": {
+            "region[phantom_ganon_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_phantom_ganon]"
             },
@@ -6625,7 +6705,7 @@
             "region[boss_forest_temple_gateway:in]{adult}": {
                 "type": "false"
             },
-            "region[phantom_ganon_blue_warp]{adult}": {
+            "region[phantom_ganon_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_phantom_ganon]"
             },
@@ -6712,7 +6792,7 @@
             "region[boss_fire_temple_gateway:in]{child}": {
                 "type": "false"
             },
-            "region[volvagia_blue_warp]{child}": {
+            "region[volvagia_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_volvagia]"
             },
@@ -6768,7 +6848,7 @@
             "region[boss_fire_temple_gateway:in]{adult}": {
                 "type": "false"
             },
-            "region[volvagia_blue_warp]{adult}": {
+            "region[volvagia_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_volvagia]"
             },
@@ -6836,7 +6916,7 @@
             "region[boss_water_temple_gateway:in]{child}": {
                 "type": "false"
             },
-            "region[morpha_blue_warp]{child}": {
+            "region[morpha_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_morpha]"
             },
@@ -6917,7 +6997,7 @@
             "region[boss_water_temple_gateway:in]{adult}": {
                 "type": "false"
             },
-            "region[morpha_blue_warp]{adult}": {
+            "region[morpha_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_morpha]"
             },
@@ -7010,7 +7090,7 @@
             "region[boss_shadow_temple_gateway:in]{child}": {
                 "type": "false"
             },
-            "region[bongo_bongo_blue_warp]{child}": {
+            "region[bongo_bongo_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_bongo_bongo]"
             },
@@ -7117,7 +7197,7 @@
             "region[boss_shadow_temple_gateway:in]{adult}": {
                 "type": "false"
             },
-            "region[bongo_bongo_blue_warp]{adult}": {
+            "region[bongo_bongo_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_bongo_bongo]"
             },
@@ -7236,7 +7316,7 @@
             "region[boss_spirit_temple_gateway:in]{child}": {
                 "type": "false"
             },
-            "region[twinrova_blue_warp]{child}": {
+            "region[twinrova_blue_warp_gateway:in]{child}": {
                 "type": "value",
                 "ref": "event[defeat_twinrova]"
             },
@@ -7277,7 +7357,7 @@
             "region[boss_spirit_temple_gateway:in]{adult}": {
                 "type": "false"
             },
-            "region[twinrova_blue_warp]{adult}": {
+            "region[twinrova_blue_warp_gateway:in]{adult}": {
                 "type": "value",
                 "ref": "event[defeat_twinrova]"
             },
@@ -35035,6 +35115,42 @@
             "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_first_beamos]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[castle_ganon_mq.shadow_trial_explosives_wonderitem]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[has_explosives]{child}"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "item[bow]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "item[glove]"
+                            },
+                            {
+                                "type": "function",
+                                "ref": "function[can_use]{child}",
+                                "params": [
+                                    {
+                                        "type": "string",
+                                        "value": "item[magic_din]"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "region[ganons_castle_shadow_trial_moving_platform_mq]{adult}": {
@@ -35066,6 +35182,42 @@
             "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_first_beamos]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[castle_ganon_mq.shadow_trial_explosives_wonderitem]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "mixin",
+                                "ref": "mixin[has_explosives]{adult}"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "item[bow]"
+                            },
+                            {
+                                "type": "value",
+                                "ref": "item[glove]"
+                            },
+                            {
+                                "type": "function",
+                                "ref": "function[can_use]{adult}",
+                                "params": [
+                                    {
+                                        "type": "string",
+                                        "value": "item[magic_din]"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "region[ganons_castle_shadow_trial_second_gap_mq]{child}": {
@@ -47830,6 +47982,19 @@
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
             },
+            "reach_location[bombable_fairy]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "item[bottle]"
+                    }
+                ]
+            },
             "event[jabu_jabus_belly_parasitic_tentacle_cleared]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
@@ -47974,6 +48139,19 @@
             "reach_location[jabujabu_mq.hallway_small_crate_2]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[bombable_fairy]": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "item[bottle]"
+                    }
+                ]
             },
             "event[jabu_jabus_belly_parasitic_tentacle_cleared]": {
                 "type": "mixin",
@@ -49771,8 +49949,12 @@
                 "ref": "option[skip_child_zelda]"
             },
             "region[beyond_door_of_time_skippable_locations]{child}": {
-                "type": "value",
-                "ref": "skip_reward_from_rauru"
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "skip_reward_from_rauru",
+                    "value": "not_free"
+                }
             },
             "region[gf_above_jail_child_locations]{child}": {
                 "type": "or",
@@ -49857,8 +50039,12 @@
                 "ref": "option[skip_child_zelda]"
             },
             "region[beyond_door_of_time_skippable_locations]{adult}": {
-                "type": "value",
-                "ref": "skip_reward_from_rauru"
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "skip_reward_from_rauru",
+                    "value": "not_free"
+                }
             },
             "region[gf_above_jail_child_locations]{adult}": {
                 "type": "or",
@@ -87138,48 +87324,21 @@
                 "type": "or",
                 "content": [
                     {
-                        "type": "and",
-                        "content": [
-                            {
-                                "type": "mixin",
-                                "ref": "mixin[is_child]{child}"
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "state",
-                                        "ref": "option[shuffle_dungeons]",
-                                        "value": "shuffle_dungeons_simple"
-                                    },
-                                    {
-                                        "type": "state",
-                                        "ref": "option[shuffle_dungeons]",
-                                        "value": "shuffle_dungeons_all"
-                                    }
-                                ]
-                            }
-                        ]
+                        "type": "mixin",
+                        "ref": "mixin[is_adult]{child}"
                     },
                     {
-                        "type": "and",
+                        "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[is_adult]{child}"
+                                "type": "state",
+                                "ref": "option[shuffle_dungeons]",
+                                "value": "shuffle_dungeons_simple"
                             },
                             {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "value",
-                                        "ref": "option[skip.fewer_tunic_requirements]"
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "item[tunic_fire]"
-                                    }
-                                ]
+                                "type": "state",
+                                "ref": "option[shuffle_dungeons]",
+                                "value": "shuffle_dungeons_all"
                             }
                         ]
                     }
@@ -87488,48 +87647,21 @@
                 "type": "or",
                 "content": [
                     {
-                        "type": "and",
-                        "content": [
-                            {
-                                "type": "mixin",
-                                "ref": "mixin[is_child]{adult}"
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "state",
-                                        "ref": "option[shuffle_dungeons]",
-                                        "value": "shuffle_dungeons_simple"
-                                    },
-                                    {
-                                        "type": "state",
-                                        "ref": "option[shuffle_dungeons]",
-                                        "value": "shuffle_dungeons_all"
-                                    }
-                                ]
-                            }
-                        ]
+                        "type": "mixin",
+                        "ref": "mixin[is_adult]{adult}"
                     },
                     {
-                        "type": "and",
+                        "type": "or",
                         "content": [
                             {
-                                "type": "mixin",
-                                "ref": "mixin[is_adult]{adult}"
+                                "type": "state",
+                                "ref": "option[shuffle_dungeons]",
+                                "value": "shuffle_dungeons_simple"
                             },
                             {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "value",
-                                        "ref": "option[skip.fewer_tunic_requirements]"
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "item[tunic_fire]"
-                                    }
-                                ]
+                                "type": "state",
+                                "ref": "option[shuffle_dungeons]",
+                                "value": "shuffle_dungeons_all"
                             }
                         ]
                     }
@@ -124028,6 +124160,10 @@
                     "ref": "reach_location[pond_fairy]"
                 },
                 {
+                    "type": "value",
+                    "ref": "reach_location[bombable_fairy]"
+                },
+                {
                     "type": "and",
                     "content": [
                         {
@@ -124064,6 +124200,10 @@
                 {
                     "type": "value",
                     "ref": "reach_location[pond_fairy]"
+                },
+                {
+                    "type": "value",
+                    "ref": "reach_location[bombable_fairy]"
                 },
                 {
                     "type": "and",
