@@ -1,9 +1,7 @@
 ### CHANGES
 
-- change ootr logic to v9.1
+- 
 
 ### BUG FIXES
 
-- fix deku not opening properly after closed was set with entrance randomizer active
-- fix basic ap logic
-- fix basic ootr logic
+- 
