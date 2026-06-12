@@ -149,6 +149,13 @@
             height: 4vmin;
         }
 
+        #splash .noai-image {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            max-width: 30dvw;
+        }
+
         @media (max-width: 500px) {
             #splash .out-links .out-link .out-link-image {
                 width: 35vmin;
@@ -157,6 +164,15 @@
 
             #splash #git-link {
                 display: none;
+            }
+
+            #splash .noai-image {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                max-width: 50dvw;
+                margin-top: 50px;
             }
         }
     </style>
@@ -208,6 +224,7 @@
                 <button id="emergency-download" class="button" onclick="emergencyDLStates()">DOWNLOAD STATES</button>
             </div>
         </div>
+        <img class="noai-image" src="/images/noai.png">
     </div>
 </body>
 
