@@ -4,14 +4,10 @@ import BusyIndicatorManager from "@emcjs/fe/util/busy/BusyIndicatorManager.js";
 import "@emcjs/fe/ui/Paging.js";
 import "@emcjs/fe/ui/form/element/input/file/FileInput.js";
 import SavestateHandler from "gametrackerjs/savestate/SavestateHandler.js";
-import SettingsConfigHandler from "gametrackerjs/util/settings/SettingsConfigHandler.js";
-import SpoilerOptionsResource from "../../resource/SpoilerOptionsResource.js";
 import SpoilerParser from "../../util/spoilerparser/SpoilerParser.js";
+import SpoilerOptionsConfigHandler from "../../util/spoilerparser/SpoilerOptionsConfigHandler.js";
 import TPL from "./SpoilerLogModal.js.html" assert {type: "html"};
 import STYLE from "./SpoilerLogModal.js.css" assert {type: "css"};
-
-const options = SpoilerOptionsResource.get();
-const settingsConfigHandler = new SettingsConfigHandler(options, (label) => `parse[${label}]`);
 
 export default class SpoilerLogModal extends ModalFormDialog {
 
@@ -24,7 +20,7 @@ export default class SpoilerLogModal extends ModalFormDialog {
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.loadFormConfig(settingsConfigHandler.config, settingsConfigHandler.defaultValues);
+        this.loadFormConfig(SpoilerOptionsConfigHandler.config, SpoilerOptionsConfigHandler.defaultValues.unresolved);
         this.#footerEl = this.shadowRoot.getElementById("footer");
         this.#spoilerFileInputEl = els.getElementById("spoiler-file-input");
         this.#footerEl.prepend(this.#spoilerFileInputEl);
@@ -32,7 +28,7 @@ export default class SpoilerLogModal extends ModalFormDialog {
 
     async show() {
         const values = SavestateHandler.getAll("parseSpoiler");
-        const data = settingsConfigHandler.convertToFormData(values);
+        const data = SpoilerOptionsConfigHandler.convertToFormData(values);
         const result = await super.show(data);
         if (result) {
             await this.#parseSpoiler(result);
@@ -42,7 +38,7 @@ export default class SpoilerLogModal extends ModalFormDialog {
 
     getSubmitValue() {
         const result = super.getSubmitValue();
-        return settingsConfigHandler.convertFromFormData(result);
+        return SpoilerOptionsConfigHandler.convertFromFormData(result);
     }
 
     async submit() {
