@@ -21,6 +21,8 @@ export default class DefaultAPLocationState extends DefaultLocationState {
         super(ref, props);
 
         /* VALUES */
+        this.#value = super.value;
+
         this.#apLocationsObserver = new ObservableStorageObserver(AP_STORAGES.locations, ref);
         this.#apLocationsObserver.onChange((event) => {
             this.setAPValue(event.value);
