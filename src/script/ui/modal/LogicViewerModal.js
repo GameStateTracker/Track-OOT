@@ -1,11 +1,37 @@
 import Modal from "@emcjs/fe/ui/modal/Modal.js";
 import EventManager from "@emcjs/core/util/event/EventManager.js";
+import EdgeLogicCompiler from "@emcjs/logic/compiler/EdgeLogicCompiler.js";
 import LogicUIAbstractElement from "@emcjs/fe/ui/logic/abstract/AbstractElement.js";
+import LogicValueAliasesResource from "gametrackerjs/data/resource/LogicValueAliasesResource.js";
 import Logic from "gametrackerjs/util/logic/Logic.js";
-import "../../content/logic/LogicElementsLoader.js";
-import {getEdgeLogic} from "../../util/logic/LogicExtractor.js";
+import {
+    getEdgeLogic,
+    getMixinLogic
+} from "../../util/logic/LogicExtractor.js";
 import TPL from "./LogicViewerModal.js.html" assert {type: "html"};
 import STYLE from "./LogicViewerModal.js.css" assert {type: "css"};
+
+const LOGIC_VALUE_ALIASES = new Map();
+{ // register logic value aliases
+    const logicValueAliases = LogicValueAliasesResource.get();
+    for (const key in logicValueAliases) {
+        const value = logicValueAliases[key];
+        const logic = EdgeLogicCompiler.compile(value);
+        LOGIC_VALUE_ALIASES.set(key, logic);
+    }
+}
+
+function buildLogic(logic) {
+    if (logic.params != null) {
+        const {
+            logic: fnLogic,
+            params
+        } = logic;
+        return EdgeLogicCompiler.compile(fnLogic, params);
+    } else {
+        return EdgeLogicCompiler.compile(logic);
+    }
+}
 
 export default class LogicViewerModal extends Modal {
 
@@ -71,6 +97,35 @@ export default class LogicViewerModal extends Modal {
         this.#parentEventManager.clear();
         this.#logicContainerEl.innerHTML = "";
         const edgeList = await getEdgeLogic(this.#ref);
+
+        // EXECUTION HELPER
+        const allTargets = Logic.getTargetNodes();
+        const state = Logic.getMemory();
+
+        const valueGetter = (key) => {
+            if (allTargets.has(key) && key in state) {
+                return !!state[key];
+            }
+            if (LOGIC_VALUE_ALIASES.has(key)) {
+                const logic = LOGIC_VALUE_ALIASES.get(key);
+                return logic.execute(valueGetter, execute);
+            }
+            return state[key] ?? false;
+        };
+
+        const execute = (name, params) => {
+            // const injectedFunction = getInjectedFunction(name);
+            // if (injectedFunction != null) {
+            //     return injectedFunction.execute(valueGetter, execute, params);
+            // }
+            const mixinLogic = getMixinLogic(name);
+            if (mixinLogic != null) {
+                const logicStatement = buildLogic(mixinLogic);
+                return logicStatement.execute(valueGetter, execute, params);
+            }
+            return false;
+        };
+
         for (const edge of edgeList) {
             const {
                 logic, parent
@@ -92,7 +147,10 @@ export default class LogicViewerModal extends Modal {
                 logicEl.readOnly = true;
                 edgeEl.append(logicEl);
                 this.#logicContainerEl.append(edgeEl);
-                logicEl.calculate(Logic.getMemory());
+                logicEl.calculate({
+                    valueGetter,
+                    execute
+                });
             }
         }
     }

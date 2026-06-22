@@ -6,7 +6,6 @@ import "jseditors/modules/logic/Editor.js";
 import LogicGlitchedResource from "../../resource/LogicGlitchedResource.js";
 import LogicListsCreator from "../logic/LogicListsCreator.js";
 import LogicGlitchedStorage from "../logic/storages/LogicGlitchedStorage.js";
-import "../logic/LogicElementsLoader.js";
 
 function getLogicData() {
     return LogicGlitchedResource.get() ?? {

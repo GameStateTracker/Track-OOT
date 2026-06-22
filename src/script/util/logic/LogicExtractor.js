@@ -1,4 +1,3 @@
-
 import IDBStorage from "@emcjs/core/data/storage/IDBStorage.js";
 import WorldResource from "gametrackerjs/data/resource/WorldResource.js";
 import SettingsObserver from "gametrackerjs/util/observer/SettingsObserver.js";

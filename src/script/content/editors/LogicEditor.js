@@ -6,7 +6,6 @@ import "jseditors/modules/logic/Editor.js";
 import LogicResource from "../../resource/LogicResource.js";
 import LogicListsCreator from "../logic/LogicListsCreator.js";
 import LogicStorage from "../logic/storages/LogicStorage.js";
-import "../logic/LogicElementsLoader.js";
 
 function getLogicData() {
     return LogicResource.get() ?? {
