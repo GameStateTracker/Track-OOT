@@ -19,7 +19,7 @@
             ]
         },
         "open_door_of_time": {
-            "name": "doors_open_temple",
+            "name": "open_door_of_time",
             "values": [
                 "dot_sot",
                 "dot_open"

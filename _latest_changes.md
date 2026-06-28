@@ -4,5 +4,4 @@
 
 ### BUG FIXES
 
-- fix logic calculation value aliases registration
-- fix logic visualization in logic viewer
+- fix dot setting translation for ap sync
