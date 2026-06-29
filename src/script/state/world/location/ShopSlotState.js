@@ -8,6 +8,7 @@ import DefaultAPLocationState from "./DefaultAPLocationState.js";
 import ShopItemsResource from "../../../resource/ShopItemsResource.js";
 import ShopsResource from "../../../resource/ShopsResource.js";
 import {AP_STORAGES} from "../../../util/archipelago/storage/RegisterAPStorage.js";
+import ShopItemsStorage from "../../../storage/ShopItemsStorage.js";
 
 const shopsanityObserver = new OptionsObserver("shopsanity");
 
@@ -57,6 +58,7 @@ export default class ShopSlotState extends DefaultAPLocationState {
 
         const locationItemsObserver = new ObservableStorageObserver(STORAGES.locationItems, ref);
         this.#item = locationItemsObserver.value;
+        ShopItemsStorage.set(ref, this.#item);
         locationItemsObserver.onChange((event) => {
             this.item = event.value;
         });
@@ -145,6 +147,7 @@ export default class ShopSlotState extends DefaultAPLocationState {
         if (value != old) {
             this.#item = value;
             STORAGES.locationItems.set(ref, value);
+            ShopItemsStorage.set(ref, value);
             // data
             if (value) {
                 this.#itemData = ShopItemsResource.get(value);

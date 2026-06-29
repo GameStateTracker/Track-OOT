@@ -2,16 +2,14 @@ import ObservableMultiDefaultValueStorage from "@emcjs/core/data/storage/observa
 import ObservableDefaultValueStorage from "@emcjs/core/data/storage/observable/ObservableDefaultValueStorage.js";
 import Savestate from "gametrackerjs/savestate/Savestate.js";
 import LogicCaller from "gametrackerjs/util/logic/LogicCaller.js";
-
 import SongsResource from "../resource/SongsResource.js";
+import ShopItemsStorage from "../storage/ShopItemsStorage.js";
 
 // dungeons
 Savestate.registerStorage("dungeonRewards", new ObservableDefaultValueStorage(""));
 
 // shops
-Savestate.registerStorage("shopItems", new ObservableDefaultValueStorage(""));
 Savestate.registerStorage("shopItemsPrice", new ObservableDefaultValueStorage(0));
-Savestate.registerStorage("shopItemsBought", new ObservableDefaultValueStorage(false));
 Savestate.registerStorage("shopItemsName", new ObservableDefaultValueStorage(""));
 
 // gossipstones
@@ -28,4 +26,4 @@ Savestate.registerStorage("songNotes", songNotesStorage);
 
 // --> register to logic caller
 LogicCaller.registerStorage(Savestate.getStorage("songNotes"), "songnotes[", "]");
-LogicCaller.registerStorage(Savestate.getStorage("shopItems"), "shopslot[", "]");
+LogicCaller.registerStorage(ShopItemsStorage, "shopslot[", "]");
