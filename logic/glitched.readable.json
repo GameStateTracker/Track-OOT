@@ -91949,7 +91949,7 @@
                     }
                 ]
             },
-            "region[ganons_castle_lobby]{child}": {
+            "region[castle_grounds_ganons_castle_gateway:in]{child}": {
                 "type": "mixin",
                 "ref": "mixin[is_night]{child}"
             }
@@ -91977,7 +91977,7 @@
                     }
                 ]
             },
-            "region[ganons_castle_lobby]{adult}": {
+            "region[castle_grounds_ganons_castle_gateway:in]{adult}": {
                 "type": "mixin",
                 "ref": "mixin[is_night]{adult}"
             }
