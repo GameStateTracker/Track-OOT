@@ -1,8 +1,5 @@
 import ModalDialog from "@emcjs/fe/ui/modal/ModalDialog.js";
 import Toast from "@emcjs/fe/ui/overlay/message/Toast.js";
-import {
-    IS_SECURE_PAGE, isLocalhost
-} from "@emcjs/core/util/net/URLUtils.js";
 import SavestateHandler from "gametrackerjs/savestate/SavestateHandler.js";
 import Savestate from "gametrackerjs/savestate/Savestate.js";
 import WorldResource from "gametrackerjs/data/resource/WorldResource.js";
@@ -119,19 +116,13 @@ class ArchipelagoController extends EventTarget {
             port,
             slotName,
             password,
-            syncSettings = false
+            syncSettings = false,
+            protocol
         } = options;
-
-        let forcedProtocol; // initially don't force a protocol
-        if (isLocalhost(hostname)) {
-            forcedProtocol = "ws"; // if our target is localhost, the protocol can't be secure
-        } else if (IS_SECURE_PAGE) {
-            forcedProtocol = "wss"; // if we are in a secure context and try to connect to a remote server, the protocol has to be secure
-        }
 
         if (this.#client.status === CONNECTION_STATUS.DISCONNECTED) {
             const connectionInfo = {
-                protocol: forcedProtocol,
+                protocol,
                 hostname,
                 port,
                 game: GAME_NAME,

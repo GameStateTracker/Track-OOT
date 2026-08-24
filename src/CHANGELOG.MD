@@ -14,7 +14,7 @@ Application:    Track-OOT
 - add border to focus marker in minimap
 - add snap option to map
 - change ap dialog to new system
-- remove hard binding to `wss` for ap controller if tracker is hosted over `http`
+- remove protocol restrictions for ap controller
 - rework location bubble position calculation for the map
 - split gerudo fortress and thieves hideout into seperate maps
 - add thieves hideout entrance shuffle
@@ -70,6 +70,7 @@ Application:    Track-OOT
 - fix logic viewer not loading ap logic
 - fix settings windows not loading combined listselect values properly
 - fix deku not opening properly after closed was set with entrance randomizer active
+- fix ap settings parser for adult trade sequence
 
 ---
 

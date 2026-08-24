@@ -23,6 +23,7 @@ export function translateAPSettings(data = {}) {
         mq_dungeons_list = [],
         mq_dungeons_count = 0,
         exclude_locations = [],
+        adult_trade_start = 0,
         ...rest_data
     } = data;
 
@@ -76,6 +77,16 @@ export function translateAPSettings(data = {}) {
     for (const name of exclude_locations) {
         const internalName = translateLocation(name);
         target.options[`excluded_location[${internalName}]`] = true;
+    }
+
+    // adult trade start
+    {
+        target.options["item[medicine]"] = false;
+        const transData = settingsTrans["adult_trade_start"];
+        const {values} = transData;
+        for (let i = 0; i < values.length; ++i) {
+            target.options[values[i]] = i >= adult_trade_start;
+        }
     }
 
     // other settings
