@@ -4811,8 +4811,12 @@
             "type": "chest",
             "logicAccess": "reach_location[gerudo.c_freestanding_hp]",
             "visible": {
-                "type": "value",
-                "ref": "option[shuffle_gerudo_fortress_heart_piece]"
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_gerudo_fortress_heart_piece]",
+                    "value": "gf_hp_remove"
+                }
             },
             "filter": {
                 "era": {
