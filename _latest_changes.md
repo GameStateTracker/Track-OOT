@@ -1,7 +1,8 @@
 ### CHANGES
 
-- remove protocol restrictions for ap controller
+- 
 
 ### BUG FIXES
 
-- fix ap settings parser for adult trade sequence
+- fix entrance select popup not allowing space in search field
+- fix gerudo freestanding heartpiece remove option to actually remove the check

@@ -2,8 +2,8 @@
     <div id="lobby-container" class="container">
         <div id="title" class="caption">
             <emc-i18n-label i18n-value="Multiplayer Lobby"></emc-i18n-label>
-            <emc-button id="refresh" icon="↻" tooltip="Refresh" class="rotate-icon-90"></emc-button>
-            <emc-button id="host" icon-type="font" icon="add-circle" text="Create Room"></emc-button>
+            <emc-button id="refresh" icon="refresh" tooltip="Refresh"></emc-button>
+            <emc-button id="host" icon="add-circle" text="Create Room"></emc-button>
         </div>
         <div id="content">
             <slot id="lobby-list">
@@ -14,7 +14,7 @@
     <div id="room-details-container" class="container">
         <div id="room-details-caption" class="caption">
             <emc-i18n-label i18n-value="Room details"></emc-i18n-label>
-            <emc-button id="close-details" icon-type="font" icon="cancel" tooltip="Close Details"></emc-button>
+            <emc-button id="close-details" icon="cancel" tooltip="Close Details"></emc-button>
         </div>
         <ootrt-multiplayer-lobby-room-details id="room-details"></ootrt-multiplayer-lobby-room-details>
     </div>
