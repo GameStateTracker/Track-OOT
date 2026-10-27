@@ -19405,7 +19405,7 @@
                     }
                 ]
             },
-            "region[ganons_castle_tower]{child}": {
+            "region[ganons_castle_ganons_tower_gateway:in]{child}": {
                 "type": "and",
                 "content": [
                     {
@@ -19568,7 +19568,7 @@
                     }
                 ]
             },
-            "region[ganons_castle_tower]{adult}": {
+            "region[ganons_castle_ganons_tower_gateway:in]{adult}": {
                 "type": "and",
                 "content": [
                     {
@@ -21406,115 +21406,8 @@
                     }
                 ]
             },
-            "region[ganons_castle_tower]{child}": {
-                "type": "gte",
-                "content": [
-                    {
-                        "type": "add",
-                        "content": [
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[forest_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[forest_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[fire_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[fire_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[water_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[water_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[shadow_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[shadow_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[spirit_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[spirit_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[light_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[light_trial_clear]"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "type": "value",
-                        "ref": "option[number_trials]"
-                    }
-                ]
+            "region[ganons_castle_ganons_tower_gateway:in]{child}": {
+                "type": "true"
             },
             "region[ganons_castle_deku_scrubs]{child}": {
                 "type": "true"
@@ -21586,115 +21479,8 @@
                     }
                 ]
             },
-            "region[ganons_castle_tower]{adult}": {
-                "type": "gte",
-                "content": [
-                    {
-                        "type": "add",
-                        "content": [
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[forest_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[forest_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[fire_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[fire_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[water_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[water_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[shadow_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[shadow_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[spirit_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[spirit_trial_clear]"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "or",
-                                "content": [
-                                    {
-                                        "type": "not",
-                                        "content": {
-                                            "type": "value",
-                                            "ref": "option[light_trial]"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "ref": "event[light_trial_clear]"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "type": "value",
-                        "ref": "option[number_trials]"
-                    }
-                ]
+            "region[ganons_castle_ganons_tower_gateway:in]{adult}": {
+                "type": "true"
             },
             "region[ganons_castle_deku_scrubs]{adult}": {
                 "type": "true"

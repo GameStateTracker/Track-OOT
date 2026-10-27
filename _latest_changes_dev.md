@@ -1,0 +1,65 @@
+### CHANGES
+
+- change ootr logic to v9.1
+- reorganize map control elements to be inside the map settings panel
+- add poi markers to minimap
+- add border to focus marker in minimap
+- add snap option to map
+- change ap dialog to new system
+- remove protocol restrictions for ap controller
+- rework location bubble position calculation for the map
+- split gerudo fortress and thieves hideout into seperate maps
+- add thieves hideout entrance shuffle
+- add 100 skulltula reward
+- change scarecrow setting to match rando
+- change dot setting to match rando
+- add gerudo heartpiece shuffle setting
+- add wonderitems (only in full locationlist for now)
+- add empty pots (only in full locationlist for now)
+- add empty crates (only in full locationlist for now)
+- add remote item view
+  - a readonly connection similar to multiplayer feature
+  - remote view will join via token
+  - can be used as browser source in streamlabs, obs, etc.
+- rework multiplayer
+  - redesign ui
+  - replace the close function with a visibility change function
+  - add spectator functionality
+- do not ask to confirm to close page any longer, as all interaction is stored locally
+-  redesign navigation menu
+-  add deliver rutos letter check
+-  add ganon tower entrance to shuffle
+   -  add standalone ganon tower map
+- remove fullscreen hotkey, as `F11` already exists for this in browsers (`Ctrl ⌘ F` for safari)
+- replace old "windows" with newer "modal" designs
+- add seperate logic for archipelago (glitched and glitchless)
+  - switches automatically if settings sync is active
+  - can be manually selected in the randomizer options
+- add access info to remote itemview
+- dont differentiate between groups and items in ap hint builder
+- add hint status control to ap hint list
+- redesign some old components
+- replace "tracker settings" and "randomizer options" with more modern settings panel
+- add dedicated panel for "About"
+- add ping to multiplayer
+- add send data logging to multiplayer
+- add missing tooltips
+- add infotext to ap modal
+- make excluded locations visible but visually distinct
+  - excluded locations are striked through
+- add filter to show/hide excluded locations
+
+### BUG FIXES
+
+- fix logic calculation in LogicViewer
+- fix entrances in LogicViewer
+- fix anchor based zoom in map
+- fix tooltip bubble directions in map
+- fix import of framework style rules
+- reduce content reflow on splash screen by not lazy loading styles
+- fix multiplayer handling connection issues
+- fix ap panel design
+- fix logic viewer not loading ap logic
+- fix settings windows not loading combined listselect values properly
+- fix deku not opening properly after closed was set with entrance randomizer active
+- fix ap settings parser for adult trade sequence
