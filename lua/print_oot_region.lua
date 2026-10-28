@@ -2,7 +2,7 @@
 -- Area Detection Script for Ocarina of Time (Randomizer) --
 -- Version: v04                                           --
 -- Author: ZidArgs                                        --
--- Source: https://bitbucket.org/zidargs/track-oot/src    --
+-- Source: https://github.com/GameStateTracker/Track-OOT  --
 -- License: MIT                                           --
 ------------------------------------------------------------
 local region_table = {

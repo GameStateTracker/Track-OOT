@@ -3,22 +3,24 @@
   "description": "Tracker for OOT-Randomizer",
   "author": "Denis Weiß (ZidArgs)",
   "license": "MIT",
+  "homepage": "https://github.com/GameStateTracker/Track-OOT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/zidargs/track-oot.git"
+    "url": "git+ssh://git@github.com/GameStateTracker/Track-OOT.git"
   },
-  "homepage": "https://bitbucket.org/zidargs/track-oot/src",
-  "main": "parse.js",
+  "bugs": {
+    "url": "https://github.com/GameStateTracker/Track-OOT/issues"
+  },
   "type": "module",
   "dependencies": {
-    "@emcjs/core": "https://github.com/ZidArgs/emcJS-Core.git/#1.3.1",
-    "@emcjs/logic": "https://github.com/ZidArgs/emcJS-Logic.git/#0.2.1",
-    "@emcjs/fe": "https://github.com/ZidArgs/emcJS-FE.git/#0.1.14",
-    "archipelagojs": "https://github.com/ZidArgs/ArchipelagoJS.git/#1.1.3",
-    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.11.10",
-    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.4.2",
-    "jswebservice": "https://github.com/ZidArgs/JSWebService.git/#3.1.6",
-    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git/#1.2.13"
+    "@emcjs/core": "https://github.com/ZidArgs/emcJS-Core.git/#1.4.0",
+    "@emcjs/logic": "https://github.com/ZidArgs/emcJS-Logic.git/#0.3.0",
+    "@emcjs/fe": "https://github.com/ZidArgs/emcJS-FE.git/#0.2.0",
+    "archipelagojs": "https://github.com/ZidArgs/ArchipelagoJS.git/#1.2.0",
+    "gametrackerjs": "https://github.com/GameStateTracker/GameTrackerJS.git/#0.12.0",
+    "jseditors": "https://github.com/ZidArgs/JSEditors.git/#0.5.0",
+    "jswebservice": "https://github.com/ZidArgs/JSWebservice.git/#3.2.0",
+    "rtcclient": "https://github.com/ZidArgs/RTCClient.git/#1.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
@@ -26,7 +28,7 @@
     "@babel/plugin-syntax-import-assertions": "^7.27.1",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
     "@stylistic/eslint-plugin": "^5.4.0",
-    "@zidargs/buildtools": "https://github.com/ZidArgs/buildtools.git/#1.2.0",
+    "@zidargs/buildtools": "https://github.com/ZidArgs/BuildTools.git/#1.2.1",
     "electron": "^28.1.0",
     "eslint": "^9.36.0",
     "gulp": "^4.0.2",
