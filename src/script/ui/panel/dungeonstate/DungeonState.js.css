@@ -7,6 +7,8 @@
     flex-direction: row;
     width: min-content;
     height: min-content;
+    min-width: min-content;
+    min-height: min-content;
 }
 
 :host([orientation="column"]) {

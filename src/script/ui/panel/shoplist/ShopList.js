@@ -7,6 +7,8 @@ const STYLE = new CSSTemplate(`
 :host {
     width: 300px;
     height: 300px;
+    min-width: 300px;
+    min-height: 300px;
     padding: 20px;
     overflow: auto;
 }

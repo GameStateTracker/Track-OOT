@@ -28,7 +28,7 @@ try {
     layoutEl.loadLayout(layout);
     const waw = window.outerWidth - window.innerWidth;
     const wah = window.outerHeight - window.innerHeight;
-    window.resizeTo(waw + layoutEl.clientWidth, wah + layoutEl.clientHeight);
+    window.resizeTo(waw + layoutEl.scrollWidth, wah + layoutEl.scrollHeight);
 } catch (err) {
     console.error(err);
 }
