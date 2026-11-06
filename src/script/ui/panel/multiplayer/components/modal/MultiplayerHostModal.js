@@ -120,7 +120,7 @@ export default class MultiplayerHostModal extends Modal {
         this.#nameEl.value = "";
         this.#passwordEl.value = "";
         this.#descriptionEl.value = "";
-        this.#clientTypeEl.value = ClientTypes.defaultType.value;
+        this.#clientTypeEl.value = ClientTypes.defaultValue.value;
     }
 
 }

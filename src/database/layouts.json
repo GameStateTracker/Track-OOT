@@ -31,7 +31,8 @@
         "type": "panel",
         "name": "worldmap",
         "options": {
-            "storetransform": "main-map"
+            "detailed": true,
+            "storetransform": "standalone-map"
         }
     },
     "items-essentials": {
