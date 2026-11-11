@@ -9,3 +9,4 @@
 - fix panel min size info
 - fix detached window font size
 - fix map only layout to be detailed map only
+- fix selection list elements in settings panel
