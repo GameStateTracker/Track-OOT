@@ -14,6 +14,7 @@ import {packScript} from "@zidargs/buildtools/PackScript.js";
 import SourceImport from "@zidargs/buildtools/SourceImport.js";
 import InjectImportMap from "@zidargs/buildtools/InjectImportMap.js";
 import "@emcjs/fe/_build_tools/RegisterImportHandlers.js";
+import DEPENDENCIES from "./build_dependencies.json" with {type: "json"}
 
 const __dirname = path.resolve();
 
@@ -24,7 +25,6 @@ const LOGIC_PATH = path.resolve(__dirname, "logic");
 const DEV_PATH = path.resolve(__dirname, "dev");
 const PRD_PATH = path.resolve(__dirname, "prod");
 
-const DEPENDENCIES = readJSONFile(path.resolve(__dirname, "build_dependencies.json"));
 const SCRIPT_PATHS = [
     "script",
     "detached",

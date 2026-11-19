@@ -2,7 +2,7 @@ import {decodeSearchParams} from "@emcjs/core/util/net/URLUtils.js";
 import "@emcjs/fe/ui/layout/Layout.js";
 import Language from "gametrackerjs/util/Language.js";
 import SettingsStorage from "gametrackerjs/storage/SettingsStorage.js";
-import "gametrackerjs/util/sync/StorageSyncSlave.js";
+import "gametrackerjs/util/sync/DataSyncSlave.js";
 import LayoutsResource from "/script/resource/LayoutsResource.js";
 import "/script/ui/panel/itemgrid/ItemGrid.js";
 import "/script/ui/panel/worldlist/WorldList.js";

@@ -113346,7 +113346,7 @@
                             "type": "not",
                             "content": {
                                 "type": "value",
-                                "ref": "option[shuffle_overworld]"
+                                "ref": "option[shuffle_gerudo_valley_river_exit]"
                             }
                         },
                         "ignoreEntryVisibility": false,

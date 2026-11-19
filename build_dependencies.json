@@ -24,8 +24,8 @@
             "dest": "_libs/emcjs/fe/_style"
         },
         "font": {
-            "src": "@emcjs/fe/src/_fonts",
-            "dest": "_libs/emcjs/fe/_fonts"
+            "src": "@emcjs/fe/src/_style/icons/font",
+            "dest": "_libs/emcjs/fe/_style/icons/font"
         }
     },
     {

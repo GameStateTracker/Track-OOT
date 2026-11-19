@@ -22,7 +22,7 @@ import SettingsStorage from "gametrackerjs/storage/SettingsStorage.js";
 import EntranceBindingHandler from "gametrackerjs/util/handler/EntranceBindingHandler.js";
 import MetaObserver from "gametrackerjs/util/observer/MetaObserver.js";
 import "gametrackerjs/savestate/AutosaveHandler.js";
-import "gametrackerjs/util/sync/StorageSyncMaster.js";
+import "gametrackerjs/util/sync/DataSyncMaster.js";
 import "gametrackerjs/util/handler/ExitBindingHandler.js";
 import "gametrackerjs/util/logic/LogicCaller.js";
 import "gametrackerjs/ui/TextEditor.js";
