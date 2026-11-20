@@ -48,6 +48,7 @@
 - make excluded locations visible but visually distinct
   - excluded locations are striked through
 - add filter to show/hide excluded locations
+- add synchronization for currerntly active area to detached windows
 
 ### BUG FIXES
 
@@ -63,3 +64,4 @@
 - fix settings windows not loading combined listselect values properly
 - fix deku not opening properly after closed was set with entrance randomizer active
 - fix ap settings parser for adult trade sequence
+- fix gerudo valley to lake area marker visibility
